@@ -18,6 +18,12 @@ Los episodios esporádicos de contaminación por enterococos intestinales se rep
 
 ![](plots/UFC-vista-general.png)
 
+### Agente muestreador
+
+Sanidad contabilizó una mayor concentración de enterococos intestinales en las mismas muestras procesadas también por Hidrotecnia.
+
+![](plots/UFC-agente.png)
+
 ### Ciclo de mareas
 
 Las muestras fueron tomadas durante diferentes fases del ciclo de mareas como un posible factor de control.

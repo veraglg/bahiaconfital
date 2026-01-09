@@ -34,7 +34,7 @@ datos_fecales <- datos_fecales |> pivot_longer(
 datos_fecales <- datos_fecales |> separate_wider_regex(
   Parametro, c(Organismo = "E\\.coli|Enterococos",
                "\\.",
-               Laboratorio = "Hidrotecnia|Sanidad"))
+               Agente = "Hidrotecnia|Sanidad"))
 
 datos_fecales |> write_rds("data/datos-fecales.rds")
 
