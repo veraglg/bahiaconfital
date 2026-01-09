@@ -2,7 +2,7 @@ library(tidyverse)
 
 indicadores_fecales <- read_rds("data/indicadores-fecales.rds")
 
-# Crea una observación por cada valor UFC --------------------------------------
+# Datos UFC uno por fila -------------------------------------------------------
 
 # Fusiona las columnas de fecha y hora en un único instante de tiempo.
 indicadores_fecales <- indicadores_fecales |> mutate(
@@ -28,13 +28,19 @@ indicadores_fecales <- indicadores_fecales |> separate_wider_regex(
 # Escribe los datos en un fichero
 indicadores_fecales |> write_rds("data/UFC.rds")
 
+# Datos emparejados por muestras de agua ---------------------------------------
+
 # Limpia de valores desemparejados
 indicadores_fecales <- indicadores_fecales |> pivot_wider(
   names_from = Agente, values_from = UFC) |> 
-  filter(!is.na(Hidrotecnia), !is.na(Sanidad)) |> 
-  pivot_longer(c("Hidrotecnia", "Sanidad"),
-               names_to = "Agente", values_to = "UFC")
+  filter(!is.na(Hidrotecnia), !is.na(Sanidad))
 
-# Establece el orden de Organismos
+# Guarda los valores emparejados en la misma fila
+indicadores_fecales |> write_rds("data/UFC-emparejadas-fila.rds")
 
+# Transforma a un valor por fila
+indicadores_fecales <- indicadores_fecales |> pivot_longer(
+  c("Hidrotecnia", "Sanidad"), names_to = "Agente", values_to = "UFC")
+
+# Guarda los valores emparejados uno por fila
 indicadores_fecales |> write_rds("data/UFC-emparejadas.rds")
