@@ -20,7 +20,7 @@ Los episodios esporádicos de contaminación por enterococos intestinales se rep
 
 ### Agente muestreador
 
-Sanidad contabilizó una mayor concentración de enterococos intestinales en las mismas muestras procesadas también por Hidrotecnia.
+Atendiendo a la media para cada indicador fecal, los enterococos intestinales eran generalmente más según Sanidad respecto a Hidrotecnia. Siendo el máximo contabilizado por Sanidad más del doble del máximo de Hidrotecnia, que además se dieron en días distintos. Es posible deducir una diferencia metodológica sustancial en el tratamiento de las muestras por ambos agentes.
 
 ![](plots/UFC-agente.png)
 

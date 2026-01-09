@@ -1,6 +1,6 @@
 library(tidyverse)
 
-datos_fecales <- read_rds("data/datos-fecales.rds")
+datos_fecales <- read_rds("data/UFC.rds")
 
 aov_ei_marea <- aov(UFC ~ Marea, data = datos_fecales |> filter(
   Organismo == "Enterococos", !is.na(UFC)))
