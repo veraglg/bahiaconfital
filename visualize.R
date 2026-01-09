@@ -1,5 +1,8 @@
 library(tidyverse)
 
+# Semilla para reproducibilidad de los jitter
+set.seed("1312")
+
 datos_fecales <- read_rds("data/datos-fecales.rds")
 
 # Vista general verano 2025
