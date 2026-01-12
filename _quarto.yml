@@ -4,10 +4,18 @@ project:
 
 website:
   title: "Contaminación fecal en la Bahía del Confital"
+  page-footer:
+    left: |
+      Página web por <a href="https://orcid.org/0009-0005-4889-3412">Vera GL Gallardo</a>.
+    center:
+      - text: Código fuente
+        href: https://codeberg.org/veraglg/bahiaconfital
+    right: |
+      Este sitio ha sido hecho con <a href="https://quarto.org/">Quarto</a>.
   navbar:
     left:
       - href: index.qmd
-        text: Home
+        text: Resultados
       - about.qmd
 
 format:
