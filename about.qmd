@@ -1,16 +1,17 @@
 ---
 title: "Sobre el estudio"
+image: patron.png
 about:
   template: jolla
   links: 
     - icon: flask
-      text: ORCiD (Vera GL Gallardo)
+      text: ORCiD
       href: https://orcid.org/0009-0005-4889-3412
     - icon: git
-      text: Codeberg (código fuente)
+      text: Codeberg
       href: https://codeberg.org/veraglg/bahiaconfital
     - icon: cc-circle
-      text: Creative Commons BY-NC-SA 4.0 (licencia)
+      text: Creative Commons
       href: https://creativecommons.org/licenses/by-nc-sa/4.0/
 ---
 Estudio realizado por el **Convenio de colaboración entre el Ayuntamiento de las Palmas de Gran Canaria y la Universidad de Las Palmas de Gran Canaria (ULPGC) 2025**.
