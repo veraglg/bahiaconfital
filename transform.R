@@ -44,3 +44,9 @@ indicadores_fecales <- indicadores_fecales |> pivot_longer(
 
 # Guarda los valores emparejados uno por fila
 indicadores_fecales |> write_rds("data/UFC-emparejadas.rds")
+
+# Límites de calidad de agua insuficiente --------------------------------------
+
+# Crea una tibble con los organismos y su valor límite de insuficiencia.
+tibble(Organismo = c("E.coli", "Enterococos"), Insuficiente = c(500, 200)) |> 
+  write_rds("data/limites.rds")

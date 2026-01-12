@@ -4,30 +4,34 @@ library(tidyverse)
 set.seed("1312")
 
 ufc <- read_rds("data/UFC.rds")
-ufc_parej <- read_rds("data/UFC-emparejadas.rds")
+ufc_emp <- read_rds("data/UFC-emparejadas.rds")
+limites <- read_rds("data/limites.rds")
 
 # Vista general verano 2025
-ufc_parej |> filter(!is.na(UFC)) |> 
+ufc_emp |> filter(!is.na(UFC)) |> 
   ggplot(aes(Fecha, UFC, fill = Agente)) +
   geom_area(color = "black", position = "dodge", alpha = .6) +
+  geom_hline(data = limites, mapping = aes(
+    yintercept = Insuficiente,color = "Calidad insuficiente")) +
   facet_wrap(~Organismo, nrow = 2, scale = "free_y") +
   scale_x_datetime(date_labels = "%y-%m-%d") +
   scale_fill_manual(values = c("#2A788E", "#7AD151")) +
   labs(title = "Indicadores fecales verano 2025",
        subtitle = "Mayor detección de Enterococos por Sanidad.",
+       color = "Límite",
        x = "")
 
 ggsave("plots/UFC-vista-general.png")
 
 # Indicadores fecales según el agente
-ufc_parej |> filter(!is.na(UFC)) |> 
+ufc_emp |> filter(!is.na(UFC)) |> 
   ggplot(aes(Agente, UFC)) +
   geom_boxplot(aes(fill = Agente), show.legend = F, outliers = F) +
   geom_jitter(alpha = .5, width = .2) +
   facet_wrap(~Organismo, scale = "free_y") +
   scale_fill_manual(values = c("#2A788E", "#7AD151")) +
   labs(title = "Indicadores fecales según el agente muestreador",
-       subtitle = "Sanidad detecta mayor cantidad de enterococos intestinales.",
+       subtitle = "Mayor variabilidad en las muestras de Sanidad.",
   )
 
 ggsave("plots/UFC-agente.png")
