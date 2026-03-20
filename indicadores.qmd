@@ -1,0 +1,60 @@
+---
+title: "Indicadores convencionales"
+subtitle: "*E. coli* y enterococos intestinales"
+---
+
+```{r}
+#| include: false
+source("tidy.R")
+source("transform.R")
+source("visualize.R")
+source("test.R")
+```
+
+## Vista general
+
+Los episodios periódicos de contaminación fecal en la playa de El Confital se monitorearon durante el verano 2025. La bacteria *E.coli* se detectó en todas las muestras dentro de los valores de calidad excelente del agua establecidos por la normativa. La problemática reside en el repunte de enterococos intestinales en el agua, siendo los meses de julio y septiembre donde se dieron los episodios de calidad insuficiente del agua.
+
+![](plots/UFC-vista-general.png)
+
+## Agente muestreador
+
+Atendiendo a la distribución de resultados obtenidos por cada agente responsable del muestreo, el Ministerio de Sanidad (Sanidad) y AT Hidrotecnia SL (Hidrotecnia), para cada indicador fecal, las diferencias podrían ser debidas al azar o a metodologías sustancialmente distintas. Al observar la distribución de enterococos intestinales se observa una mayor dispersión según Sanidad respecto de Hidrotecnia. En cuanto *E. coli*, las mediciones de Hidrotecnia son en general superiores a las de Sanidad.
+
+![](plots/UFC-agente.png)
+Para estimar estadísticamente si existen diferencias significativas entre los resultados obtenidos por ambos agentes, se utilizará la prueba de la *t* de Student para los valores emparejados por cada muestra de agua.
+
+```{r}
+# Hay diferencias significativas de E.coli según el agente de muestreo?
+load("data/t-test-ecoli-agente.RData")
+t_test_ecoli_agente
+```
+```{r}
+# Hay diferencias significativas de enterococos según el agente de muestreo?
+load("data/t-test-ei-agente.RData")
+t_test_ei_agente
+```
+
+La prueba estadística indica que la diferencia de enterococos intestinales entre Sanidad e Hidrotecnia probablemente se deba al azar (*p* valor > 0,05). En el caso de *E. coli*, sí es probable que la diferencia de resultados sea consecuencia de un tratamiento sustancialmente diferente de las muestras (*p* valor < 0,05), siendo la media de Sanidad significativamente inferior a la de Hidrotecnia.
+
+## Ciclo de mareas
+
+Las muestras fueron tomadas durante diferentes fases del ciclo de mareas como un posible factor de control.
+
+![](plots/UFC-mareas.png)
+Aplicando el análisis de la varianza, los *p* valores calculados superan el nivel de significación 0,05 tanto para *E. coli* como para enterococos intestinales. Los datos recogidos no aportan evidencia suficiente para establecer la marea como variable de control.
+
+```{r}
+#| echo: true
+
+# Análisis de la varianza de E. coli para cada estado de la marea.
+load("data/aov-ecoli-marea.RData")
+summary(aov_ecoli_marea)
+```
+```{r}
+#| echo: true
+
+# Análisis de la varianza de enterococos intestinales para cada estado de la marea.
+load("data/aov-ei-marea.RData")
+summary(aov_ei_marea)
+```

@@ -12,11 +12,18 @@ website:
         href: https://codeberg.org/veraglg/bahiaconfital
     right: |
       Este sitio ha sido hecho con <a href="https://quarto.org/">Quarto</a>.
+
   navbar:
     left:
-      - href: index.qmd
-        text: Resultados
+      - index.qmd
+      - sidebar:resultados
       - about.qmd
+  
+  sidebar:
+    - id: resultados
+      title: "Resultados"
+      contents: 
+        - indicadores.qmd
 
 format:
   html:
