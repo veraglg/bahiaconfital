@@ -3,10 +3,10 @@ project:
   output-dir: docs
 
 website:
-  title: "Contaminación fecal en la Bahía del Confital"
+  title: "Calidad del agua en El Confital"
   page-footer:
     left: |
-      Página web por <a href="https://orcid.org/0009-0005-4889-3412">Vera GL Gallardo</a>.
+      Página web por <a href="https://orcid.org/0009-0005-4889-3412">Vera Gómez-Limón Gallardo</a>.
     center:
       - text: Código fuente
         href: https://codeberg.org/veraglg/bahiaconfital
@@ -15,7 +15,8 @@ website:
 
   navbar:
     left:
-      - index.qmd
+      - text: "La duda"
+        href: index.qmd
       - sidebar:resultados
       - about.qmd
   
@@ -34,5 +35,6 @@ format:
     toc: true
     lang: es
 
-
+bibliography: _references.bib
+csl: apa-numeric-superscript.csl
 
