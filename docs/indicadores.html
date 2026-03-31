@@ -138,6 +138,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <a class="dropdown-item" href="./indicadores.html">
  <span class="dropdown-text">Indicadores convencionales</span></a>
   </li>  
+        <li>
+    <a class="dropdown-item" href="./citometria.html">
+ <span class="dropdown-text">Citometría</span></a>
+  </li>  
     </ul>
   </li>
   <li class="nav-item">
@@ -171,6 +175,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <div class="sidebar-item-container"> 
   <a href="./indicadores.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">Indicadores convencionales</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./citometria.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Citometría</span></a>
   </div>
 </li>
     </ul>
@@ -222,9 +232,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>Atendiendo a la distribución de resultados obtenidos por cada agente responsable del muestreo, el Ministerio de Sanidad (Sanidad) y AT Hidrotecnia SL (Hidrotecnia), para cada indicador fecal, las diferencias podrían ser debidas al azar o a metodologías sustancialmente distintas. Al observar la distribución de enterococos intestinales se observa una mayor dispersión según Sanidad respecto de Hidrotecnia. En cuanto <em>E. coli</em>, las mediciones de Hidrotecnia son en general superiores a las de Sanidad.</p>
 <p><img src="plots/UFC-agente.png" class="img-fluid"> Para estimar estadísticamente si existen diferencias significativas entre los resultados obtenidos por ambos agentes, se utilizará la prueba de la <em>t</em> de Student para los valores emparejados por cada muestra de agua.</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Hay diferencias significativas de E.coli según el agente de muestreo?</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">load</span>(<span class="st">"data/t-test-ecoli-agente.RData"</span>)</span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>t_test_ecoli_agente</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
     Paired t-test
@@ -240,9 +247,6 @@ mean difference
 </div>
 </div>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Hay diferencias significativas de enterococos según el agente de muestreo?</span></span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="fu">load</span>(<span class="st">"data/t-test-ei-agente.RData"</span>)</span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>t_test_ei_agente</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
     Paired t-test
@@ -264,9 +268,9 @@ mean difference
 <p>Las muestras fueron tomadas durante diferentes fases del ciclo de mareas como un posible factor de control.</p>
 <p><img src="plots/UFC-mareas.png" class="img-fluid"> Aplicando el análisis de la varianza, los <em>p</em> valores calculados superan el nivel de significación 0,05 tanto para <em>E. coli</em> como para enterococos intestinales. Los datos recogidos no aportan evidencia suficiente para establecer la marea como variable de control.</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Análisis de la varianza de E. coli para cada estado de la marea.</span></span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="fu">load</span>(<span class="st">"data/aov-ecoli-marea.RData"</span>)</span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(aov_ecoli_marea)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Análisis de la varianza de E. coli para cada estado de la marea.</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="fu">load</span>(<span class="st">"data/aov-ecoli-marea.RData"</span>)</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(aov_ecoli_marea)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>            Df Sum Sq Mean Sq F value Pr(&gt;F)
 Marea        3   2005   668.5   0.403  0.752
@@ -274,9 +278,9 @@ Residuals   23  38155  1658.9               </code></pre>
 </div>
 </div>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Análisis de la varianza de enterococos intestinales para cada estado de la marea.</span></span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="fu">load</span>(<span class="st">"data/aov-ei-marea.RData"</span>)</span>
-<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(aov_ei_marea)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Análisis de la varianza de enterococos intestinales para cada estado de la marea.</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="fu">load</span>(<span class="st">"data/aov-ei-marea.RData"</span>)</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(aov_ei_marea)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>            Df Sum Sq Mean Sq F value Pr(&gt;F)
 Marea        3   7781    2594   0.391  0.761

@@ -1,0 +1,75 @@
+# Citometría
+
+```{r}
+#| label: tidy
+#| message: false
+
+library(tidyverse)
+
+# Lee la hoja de cálculo recortada
+datos <- readxl::read_xlsx(
+  "data/DATOS revisados Confital 2025 18 Marzo 2026.xlsx",
+  col_names = c("Muestras", "Synechococcus", "Prochlorococcus", "Picoeucariotas", "Nanoeucariotas", "BacteriasHNA", "BacteriasLNA"),
+  range = "Hoja1!B4:H26"
+  )
+
+# Alarga en una sola columna de concentraciones
+datos <- datos |> pivot_longer(c("Synechococcus", "Prochlorococcus", "Picoeucariotas", "Nanoeucariotas", "BacteriasHNA", "BacteriasLNA"), names_to = "Grupo", values_to = "Valor")
+
+```
+
+```{r}
+#| label: transform
+
+# Separa las muestras en categorías
+datos_separados <- datos |> separate_wider_delim(
+  Muestras, delim = "_", names = c("Fecha", "Lugar", "Marea")) |>
+  mutate(Fecha = dmy(Fecha, truncated = 1)) |> 
+  mutate(Marea = str_extract(Marea, "^[a-z]*"))
+
+# Separa por el día y mes de la muestra
+datos_separados <- datos_separados |> 
+  mutate(
+    Mes = month(Fecha, label = T, locale = "es_ES.UTF-8"), .after = Fecha) |> 
+  mutate(Dia = day(Fecha), .after = Mes)
+```
+
+```{r}
+#| label: visualize
+
+# Distribución general de los datos por Grupo
+fig_distribucion <- datos_separados |> ggplot(aes(Valor, Grupo)) +
+  geom_boxplot(outliers = F) +
+  geom_jitter(alpha = .5, width = .2)
+
+# Distribución de valores por lugar
+fig_lugar <- datos_separados |> ggplot(aes(Valor, Grupo, fill = Lugar)) +
+  geom_boxplot(outliers = F) +
+  geom_jitter(aes(color = Lugar), alpha = .5, width = .2, size = .5)
+
+# Distribución de valores por estado de la marea
+fig_marea <- datos_separados |> ggplot(aes(Valor, Grupo, fill = Marea)) +
+  geom_boxplot(outliers = F) +
+  geom_jitter(aes(color = Marea), alpha = .5, width = .2, size = .5)
+
+# Distribución de valores por mes
+datos_separados |> ggplot(aes(Valor, Grupo, fill = Mes)) +
+  geom_boxplot(outliers = F) +
+  geom_jitter(aes(color = Mes), alpha = .5, width = .2, size = .5)
+```
+
+```{r}
+#| label: fig-distribucion
+fig_distribucion
+```
+
+```{r}
+#| label: fig-lugar
+fig_lugar
+```
+
+```{r}
+#| label: fig-marea
+fig_marea
+```
+
