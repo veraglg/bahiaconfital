@@ -4,12 +4,13 @@ project:
 
 website:
   title: "Calidad del agua en El Confital"
+  favicon: patron.png
+  site-url: https://veraglg.github.io/bahiaconfital/
   page-footer:
     left: |
       Página web por <a href="https://orcid.org/0009-0005-4889-3412">Vera Gómez-Limón Gallardo</a>.
-    center:
-      - text: Código fuente
-        href: https://codeberg.org/veraglg/bahiaconfital
+    center: |
+      <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a><img src="https://mirrors.creativecommons.org/presskit/icons/cc.svg" alt="" style="max-width: 1em;max-height:1em;margin-left: .2em;"><img src="https://mirrors.creativecommons.org/presskit/icons/by.svg" alt="" style="max-width: 1em;max-height:1em;margin-left: .2em;"><img src="https://mirrors.creativecommons.org/presskit/icons/nc.svg" alt="" style="max-width: 1em;max-height:1em;margin-left: .2em;"><img src="https://mirrors.creativecommons.org/presskit/icons/sa.svg" alt="" style="max-width: 1em;max-height:1em;margin-left: .2em;">
     right: |
       Este sitio ha sido hecho con <a href="https://quarto.org/">Quarto</a>.
 
@@ -19,6 +20,10 @@ website:
         href: index.qmd
       - sidebar:resultados
       - about.qmd
+    tools:
+      - icon: git
+        href: https://codeberg.org/veraglg/bahiaconfital
+        text: "Código fuente"
   
   sidebar:
     - id: resultados
