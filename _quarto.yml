@@ -25,6 +25,7 @@ website:
       title: "Resultados"
       contents: 
         - indicadores.qmd
+        - citometria.qmd
 
 format:
   html:
@@ -34,6 +35,9 @@ format:
     css: styles.css
     toc: true
     lang: es
+
+execute: 
+  echo: false
 
 bibliography: _references.bib
 csl: apa-numeric-superscript.csl
