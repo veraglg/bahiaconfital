@@ -1,0 +1,17 @@
+{
+  "hash": "35fb30cd2edd9d6541ba720fe8368e36",
+  "result": {
+    "engine": "knitr",
+    "markdown": "# Citometría\n\n\n::: {.cell}\n\n:::\n\n\n\n::: {.cell}\n\n:::\n\n\n\n::: {.cell}\n::: {.cell-output-display}\n![](citometria_files/figure-html/visualize-1.png){width=672}\n:::\n:::\n\n\n\n::: {.cell}\n::: {.cell-output-display}\n![](citometria_files/figure-html/fig-distribucion-1.png){#fig-distribucion width=672}\n:::\n:::\n\n\n\n::: {.cell}\n::: {.cell-output-display}\n![](citometria_files/figure-html/fig-lugar-1.png){#fig-lugar width=672}\n:::\n:::\n\n\n\n::: {.cell}\n::: {.cell-output-display}\n![](citometria_files/figure-html/fig-marea-1.png){#fig-marea width=672}\n:::\n:::\n\n\n",
+    "supporting": [
+      "citometria_files"
+    ],
+    "filters": [
+      "rmarkdown/pagebreak.lua"
+    ],
+    "includes": {},
+    "engineDependencies": {},
+    "preserve": {},
+    "postProcess": true
+  }
+}

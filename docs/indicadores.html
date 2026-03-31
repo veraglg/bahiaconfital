@@ -20,41 +20,6 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-/* CSS for syntax highlighting */
-html { -webkit-text-size-adjust: 100%; }
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-div.sourceCode { margin: 1em 0; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
-}
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-  }
-pre.numberSource { margin-left: 3em;  padding-left: 4px; }
-div.sourceCode
-  {   }
-@media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
-}
 </style>
 
 
@@ -205,7 +170,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
 <h1 class="title">Indicadores convencionales</h1>
-<p class="subtitle lead"><em>E. coli</em> y enterococos intestinales</p>
+<p class="subtitle lead"><em>E. coli</em> y enterococos intestinales (EEII)</p>
 </div>
 
 
@@ -224,19 +189,36 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <section id="vista-general" class="level2">
 <h2 class="anchored" data-anchor-id="vista-general">Vista general</h2>
-<p>Los episodios periódicos de contaminación fecal en la playa de El Confital se monitorearon durante el verano 2025. La bacteria <em>E.coli</em> se detectó en todas las muestras dentro de los valores de calidad excelente del agua establecidos por la normativa. La problemática reside en el repunte de enterococos intestinales en el agua, siendo los meses de julio y septiembre donde se dieron los episodios de calidad insuficiente del agua.</p>
-<p><img src="plots/UFC-vista-general.png" class="img-fluid"></p>
+<p>Los episodios periódicos de contaminación fecal en la playa de El Confital se monitorearon durante el verano 2025. La bacteria <em>E.coli</em> se detectó en todas las muestras dentro de los valores de calidad excelente del agua establecidos por la normativa. La problemática reside en el repunte de EEII en el agua, siendo los meses de julio y septiembre donde se dieron los episodios de calidad insuficiente del agua.</p>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="indicadores_files/figure-html/unnamed-chunk-1-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
 </section>
 <section id="agente-muestreador" class="level2">
 <h2 class="anchored" data-anchor-id="agente-muestreador">Agente muestreador</h2>
-<p>Atendiendo a la distribución de resultados obtenidos por cada agente responsable del muestreo, el Ministerio de Sanidad (Sanidad) y AT Hidrotecnia SL (Hidrotecnia), para cada indicador fecal, las diferencias podrían ser debidas al azar o a metodologías sustancialmente distintas. Al observar la distribución de enterococos intestinales se observa una mayor dispersión según Sanidad respecto de Hidrotecnia. En cuanto <em>E. coli</em>, las mediciones de Hidrotecnia son en general superiores a las de Sanidad.</p>
-<p><img src="plots/UFC-agente.png" class="img-fluid"> Para estimar estadísticamente si existen diferencias significativas entre los resultados obtenidos por ambos agentes, se utilizará la prueba de la <em>t</em> de Student para los valores emparejados por cada muestra de agua.</p>
+<p>Atendiendo a la distribución de resultados obtenidos por cada agente responsable del muestreo, el Ministerio de Sanidad (Náyade) y AT Hidrotecnia SL (Hidrotecnia), para cada indicador fecal, las diferencias podrían ser debidas al azar o a metodologías sustancialmente distintas. Al observar la distribución de EEII se observa una mayor dispersión según Náyade respecto de Hidrotecnia. En cuanto <em>E. coli</em>, las mediciones de Hidrotecnia son en general superiores a las de Náyade.</p>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="indicadores_files/figure-html/unnamed-chunk-2-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Para estimar estadísticamente si existen diferencias significativas entre los resultados obtenidos por ambos agentes, se utilizará la prueba de la <em>t</em> de Student para los valores emparejados por cada muestra de agua.</p>
 <div class="cell">
 <div class="cell-output cell-output-stdout">
 <pre><code>
     Paired t-test
 
-data:  ufc_emp_fila[ufc_emp_fila$Organismo == "E.coli", ]$Sanidad and ufc_emp_fila[ufc_emp_fila$Organismo == "E.coli", ]$Hidrotecnia
+data:  datos_agentes[datos_agentes$Indicador == "E.coli", ]$Nayade and datos_agentes[datos_agentes$Indicador == "E.coli", ]$Hidrotecnia
 t = -8.1349, df = 5, p-value = 0.0004557
 alternative hypothesis: true mean difference is not equal to 0
 95 percent confidence interval:
@@ -251,7 +233,7 @@ mean difference
 <pre><code>
     Paired t-test
 
-data:  ufc_emp_fila[ufc_emp_fila$Organismo == "Enterococos", ]$Sanidad and ufc_emp_fila[ufc_emp_fila$Organismo == "Enterococos", ]$Hidrotecnia
+data:  datos_agentes[datos_agentes$Indicador == "EEII", ]$Nayade and datos_agentes[datos_agentes$Indicador == "EEII", ]$Hidrotecnia
 t = 2.0074, df = 5, p-value = 0.101
 alternative hypothesis: true mean difference is not equal to 0
 95 percent confidence interval:
@@ -261,16 +243,35 @@ mean difference
        111.3333 </code></pre>
 </div>
 </div>
-<p>La prueba estadística indica que la diferencia de enterococos intestinales entre Sanidad e Hidrotecnia probablemente se deba al azar (<em>p</em> valor &gt; 0,05). En el caso de <em>E. coli</em>, sí es probable que la diferencia de resultados sea consecuencia de un tratamiento sustancialmente diferente de las muestras (<em>p</em> valor &lt; 0,05), siendo la media de Sanidad significativamente inferior a la de Hidrotecnia.</p>
+<p>La prueba estadística indica que la diferencia de EEII entre Náyade e Hidrotecnia probablemente se deba al azar (<em>p</em> valor &gt; 0,05). En el caso de <em>E. coli</em>, sí es probable que la diferencia de resultados sea consecuencia de un tratamiento sustancialmente diferente de las muestras (<em>p</em> valor &lt; 0,05), siendo la media de Náyade significativamente inferior a la de Hidrotecnia.</p>
 </section>
 <section id="ciclo-de-mareas" class="level2">
 <h2 class="anchored" data-anchor-id="ciclo-de-mareas">Ciclo de mareas</h2>
 <p>Las muestras fueron tomadas durante diferentes fases del ciclo de mareas como un posible factor de control.</p>
-<p><img src="plots/UFC-mareas.png" class="img-fluid"> Aplicando el análisis de la varianza, los <em>p</em> valores calculados superan el nivel de significación 0,05 tanto para <em>E. coli</em> como para enterococos intestinales. Los datos recogidos no aportan evidencia suficiente para establecer la marea como variable de control.</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Análisis de la varianza de E. coli para cada estado de la marea.</span></span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="fu">load</span>(<span class="st">"data/aov-ecoli-marea.RData"</span>)</span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(aov_ecoli_marea)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="indicadores_files/figure-html/unnamed-chunk-5-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Aplicando el análisis de la varianza, los <em>p</em> valores calculados superan el nivel de significación 0,05 tanto para <em>E. coli</em> como para EEII. Los datos recogidos no aportan evidencia suficiente para establecer la marea como variable de control.</p>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code>Call:
+   aov(formula = UFC ~ Marea, data = filter(datos_ufc, Indicador == 
+    "E.coli", !is.na(UFC)))
+
+Terms:
+                   Marea Residuals
+Sum of Squares   2005.35  38155.17
+Deg. of Freedom        3        23
+
+Residual standard error: 40.72985
+Estimated effects may be unbalanced</code></pre>
+</div>
 <div class="cell-output cell-output-stdout">
 <pre><code>            Df Sum Sq Mean Sq F value Pr(&gt;F)
 Marea        3   2005   668.5   0.403  0.752
@@ -278,9 +279,19 @@ Residuals   23  38155  1658.9               </code></pre>
 </div>
 </div>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Análisis de la varianza de enterococos intestinales para cada estado de la marea.</span></span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="fu">load</span>(<span class="st">"data/aov-ei-marea.RData"</span>)</span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(aov_ei_marea)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Call:
+   aov(formula = UFC ~ Marea, data = filter(datos_ufc, Indicador == 
+    "EEII", !is.na(UFC)))
+
+Terms:
+                    Marea Residuals
+Sum of Squares    7781.24 152748.83
+Deg. of Freedom         3        23
+
+Residual standard error: 81.49389
+Estimated effects may be unbalanced</code></pre>
+</div>
 <div class="cell-output cell-output-stdout">
 <pre><code>            Df Sum Sq Mean Sq F value Pr(&gt;F)
 Marea        3   7781    2594   0.391  0.761

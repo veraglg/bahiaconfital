@@ -1,60 +1,202 @@
 ---
 title: "Indicadores convencionales"
-subtitle: "*E. coli* y enterococos intestinales"
+subtitle: "*E. coli* y enterococos intestinales (EEII)"
 ---
 
 ```{r}
-#| include: false
-source("tidy.R")
-source("transform.R")
-source("visualize.R")
-source("test.R")
+#| label: tidy
+#| message: false
+
+library(tidyverse)
+
+# Lee la hoja de cálculo y elimina celdas sin información
+datos <- readxl::read_xlsx(
+  "data/Muestreo Confital 2025_ Datos fecales Hidrotecnia Sanidad ULPGC.xlsx",
+  col_names = c("Fecha", "T", "Marea", "Hora",
+                "E.coli.Hidrotecnia", "E.coli.Nayade",
+                "EEII.Hidrotecnia", "EEII.Nayade",
+                "skip", "skip", "Muestra.ULPGC"),
+  col_types = c("guess", "guess", "text", "guess",
+                "guess", "guess",
+                "guess", "guess",
+                "skip", "skip", "text"),
+  range = "A3:K23")
 ```
+
+```{r}
+#| label: transform
+
+# ---- Datos en categorías del valor UFC ----
+
+# Fusiona las columnas de fecha y hora en un único instante de tiempo
+datos_ufc <- datos |> mutate(
+  Fecha = if_else(
+    is.na(Hora), Fecha, Fecha + hour(Hora)*60*60 + minute(Hora)*60),
+  .keep="unused"
+)
+
+# Aproxima los valores "<10" a 10.
+datos_ufc <- datos_ufc |> mutate(
+  E.coli.Hidrotecnia = parse_number(E.coli.Hidrotecnia)
+)
+
+# Junta las columnas con valores UFC en una única variable.
+datos_ufc <- datos_ufc |> pivot_longer(
+  starts_with("E"), names_to = c("Parametro"), values_to = "UFC"
+)
+
+# Especifica las categorías (Indicador y laboratorio) para cada valor UFC.
+datos_ufc <- datos_ufc |> separate_wider_regex(
+  Parametro,
+  c(Indicador = "EEII|E\\.coli", "\\.", Agente = "Hidrotecnia|Nayade")
+)
+
+# ---- Datos emparejados por muestras de agua ----
+
+# Ensancha los valores en valores de agente
+datos_agentes <- datos_ufc |> pivot_wider(
+  names_from = Agente,
+  values_from = UFC
+)
+
+# Elimina los valores desemparejados
+datos_agentes <- datos_agentes |> filter(!is.na(Hidrotecnia), !is.na(Nayade))
+
+# Transforma a un valor por fila
+datos_agentes_ufc <- datos_agentes |> pivot_longer(
+  c("Hidrotecnia", "Nayade"), names_to = "Agente", values_to = "UFC"
+)
+
+# ---- Límites de calidad de agua insuficiente ----
+
+# Crea una tibble con los indicadores y su valor límite de insuficiencia.
+limites <- tibble(
+  Indicador = c("E.coli", "EEII"), Insuficiente = c(500, 200)
+)
+```
+
+```{r}
+#| label: visualize
+
+# Semilla para reproducibilidad de los jitter
+set.seed(431)
+
+# Vista general verano 2025
+fig_vista_general <- datos_agentes_ufc |> ggplot(aes(
+  Fecha, UFC, fill = Agente)) +
+  geom_area(color = "black", position = position_dodge(width = 0), alpha = .6) +
+  geom_hline(
+    data = limites,
+    mapping = aes(yintercept = Insuficiente, color = "Calidad insuficiente")
+  ) +
+  facet_wrap(~Indicador, nrow = 2, scale = "free_y") +
+  scale_x_datetime(date_labels = "%y-%m-%d") +
+  scale_fill_manual(values = c("#2A788E", "#7AD151")) +
+  labs(
+    title = "Indicadores fecales verano 2025",
+       subtitle = "Mayor detección de EEII por Náyade.",
+       color = "Límite",
+       x = ""
+  )
+
+# Indicadores fecales según el agente
+fig_agente <- datos_agentes_ufc |> ggplot(aes(Agente, UFC)) +
+  geom_boxplot(aes(fill = Agente), show.legend = F, outliers = F) +
+  geom_jitter(alpha = .5, width = .2) +
+  facet_wrap(~Indicador, scale = "free_y") +
+  scale_fill_manual(values = c("#2A788E", "#7AD151")) +
+  labs(
+    title = "Indicadores fecales según el agente muestreador",
+    subtitle = "Mayor variabilidad en las muestras de Náyade."
+  )
+
+# Indicadores fecales según la marea
+fig_mareas <- datos_ufc |> filter(!is.na(UFC)) |> 
+  ggplot(aes(Marea, UFC)) +
+  geom_boxplot(aes(fill = Marea), show.legend = F, outliers = F) +
+  geom_jitter(alpha = .5, width = .2) +
+  facet_wrap(~Indicador, scale = "free_y") +
+  scale_fill_manual(values = c("#DEEBF7", "#9ECAE1", "#4292C6", "#9ECAE1")) +
+  labs(
+    title = "Indicadores fecales según la marea",
+    subtitle = "Valores similares entre todas las fases mareales."
+  )
+```
+
+```{r}
+#| label: test
+
+# Hay diferencias significativas de EEII según la fase de la marea?
+aov_eeii_marea <- aov(
+  UFC ~ Marea,
+  data = datos_ufc |> filter(Indicador == "EEII", !is.na(UFC))
+)
+
+# Hay diferencias significativas de E.coli según la fase de la marea?
+aov_ecoli_marea <- aov(
+  UFC ~ Marea,
+  data = datos_ufc |> filter(Indicador == "E.coli", !is.na(UFC))
+)
+
+# Hay diferencias significativas de enterococos según el agente de muestreo?
+ttest_eeii_agente <- t.test(
+  datos_agentes[datos_agentes$Indicador == "EEII",]$Nayade,
+  datos_agentes[datos_agentes$Indicador == "EEII",]$Hidrotecnia,
+  paired = TRUE
+)
+
+# Hay diferencias significativas de E.coli según el agente de muestreo?
+ttest_ecoli_agente <- t.test(
+  datos_agentes[datos_agentes$Indicador == "E.coli",]$Nayade,
+  datos_agentes[datos_agentes$Indicador == "E.coli",]$Hidrotecnia,
+  paired = TRUE
+)
+```
+
 
 ## Vista general
 
-Los episodios periódicos de contaminación fecal en la playa de El Confital se monitorearon durante el verano 2025. La bacteria *E.coli* se detectó en todas las muestras dentro de los valores de calidad excelente del agua establecidos por la normativa. La problemática reside en el repunte de enterococos intestinales en el agua, siendo los meses de julio y septiembre donde se dieron los episodios de calidad insuficiente del agua.
+Los episodios periódicos de contaminación fecal en la playa de El Confital se monitorearon durante el verano 2025. La bacteria *E.coli* se detectó en todas las muestras dentro de los valores de calidad excelente del agua establecidos por la normativa. La problemática reside en el repunte de EEII en el agua, siendo los meses de julio y septiembre donde se dieron los episodios de calidad insuficiente del agua.
 
-![](plots/UFC-vista-general.png)
+```{r}
+fig_vista_general
+```
 
 ## Agente muestreador
 
-Atendiendo a la distribución de resultados obtenidos por cada agente responsable del muestreo, el Ministerio de Sanidad (Sanidad) y AT Hidrotecnia SL (Hidrotecnia), para cada indicador fecal, las diferencias podrían ser debidas al azar o a metodologías sustancialmente distintas. Al observar la distribución de enterococos intestinales se observa una mayor dispersión según Sanidad respecto de Hidrotecnia. En cuanto *E. coli*, las mediciones de Hidrotecnia son en general superiores a las de Sanidad.
+Atendiendo a la distribución de resultados obtenidos por cada agente responsable del muestreo, el Ministerio de Sanidad (Náyade) y AT Hidrotecnia SL (Hidrotecnia), para cada indicador fecal, las diferencias podrían ser debidas al azar o a metodologías sustancialmente distintas. Al observar la distribución de EEII se observa una mayor dispersión según Náyade respecto de Hidrotecnia. En cuanto *E. coli*, las mediciones de Hidrotecnia son en general superiores a las de Náyade.
 
-![](plots/UFC-agente.png)
+```{r}
+fig_agente
+```
 Para estimar estadísticamente si existen diferencias significativas entre los resultados obtenidos por ambos agentes, se utilizará la prueba de la *t* de Student para los valores emparejados por cada muestra de agua.
 
 ```{r}
-# Hay diferencias significativas de E.coli según el agente de muestreo?
-load("data/t-test-ecoli-agente.RData")
-t_test_ecoli_agente
-```
-```{r}
-# Hay diferencias significativas de enterococos según el agente de muestreo?
-load("data/t-test-ei-agente.RData")
-t_test_ei_agente
+ttest_ecoli_agente
 ```
 
-La prueba estadística indica que la diferencia de enterococos intestinales entre Sanidad e Hidrotecnia probablemente se deba al azar (*p* valor > 0,05). En el caso de *E. coli*, sí es probable que la diferencia de resultados sea consecuencia de un tratamiento sustancialmente diferente de las muestras (*p* valor < 0,05), siendo la media de Sanidad significativamente inferior a la de Hidrotecnia.
+```{r}
+ttest_eeii_agente
+```
+
+La prueba estadística indica que la diferencia de EEII entre Náyade e Hidrotecnia probablemente se deba al azar (*p* valor > 0,05). En el caso de *E. coli*, sí es probable que la diferencia de resultados sea consecuencia de un tratamiento sustancialmente diferente de las muestras (*p* valor < 0,05), siendo la media de Náyade significativamente inferior a la de Hidrotecnia.
 
 ## Ciclo de mareas
 
 Las muestras fueron tomadas durante diferentes fases del ciclo de mareas como un posible factor de control.
 
-![](plots/UFC-mareas.png)
-Aplicando el análisis de la varianza, los *p* valores calculados superan el nivel de significación 0,05 tanto para *E. coli* como para enterococos intestinales. Los datos recogidos no aportan evidencia suficiente para establecer la marea como variable de control.
+```{r}
+fig_mareas
+```
+
+Aplicando el análisis de la varianza, los *p* valores calculados superan el nivel de significación 0,05 tanto para *E. coli* como para EEII. Los datos recogidos no aportan evidencia suficiente para establecer la marea como variable de control.
 
 ```{r}
-#| echo: true
-
-# Análisis de la varianza de E. coli para cada estado de la marea.
-load("data/aov-ecoli-marea.RData")
+aov_ecoli_marea
 summary(aov_ecoli_marea)
 ```
-```{r}
-#| echo: true
 
-# Análisis de la varianza de enterococos intestinales para cada estado de la marea.
-load("data/aov-ei-marea.RData")
-summary(aov_ei_marea)
+```{r}
+aov_eeii_marea
+summary(aov_eeii_marea)
 ```
