@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>citometria – Calidad del agua en El Confital</title>
+<title>Citometría de flujo – Calidad del agua en El Confital</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -20,7 +20,27 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-</style>
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 0em;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
 
 
 <script src="site_libs/quarto-nav/quarto-nav.js"></script>
@@ -102,11 +122,11 @@ ul.task-list li input[type="checkbox"] {
     <ul class="dropdown-menu" aria-labelledby="nav-menu-resultados">    
         <li>
     <a class="dropdown-item" href="./indicadores.html">
- <span class="dropdown-text">Indicadores convencionales</span></a>
+ <span class="dropdown-text">Biondicadores convencionales</span></a>
   </li>  
         <li>
     <a class="dropdown-item" href="./citometria.html">
- <span class="dropdown-text">Citometría</span></a>
+ <span class="dropdown-text">Citometría de flujo</span></a>
   </li>  
     </ul>
   </li>
@@ -131,7 +151,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./citometria.html">Citometría</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./citometria.html">Citometría de flujo</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
     </div>
@@ -146,13 +166,13 @@ ul.task-list li input[type="checkbox"] {
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./indicadores.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Indicadores convencionales</span></a>
+ <span class="menu-text">Biondicadores convencionales</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./citometria.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text">Citometría</span></a>
+ <span class="menu-text">Citometría de flujo</span></a>
   </div>
 </li>
     </ul>
@@ -165,27 +185,43 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">En esta página</h2>
    
   <ul>
-  <li><a href="#citometría" id="toc-citometría" class="nav-link active" data-scroll-target="#citometría">Citometría</a></li>
+  <li><a href="#vista-general" id="toc-vista-general" class="nav-link active" data-scroll-target="#vista-general">Vista general</a></li>
+  <li><a href="#efecto-de-las-mareas" id="toc-efecto-de-las-mareas" class="nav-link" data-scroll-target="#efecto-de-las-mareas">Efecto de las mareas</a></li>
+  <li><a href="#comparativa-entre-el-confital-y-descarga-el-barranco-de-guanarteme" id="toc-comparativa-entre-el-confital-y-descarga-el-barranco-de-guanarteme" class="nav-link" data-scroll-target="#comparativa-entre-el-confital-y-descarga-el-barranco-de-guanarteme">Comparativa entre El Confital y descarga el Barranco de Guanarteme</a></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"></header>
+<main class="content" id="quarto-document-content">
 
-
-
-
-<section id="citometría" class="level1">
-<h1>Citometría</h1>
-<div class="cell">
-<div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="citometria_files/figure-html/visualize-1.png" class="img-fluid figure-img" width="672"></p>
-</figure>
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Citometría de flujo</h1>
+<p class="subtitle lead">Concentración de microorganismos en el agua</p>
 </div>
-</div>
-</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="vista-general" class="level2">
+<h2 class="anchored" data-anchor-id="vista-general">Vista general</h2>
+<p>Monitoreamos 6 grupos de microorgansismos en base a 3 criterios funcionales:</p>
+<ul>
+<li><strong><em>Synechococcus</em></strong> y <strong><em>Prochlorococcus</em></strong>: son dos géneros de cianobacterias (anteriormente conocidas como algas verde-azuladas) identificadas en función de su pigmentación.</li>
+<li><strong>Nanoeucariotas</strong> y <strong>picoeucariotas</strong>: organismos diversos del dominio eucariota (células con núcleo verdadero) diferenciados en función de su tamaño, siendo <em>nano</em> más ancho que <em>pico</em>.</li>
+<li>Bacterias de <strong>alto ácido nucleico (HNA)</strong> y <strong>bajo ácido nucleico (LNA)</strong>: según el contenido de ácido nucleico en las células. En líneas generales, las bacterias HNA tiene un ritmo metabólico más acelerado que las HNA y son más adaptadas a entornos cambiantes. El ratio <strong>HNA/LNA</strong> se utiliza como indicador de alteraciones en el medio<span class="citation" data-cites="claveau2024"><sup><a href="#ref-claveau2024" role="doc-biblioref">1</a></sup></span>.</li>
+</ul>
 <div class="cell">
 <div class="cell-output-display">
 <div id="fig-distribucion" class="quarto-float quarto-figure quarto-figure-center anchored" width="672">
@@ -200,14 +236,18 @@ Figura&nbsp;1
 </div>
 </div>
 </div>
+<p>Observamos que la mayor variabilidad existe en función del contenido de ácido nucleico (<a href="#fig-distribucion" class="quarto-xref">Figura&nbsp;1</a>), seguido del grupo de <em>Prochlorococcus</em>. En las visualizaciones posteriores separaremos HNA y LNA del resto para una mejor resolución de las observaciones.</p>
+</section>
+<section id="efecto-de-las-mareas" class="level2">
+<h2 class="anchored" data-anchor-id="efecto-de-las-mareas">Efecto de las mareas</h2>
 <div class="cell">
 <div class="cell-output-display">
-<div id="fig-lugar" class="quarto-float quarto-figure quarto-figure-center anchored" width="672">
+<div id="fig-marea-bajos" class="quarto-float quarto-figure quarto-figure-center anchored" width="672">
 <figure class="quarto-float quarto-float-fig figure">
-<div aria-describedby="fig-lugar-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="citometria_files/figure-html/fig-lugar-1.png" id="fig-lugar" class="img-fluid figure-img" width="672">
+<div aria-describedby="fig-marea-bajos-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="citometria_files/figure-html/fig-marea-bajos-1.png" id="fig-marea-bajos" class="img-fluid figure-img" width="672">
 </div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig quarto-uncaptioned" id="fig-lugar-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig quarto-uncaptioned" id="fig-marea-bajos-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Figura&nbsp;2
 </figcaption>
 </figure>
@@ -216,13 +256,44 @@ Figura&nbsp;2
 </div>
 <div class="cell">
 <div class="cell-output-display">
-<div id="fig-marea" class="quarto-float quarto-figure quarto-figure-center anchored" width="672">
+<div id="fig-marea-altos" class="quarto-float quarto-figure quarto-figure-center anchored" width="672">
 <figure class="quarto-float quarto-float-fig figure">
-<div aria-describedby="fig-marea-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="citometria_files/figure-html/fig-marea-1.png" id="fig-marea" class="img-fluid figure-img" width="672">
+<div aria-describedby="fig-marea-altos-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="citometria_files/figure-html/fig-marea-altos-1.png" id="fig-marea-altos" class="img-fluid figure-img" width="672">
 </div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig quarto-uncaptioned" id="fig-marea-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig quarto-uncaptioned" id="fig-marea-altos-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Figura&nbsp;3
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<div class="cell">
+<div class="cell-output-display">
+<div id="fig-marea-ratio" class="quarto-float quarto-figure quarto-figure-center anchored" width="672">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-marea-ratio-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="citometria_files/figure-html/fig-marea-ratio-1.png" id="fig-marea-ratio" class="img-fluid figure-img" width="672">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig quarto-uncaptioned" id="fig-marea-ratio-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figura&nbsp;4
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="comparativa-entre-el-confital-y-descarga-el-barranco-de-guanarteme" class="level1">
+<h1>Comparativa entre El Confital y descarga el Barranco de Guanarteme</h1>
+<div class="cell">
+<div class="cell-output-display">
+<div id="fig-lugar" class="quarto-float quarto-figure quarto-figure-center anchored" width="672">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-lugar-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="citometria_files/figure-html/fig-lugar-1.png" id="fig-lugar" class="img-fluid figure-img" width="672">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig quarto-uncaptioned" id="fig-lugar-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figura&nbsp;5
 </figcaption>
 </figure>
 </div>
@@ -230,9 +301,14 @@ Figura&nbsp;3
 </div>
 
 
+
 </section>
 
-</main> <!-- /main -->
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">Referencias</h2><div id="refs" class="references csl-bib-body" data-entry-spacing="0" data-line-spacing="2" role="list">
+<div id="ref-claveau2024" class="csl-entry" role="listitem">
+<div class="csl-left-margin">1. </div><div class="csl-right-inline">Claveau, L., Hudson, N., Jeffrey, P., &amp; Hassard, F. (2024). Assessing microbial growth in drinking water using nucleic acid content and flow cytometry fingerprinting. <em>iScience</em>, <em>27</em>(12), 111511. <a href="https://doi.org/10.1016/j.isci.2024.111511">https://doi.org/10.1016/j.isci.2024.111511</a></div>
+</div>
+</div></section></div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     const icon = "";

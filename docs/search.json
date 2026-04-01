@@ -2,41 +2,41 @@
   {
     "objectID": "indicadores.html",
     "href": "indicadores.html",
-    "title": "Indicadores convencionales",
+    "title": "Biondicadores convencionales",
     "section": "",
     "text": "Los episodios periódicos de contaminación fecal en la playa de El Confital se monitorearon durante el verano 2025. La bacteria E.coli se detectó en todas las muestras dentro de los valores de calidad excelente del agua establecidos por la normativa. La problemática reside en el repunte de EEII en el agua, siendo los meses de julio y septiembre donde se dieron los episodios de calidad insuficiente del agua.",
     "crumbs": [
-      "Indicadores convencionales"
+      "Biondicadores convencionales"
     ]
   },
   {
     "objectID": "indicadores.html#vista-general",
     "href": "indicadores.html#vista-general",
-    "title": "Indicadores convencionales",
+    "title": "Biondicadores convencionales",
     "section": "",
     "text": "Los episodios periódicos de contaminación fecal en la playa de El Confital se monitorearon durante el verano 2025. La bacteria E.coli se detectó en todas las muestras dentro de los valores de calidad excelente del agua establecidos por la normativa. La problemática reside en el repunte de EEII en el agua, siendo los meses de julio y septiembre donde se dieron los episodios de calidad insuficiente del agua.",
     "crumbs": [
-      "Indicadores convencionales"
+      "Biondicadores convencionales"
     ]
   },
   {
     "objectID": "indicadores.html#agente-muestreador",
     "href": "indicadores.html#agente-muestreador",
-    "title": "Indicadores convencionales",
+    "title": "Biondicadores convencionales",
     "section": "Agente muestreador",
     "text": "Agente muestreador\nAtendiendo a la distribución de resultados obtenidos por cada agente responsable del muestreo, el Ministerio de Sanidad (Náyade) y AT Hidrotecnia SL (Hidrotecnia), para cada indicador fecal, las diferencias podrían ser debidas al azar o a metodologías sustancialmente distintas. Al observar la distribución de EEII se observa una mayor dispersión según Náyade respecto de Hidrotecnia. En cuanto E. coli, las mediciones de Hidrotecnia son en general superiores a las de Náyade.\n\n\n\n\n\n\n\n\n\nPara estimar estadísticamente si existen diferencias significativas entre los resultados obtenidos por ambos agentes, se utilizará la prueba de la t de Student para los valores emparejados por cada muestra de agua.\n\n\n\n    Paired t-test\n\ndata:  datos_agentes[datos_agentes$Indicador == \"E.coli\", ]$Nayade and datos_agentes[datos_agentes$Indicador == \"E.coli\", ]$Hidrotecnia\nt = -8.1349, df = 5, p-value = 0.0004557\nalternative hypothesis: true mean difference is not equal to 0\n95 percent confidence interval:\n -9.869959 -5.130041\nsample estimates:\nmean difference \n           -7.5 \n\n\n\n\n\n    Paired t-test\n\ndata:  datos_agentes[datos_agentes$Indicador == \"EEII\", ]$Nayade and datos_agentes[datos_agentes$Indicador == \"EEII\", ]$Hidrotecnia\nt = 2.0074, df = 5, p-value = 0.101\nalternative hypothesis: true mean difference is not equal to 0\n95 percent confidence interval:\n -31.23344 253.90011\nsample estimates:\nmean difference \n       111.3333 \n\n\nLa prueba estadística indica que la diferencia de EEII entre Náyade e Hidrotecnia probablemente se deba al azar (p valor &gt; 0,05). En el caso de E. coli, sí es probable que la diferencia de resultados sea consecuencia de un tratamiento sustancialmente diferente de las muestras (p valor &lt; 0,05), siendo la media de Náyade significativamente inferior a la de Hidrotecnia.",
     "crumbs": [
-      "Indicadores convencionales"
+      "Biondicadores convencionales"
     ]
   },
   {
     "objectID": "indicadores.html#ciclo-de-mareas",
     "href": "indicadores.html#ciclo-de-mareas",
-    "title": "Indicadores convencionales",
+    "title": "Biondicadores convencionales",
     "section": "Ciclo de mareas",
     "text": "Ciclo de mareas\nLas muestras fueron tomadas durante diferentes fases del ciclo de mareas como un posible factor de control.\n\n\n\n\n\n\n\n\n\nAplicando el análisis de la varianza, los p valores calculados superan el nivel de significación 0,05 tanto para E. coli como para EEII. Los datos recogidos no aportan evidencia suficiente para establecer la marea como variable de control.\n\n\nCall:\n   aov(formula = UFC ~ Marea, data = filter(datos_ufc, Indicador == \n    \"E.coli\", !is.na(UFC)))\n\nTerms:\n                   Marea Residuals\nSum of Squares   2005.35  38155.17\nDeg. of Freedom        3        23\n\nResidual standard error: 40.72985\nEstimated effects may be unbalanced\n\n\n            Df Sum Sq Mean Sq F value Pr(&gt;F)\nMarea        3   2005   668.5   0.403  0.752\nResiduals   23  38155  1658.9               \n\n\n\n\nCall:\n   aov(formula = UFC ~ Marea, data = filter(datos_ufc, Indicador == \n    \"EEII\", !is.na(UFC)))\n\nTerms:\n                    Marea Residuals\nSum of Squares    7781.24 152748.83\nDeg. of Freedom         3        23\n\nResidual standard error: 81.49389\nEstimated effects may be unbalanced\n\n\n            Df Sum Sq Mean Sq F value Pr(&gt;F)\nMarea        3   7781    2594   0.391  0.761\nResiduals   23 152749    6641",
     "crumbs": [
-      "Indicadores convencionales"
+      "Biondicadores convencionales"
     ]
   },
   {
@@ -56,11 +56,31 @@
   {
     "objectID": "citometria.html",
     "href": "citometria.html",
-    "title": "Citometría",
+    "title": "Citometría de flujo",
     "section": "",
-    "text": "Citometría\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nFigura 1\n\n\n\n\n\n\n\n\n\n\n\n\n\nFigura 2\n\n\n\n\n\n\n\n\n\n\n\n\n\nFigura 3",
+    "text": "Monitoreamos 6 grupos de microorgansismos en base a 3 criterios funcionales:\n\nSynechococcus y Prochlorococcus: son dos géneros de cianobacterias (anteriormente conocidas como algas verde-azuladas) identificadas en función de su pigmentación.\nNanoeucariotas y picoeucariotas: organismos diversos del dominio eucariota (células con núcleo verdadero) diferenciados en función de su tamaño, siendo nano más ancho que pico.\nBacterias de alto ácido nucleico (HNA) y bajo ácido nucleico (LNA): según el contenido de ácido nucleico en las células. En líneas generales, las bacterias HNA tiene un ritmo metabólico más acelerado que las HNA y son más adaptadas a entornos cambiantes. El ratio HNA/LNA se utiliza como indicador de alteraciones en el medio1.\n\n\n\n\n\n\n\n\n\nFigura 1\n\n\n\n\n\nObservamos que la mayor variabilidad existe en función del contenido de ácido nucleico (Figura 1), seguido del grupo de Prochlorococcus. En las visualizaciones posteriores separaremos HNA y LNA del resto para una mejor resolución de las observaciones.",
     "crumbs": [
-      "Citometría"
+      "Citometría de flujo"
+    ]
+  },
+  {
+    "objectID": "citometria.html#vista-general",
+    "href": "citometria.html#vista-general",
+    "title": "Citometría de flujo",
+    "section": "",
+    "text": "Monitoreamos 6 grupos de microorgansismos en base a 3 criterios funcionales:\n\nSynechococcus y Prochlorococcus: son dos géneros de cianobacterias (anteriormente conocidas como algas verde-azuladas) identificadas en función de su pigmentación.\nNanoeucariotas y picoeucariotas: organismos diversos del dominio eucariota (células con núcleo verdadero) diferenciados en función de su tamaño, siendo nano más ancho que pico.\nBacterias de alto ácido nucleico (HNA) y bajo ácido nucleico (LNA): según el contenido de ácido nucleico en las células. En líneas generales, las bacterias HNA tiene un ritmo metabólico más acelerado que las HNA y son más adaptadas a entornos cambiantes. El ratio HNA/LNA se utiliza como indicador de alteraciones en el medio1.\n\n\n\n\n\n\n\n\n\nFigura 1\n\n\n\n\n\nObservamos que la mayor variabilidad existe en función del contenido de ácido nucleico (Figura 1), seguido del grupo de Prochlorococcus. En las visualizaciones posteriores separaremos HNA y LNA del resto para una mejor resolución de las observaciones.",
+    "crumbs": [
+      "Citometría de flujo"
+    ]
+  },
+  {
+    "objectID": "citometria.html#efecto-de-las-mareas",
+    "href": "citometria.html#efecto-de-las-mareas",
+    "title": "Citometría de flujo",
+    "section": "Efecto de las mareas",
+    "text": "Efecto de las mareas\n\n\n\n\n\n\n\n\nFigura 2\n\n\n\n\n\n\n\n\n\n\n\n\n\nFigura 3\n\n\n\n\n\n\n\n\n\n\n\n\n\nFigura 4",
+    "crumbs": [
+      "Citometría de flujo"
     ]
   }
 ]

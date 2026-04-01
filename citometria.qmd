@@ -1,4 +1,7 @@
-# Citometría
+---
+title: Citometría de flujo
+subtitle: Concentración de microorganismos en el agua
+---
 
 ```{r}
 #| label: tidy
@@ -9,67 +12,159 @@ library(tidyverse)
 # Lee la hoja de cálculo recortada
 datos <- readxl::read_xlsx(
   "data/DATOS revisados Confital 2025 18 Marzo 2026.xlsx",
-  col_names = c("Muestras", "Synechococcus", "Prochlorococcus", "Picoeucariotas", "Nanoeucariotas", "BacteriasHNA", "BacteriasLNA"),
+  col_names = c(
+    "Muestras", "Synechococcus", "Prochlorococcus", "Picoeucariotas",
+    "Nanoeucariotas", "HNA", "LNA"
+  ),
   range = "Hoja1!B4:H26"
-  )
+)
 
 # Alarga en una sola columna de concentraciones
-datos <- datos |> pivot_longer(c("Synechococcus", "Prochlorococcus", "Picoeucariotas", "Nanoeucariotas", "BacteriasHNA", "BacteriasLNA"), names_to = "Grupo", values_to = "Valor")
+datos <- datos |> pivot_longer(
+  c(
+    "Synechococcus", "Prochlorococcus", "Picoeucariotas", "Nanoeucariotas",
+    "HNA", "LNA"
+  ),
+  names_to = "Grupo",
+  values_to = "Valor"
+)
 
 ```
 
 ```{r}
 #| label: transform
 
-# Separa las muestras en categorías
-datos_separados <- datos |> separate_wider_delim(
-  Muestras, delim = "_", names = c("Fecha", "Lugar", "Marea")) |>
-  mutate(Fecha = dmy(Fecha, truncated = 1)) |> 
-  mutate(Marea = str_extract(Marea, "^[a-z]*"))
+# Separa las muestras en categorías contenidas en una cadena
+datos <- datos |> separate_wider_regex(
+  Muestras,
+  patterns = c(
+    Fecha = "\\d{4}", # Cuatro primeros dígitos
+    "_",
+    Lugar = "[^_]*", # Serie de caracteres no "_"
+    "_",
+    Marea = "[^.|\\d]*", # Serie de caracteres que no sea dígito o "."
+    Repeticion = "\\d" # Un único dígito
+  ),
+  too_few = "align_start"
+)
+
+# Ajusta Fecha a formato date
+datos <- datos |> mutate(Fecha = dmy(Fecha, truncated = 1))
 
 # Separa por el día y mes de la muestra
-datos_separados <- datos_separados |> 
-  mutate(
-    Mes = month(Fecha, label = T, locale = "es_ES.UTF-8"), .after = Fecha) |> 
-  mutate(Dia = day(Fecha), .after = Mes)
+datos <- datos |> mutate(Dia = day(Fecha), .after = Fecha) |> 
+  mutate(Mes = month(Fecha, label = T, locale = "es_ES.UTF-8"), .after = Fecha)
+
+# Separa los datos en supergrupo de bajos valores
+datos_bajos <- datos |> filter(
+  Grupo %in% c("Synechococcus", "Prochlorococcus",
+               "Picoeucariotas", "Nanoeucariotas")
+)
+
+# Separa los datos en supergrupo de altos valores
+datos_altos <- datos |> filter(Grupo %in% c("HNA", "LNA"))
+
+# Calcula el ratio HNA/LNA
+datos_ratio <- datos_altos |> pivot_wider(
+  names_from = Grupo, values_from = Valor
+) |> 
+  mutate(Ratio = HNA/LNA, .keep = "unused")
 ```
 
 ```{r}
 #| label: visualize
 
 # Distribución general de los datos por Grupo
-fig_distribucion <- datos_separados |> ggplot(aes(Valor, Grupo)) +
+fig_distribucion <- datos |> ggplot(aes(Valor, Grupo)) +
   geom_boxplot(outliers = F) +
-  geom_jitter(alpha = .5, width = .2)
+  geom_jitter(alpha = .5, width = .2, size = .5) +
+  labs(
+    title = "Distribución de grupos por citometría de flujo",
+    subtitle = "HNA y LNA con mayor concentración y variabilidad",
+    x = "células/mL",
+    y = ""
+  )
 
-# Distribución de valores por lugar
-fig_lugar <- datos_separados |> ggplot(aes(Valor, Grupo, fill = Lugar)) +
+# Distribución de bajos por estado de la marea
+fig_marea_bajos <- datos_bajos |> ggplot(aes(Marea, Valor)) +
+  geom_boxplot(aes(fill = Marea), outliers = F, show.legend = F) +
+  geom_jitter(alpha = .5, width = .2, size = 1) +
+  facet_wrap(~Grupo, scales = "free_y") +
+  scale_fill_manual(values = c("#DEEBF7", "#9ECAE1", "#4292C6", "#9ECAE1")) +
+  labs(
+    x = "",
+    y = "células/mL"
+  )
+
+# Distribución de altos por estado de la marea
+fig_marea_altos <- datos_altos |> ggplot(aes(Marea, Valor)) +
+  geom_boxplot(aes(fill = Marea), outliers = F, show.legend = F) +
+  geom_jitter(alpha = .5, width = .2, size = 1) +
+  facet_wrap(~Grupo, scales = "free_y") +
+  scale_fill_manual(values = c("#DEEBF7", "#9ECAE1", "#4292C6", "#9ECAE1")) +
+  labs(
+    x = "",
+    y = "células/mL"
+  )
+
+# Distribución de ratio por estado de la marea
+fig_marea_ratio <- datos_ratio |> ggplot(aes(Marea, Ratio)) +
+  geom_boxplot(aes(fill = Marea), outliers = F, show.legend = F) +
+  geom_jitter(alpha = .5, width = .2) +
+  scale_fill_manual(values = c("#DEEBF7", "#9ECAE1", "#4292C6", "#9ECAE1")) +
+  labs(
+    x = "",
+    y = "HNA/LNA"
+  )
+
+# Distribución de bajos por lugar
+fig_lugar <- datos |> ggplot(aes(Valor, Grupo, fill = Lugar)) +
   geom_boxplot(outliers = F) +
   geom_jitter(aes(color = Lugar), alpha = .5, width = .2, size = .5)
 
-# Distribución de valores por estado de la marea
-fig_marea <- datos_separados |> ggplot(aes(Valor, Grupo, fill = Marea)) +
-  geom_boxplot(outliers = F) +
-  geom_jitter(aes(color = Marea), alpha = .5, width = .2, size = .5)
+# Distribución de altos por lugar
 
 # Distribución de valores por mes
-datos_separados |> ggplot(aes(Valor, Grupo, fill = Mes)) +
+fig_mes <- datos |> ggplot(aes(Valor, Grupo, fill = Mes)) +
   geom_boxplot(outliers = F) +
   geom_jitter(aes(color = Mes), alpha = .5, width = .2, size = .5)
 ```
+
+## Vista general
+
+Monitoreamos 6 grupos de microorgansismos en base a 3 criterios funcionales:
+
+- ***Synechococcus*** y ***Prochlorococcus***: son dos géneros de cianobacterias (anteriormente conocidas como algas verde-azuladas) identificadas en función de su pigmentación.
+- **Nanoeucariotas** y **picoeucariotas**: organismos diversos del dominio eucariota (células con núcleo verdadero) diferenciados en función de su tamaño, siendo *nano* más ancho que *pico*.
+- Bacterias de **alto ácido nucleico (HNA)** y **bajo ácido nucleico (LNA)**: según el contenido de ácido nucleico en las células. En líneas generales, las bacterias HNA tiene un ritmo metabólico más acelerado que las HNA y son más adaptadas a entornos cambiantes. El ratio **HNA/LNA** se utiliza como indicador de alteraciones en el medio [@claveau2024].
 
 ```{r}
 #| label: fig-distribucion
 fig_distribucion
 ```
 
+Observamos que la mayor variabilidad existe en función del contenido de ácido nucleico (@fig-distribucion), seguido del grupo de *Prochlorococcus*. En las visualizaciones posteriores separaremos HNA y LNA del resto para una mejor resolución de las observaciones.
+
+## Efecto de las mareas
+
+```{r}
+#| label: fig-marea-bajos
+fig_marea_bajos
+```
+
+```{r}
+#| label: fig-marea-altos
+fig_marea_altos
+```
+
+```{r}
+#| label: fig-marea-ratio
+fig_marea_ratio
+```
+
+# Comparativa entre El Confital y descarga el Barranco de Guanarteme
+
 ```{r}
 #| label: fig-lugar
 fig_lugar
 ```
-
-```{r}
-#| label: fig-marea
-fig_marea
-```
-
