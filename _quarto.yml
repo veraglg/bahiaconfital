@@ -20,10 +20,10 @@ website:
         href: index.qmd
       - sidebar:resultados
       - about.qmd
-    tools:
-      - icon: git
+    right:
+      - text: "![](codeberg.svg){height=1.5em}"
+        aria-label: Código fuente en Codeberg
         href: https://codeberg.org/veraglg/bahiaconfital
-        text: "Código fuente"
   
   sidebar:
     - id: resultados
