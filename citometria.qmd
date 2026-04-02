@@ -85,6 +85,8 @@ fig_distribucion <- datos |> ggplot(aes(Valor, Grupo)) +
     y = ""
   )
 
+# ---- Efecto de la marea ----
+
 # Distribución de bajos por estado de la marea
 fig_marea_bajos <- datos_bajos |> ggplot(aes(Marea, Valor)) +
   geom_boxplot(aes(fill = Marea), outliers = F, show.legend = F) +
@@ -92,6 +94,8 @@ fig_marea_bajos <- datos_bajos |> ggplot(aes(Marea, Valor)) +
   facet_wrap(~Grupo, scales = "free_y") +
   scale_fill_manual(values = c("#DEEBF7", "#9ECAE1", "#4292C6", "#9ECAE1")) +
   labs(
+    title = "Variación de los grupos citométricos con la marea",
+    subtitle = "Efectos sutiles o imperceptibles",
     x = "",
     y = "células/mL"
   )
@@ -103,6 +107,7 @@ fig_marea_altos <- datos_altos |> ggplot(aes(Marea, Valor)) +
   facet_wrap(~Grupo, scales = "free_y") +
   scale_fill_manual(values = c("#DEEBF7", "#9ECAE1", "#4292C6", "#9ECAE1")) +
   labs(
+    title = "Distribución de células HNA y LNA con la marea",
     x = "",
     y = "células/mL"
   )
@@ -113,21 +118,39 @@ fig_marea_ratio <- datos_ratio |> ggplot(aes(Marea, Ratio)) +
   geom_jitter(alpha = .5, width = .2) +
   scale_fill_manual(values = c("#DEEBF7", "#9ECAE1", "#4292C6", "#9ECAE1")) +
   labs(
+    title = "Variación del ratio HNA/LNA con la marea",
     x = "",
     y = "HNA/LNA"
   )
 
-# Distribución de bajos por lugar
-fig_lugar <- datos |> ggplot(aes(Valor, Grupo, fill = Lugar)) +
-  geom_boxplot(outliers = F) +
-  geom_jitter(aes(color = Lugar), alpha = .5, width = .2, size = .5)
+# ---- Variación geográfica ----
 
-# Distribución de altos por lugar
+# Distribución general por lugar
+fig_lugar <- datos |> ggplot(aes(Lugar, Valor)) +
+  geom_boxplot(aes(fill = Lugar), outliers = F, show.legend = F) +
+  geom_jitter(alpha = .5, width = .2, size = 1) +
+  facet_wrap(~Grupo, scales = "free_y") +
+  labs(
+    title = "Variación geográfica de grupos citométricos",
+    subtitle = "El Cofital y la desembocadura del Barranco Guanarteme",
+    x = "",
+    y = "células/mL",
+    caption = "Punto X: descarga barranco Guanarteme"
+  )
 
-# Distribución de valores por mes
-fig_mes <- datos |> ggplot(aes(Valor, Grupo, fill = Mes)) +
-  geom_boxplot(outliers = F) +
-  geom_jitter(aes(color = Mes), alpha = .5, width = .2, size = .5)
+# ---- Variación temporal ----
+
+# Distribución general por mes
+fig_mes <- datos |> ggplot(aes(Mes, Valor)) +
+  geom_boxplot(aes(fill = Mes), outliers = F, show.legend = F) +
+  geom_jitter(alpha = .5, width = .2, size = 1) +
+  facet_wrap(~Grupo, scales = "free_y") +
+  labs(
+    title = "Evolución de grupos citométricos",
+    subtitle = "Verano 2025",
+    x = "",
+    y = "células/mL"
+  )
 ```
 
 ## Vista general
@@ -145,7 +168,7 @@ fig_distribucion
 
 Observamos que la mayor variabilidad existe en función del contenido de ácido nucleico (@fig-distribucion), seguido del grupo de *Prochlorococcus*. En las visualizaciones posteriores separaremos HNA y LNA del resto para una mejor resolución de las observaciones.
 
-## Efecto de las mareas
+## Efecto de la marea
 
 ```{r}
 #| label: fig-marea-bajos
@@ -162,9 +185,17 @@ fig_marea_altos
 fig_marea_ratio
 ```
 
-# Comparativa entre El Confital y descarga el Barranco de Guanarteme
+## Variación geográfica
 
 ```{r}
 #| label: fig-lugar
 fig_lugar
 ```
+
+## Variación temporal
+
+```{r}
+#| label: fig-mes
+fig_mes
+```
+
