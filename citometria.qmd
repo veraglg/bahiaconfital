@@ -153,6 +153,28 @@ fig_mes <- datos |> ggplot(aes(Mes, Valor)) +
   )
 ```
 
+```{r}
+#| label: test
+
+library(infer)
+
+f_real <- datos_ratio |>
+  specify(response = Ratio, explanatory = Marea) |> 
+  calculate(stat = "F")
+
+fs_hipoteticas <- datos_ratio |> 
+  specify(response = Ratio, explanatory = Marea) |> 
+  hypothesise(null = "independence") |> 
+  generate(reps = 1000, type = "permute") |> 
+  calculate(stat = "F")
+
+visualise(fs_hipoteticas) +
+  shade_p_value(obs_stat = f_real, direction = "greater")
+
+get_p_value(fs_hipoteticas, f_real, direction = "greater")
+```
+
+
 ## Vista general
 
 Monitoreamos 6 grupos de microorgansismos en base a 3 criterios funcionales:
