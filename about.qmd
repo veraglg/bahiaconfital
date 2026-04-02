@@ -3,19 +3,9 @@ title: "Sobre el estudio"
 image: patron.png
 about:
   template: jolla
-  links: 
-    - icon: flask
-      text: ORCiD
-      href: https://orcid.org/0009-0005-4889-3412
-    - icon: git
-      text: Codeberg
-      href: https://codeberg.org/veraglg/bahiaconfital
-    - icon: cc-circle
-      text: Creative Commons
-      href: https://creativecommons.org/licenses/by-nc-sa/4.0/
 ---
 Estudio realizado por el **Convenio de colaboración entre el Ayuntamiento de las Palmas de Gran Canaria y la Universidad de Las Palmas de Gran Canaria (ULPGC) 2025**.
 
-Este sitio web a sido creado por **Vera Gómez-Limón Gallardo** ([ORCiD](https://orcid.org/0009-0005-4889-3412)), graduada en Ciencias del Mar (ULPGC). En colaboración con el grupo de Oceanografía Biológica del **Instituto de Oceanografía y Cambio Global (IOCAG)**.
+Este sitio web a sido creado por **Vera Gómez-Limón Gallardo** ([ORCiD](https://orcid.org/0009-0005-4889-3412)), graduada en Ciencias del Mar por la Universidad de las Palmas de Gran Canaria, en colaboración con el grupo de Oceanografía Biológica del **Instituto de Oceanografía y Cambio Global, (IOCAG, ULPGC)**.
 
 Este trabajo está publicado bajo licencia **Creative Commons BY-NC-SA 4.0**. Para más información visite [Creative Commons](https://creativecommons.org/licenses/by-nc-sa/4.0/). El código fuente es público bajo la misma licencia a través de [Codeberg](https://codeberg.org/veraglg/bahiaconfital).
