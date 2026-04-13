@@ -3,7 +3,9 @@ title: La duda sobre la calidad del agua
 subtitle: ¿Existe contaminación fecal recurrente?
 ---
 
+::: {.column-screen}
 ![Playa de El Confital (por Bengt Nyman)](confital.jpg)
+:::
 
 La playa de El Confital lleva oficialmente **cerrado al público casi 9 años** debido a repetidos episodios de contaminación fecal [@diaz2026]. El principal indicador de esta contaminación son la **alta concentración de enterococos intestinales (EEII)**, estos indicadores de contaminación son monitoreados con frecuencia.
 
