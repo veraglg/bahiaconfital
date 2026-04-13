@@ -83,24 +83,24 @@ Los resultados de la secuenciación se procesaron en la plataforma de bioinform�
 
 ### Tabla 16S
 
-`canteras_microbiome\dada2_canteras_16s\data\dada2\04_decontam-and-filter\canteras\canteras_seqtab_decontam_filter.rds`
+`canteras_microbiome/dada2_canteras_16s/data/dada2/04_decontam-and-filter/canteras/canteras_seqtab_decontam_filter.rds`
 
 ### Tabla 16S taxonomía
 
-`canteras_microbiome\dada2_canteras_16s\data\dada2\04_decontam-and-filter\canteras\canteras_tax_assignation_decontam_filter.rds`
+`canteras_microbiome/dada2_canteras_16s/data/dada2/04_decontam-and-filter/canteras/canteras_tax_assignation_decontam_filter.rds`
 
 ### Secuencias 16S
 
-`canteras_microbiome\dada2_canteras_16s\data\dada2\04_decontam-and-filter\canteras\canteras_sequences_decontam_filter.rds`
+`canteras_microbiome/dada2_canteras_16s/data/dada2/04_decontam-and-filter/canteras/canteras_sequences_decontam_filter.rds`
 
 ### Tabla 18S
 
-`canteras_microbiome\dada2_canteras_18s\data\dada2\04_decontam-and-filter\canteras\canteras_seqtab_decontam_filter.rds`
+`canteras_microbiome/dada2_canteras_18s/data/dada2/04_decontam-and-filter/canteras/canteras_seqtab_decontam_filter.rds`
 
 ### Tabla 18S taxonomía
 
-`canteras_microbiome\dada2_canteras_18s\data\dada2\04_decontam-and-filter\canteras\canteras_tax_assignation_decontam_filter.rds`
+`canteras_microbiome/dada2_canteras_18s/data/dada2/04_decontam-and-filter/canteras/canteras_tax_assignation_decontam_filter.rds`
 
 ### Secuencias 18S
 
-`canteras_microbiome\dada2_canteras_18s\data\dada2\04_decontam-and-filter\canteras\canteras_sequences_decontam_filter.rds`
+`canteras_microbiome/dada2_canteras_18s/data/dada2/04_decontam-and-filter/canteras/canteras_sequences_decontam_filter.rds`
