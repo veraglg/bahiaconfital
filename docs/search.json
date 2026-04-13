@@ -109,5 +109,15 @@
     "crumbs": [
       "Citometría de flujo"
     ]
+  },
+  {
+    "objectID": "citometria.html#inferencia-estadística",
+    "href": "citometria.html#inferencia-estadística",
+    "title": "Citometría de flujo",
+    "section": "Inferencia estadística",
+    "text": "Inferencia estadística\nEl análisis de la varianza (ANOVA) es un método de inferencia estadística que nos permite señalar como de importante son las diferencias entre las distribuciones de un parámetro para cada grupo2. En la Figura 7 se especula como de inusuales sería nuestros resultados de HNA/LNA según la fase de la marea si esta no tuvieran ningún efecto sobre HNA/LNA. Habría menos de un 2% de probabilidades de obtener los resultados registrados. Por lo tanto, es probable que existan factores más allá del azar que afecten al ratio HNA/LNA con la marea. Seria interesante investigar en mayor profundidad estos posibles efectos, ya que el tamaño del monitoreo es pequeño y desigual entre fases de la marea.\n\n\n\n\n\n\n\n\nFigura 7",
+    "crumbs": [
+      "Citometría de flujo"
+    ]
   }
 ]

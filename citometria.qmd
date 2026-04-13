@@ -72,6 +72,25 @@ datos_ratio <- datos_altos |> pivot_wider(
 ```
 
 ```{r}
+#| label: test
+
+library(infer)
+
+f_real <- datos_ratio |>
+  specify(response = Ratio, explanatory = Marea) |> 
+  calculate(stat = "F")
+
+set.seed(43)
+
+fs_hipoteticas <- datos_ratio |> 
+  specify(response = Ratio, explanatory = Marea) |> 
+  hypothesise(null = "independence") |> 
+  generate(reps = 2000, type = "permute") |> 
+  calculate(stat = "F")
+```
+
+
+```{r}
 #| label: visualize
 
 # Distribución general de los datos por Grupo
@@ -151,29 +170,27 @@ fig_mes <- datos |> ggplot(aes(Mes, Valor)) +
     x = "",
     y = "células/mL"
   )
+
+# ---- Inferencia estadística ----
+
+# Estadístico F para la variación de HNA/LNA con al marea
+fig_f_ratio_marea <- visualise(fs_hipoteticas) +
+  shade_p_value(obs_stat = f_real, direction = "greater") +
+  annotate(
+    "text",
+    x = 6, y = 200,
+    label = paste(
+      "p.value\n",
+      get_p_value(fs_hipoteticas, f_real, direction = "greater")
+      )
+    ) +
+  labs(
+    title = "ANOVA para HNA/LNA con la marea. Distribución nula simulada",
+    subtitle = "Medias significativamente heterogeneas entre grupos (< 0,05)",
+    x = "estadístico F",
+    y = "simulaciones"
+  )
 ```
-
-```{r}
-#| label: test
-
-library(infer)
-
-f_real <- datos_ratio |>
-  specify(response = Ratio, explanatory = Marea) |> 
-  calculate(stat = "F")
-
-fs_hipoteticas <- datos_ratio |> 
-  specify(response = Ratio, explanatory = Marea) |> 
-  hypothesise(null = "independence") |> 
-  generate(reps = 1000, type = "permute") |> 
-  calculate(stat = "F")
-
-visualise(fs_hipoteticas) +
-  shade_p_value(obs_stat = f_real, direction = "greater")
-
-get_p_value(fs_hipoteticas, f_real, direction = "greater")
-```
-
 
 ## Vista general
 
@@ -219,5 +236,14 @@ fig_lugar
 ```{r}
 #| label: fig-mes
 fig_mes
+```
+
+## Inferencia estadística
+
+El análisis de la varianza (ANOVA) es un método de inferencia estadística que nos permite señalar como de importante son las diferencias entre las distribuciones de un parámetro para cada grupo [@mcdonald2014]. En la @fig-f-ratio-marea se especula como de inusuales sería nuestros resultados de HNA/LNA según la fase de la marea si esta no tuvieran ningún efecto sobre HNA/LNA. Habría menos de un 2% de probabilidades de obtener los resultados registrados. Por lo tanto, es probable que existan factores más allá del azar que afecten al ratio HNA/LNA con la marea. Seria interesante investigar en mayor profundidad estos posibles efectos, ya que el tamaño del monitoreo es pequeño y desigual entre fases de la marea.
+
+```{r}
+#| label: fig-f-ratio-marea
+fig_f_ratio_marea
 ```
 
