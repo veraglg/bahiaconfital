@@ -1,0 +1,27 @@
+---
+title: Secuenciación del microbioma
+subtitle: Identificación mediante ARNr 16S y 18S
+---
+
+```{r}
+#| label: tidy
+#| message: false
+
+library(tidyverse)
+library(Biostrings)
+
+codigos <- readxl::read_xlsx("data/codigos_muestras_canteras_MF 9.4.26.xlsx")
+
+tabla_16s <- read_rds("data/canteras_microbiome/dada2_canteras_16s/data/dada2/04_decontam-and-filter/canteras/canteras_seqtab_decontam_filter.rds")
+
+tabla_16s_taxonomia <- read_rds("data/canteras_microbiome/dada2_canteras_16s/data/dada2/04_decontam-and-filter/canteras/canteras_tax_assignation_decontam_filter.rds")
+
+secuencias_16s <- read_rds("data/canteras_microbiome/dada2_canteras_16s/data/dada2/04_decontam-and-filter/canteras/canteras_sequences_decontam_filter.rds")
+
+tabla_18s <- read_rds("data/canteras_microbiome/dada2_canteras_18s/data/dada2/04_decontam-and-filter/canteras/canteras_seqtab_decontam_filter.rds")
+
+tabla_18s_taxonomia <- read_rds("data/canteras_microbiome/dada2_canteras_18s/data/dada2/04_decontam-and-filter/canteras/canteras_tax_assignation_decontam_filter.rds")
+
+secuencias_18s <- read_rds("data/canteras_microbiome/dada2_canteras_18s/data/dada2/04_decontam-and-filter/canteras/canteras_sequences_decontam_filter.rds")
+```
+
