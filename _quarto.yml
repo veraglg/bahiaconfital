@@ -18,6 +18,8 @@ website:
     left:
       - text: "La duda"
         href: index.qmd
+      - text: "Métodos"
+        href: metodos.qmd
       - sidebar:resultados
       - about.qmd
     right:
@@ -32,13 +34,13 @@ website:
       contents: 
         - indicadores.qmd
         - citometria.qmd
+        - secuenciacion.qmd
 
 format:
   html:
     theme:
       - cosmo
       - brand
-    css: styles.css
     toc: true
     lang: es
 

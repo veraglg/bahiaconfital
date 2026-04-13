@@ -1,0 +1,15 @@
+{
+  "hash": "912b9cef7c7ebdedc6b803aa1a27dbee",
+  "result": {
+    "engine": "knitr",
+    "markdown": "---\ntitle: Secuenciación del microbioma\nsubtitle: Identificación mediante ARNr 16S y 18S\n---\n\n\n::: {.cell}\n\n:::\n\n\n",
+    "supporting": [],
+    "filters": [
+      "rmarkdown/pagebreak.lua"
+    ],
+    "includes": {},
+    "engineDependencies": {},
+    "preserve": {},
+    "postProcess": true
+  }
+}

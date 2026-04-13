@@ -6,8 +6,9 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="author" content="Markel Gómez Letona">
 
-<title>Citometría de flujo – Calidad del agua en El Confital</title>
+<title>Materiales y métodos de secuenciación – Calidad del agua en El Confital</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -93,7 +94,7 @@ div.csl-indent {
 
 </head>
 
-<body class="nav-sidebar floating nav-fixed quarto-light">
+<body class="nav-fixed quarto-light">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
@@ -115,7 +116,7 @@ div.csl-indent {
 <span class="menu-text">La duda</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./metodos.html"> 
+    <a class="nav-link active" href="./metodos.html" aria-current="page"> 
 <span class="menu-text">Métodos</span></a>
   </li>  
   <li class="nav-item dropdown ">
@@ -157,56 +158,28 @@ div.csl-indent {
 </div>
       </div> <!-- /container-fluid -->
     </nav>
-  <nav class="quarto-secondary-nav">
-    <div class="container-fluid d-flex">
-      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
-        <i class="bi bi-layout-text-sidebar-reverse"></i>
-      </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./citometria.html">Citometría de flujo</a></li></ol></nav>
-        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
-        </a>
-    </div>
-  </nav>
 </header>
 <!-- content -->
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
-  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
-    <div class="sidebar-menu-container"> 
-    <ul class="list-unstyled mt-1">
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./indicadores.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Biondicadores convencionales</span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./citometria.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text">Citometría de flujo</span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./secuenciacion.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Secuenciación del microbioma</span></a>
-  </div>
-</li>
-    </ul>
-    </div>
-</nav>
-<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         <nav id="TOC" role="doc-toc" class="toc-active">
     <h2 id="toc-title">En esta página</h2>
    
   <ul>
-  <li><a href="#vista-general" id="toc-vista-general" class="nav-link active" data-scroll-target="#vista-general">Vista general</a></li>
-  <li><a href="#efecto-de-la-marea" id="toc-efecto-de-la-marea" class="nav-link" data-scroll-target="#efecto-de-la-marea">Efecto de la marea</a></li>
-  <li><a href="#variación-geográfica" id="toc-variación-geográfica" class="nav-link" data-scroll-target="#variación-geográfica">Variación geográfica</a></li>
-  <li><a href="#variación-temporal" id="toc-variación-temporal" class="nav-link" data-scroll-target="#variación-temporal">Variación temporal</a></li>
-  <li><a href="#inferencia-estadística" id="toc-inferencia-estadística" class="nav-link" data-scroll-target="#inferencia-estadística">Inferencia estadística</a></li>
+  <li><a href="#extracción" id="toc-extracción" class="nav-link active" data-scroll-target="#extracción">Extracción</a></li>
+  <li><a href="#secuenciación" id="toc-secuenciación" class="nav-link" data-scroll-target="#secuenciación">Secuenciación</a></li>
+  <li><a href="#procesamiento" id="toc-procesamiento" class="nav-link" data-scroll-target="#procesamiento">Procesamiento</a></li>
+  <li><a href="#archivos" id="toc-archivos" class="nav-link" data-scroll-target="#archivos">Archivos</a>
+  <ul class="collapse">
+  <li><a href="#tabla-16s" id="toc-tabla-16s" class="nav-link" data-scroll-target="#tabla-16s">Tabla 16S</a></li>
+  <li><a href="#tabla-16s-taxonomía" id="toc-tabla-16s-taxonomía" class="nav-link" data-scroll-target="#tabla-16s-taxonomía">Tabla 16S taxonomía</a></li>
+  <li><a href="#secuencias-16s" id="toc-secuencias-16s" class="nav-link" data-scroll-target="#secuencias-16s">Secuencias 16S</a></li>
+  <li><a href="#tabla-18s" id="toc-tabla-18s" class="nav-link" data-scroll-target="#tabla-18s">Tabla 18S</a></li>
+  <li><a href="#tabla-18s-taxonomía" id="toc-tabla-18s-taxonomía" class="nav-link" data-scroll-target="#tabla-18s-taxonomía">Tabla 18S taxonomía</a></li>
+  <li><a href="#secuencias-18s" id="toc-secuencias-18s" class="nav-link" data-scroll-target="#secuencias-18s">Secuencias 18S</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -215,15 +188,27 @@ div.csl-indent {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Citometría de flujo</h1>
-<p class="subtitle lead">Concentración de microorganismos en el agua</p>
+<h1 class="title">Materiales y métodos de secuenciación</h1>
 </div>
 
 
+<div class="quarto-title-meta-author">
+  <div class="quarto-title-meta-heading">Autor/a</div>
+  <div class="quarto-title-meta-heading">Afiliación</div>
+  
+    <div class="quarto-title-meta-contents">
+    <p class="author">Markel Gómez Letona <a href="https://orcid.org/0000-0001-9325-3979" class="quarto-title-author-orcid"> <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAA2ZpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMC1jMDYwIDYxLjEzNDc3NywgMjAxMC8wMi8xMi0xNzozMjowMCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wTU09Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9tbS8iIHhtbG5zOnN0UmVmPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvc1R5cGUvUmVzb3VyY2VSZWYjIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtcE1NOk9yaWdpbmFsRG9jdW1lbnRJRD0ieG1wLmRpZDo1N0NEMjA4MDI1MjA2ODExOTk0QzkzNTEzRjZEQTg1NyIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDozM0NDOEJGNEZGNTcxMUUxODdBOEVCODg2RjdCQ0QwOSIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDozM0NDOEJGM0ZGNTcxMUUxODdBOEVCODg2RjdCQ0QwOSIgeG1wOkNyZWF0b3JUb29sPSJBZG9iZSBQaG90b3Nob3AgQ1M1IE1hY2ludG9zaCI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOkZDN0YxMTc0MDcyMDY4MTE5NUZFRDc5MUM2MUUwNEREIiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOjU3Q0QyMDgwMjUyMDY4MTE5OTRDOTM1MTNGNkRBODU3Ii8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+84NovQAAAR1JREFUeNpiZEADy85ZJgCpeCB2QJM6AMQLo4yOL0AWZETSqACk1gOxAQN+cAGIA4EGPQBxmJA0nwdpjjQ8xqArmczw5tMHXAaALDgP1QMxAGqzAAPxQACqh4ER6uf5MBlkm0X4EGayMfMw/Pr7Bd2gRBZogMFBrv01hisv5jLsv9nLAPIOMnjy8RDDyYctyAbFM2EJbRQw+aAWw/LzVgx7b+cwCHKqMhjJFCBLOzAR6+lXX84xnHjYyqAo5IUizkRCwIENQQckGSDGY4TVgAPEaraQr2a4/24bSuoExcJCfAEJihXkWDj3ZAKy9EJGaEo8T0QSxkjSwORsCAuDQCD+QILmD1A9kECEZgxDaEZhICIzGcIyEyOl2RkgwAAhkmC+eAm0TAAAAABJRU5ErkJggg=="></a></p>
+  </div>
+  <div class="quarto-title-meta-contents">
+        <p class="affiliation">
+            Instituto de Investigacións Mariñas (IIM-CSIC)
+          </p>
+      </div>
+  </div>
 
 <div class="quarto-title-meta">
 
-    
+      
   
     
   </div>
@@ -233,137 +218,124 @@ div.csl-indent {
 </header>
 
 
-<section id="vista-general" class="level2">
-<h2 class="anchored" data-anchor-id="vista-general">Vista general</h2>
-<p>Monitoreamos 6 grupos de microorgansismos en base a 3 criterios funcionales:</p>
-<ul>
-<li><strong><em>Synechococcus</em></strong> y <strong><em>Prochlorococcus</em></strong>: son dos géneros de cianobacterias (anteriormente conocidas como algas verde-azuladas) identificadas en función de su pigmentación.</li>
-<li><strong>Nanoeucariotas</strong> y <strong>picoeucariotas</strong>: organismos diversos del dominio eucariota (células con núcleo verdadero) diferenciados en función de su tamaño, siendo <em>nano</em> más ancho que <em>pico</em>.</li>
-<li>Bacterias de <strong>alto ácido nucleico (HNA)</strong> y <strong>bajo ácido nucleico (LNA)</strong>: según el contenido de ácido nucleico en las células. En líneas generales, las bacterias HNA tiene un ritmo metabólico más acelerado que las HNA y son más adaptadas a entornos cambiantes. El ratio <strong>HNA/LNA</strong> se utiliza como indicador de alteraciones en el medio<span class="citation" data-cites="claveau2024"><sup><a href="#ref-claveau2024" role="doc-biblioref">1</a></sup></span>.</li>
-</ul>
-<div class="cell">
-<div class="cell-output-display">
-<div id="fig-distribucion" class="quarto-float quarto-figure quarto-figure-center anchored" width="672">
-<figure class="quarto-float quarto-float-fig figure">
-<div aria-describedby="fig-distribucion-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="citometria_files/figure-html/fig-distribucion-1.png" id="fig-distribucion" class="img-fluid figure-img" width="672">
+<div class="callout callout-style-default callout-caution callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
 </div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig quarto-uncaptioned" id="fig-distribucion-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figura&nbsp;1
-</figcaption>
-</figure>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Precaución</span>Sección cientifico-técnica
 </div>
 </div>
+<div class="callout-body-container callout-body">
+<p>Esta sección contiene especificaciones científico-técnicas para una mejor reproducibilidad de los resultados. Puedes saltarte esta sección si no estás familiarizada con las metodologías de secuenciación de material genético.</p>
 </div>
-<p>Observamos que la mayor variabilidad existe en función del contenido de ácido nucleico (<a href="#fig-distribucion" class="quarto-xref">Figura&nbsp;1</a>), seguido del grupo de <em>Prochlorococcus</em>. En las visualizaciones posteriores separaremos HNA y LNA del resto para una mejor resolución de las observaciones.</p>
+</div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Nota
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Traducción realizada con la versión gratuita del traductor <a href="https://deepl.com">DeepL.com</a></p>
+</div>
+</div>
+<section id="extracción" class="level2">
+<h2 class="anchored" data-anchor-id="extracción">Extracción</h2>
+<p>La extracción de ADN se llevó a cabo siguiendo el protocolo de fenol-cloroformo. Se añadió 1 ml de tampón de lisis (50 ml de Tris-HCl 1 M, pH 8,3; 80 ml de EDTA 0,5 M, pH 8,0; 265 g de <a href="https://www.sigmaaldrich.com/catalog/product/sigma/84097?lang=es&amp;region=ES">sacarosa</a> (Sigma-Aldrich); 870 ml de agua ultrapura) a los tubos de microcentrífuga que contenían los filtros de muestra, junto con 25 µl de <a href="https://www.sigmaaldrich.com/catalog/product/sigma/l6876?lang=es&amp;region=ES">lisozima</a> recién preparada (1 mg de lisozima en 25 µl de tampón de lisis, concentración final 1 mg/ml; Sigma-Aldrich). La mezcla se incubó a 37 °C durante 45 minutos con agitación suave. Posteriormente se añadieron 25 µl de <a href="https://www.sigmaaldrich.com/catalog/product/mm/124568?lang=es&amp;region=ES">proteinasa K</a> recién preparada (0,2 mg de proteinasa K en 25 µl de tampón de lisis, concentración final: 0,2 mg/ml; Sigma-Aldrich) y 100 µl de <a href="http://www.thermofisher.com/order/catalog/product/AM9820">SDS</a> al 10 % (Thermo Fisher), incubando la mezcla a 55 °C durante 1 hora con agitación suave. A continuación, se añadieron 0,75 ml de mezcla de <a href="https://www.thermofisher.com/order/catalog/product/AM9730#/AM9730">fenol:CHCl₃:IAA</a> (25:24:1; Thermo Fisher), se agitó ligeramente con vórtex y se centrifugó durante 10 minutos a 14 000 rpm. La fase acuosa resultante se transfirió a un nuevo tubo y se repitió el paso: se añadieron 0,75 ml de mezcla de <a href="https://www.sigmaaldrich.com/catalog/product/sigma/c0549?lang=es&amp;region=ES">CHCl₃:IAA</a>, se agitó ligeramente con el vórtex y se centrifugó durante 10 minutos a 14.000 rpm. El tercer y último paso de la extracción se llevó a cabo añadiendo 0,75 ml de mezcla de CHCl₃:IAA (24:1, Sigma-Aldrich), agitando ligeramente con vórtex y centrifugando durante 10 minutos a 14.000 rpm. La fase acuosa resultante se transfirió a un nuevo tubo para proceder a la precipitación del ADN. La precipitación del ADN se realizó siguiendo a Green y Sambrook<span class="citation" data-cites="green2017"><sup><a href="#ref-green2017" role="doc-biblioref">1</a></sup></span>, incluyendo glicógeno según Zou et al.<span class="citation" data-cites="zou2021"><sup><a href="#ref-zou2021" role="doc-biblioref">2</a></sup></span>. Se añadieron 0,1 volúmenes de <a href="https://www.thermofisher.com/order/catalog/product/AM9740#/AM9740">acetato de sodio</a> (3M, pH 5,5; Thermo Fisher), 0,02 volúmenes de <a href="https://www.thermofisher.com/order/catalog/product/AM9510?SID=srch-srp-AM9510#/AM9510?SID=srch-srp-AM9510">glicógeno</a> (5 mg/mL; Thermo Fisher) y 0,65 volúmenes de <a href="https://www.sigmaaldrich.com/catalog/product/sigma/i9516?lang=es&amp;region=ES">isopropanol</a> (Sigma-Aldrich), y se centrifugó durante 40 minutos a 4 °C y 14.000 rpm. El líquido sobrenadante resultante se retiró con cuidado. El sedimento de ADN se lavó con 650 µl de etanol helado (70 %) y se centrifugó durante 30 minutos a 4 °C y 14.000 rpm. El sobrenadante resultante se retiró de nuevo con cuidado y se dejó el tubo abierto para permitir que el sedimento de ADN se secara. Por último, los sedimentos se disolvieron en 50 µl de TRIS (10 mM).</p>
 </section>
-<section id="efecto-de-la-marea" class="level2">
-<h2 class="anchored" data-anchor-id="efecto-de-la-marea">Efecto de la marea</h2>
-<div class="cell">
-<div class="cell-output-display">
-<div id="fig-marea-bajos" class="quarto-float quarto-figure quarto-figure-center anchored" width="672">
-<figure class="quarto-float quarto-float-fig figure">
-<div aria-describedby="fig-marea-bajos-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="citometria_files/figure-html/fig-marea-bajos-1.png" id="fig-marea-bajos" class="img-fluid figure-img" width="672">
-</div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig quarto-uncaptioned" id="fig-marea-bajos-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figura&nbsp;2
-</figcaption>
-</figure>
-</div>
-</div>
-</div>
-<div class="cell">
-<div class="cell-output-display">
-<div id="fig-marea-altos" class="quarto-float quarto-figure quarto-figure-center anchored" width="672">
-<figure class="quarto-float quarto-float-fig figure">
-<div aria-describedby="fig-marea-altos-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="citometria_files/figure-html/fig-marea-altos-1.png" id="fig-marea-altos" class="img-fluid figure-img" width="672">
-</div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig quarto-uncaptioned" id="fig-marea-altos-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figura&nbsp;3
-</figcaption>
-</figure>
-</div>
-</div>
-</div>
-<div class="cell">
-<div class="cell-output-display">
-<div id="fig-marea-ratio" class="quarto-float quarto-figure quarto-figure-center anchored" width="672">
-<figure class="quarto-float quarto-float-fig figure">
-<div aria-describedby="fig-marea-ratio-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="citometria_files/figure-html/fig-marea-ratio-1.png" id="fig-marea-ratio" class="img-fluid figure-img" width="672">
-</div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig quarto-uncaptioned" id="fig-marea-ratio-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figura&nbsp;4
-</figcaption>
-</figure>
-</div>
-</div>
+<section id="secuenciación" class="level2">
+<h2 class="anchored" data-anchor-id="secuenciación">Secuenciación</h2>
+<p>La preparación de la biblioteca y la secuenciación del ADN extraído se llevaron a cabo en AllGenetics &amp; Biology SL (A Coruña, España; allgenetics.eu) en dos ciclos de secuenciación independientes. La región V4-V5 del gen 16S rRNA se amplificó utilizando los cebadores universales 515F-Y (5’ GTGYCAGCMGCCGCGGTAA 3’)<span class="citation" data-cites="parada2016"><sup><a href="#ref-parada2016" role="doc-biblioref">3</a></sup></span> y 926R (5’ CCGYCAATTYMTTTRAGTTT 3’)<span class="citation" data-cites="quince2011"><sup><a href="#ref-quince2011" role="doc-biblioref">4</a></sup></span> y se secuenció en una fracción de una célula de flujo Illumina NovaSeq PE250 (lecturas de extremos emparejados, 2 × 250 pb).</p>
+<p>Descripción detallada proporcionada por AllGenetics:</p>
+<div class="blockquote">
+<p>Cuantificamos la concentración de ADN en cada extracto utilizando el ensayo Qubit High Sensitivity dsDNA Assay (Thermo Fisher Scientific).</p>
+<p>Las identificaciones de las muestras y los valores de cuantificación del ADN se recogen en la Tabla 1.</p>
+<p>Teniendo en cuenta esos valores de cuantificación, se seleccionaron un total de 476 muestras para los análisis de metabarcoding de ADN (todas ellas con el marcador 16S y 35 de ellas con el marcador 18S; véase la Tabla 1).</p>
+<p>Preparación de la biblioteca de metabarcoding de ADN y secuenciación Se construyó un tipo de biblioteca diferente para cada taxón de interés con los siguientes pares de cebadores y condiciones:</p>
+<p>Para la preparación de la biblioteca bacteriana, se amplificó un fragmento de la región 16S (V4-V5) de unos 415 pb utilizando los siguientes cebadores:</p>
+<p>Directo - 515F (5’ GTGYCAGCMGCCGCGGTAA 3’) (Parada et al., 2016)<span class="citation" data-cites="parada2016"><sup><a href="#ref-parada2016" role="doc-biblioref">3</a></sup></span></p>
+<p>Inverso - 926R (5’ CCGYCAATTYMTTTRAGTTT 3’) (Quince et al., 2011)<span class="citation" data-cites="quince2011"><sup><a href="#ref-quince2011" role="doc-biblioref">4</a></sup></span></p>
+<p>Estos cebadores también incluían las secuencias de los cebadores de secuenciación de Illumina unidas a sus extremos 5’.</p>
+<p>En la primera etapa de amplificación, se llevaron a cabo las PCR (números 5 a 10, véase la Tabla 1) en un volumen final de 12,5 μL, que contenía 4,5 μL de ADN molde, 0,5 μM de los cebadores, 6,25 μL de Supreme NZYTaq 2x Green Master Mix (NZYTech) y agua ultrapura hasta completar 12,5 μL. La mezcla de reacción se incubó de la siguiente manera: una etapa inicial de desnaturalización a 95 ºC durante 5 min, seguida de 25 ciclos de 95 ºC durante 30 s, 43 ºC durante 45 s, 72 ºC durante 45 s, y una etapa final de extensión a 72 ºC durante 7 min.</p>
+<p>Algunas muestras no produjeron una sola banda nítida en el gel de electroforesis de agarosa, por lo que se repitieron diluyendo el ADN (1:10) (PCR número 19, véase la Tabla 1); o añadiendo 3,5 μL de ADN y CES 1X (Ralser et al., 2006) (PCR número 20, véase la Tabla 1).</p>
+<p>Para la preparación de la biblioteca de eucariotas, se amplificó un fragmento de la región 18S de unos 415 pb utilizando los siguientes cebadores:</p>
+<p>Directo - TAReuk454FWD1 (5’ CCAGCASCYGCGGTAATTCC 3’) (Stoeck et al., 2010)</p>
+<p>Inverso - V4RB (5’ TAIACYTCIGGRTGICCRAARAAYCA 3’) (Balzano et al., 2015)</p>
+<p>Estos cebadores también incluían las secuencias de cebadores de secuenciación Illumina unidas a sus extremos 5’.</p>
+<p>En la primera etapa de amplificación, las PCR se llevaron a cabo en un volumen final de 12,5 μL, que contenía 1,25 μL de ADN molde, 0,5 μM de los cebadores, 3,13 μL de Supreme NZYTaq 2x Green Master Mix (NZYTech) y agua ultrapura hasta completar los 12,5 μL. La mezcla de reacción se incubó de la siguiente manera: una etapa inicial de desnaturalización a 95 ºC durante 5 min, seguida de 35 ciclos de 95 ºC durante 30 s, 42 ºC durante 45 s, 72 ºC durante 45 s, y una etapa final de extensión a 72 ºC durante 7 min.</p>
+<p>Los marcadores de oligonucleótidos necesarios para multiplexar diferentes bibliotecas en el mismo pool de secuenciación se incorporaron en una segunda etapa de amplificación en condiciones idénticas, pero con solo 5 ciclos y una temperatura de hibridación de 60 ºC. Para obtener una visión general esquemática del proceso de preparación de bibliotecas, véase la figura 1 en Vierna et al.&nbsp;(2017).</p>
+<p>Se incluyó un control negativo que no contenía ADN (BPCR) en cada ronda de PCR para comprobar si había contaminación durante la preparación de las bibliotecas.</p>
+<p>Verificamos el tamaño de las bibliotecas sometiéndolas a geles de agarosa al 2 % teñidos con GreenSafe (NZYTech) y fotografiándolas bajo luz UV. A continuación, purificamos las bibliotecas utilizando las perlas magnéticas Mag-Bind RXNPure Plus (Omega Bio-tek), siguiendo las instrucciones del fabricante.</p>
+<p>Las bibliotecas terminadas se agruparon en cantidades equimolares según los resultados de una cuantificación con el ensayo Qubit dsDNA HS (Thermo Fisher Scientific).</p>
+<p>La mezcla se secuenció en una fracción de una célula de flujo NovaSeq PE250 (Illumina), con el objetivo de obtener un rendimiento total de 20 gigabases (18 gigabases para 16S y 2 gigabases para 18S).</p>
+<section id="control-de-calidad-de-los-datos-de-secuenciación" class="level4">
+<h4 class="anchored" data-anchor-id="control-de-calidad-de-los-datos-de-secuenciación">Control de calidad de los datos de secuenciación</h4>
+<p>Los datos brutos de Illumina de extremos emparejados para cada biblioteca consisten en lecturas directas (R1) e inversas (R2) almacenadas en archivos separados, que también incluyen las puntuaciones de calidad de las lecturas. Eliminamos cualquier rastro potencial de dímeros de adaptador utilizando Cutadapt v3.5<span class="citation" data-cites="martin2011"><sup><a href="#ref-martin2011" role="doc-biblioref">5</a></sup></span>.</p>
+<p>A continuación, evaluamos la calidad de los archivos FASTQ con el software FastQC (Andrews, 2010)<span class="citation" data-cites="andrews2010"><sup><a href="#ref-andrews2010" role="doc-biblioref">6</a></sup></span> y resumimos los resultados utilizando MultiQC (Ewels, 2016)<span class="citation" data-cites="ewels2016"><sup><a href="#ref-ewels2016" role="doc-biblioref">7</a></sup></span>.</p>
+</section>
 </div>
 </section>
-<section id="variación-geográfica" class="level2">
-<h2 class="anchored" data-anchor-id="variación-geográfica">Variación geográfica</h2>
-<div class="cell">
-<div class="cell-output-display">
-<div id="fig-lugar" class="quarto-float quarto-figure quarto-figure-center anchored" width="672">
-<figure class="quarto-float quarto-float-fig figure">
-<div aria-describedby="fig-lugar-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="citometria_files/figure-html/fig-lugar-1.png" id="fig-lugar" class="img-fluid figure-img" width="672">
-</div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig quarto-uncaptioned" id="fig-lugar-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figura&nbsp;5
-</figcaption>
-</figure>
-</div>
-</div>
-</div>
+<section id="procesamiento" class="level2">
+<h2 class="anchored" data-anchor-id="procesamiento">Procesamiento</h2>
+<p>Los resultados de la secuenciación se procesaron en la plataforma de bioinformática marina (Marbits, marbits.icm.csic.es) del Institut de Ciències del Mar (ICM-CSIC, Barcelona). Se utilizó Cutadapt<span class="citation" data-cites="martin2011"><sup><a href="#ref-martin2011" role="doc-biblioref">5</a></sup></span> para eliminar los cebadores.</p>
 </section>
-<section id="variación-temporal" class="level2">
-<h2 class="anchored" data-anchor-id="variación-temporal">Variación temporal</h2>
-<div class="cell">
-<div class="cell-output-display">
-<div id="fig-mes" class="quarto-float quarto-figure quarto-figure-center anchored" width="672">
-<figure class="quarto-float quarto-float-fig figure">
-<div aria-describedby="fig-mes-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="citometria_files/figure-html/fig-mes-1.png" id="fig-mes" class="img-fluid figure-img" width="672">
-</div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig quarto-uncaptioned" id="fig-mes-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figura&nbsp;6
-</figcaption>
-</figure>
-</div>
-</div>
-</div>
+<section id="archivos" class="level2">
+<h2 class="anchored" data-anchor-id="archivos">Archivos</h2>
+<section id="tabla-16s" class="level3">
+<h3 class="anchored" data-anchor-id="tabla-16s">Tabla 16S</h3>
+<p><code>canteras_microbiome\dada2_canteras_16s\data\dada2\04_decontam-and-filter\canteras\canteras_seqtab_decontam_filter.rds</code></p>
 </section>
-<section id="inferencia-estadística" class="level2">
-<h2 class="anchored" data-anchor-id="inferencia-estadística">Inferencia estadística</h2>
-<p>El análisis de la varianza (ANOVA) es un método de inferencia estadística que nos permite señalar como de importante son las diferencias entre las distribuciones de un parámetro para cada grupo<span class="citation" data-cites="mcdonald2014"><sup><a href="#ref-mcdonald2014" role="doc-biblioref">2</a></sup></span>. En la <a href="#fig-f-ratio-marea" class="quarto-xref">Figura&nbsp;7</a> se especula como de inusuales sería nuestros resultados de HNA/LNA según la fase de la marea si esta no tuvieran ningún efecto sobre HNA/LNA. Habría menos de un 2% de probabilidades de obtener los resultados registrados. Por lo tanto, es probable que existan factores más allá del azar que afecten al ratio HNA/LNA con la marea. Seria interesante investigar en mayor profundidad estos posibles efectos, ya que el tamaño del monitoreo es pequeño y desigual entre fases de la marea.</p>
-<div class="cell">
-<div class="cell-output-display">
-<div id="fig-f-ratio-marea" class="quarto-float quarto-figure quarto-figure-center anchored" width="672">
-<figure class="quarto-float quarto-float-fig figure">
-<div aria-describedby="fig-f-ratio-marea-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="citometria_files/figure-html/fig-f-ratio-marea-1.png" id="fig-f-ratio-marea" class="img-fluid figure-img" width="672">
-</div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig quarto-uncaptioned" id="fig-f-ratio-marea-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figura&nbsp;7
-</figcaption>
-</figure>
-</div>
-</div>
-</div>
+<section id="tabla-16s-taxonomía" class="level3">
+<h3 class="anchored" data-anchor-id="tabla-16s-taxonomía">Tabla 16S taxonomía</h3>
+<p><code>canteras_microbiome\dada2_canteras_16s\data\dada2\04_decontam-and-filter\canteras\canteras_tax_assignation_decontam_filter.rds</code></p>
+</section>
+<section id="secuencias-16s" class="level3">
+<h3 class="anchored" data-anchor-id="secuencias-16s">Secuencias 16S</h3>
+<p><code>canteras_microbiome\dada2_canteras_16s\data\dada2\04_decontam-and-filter\canteras\canteras_sequences_decontam_filter.rds</code></p>
+</section>
+<section id="tabla-18s" class="level3">
+<h3 class="anchored" data-anchor-id="tabla-18s">Tabla 18S</h3>
+<p><code>canteras_microbiome\dada2_canteras_18s\data\dada2\04_decontam-and-filter\canteras\canteras_seqtab_decontam_filter.rds</code></p>
+</section>
+<section id="tabla-18s-taxonomía" class="level3">
+<h3 class="anchored" data-anchor-id="tabla-18s-taxonomía">Tabla 18S taxonomía</h3>
+<p><code>canteras_microbiome\dada2_canteras_18s\data\dada2\04_decontam-and-filter\canteras\canteras_tax_assignation_decontam_filter.rds</code></p>
+</section>
+<section id="secuencias-18s" class="level3">
+<h3 class="anchored" data-anchor-id="secuencias-18s">Secuencias 18S</h3>
+<p><code>canteras_microbiome\dada2_canteras_18s\data\dada2\04_decontam-and-filter\canteras\canteras_sequences_decontam_filter.rds</code></p>
 
 
 
+</section>
 </section>
 
 <div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">Referencias</h2><div id="refs" class="references csl-bib-body" data-entry-spacing="0" data-line-spacing="2" role="list">
-<div id="ref-claveau2024" class="csl-entry" role="listitem">
-<div class="csl-left-margin">1. </div><div class="csl-right-inline">Claveau, L., Hudson, N., Jeffrey, P., &amp; Hassard, F. (2024). Assessing microbial growth in drinking water using nucleic acid content and flow cytometry fingerprinting. <em>iScience</em>, <em>27</em>(12), 111511. <a href="https://doi.org/10.1016/j.isci.2024.111511">https://doi.org/10.1016/j.isci.2024.111511</a></div>
+<div id="ref-green2017" class="csl-entry" role="listitem">
+<div class="csl-left-margin">1. </div><div class="csl-right-inline">Green, M. R., &amp; Sambrook, J. (2017). Precipitation of <span>DNA</span> with <span>Isopropanol</span>. <em>Cold Spring Harbor Protocols</em>, <em>2017</em>(8), pdb.prot093385. <a href="https://doi.org/10.1101/pdb.prot093385">https://doi.org/10.1101/pdb.prot093385</a></div>
 </div>
-<div id="ref-mcdonald2014" class="csl-entry" role="listitem">
-<div class="csl-left-margin">2. </div><div class="csl-right-inline">McDonald, J. H. (2014). <em>One-way anova - <span>Handbook</span> of <span>Biological</span> <span>Statistics</span></em>. <a href="https://www.biostathandbook.com/onewayanova.html">https://www.biostathandbook.com/onewayanova.html</a></div>
+<div id="ref-zou2021" class="csl-entry" role="listitem">
+<div class="csl-left-margin">2. </div><div class="csl-right-inline">Zou, Z., Guo, L., Ahmadi, P., Hartjen, P., Gosau, M., Smeets, R., &amp; Kluwe, L. (2021). Two simple and inexpensive methods for preparing <span>DNA</span> suitable for digital <span>PCR</span> from a small number of cells in 96‐well plates. <em>Journal of Clinical Laboratory Analysis</em>, <em>35</em>(1), e23513. <a href="https://doi.org/10.1002/jcla.23513">https://doi.org/10.1002/jcla.23513</a></div>
+</div>
+<div id="ref-parada2016" class="csl-entry" role="listitem">
+<div class="csl-left-margin">3. </div><div class="csl-right-inline">Parada, A. E., Needham, D. M., &amp; Fuhrman, J. A. (2016). Every base matters: assessing small subunit <span>&lt;</span>span style="font-variant:small-caps;"<span>&gt;</span><span>rRNA</span><span>&lt;</span>/span<span>&gt;</span> primers for marine microbiomes with mock communities, time series and global field samples. <em>Environmental Microbiology</em>, <em>18</em>(5), 1403-1414. <a href="https://doi.org/10.1111/1462-2920.13023">https://doi.org/10.1111/1462-2920.13023</a></div>
+</div>
+<div id="ref-quince2011" class="csl-entry" role="listitem">
+<div class="csl-left-margin">4. </div><div class="csl-right-inline">Quince, C., Lanzén, A., Davenport, R., &amp; Turnbaugh, P. J. (2011). Removing noise from pyrosequencing amplicons. <em>BMC Bioinforma</em>, <em>12</em>, 1-18.</div>
+</div>
+<div id="ref-martin2011" class="csl-entry" role="listitem">
+<div class="csl-left-margin">5. </div><div class="csl-right-inline">Martin, M. (2011). Cutadapt removes adapter sequences from high-throughput sequencing reads. <em>EMBnet.journal</em>, <em>17</em>(1), 10-12. <a href="https://doi.org/10.14806/ej.17.1.200">https://doi.org/10.14806/ej.17.1.200</a></div>
+</div>
+<div id="ref-andrews2010" class="csl-entry" role="listitem">
+<div class="csl-left-margin">6. </div><div class="csl-right-inline">Andrews, S. (2010). <em>Babraham <span>Bioinformatics</span> - <span>FastQC</span> <span>A</span> <span>Quality</span> <span>Control</span> tool for <span>High</span> <span>Throughput</span> <span>Sequence</span> <span>Data</span></em>. <a href="https://www.bioinformatics.babraham.ac.uk/projects/fastqc/">https://www.bioinformatics.babraham.ac.uk/projects/fastqc/</a></div>
+</div>
+<div id="ref-ewels2016" class="csl-entry" role="listitem">
+<div class="csl-left-margin">7. </div><div class="csl-right-inline">Ewels, P., Magnusson, M., Lundin, S., &amp; Käller, M. (2016). <span>MultiQC</span>: summarize analysis results for multiple tools and samples in a single report. <em>Bioinformatics</em>, <em>32</em>(19), 3047-3048. <a href="https://doi.org/10.1093/bioinformatics/btw354">https://doi.org/10.1093/bioinformatics/btw354</a></div>
 </div>
 </div></section></div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
