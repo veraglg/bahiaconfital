@@ -10,18 +10,160 @@ subtitle: Identificación mediante ARNr 16S y 18S
 library(tidyverse)
 library(Biostrings)
 
-codigos <- readxl::read_xlsx("data/codigos_muestras_canteras_MF 9.4.26.xlsx")
+# ---- Metadatos ----
 
-tabla_16s <- read_rds("data/canteras_microbiome/dada2_canteras_16s/data/dada2/04_decontam-and-filter/canteras/canteras_seqtab_decontam_filter.rds")
+# Lee los metadatos de las muestras sin columnas vacías o redundantes
+metadatos <- readxl::read_xlsx(
+  "data/codigos_muestras_canteras_MF 9.4.26.xlsx",
+  col_types = c(
+    "text", "numeric", "numeric", "numeric", "text",
+    "skip", "skip", "skip","skip", "text", "numeric",
+    "numeric", "numeric", "skip", "skip"
+  )
+)
+
+# Traduce el nombre de las columnas
+metadatos <- metadatos |> rename(
+  Sample = "Muestra", Location = "Lugar", Tide = "Marea"
+)
+
+# Donde exista, haz constar el año (AAAA) correcto
+metadatos <- metadatos |> 
+  mutate(
+    AAAA = if_else(!is.na(...8), ...8, Year),
+    .keep = "unused",
+    .after = 1
+  )
+
+# Donde exista, haz constar el mes correcto
+metadatos <- metadatos |> 
+  mutate(
+    Mes = if_else(!is.na(Month...9), Month...9, Month...3),
+    .keep = "unused",
+    .after = AAAA
+  )
+
+# Donde exista, haz constar el día correcto
+metadatos <- metadatos |> 
+  mutate(
+    Dia = if_else(!is.na(`DAY  CORRECTO`), `DAY  CORRECTO`, Day),
+    .keep = "unused",
+    .after = Mes
+  )
+
+# Crea la variable fecha
+metadatos <- metadatos |> mutate(
+  Fecha = make_date(AAAA, Mes, Dia), .before = AAAA
+)
+
+# Renombra los lugares de muestreo
+metadatos <- metadatos |> mutate(
+  Lugar = fct_collapse(Lugar,
+    "Confital Norte" = "Confital_2",
+    "Confital" = c("Confital", "Confital_1"),
+    "Hotel Cristina" = "Hotel_Cristina",
+    "Playa Chica" = "Playa_Chica",
+    "Peña la Vieja" = "Pena_la_Vieja",
+    "Bco. Guiniguada" = c("punto-X-UNO", "punto-X-DOS", "punto-X-TRES")
+  )
+)
+
+# ---- Datos 16S ----
+
+# Lee los datos de la matriz 16S y conviértela en tibble
+datos_16s <- read_rds(
+  "data/canteras_microbiome/dada2_canteras_16s/data/dada2/04_decontam-and-filter/canteras/canteras_seqtab_decontam_filter.rds"
+) |> 
+  as_tibble(rownames = "Muestra")
+
+# Elimina la marca de 16S del nombre de las muestras
+datos_16s <- datos_16s |> mutate(Muestra = str_remove(Muestra, "-16S"))
+
+# Incluye los metadatos en la datos 16S
+datos_16s <- right_join(metadatos, datos_16s)
 
 tabla_16s_taxonomia <- read_rds("data/canteras_microbiome/dada2_canteras_16s/data/dada2/04_decontam-and-filter/canteras/canteras_tax_assignation_decontam_filter.rds")
 
 secuencias_16s <- read_rds("data/canteras_microbiome/dada2_canteras_16s/data/dada2/04_decontam-and-filter/canteras/canteras_sequences_decontam_filter.rds")
 
-tabla_18s <- read_rds("data/canteras_microbiome/dada2_canteras_18s/data/dada2/04_decontam-and-filter/canteras/canteras_seqtab_decontam_filter.rds")
+# ---- Datos 18S ----
+
+# Lee la matriz 18S y conviértela en tibble
+datos_18s <- read_rds("data/canteras_microbiome/dada2_canteras_18s/data/dada2/04_decontam-and-filter/canteras/canteras_seqtab_decontam_filter.rds") |> 
+  as_tibble(rownames = "Muestra")
+
+# Elimina la marca de 18S del nombre de las muestras
+datos_18s <- datos_18s |> mutate(Muestra = str_remove(Muestra, "-18S"))
+
+# Incluye los metadatos en la datos 18S
+datos_18s <- right_join(metadatos, datos_18s)
 
 tabla_18s_taxonomia <- read_rds("data/canteras_microbiome/dada2_canteras_18s/data/dada2/04_decontam-and-filter/canteras/canteras_tax_assignation_decontam_filter.rds")
 
 secuencias_18s <- read_rds("data/canteras_microbiome/dada2_canteras_18s/data/dada2/04_decontam-and-filter/canteras/canteras_sequences_decontam_filter.rds")
+```
+
+```{r}
+#| label: transform
+
+# ---- 16S ----
+
+# Suma las lecturas de cada muestra
+datos_16s <- datos_16s |> mutate(Suma = rowSums(across(starts_with("ASV"))))
+
+# Filtra los datos de 2025
+datos_16s_2025 <- datos_16s |> filter(AAAA == 2025)
+
+# Coloca un ASV por fila
+datos_tax_16s <- datos_16s |> pivot_longer(
+    starts_with("ASV"),
+    names_to = "ASV",
+    names_prefix = "ASV.",
+    values_to = "Lecturas"
+)
+
+# ---- 18S -----
+
+# Suma las lecturas de cada muestra
+datos_18s <- datos_18s |> mutate(Suma = rowSums(across(starts_with("ASV"))))
+
+# Coloca un ASV por fila
+datos_tax_18s <- datos_18s |> pivot_longer(
+    starts_with("ASV"),
+    names_to = "ASV",
+    names_prefix = "ASV.",
+    values_to = "Lecturas"
+)
+
+# Filtra los datos de 2025
+datos_18s_2025 <- datos_18s |> filter(AAAA == 2025)
+```
+
+```{r}
+#| label: visualize
+
+# Representa la suma de lecturas de cada muestra 16S 2025
+fig_suma_16s_2025 <- datos_16s_2025 |> 
+  ggplot(aes(Suma, Muestra)) +
+  geom_col()
+
+# Representa la suma de lecturas de cada muestra 18S 2025
+fig_suma_18s_2025 <- datos_18s_2025 |> 
+  ggplot(aes(Suma, Muestra)) +
+  geom_col()
+```
+
+## 16S Microbioma procariota
+
+```{r}
+#| label: fig-suma-16s-2025
+fig_suma_16s_2025
+```
+
+## 18S Microbioma eucariota
+
+```{r}
+#| label: fig-suma-18s-2025
+fig_suma_18s_2025
 ```
 

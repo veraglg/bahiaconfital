@@ -154,5 +154,35 @@
     "title": "Materiales y métodos de secuenciación",
     "section": "Archivos",
     "text": "Archivos\n\nTabla 16S\ncanteras_microbiome/dada2_canteras_16s/data/dada2/04_decontam-and-filter/canteras/canteras_seqtab_decontam_filter.rds\n\n\nTabla 16S taxonomía\ncanteras_microbiome/dada2_canteras_16s/data/dada2/04_decontam-and-filter/canteras/canteras_tax_assignation_decontam_filter.rds\n\n\nSecuencias 16S\ncanteras_microbiome/dada2_canteras_16s/data/dada2/04_decontam-and-filter/canteras/canteras_sequences_decontam_filter.rds\n\n\nTabla 18S\ncanteras_microbiome/dada2_canteras_18s/data/dada2/04_decontam-and-filter/canteras/canteras_seqtab_decontam_filter.rds\n\n\nTabla 18S taxonomía\ncanteras_microbiome/dada2_canteras_18s/data/dada2/04_decontam-and-filter/canteras/canteras_tax_assignation_decontam_filter.rds\n\n\nSecuencias 18S\ncanteras_microbiome/dada2_canteras_18s/data/dada2/04_decontam-and-filter/canteras/canteras_sequences_decontam_filter.rds"
+  },
+  {
+    "objectID": "secuenciacion.html",
+    "href": "secuenciacion.html",
+    "title": "Secuenciación del microbioma",
+    "section": "",
+    "text": "Figura 1",
+    "crumbs": [
+      "Secuenciación del microbioma"
+    ]
+  },
+  {
+    "objectID": "secuenciacion.html#s-microbioma-procariota",
+    "href": "secuenciacion.html#s-microbioma-procariota",
+    "title": "Secuenciación del microbioma",
+    "section": "",
+    "text": "Figura 1",
+    "crumbs": [
+      "Secuenciación del microbioma"
+    ]
+  },
+  {
+    "objectID": "secuenciacion.html#s-microbioma-eucariota",
+    "href": "secuenciacion.html#s-microbioma-eucariota",
+    "title": "Secuenciación del microbioma",
+    "section": "18S Microbioma eucariota",
+    "text": "18S Microbioma eucariota\n\n\n\n\n\n\n\n\nFigura 2",
+    "crumbs": [
+      "Secuenciación del microbioma"
+    ]
   }
 ]
