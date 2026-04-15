@@ -145,22 +145,30 @@ datos_18s_2025 <- datos_18s |> filter(AAAA == 2025)
 # Representa la suma de lecturas de cada muestra 16S 2025
 fig_suma_16s_2025 <- datos_16s_2025 |> 
   ggplot(aes(Suma, Muestra)) +
-  geom_col()
+  geom_col() +
+  labs(
+    title = "Secuencición procariota 16S",
+    subtitle = "Suma tota de lecturas por muestra heterogénea",
+    caption = "Año 2025"
+  )
 
 # Representa la suma de lecturas de cada muestra 18S 2025
 fig_suma_18s_2025 <- datos_18s_2025 |> 
   ggplot(aes(Suma, Muestra)) +
-  geom_col()
+  geom_col() +
+  labs(
+    title = "Secuencición eucariota 28S",
+    subtitle = "Suma tota de lecturas por muestra heterogénea",
+    caption = "Año 2025"
+  )
 ```
 
-## 16S Microbioma procariota
+## Vista general
 
 ```{r}
 #| label: fig-suma-16s-2025
 fig_suma_16s_2025
 ```
-
-## 18S Microbioma eucariota
 
 ```{r}
 #| label: fig-suma-18s-2025
