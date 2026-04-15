@@ -76,17 +76,35 @@ datos_ratio <- datos_altos |> pivot_wider(
 
 library(infer)
 
+set.seed(43)
+
+# ---- ANOVA -----
+
+# Calcula el estadístico F para los datos reales
 f_real <- datos_ratio |>
   specify(response = Ratio, explanatory = Marea) |> 
   calculate(stat = "F")
 
-set.seed(43)
-
+# Calcula 2000 estadísticos F para datos simulados bajo hipótesis nula
 fs_hipoteticas <- datos_ratio |> 
   specify(response = Ratio, explanatory = Marea) |> 
   hypothesise(null = "independence") |> 
   generate(reps = 2000, type = "permute") |> 
   calculate(stat = "F")
+
+# --- T-tests ----
+
+# Calcula el estadístico t para los datos reales
+t_real <- datos_ratio |> 
+  specify(response = Ratio, explanatory = Lugar) |> 
+  calculate(stat = "diff in means", order = c("Confital", "punto X"))
+
+# Calcula 2000 estadísticos t para datos simulados bajo hipótesis nula
+ts_hipoteticas <- datos_ratio |> 
+  specify(Ratio ~ Lugar) |> 
+  hypothesize(null = "independence") |> 
+  generate(reps = 2000, type = "permute") |> 
+  calculate(stat = "diff in means", order = c("Confital", "punto X"))
 ```
 
 
@@ -190,6 +208,10 @@ fig_f_ratio_marea <- visualise(fs_hipoteticas) +
     x = "estadístico F",
     y = "simulaciones"
   )
+
+# Estadístico t para la variación HNA/LNA con el lugar
+fig_t_ratio_lugar <- visualize(ts_hipoteticas) +
+  shade_p_value(obs_stat = t_real, direction = "both")
 ```
 
 ## Vista general
@@ -245,5 +267,10 @@ El análisis de la varianza (ANOVA) es un método de inferencia estadística que
 ```{r}
 #| label: fig-f-ratio-marea
 fig_f_ratio_marea
+```
+
+```{r}
+#| label: fig-t-ratio-lugar
+fig_t_ratio_lugar
 ```
 
