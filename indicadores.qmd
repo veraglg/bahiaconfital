@@ -71,7 +71,7 @@ datos_agentes_ufc <- datos_agentes |> pivot_longer(
 
 # Crea una tibble con los indicadores y su valor límite de insuficiencia.
 limites <- tibble(
-  Indicador = c("E.coli", "EEII"), Insuficiente = c(500, 200)
+  Indicador = c("E.coli", "EEII"), Insuficiente = c(500, 185)
 )
 ```
 
@@ -94,9 +94,10 @@ fig_vista_general <- datos_agentes_ufc |> ggplot(aes(
   scale_fill_manual(values = c("#2A788E", "#7AD151")) +
   labs(
     title = "Indicadores fecales verano 2025",
-       subtitle = "Mayor detección de EEII por Náyade.",
-       color = "Límite",
-       x = ""
+    subtitle = "Mayor detección de EEII por Náyade.",
+    color = "Límite",
+    x = "",
+    y = "UFC/100 ml"
   )
 
 # Indicadores fecales según el agente
@@ -107,7 +108,8 @@ fig_agente <- datos_agentes_ufc |> ggplot(aes(Agente, UFC)) +
   scale_fill_manual(values = c("#2A788E", "#7AD151")) +
   labs(
     title = "Indicadores fecales según el agente muestreador",
-    subtitle = "Mayor variabilidad en las muestras de Náyade."
+    subtitle = "Mayor variabilidad en las muestras de Náyade.",
+    y = "UFC/100 ml"
   )
 
 # Indicadores fecales según la marea
@@ -119,7 +121,8 @@ fig_mareas <- datos_ufc |> filter(!is.na(UFC)) |>
   scale_fill_manual(values = c("#DEEBF7", "#9ECAE1", "#4292C6", "#9ECAE1")) +
   labs(
     title = "Indicadores fecales según la marea",
-    subtitle = "Valores similares entre todas las fases mareales."
+    subtitle = "Valores similares entre todas las fases mareales.",
+    y = "UFC/100 ml"
   )
 ```
 
@@ -156,7 +159,7 @@ ttest_ecoli_agente <- t.test(
 
 ## Vista general
 
-Los episodios periódicos de contaminación fecal en la playa de El Confital se monitorearon durante el verano 2025. La bacteria *E.coli* se detectó en todas las muestras dentro de los valores de calidad excelente del agua establecidos por la normativa. La problemática reside en el repunte de EEII en el agua, siendo los meses de julio y septiembre donde se dieron los episodios de calidad insuficiente del agua.
+Los episodios periódicos de contaminación fecal en la playa de El Confital se monitorearon durante el verano 2025. La bacteria *E.coli* se detectó en todas las muestras dentro de los valores de calidad excelente del agua establecidos por la normativa[@boe2007]. La problemática reside en el repunte de EEII en el agua, siendo los meses de julio y septiembre donde se dieron los episodios de calidad insuficiente del agua.
 
 ```{r}
 fig_vista_general
