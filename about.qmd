@@ -8,4 +8,6 @@ Estudio realizado por el **Convenio de colaboración entre el Ayuntamiento de la
 
 Este sitio web a sido creado por **Vera Gómez-Limón Gallardo** ([ORCiD](https://orcid.org/0009-0005-4889-3412)), graduada en Ciencias del Mar por la Universidad de las Palmas de Gran Canaria, en colaboración con el grupo de Oceanografía Biológica del **Instituto de Oceanografía y Cambio Global, (IOCAG, ULPGC)**.
 
-Este trabajo está publicado bajo licencia **Creative Commons BY-NC-SA 4.0**. Para más información visite [Creative Commons](https://creativecommons.org/licenses/by-nc-sa/4.0/). El código fuente es público bajo la misma licencia a través de [Codeberg](https://codeberg.org/veraglg/bahiaconfital).
+La obra está publicada bajo licencia **Creative Commons BY-NC-SA 4.0**. Para más información visite [Creative Commons](https://creativecommons.org/licenses/by-nc-sa/4.0/). El código fuente es público bajo la misma licencia a través de [Codeberg](https://codeberg.org/veraglg/bahiaconfital).
+
+**No se ha usado inteligencia artificial generativa** para la elaboración de este estudio.
