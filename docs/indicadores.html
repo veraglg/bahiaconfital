@@ -233,12 +233,19 @@ div.csl-indent {
 
 <section id="vista-general" class="level2">
 <h2 class="anchored" data-anchor-id="vista-general">Vista general</h2>
-<p>Los episodios periódicos de contaminación fecal en la playa de El Confital se monitorearon durante el verano 2025. La bacteria <em>E.coli</em> se detectó en todas las muestras dentro de los valores de calidad excelente del agua establecidos por la normativa<span class="citation" data-cites="boe2007"><sup><a href="#ref-boe2007" role="doc-biblioref">1</a></sup></span>. La problemática reside en el repunte de EEII en el agua, siendo los meses de julio y septiembre donde se dieron los episodios de calidad insuficiente del agua.</p>
+<p>Los episodios periódicos de contaminación fecal en la playa de El Confital se monitorearon durante el verano 2025. La bacteria <em>E.coli</em> se detectó en todas las muestras dentro de los valores de calidad excelente del agua establecidos por la normativa<span class="citation" data-cites="boe2007"><sup><a href="#ref-boe2007" role="doc-biblioref">1</a></sup></span>.</p>
+<p>El Ministerio de Sanidad (Náyade) y AT Hidrotecnia SL (Hidrotecnia) fueron los dos agentes responsables del monitoreo de indicadores de contaminación fecal. Atendiendo a la distribución de resultados obtenidos (<a href="#fig-general" class="quarto-xref">Figura&nbsp;1</a>), observamos una mayor dispersión según Náyade que respecto de Hidrotecnia. Además, únicamente los valores de Náyade superaron en 2 ocasiones el umbral de calidad de agua insuficiente para EEII.</p>
+<p>La problemática reside en los repuntes de EEII, siendo los meses de julio y septiembre 2025 donde se dieron los episodios de calidad insuficiente del agua.</p>
 <div class="cell">
 <div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="indicadores_files/figure-html/unnamed-chunk-1-1.png" class="img-fluid figure-img" width="672"></p>
+<div id="fig-general" class="quarto-float quarto-figure quarto-figure-center anchored" width="672">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-general-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="indicadores_files/figure-html/fig-general-1.png" id="fig-general" class="img-fluid figure-img" width="672">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig quarto-uncaptioned" id="fig-general-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figura&nbsp;1
+</figcaption>
 </figure>
 </div>
 </div>
@@ -246,100 +253,65 @@ div.csl-indent {
 </section>
 <section id="agente-muestreador" class="level2">
 <h2 class="anchored" data-anchor-id="agente-muestreador">Agente muestreador</h2>
-<p>Atendiendo a la distribución de resultados obtenidos por cada agente responsable del muestreo, el Ministerio de Sanidad (Náyade) y AT Hidrotecnia SL (Hidrotecnia), para cada indicador fecal, las diferencias podrían ser debidas al azar o a metodologías sustancialmente distintas. Al observar la distribución de EEII se observa una mayor dispersión según Náyade respecto de Hidrotecnia. En cuanto <em>E. coli</em>, las mediciones de Hidrotecnia son en general superiores a las de Náyade.</p>
 <div class="cell">
 <div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="indicadores_files/figure-html/unnamed-chunk-2-1.png" class="img-fluid figure-img" width="672"></p>
+<div id="fig-agente" class="quarto-float quarto-figure quarto-figure-center anchored" width="672">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-agente-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="indicadores_files/figure-html/fig-agente-1.png" id="fig-agente" class="img-fluid figure-img" width="672">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig quarto-uncaptioned" id="fig-agente-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figura&nbsp;2
+</figcaption>
 </figure>
 </div>
 </div>
 </div>
-<p>Para estimar estadísticamente si existen diferencias significativas entre los resultados obtenidos por ambos agentes, se utilizará la prueba de la <em>t</em> de Student para los valores emparejados por cada muestra de agua.</p>
+<p>Para estimar estadísticamente si existen diferencias significativas entre los resultados obtenidos por ambos agentes, utilizamos la prueba de la <em>t</em> de <em>Student</em> para los valores emparejados por la misma muestra de agua. En la <a href="#fig-t-eeii-agente" class="quarto-xref">Figura&nbsp;3</a> se observa como la diferencia de EEII entre Náyade e Hidrotecnia no es significativa con los datos disponibles. <strong>Probablemente la mayor detección de Náyade se deba al azar</strong> (<em>p</em> valor &gt; 0,05).</p>
 <div class="cell">
-<div class="cell-output cell-output-stdout">
-<pre><code>
-    Paired t-test
-
-data:  datos_agentes[datos_agentes$Indicador == "E.coli", ]$Nayade and datos_agentes[datos_agentes$Indicador == "E.coli", ]$Hidrotecnia
-t = -8.1349, df = 5, p-value = 0.0004557
-alternative hypothesis: true mean difference is not equal to 0
-95 percent confidence interval:
- -9.869959 -5.130041
-sample estimates:
-mean difference 
-           -7.5 </code></pre>
+<div class="cell-output-display">
+<div id="fig-t-eeii-agente" class="quarto-float quarto-figure quarto-figure-center anchored" width="672">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-t-eeii-agente-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="indicadores_files/figure-html/fig-t-eeii-agente-1.png" id="fig-t-eeii-agente" class="img-fluid figure-img" width="672">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig quarto-uncaptioned" id="fig-t-eeii-agente-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figura&nbsp;3
+</figcaption>
+</figure>
 </div>
 </div>
-<div class="cell">
-<div class="cell-output cell-output-stdout">
-<pre><code>
-    Paired t-test
-
-data:  datos_agentes[datos_agentes$Indicador == "EEII", ]$Nayade and datos_agentes[datos_agentes$Indicador == "EEII", ]$Hidrotecnia
-t = 2.0074, df = 5, p-value = 0.101
-alternative hypothesis: true mean difference is not equal to 0
-95 percent confidence interval:
- -31.23344 253.90011
-sample estimates:
-mean difference 
-       111.3333 </code></pre>
 </div>
-</div>
-<p>La prueba estadística indica que la diferencia de EEII entre Náyade e Hidrotecnia probablemente se deba al azar (<em>p</em> valor &gt; 0,05). En el caso de <em>E. coli</em>, sí es probable que la diferencia de resultados sea consecuencia de un tratamiento sustancialmente diferente de las muestras (<em>p</em> valor &lt; 0,05), siendo la media de Náyade significativamente inferior a la de Hidrotecnia.</p>
 </section>
 <section id="ciclo-de-mareas" class="level2">
 <h2 class="anchored" data-anchor-id="ciclo-de-mareas">Ciclo de mareas</h2>
-<p>Las muestras fueron tomadas durante diferentes fases del ciclo de mareas como un posible factor de control.</p>
 <div class="cell">
 <div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="indicadores_files/figure-html/unnamed-chunk-5-1.png" class="img-fluid figure-img" width="672"></p>
+<div id="fig-mareas" class="quarto-float quarto-figure quarto-figure-center anchored" width="672">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-mareas-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="indicadores_files/figure-html/fig-mareas-1.png" id="fig-mareas" class="img-fluid figure-img" width="672">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig quarto-uncaptioned" id="fig-mareas-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figura&nbsp;4
+</figcaption>
 </figure>
 </div>
 </div>
 </div>
-<p>Aplicando el análisis de la varianza, los <em>p</em> valores calculados superan el nivel de significación 0,05 tanto para <em>E. coli</em> como para EEII. Los datos recogidos no aportan evidencia suficiente para establecer la marea como variable de control.</p>
+<p>Las muestras fueron tomadas durante diferentes fases del ciclo de mareas como un posible factor de control. Aplicando el análisis de la varianza (ANOVA), estudiamos la variabilidad de EEII con el estado de la marea. En <a href="#fig-f-eeii-marea" class="quarto-xref">Figura&nbsp;5</a> se demuestra que el muestreo <strong>no detectó diferencias significativas</strong> en la concentración de EEII según el estado de la marea.</p>
 <div class="cell">
-<div class="cell-output cell-output-stdout">
-<pre><code>Call:
-   aov(formula = UFC ~ Marea, data = filter(datos_ufc, Indicador == 
-    "E.coli", !is.na(UFC)))
-
-Terms:
-                   Marea Residuals
-Sum of Squares   2005.35  38155.17
-Deg. of Freedom        3        23
-
-Residual standard error: 40.72985
-Estimated effects may be unbalanced</code></pre>
+<div class="cell-output-display">
+<div id="fig-f-eeii-marea" class="quarto-float quarto-figure quarto-figure-center anchored" width="672">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-f-eeii-marea-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="indicadores_files/figure-html/fig-f-eeii-marea-1.png" id="fig-f-eeii-marea" class="img-fluid figure-img" width="672">
 </div>
-<div class="cell-output cell-output-stdout">
-<pre><code>            Df Sum Sq Mean Sq F value Pr(&gt;F)
-Marea        3   2005   668.5   0.403  0.752
-Residuals   23  38155  1658.9               </code></pre>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig quarto-uncaptioned" id="fig-f-eeii-marea-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figura&nbsp;5
+</figcaption>
+</figure>
 </div>
-</div>
-<div class="cell">
-<div class="cell-output cell-output-stdout">
-<pre><code>Call:
-   aov(formula = UFC ~ Marea, data = filter(datos_ufc, Indicador == 
-    "EEII", !is.na(UFC)))
-
-Terms:
-                    Marea Residuals
-Sum of Squares    7781.24 152748.83
-Deg. of Freedom         3        23
-
-Residual standard error: 81.49389
-Estimated effects may be unbalanced</code></pre>
-</div>
-<div class="cell-output cell-output-stdout">
-<pre><code>            Df Sum Sq Mean Sq F value Pr(&gt;F)
-Marea        3   7781    2594   0.391  0.761
-Residuals   23 152749    6641               </code></pre>
 </div>
 </div>
 
