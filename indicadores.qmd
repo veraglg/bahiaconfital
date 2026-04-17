@@ -94,7 +94,7 @@ fig_vista_general <- datos_agentes_ufc |> ggplot(aes(
   scale_fill_manual(values = c("#2A788E", "#7AD151")) +
   labs(
     title = "Indicadores fecales verano 2025",
-    subtitle = "Mayor detección de EEII por Náyade.",
+    subtitle = "Mayor detección de EEII por Náyade",
     color = "Límite",
     x = "",
     y = "UFC/100 ml"
@@ -103,12 +103,12 @@ fig_vista_general <- datos_agentes_ufc |> ggplot(aes(
 # Indicadores fecales según el agente
 fig_agente <- datos_agentes_ufc |> ggplot(aes(Agente, UFC)) +
   geom_boxplot(aes(fill = Agente), show.legend = F, outliers = F) +
-  geom_jitter(alpha = .5, width = .2) +
+  geom_jitter(alpha = .7, width = .3) +
   facet_wrap(~Indicador, scale = "free_y") +
   scale_fill_manual(values = c("#2A788E", "#7AD151")) +
   labs(
     title = "Indicadores fecales según el agente muestreador",
-    subtitle = "Mayor variabilidad en las muestras de Náyade.",
+    subtitle = "Mayor variabilidad en las muestras de Náyade",
     y = "UFC/100 ml"
   )
 
@@ -116,12 +116,12 @@ fig_agente <- datos_agentes_ufc |> ggplot(aes(Agente, UFC)) +
 fig_mareas <- datos_ufc |> filter(!is.na(UFC)) |> 
   ggplot(aes(Marea, UFC)) +
   geom_boxplot(aes(fill = Marea), show.legend = F, outliers = F) +
-  geom_jitter(alpha = .5, width = .2) +
+  geom_jitter(alpha = .7, width = .3, size = 1) +
   facet_wrap(~Indicador, scale = "free_y") +
   scale_fill_manual(values = c("#DEEBF7", "#9ECAE1", "#4292C6", "#9ECAE1")) +
   labs(
     title = "Indicadores fecales según la marea",
-    subtitle = "Valores similares entre todas las fases mareales.",
+    subtitle = "Mayor concentración de EEII en bajamar y pleamar",
     y = "UFC/100 ml"
   )
 ```
