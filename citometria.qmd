@@ -29,11 +29,6 @@ datos <- datos |> pivot_longer(
   values_to = "Valor"
 )
 
-```
-
-```{r}
-#| label: transform
-
 # Separa las muestras en categorías contenidas en una cadena
 datos <- datos |> separate_wider_regex(
   Muestras,
@@ -55,6 +50,15 @@ datos <- datos |> mutate(Fecha = dmy(Fecha, truncated = 1))
 datos <- datos |> mutate(Dia = day(Fecha), .after = Fecha) |> 
   mutate(Mes = month(Fecha, label = T, locale = "es_ES.UTF-8"), .after = Fecha)
 
+# Renombra el punto X
+datos <- datos |> mutate(
+  Lugar = fct_recode(Lugar, "Bco. Guiniguada" = "punto X")
+)
+```
+
+```{r}
+#| label: transform
+
 # Separa los datos en supergrupo de bajos valores
 datos_bajos <- datos |> filter(
   Grupo %in% c("Synechococcus", "Prochlorococcus",
@@ -65,9 +69,8 @@ datos_bajos <- datos |> filter(
 datos_altos <- datos |> filter(Grupo %in% c("HNA", "LNA"))
 
 # Calcula el ratio HNA/LNA
-datos_ratio <- datos_altos |> pivot_wider(
-  names_from = Grupo, values_from = Valor
-) |> 
+datos_ratio <- datos_altos |> 
+  pivot_wider(names_from = Grupo, values_from = Valor) |> 
   mutate(Ratio = HNA/LNA, .keep = "unused")
 ```
 
@@ -97,24 +100,34 @@ fs_hipoteticas <- datos_ratio |>
 # Calcula el estadístico t para los datos reales
 t_real <- datos_ratio |> 
   specify(response = Ratio, explanatory = Lugar) |> 
-  calculate(stat = "diff in means", order = c("Confital", "punto X"))
+  calculate(stat = "diff in means", order = c("Confital", "Bco. Guiniguada"))
 
-# Calcula 2000 estadísticos t para datos simulados bajo hipótesis nula
+# Calcula 1000 estadísticos t para datos simulados bajo hipótesis nula
 ts_hipoteticas <- datos_ratio |> 
   specify(Ratio ~ Lugar) |> 
   hypothesize(null = "independence") |> 
-  generate(reps = 2000, type = "permute") |> 
-  calculate(stat = "diff in means", order = c("Confital", "punto X"))
+  generate(reps = 1000, type = "permute") |> 
+  calculate(stat = "diff in means", order = c("Confital", "Bco. Guiniguada"))
+
+# Estima la diferencia
+tbl_t_ratio_lugar <- datos_ratio |> t_test( 
+  formula = Ratio ~ Lugar, 
+  order = c("Confital", "Bco. Guiniguada"),
+  alternative = "two-sided"
+)
 ```
 
 
 ```{r}
 #| label: visualize
 
+# Define la semilla para reproducibilidad de los jitter
+set.seed(05)
+
 # Distribución general de los datos por Grupo
 fig_distribucion <- datos |> ggplot(aes(Valor, Grupo)) +
   geom_boxplot(outliers = F) +
-  geom_jitter(alpha = .5, width = .2, size = .5) +
+  geom_jitter(alpha = .7, width = .3, size = .5) +
   labs(
     title = "Distribución de grupos por citometría de flujo",
     subtitle = "HNA y LNA con mayor concentración y variabilidad",
@@ -127,7 +140,7 @@ fig_distribucion <- datos |> ggplot(aes(Valor, Grupo)) +
 # Distribución de bajos por estado de la marea
 fig_marea_bajos <- datos_bajos |> ggplot(aes(Marea, Valor)) +
   geom_boxplot(aes(fill = Marea), outliers = F, show.legend = F) +
-  geom_jitter(alpha = .5, width = .2, size = 1) +
+  geom_jitter(alpha = .7, width = .3, size = 1) +
   facet_wrap(~Grupo, scales = "free_y") +
   scale_fill_manual(values = c("#DEEBF7", "#9ECAE1", "#4292C6", "#9ECAE1")) +
   labs(
@@ -140,7 +153,7 @@ fig_marea_bajos <- datos_bajos |> ggplot(aes(Marea, Valor)) +
 # Distribución de altos por estado de la marea
 fig_marea_altos <- datos_altos |> ggplot(aes(Marea, Valor)) +
   geom_boxplot(aes(fill = Marea), outliers = F, show.legend = F) +
-  geom_jitter(alpha = .5, width = .2, size = 1) +
+  geom_jitter(alpha = .7, width = .3, size = 1) +
   facet_wrap(~Grupo, scales = "free_y") +
   scale_fill_manual(values = c("#DEEBF7", "#9ECAE1", "#4292C6", "#9ECAE1")) +
   labs(
@@ -152,7 +165,7 @@ fig_marea_altos <- datos_altos |> ggplot(aes(Marea, Valor)) +
 # Distribución de ratio por estado de la marea
 fig_marea_ratio <- datos_ratio |> ggplot(aes(Marea, Ratio)) +
   geom_boxplot(aes(fill = Marea), outliers = F, show.legend = F) +
-  geom_jitter(alpha = .5, width = .2) +
+  geom_jitter(alpha = .7, width = .3) +
   scale_fill_manual(values = c("#DEEBF7", "#9ECAE1", "#4292C6", "#9ECAE1")) +
   labs(
     title = "Variación del ratio HNA/LNA con la marea",
@@ -165,28 +178,47 @@ fig_marea_ratio <- datos_ratio |> ggplot(aes(Marea, Ratio)) +
 # Distribución general por lugar
 fig_lugar <- datos |> ggplot(aes(Lugar, Valor)) +
   geom_boxplot(aes(fill = Lugar), outliers = F, show.legend = F) +
-  geom_jitter(alpha = .5, width = .2, size = 1) +
+  geom_jitter(alpha = .7, width = .3, size = 1) +
   facet_wrap(~Grupo, scales = "free_y") +
   labs(
     title = "Variación geográfica de grupos citométricos",
-    subtitle = "El Cofital y la desembocadura del Barranco Guanarteme",
     x = "",
     y = "células/mL",
-    caption = "Punto X: descarga barranco Guanarteme"
+  )
+
+# Distribución de ratio por lugar
+fig_lugar_ratio <- datos_ratio |> ggplot(aes(Lugar, Ratio)) +
+  geom_boxplot(aes(fill = Lugar), outliers = F, show.legend = F) +
+  geom_jitter(alpha = .7) +
+  labs(
+    title = "Variación geográfica del ratio HNA/LNA",
+    x = "",
+    y = "células/mL",
   )
 
 # ---- Variación temporal ----
 
 # Distribución general por mes
-fig_mes <- datos |> ggplot(aes(Mes, Valor)) +
-  geom_boxplot(aes(fill = Mes), outliers = F, show.legend = F) +
-  geom_jitter(alpha = .5, width = .2, size = 1) +
+fig_mes <- datos |> ggplot(aes(x = Mes, y = Valor)) +
+  geom_boxplot(outliers = F) +
+  geom_jitter(alpha = .7, width = .3, size = 1) +
   facet_wrap(~Grupo, scales = "free_y") +
   labs(
-    title = "Evolución de grupos citométricos",
-    subtitle = "Verano 2025",
+    title = "Evolución temporal de grupos citométricos",
+    caption = "Verano 2025",
     x = "",
     y = "células/mL"
+  )
+
+# Distribución de ratio por mes
+fig_mes_ratio <- datos_ratio |> ggplot(aes(x = Mes, y = Ratio)) +
+  geom_boxplot(outliers = F) +
+  geom_jitter(alpha = .7) +
+  labs(
+    title = "Evolución temporal del ratio HNA/LNA",
+    caption = "Verano 2025",
+    x = "",
+    y = "células/mL",
   )
 
 # ---- Inferencia estadística ----
@@ -200,18 +232,32 @@ fig_f_ratio_marea <- visualise(fs_hipoteticas) +
     label = paste(
       "p.value\n",
       get_p_value(fs_hipoteticas, f_real, direction = "greater")
-      )
-    ) +
+    )
+  ) +
   labs(
     title = "ANOVA para HNA/LNA con la marea. Distribución nula simulada",
-    subtitle = "Medias significativamente heterogeneas entre grupos (< 0,05)",
+    subtitle = "Medias significativamente heterogeneas (< 0,05)",
     x = "estadístico F",
     y = "simulaciones"
   )
 
 # Estadístico t para la variación HNA/LNA con el lugar
 fig_t_ratio_lugar <- visualize(ts_hipoteticas) +
-  shade_p_value(obs_stat = t_real, direction = "both")
+  shade_p_value(obs_stat = t_real, direction = "both") +
+  annotate(
+    "text",
+    x = .45, y = 150,
+    label = paste(
+      "p.value\n",
+      get_p_value(fs_hipoteticas, f_real, direction = "both")
+    )
+  ) +
+  labs(
+    title = "T de Student. Diferencia de HNA/LNA según el lugar",
+    subtitle = "Meidas significativamente distintas (< 0,05)",
+    x = "estadístico t",
+    y = "simulaciones"
+  )
 ```
 
 ## Vista general
@@ -220,7 +266,7 @@ Monitoreamos 6 grupos de microorgansismos en base a 3 criterios funcionales:
 
 - ***Synechococcus*** y ***Prochlorococcus***: son dos géneros de cianobacterias (anteriormente conocidas como algas verde-azuladas) identificadas en función de su pigmentación.
 - **Nanoeucariotas** y **picoeucariotas**: organismos diversos del dominio eucariota (células con núcleo verdadero) diferenciados en función de su tamaño, siendo *nano* más ancho que *pico*.
-- Bacterias de **alto ácido nucleico (HNA)** y **bajo ácido nucleico (LNA)**: según el contenido de ácido nucleico en las células. En líneas generales, las bacterias HNA tiene un ritmo metabólico más acelerado que las HNA y son más adaptadas a entornos cambiantes. El ratio **HNA/LNA** se utiliza como indicador de alteraciones en el medio [@claveau2024].
+- Bacterias de **alto ácido nucleico (HNA)** y **bajo ácido nucleico (LNA)**: según el contenido de ácido nucleico en las células. En líneas generales, las bacterias HNA tienen un ritmo metabólico más acelerado que las LNA y son más adaptadas a entornos cambiantes. El ratio **HNA/LNA** se utiliza como indicador de alteraciones en el medio [@claveau2024].
 
 ```{r}
 #| label: fig-distribucion
@@ -246,6 +292,15 @@ fig_marea_altos
 fig_marea_ratio
 ```
 
+El análisis de la varianza (ANOVA) es un método de inferencia estadística que nos permite señalar como de importante son las diferencias entre las distribuciones de un parámetro para cada grupo [@mcdonald2014].
+
+En la @fig-f-ratio-marea se especula como de inusuales sería nuestros resultados de HNA/LNA según la fase de la marea si esta no tuvieran ningún efecto sobre HNA/LNA. Habría menos de un 2% de probabilidades de obtener los resultados registrados. Por lo tanto, **es probable que existan factores no aleatorios que afecten la variabilidad del ratio HNA/LNA con la marea**. Seria interesante investigar en mayor profundidad estos posibles efectos, ya que el tamaño del monitoreo es pequeño y desigual entre fases de la marea.
+
+```{r}
+#| label: fig-f-ratio-marea
+fig_f_ratio_marea
+```
+
 ## Variación geográfica
 
 ```{r}
@@ -253,24 +308,26 @@ fig_marea_ratio
 fig_lugar
 ```
 
-## Variación temporal
-
 ```{r}
-#| label: fig-mes
-fig_mes
+#| label: fig-lugar-ratio
+fig_lugar_ratio
 ```
 
-## Inferencia estadística
-
-El análisis de la varianza (ANOVA) es un método de inferencia estadística que nos permite señalar como de importante son las diferencias entre las distribuciones de un parámetro para cada grupo [@mcdonald2014]. En la @fig-f-ratio-marea se especula como de inusuales sería nuestros resultados de HNA/LNA según la fase de la marea si esta no tuvieran ningún efecto sobre HNA/LNA. Habría menos de un 2% de probabilidades de obtener los resultados registrados. Por lo tanto, es probable que existan factores más allá del azar que afecten al ratio HNA/LNA con la marea. Seria interesante investigar en mayor profundidad estos posibles efectos, ya que el tamaño del monitoreo es pequeño y desigual entre fases de la marea.
-
-```{r}
-#| label: fig-f-ratio-marea
-fig_f_ratio_marea
-```
+En la @fig-t-ratio-lugar se demuestra mediante la prueba de la *t* de *Student* como la media de HNA/LNA en El Confital **es significativamente superior** a la área de descarga del barranco Guiniguada.
 
 ```{r}
 #| label: fig-t-ratio-lugar
 fig_t_ratio_lugar
 ```
 
+## Evolución temporal
+
+```{r}
+#| label: fig-mes
+fig_mes
+```
+
+```{r}
+#| label: fig-mes-ratio
+fig_mes_ratio
+```

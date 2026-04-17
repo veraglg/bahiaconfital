@@ -40,85 +40,39 @@
     ]
   },
   {
-    "objectID": "citometria.html",
-    "href": "citometria.html",
+    "objectID": "citometria.knit.html",
+    "href": "citometria.knit.html",
     "title": "Citometría de flujo",
     "section": "",
-    "text": "Monitoreamos 6 grupos de microorgansismos en base a 3 criterios funcionales:\n\nSynechococcus y Prochlorococcus: son dos géneros de cianobacterias (anteriormente conocidas como algas verde-azuladas) identificadas en función de su pigmentación.\nNanoeucariotas y picoeucariotas: organismos diversos del dominio eucariota (células con núcleo verdadero) diferenciados en función de su tamaño, siendo nano más ancho que pico.\nBacterias de alto ácido nucleico (HNA) y bajo ácido nucleico (LNA): según el contenido de ácido nucleico en las células. En líneas generales, las bacterias HNA tiene un ritmo metabólico más acelerado que las HNA y son más adaptadas a entornos cambiantes. El ratio HNA/LNA se utiliza como indicador de alteraciones en el medio1.\n\n\n\n\n\n\n\n\n\nFigura 1\n\n\n\n\n\nObservamos que la mayor variabilidad existe en función del contenido de ácido nucleico (Figura 1), seguido del grupo de Prochlorococcus. En las visualizaciones posteriores separaremos HNA y LNA del resto para una mejor resolución de las observaciones.",
-    "crumbs": [
-      "Citometría de flujo"
-    ]
+    "text": "Monitoreamos 6 grupos de microorgansismos en base a 3 criterios funcionales:\n\nSynechococcus y Prochlorococcus: son dos géneros de cianobacterias (anteriormente conocidas como algas verde-azuladas) identificadas en función de su pigmentación.\nNanoeucariotas y picoeucariotas: organismos diversos del dominio eucariota (células con núcleo verdadero) diferenciados en función de su tamaño, siendo nano más ancho que pico.\nBacterias de alto ácido nucleico (HNA) y bajo ácido nucleico (LNA): según el contenido de ácido nucleico en las células. En líneas generales, las bacterias HNA tienen un ritmo metabólico más acelerado que las LNA y son más adaptadas a entornos cambiantes. El ratio HNA/LNA se utiliza como indicador de alteraciones en el medio1.\n\n\n\n\n\n\n\n\n\nFigura 1\n\n\n\n\n\nObservamos que la mayor variabilidad existe en función del contenido de ácido nucleico (Figura 1), seguido del grupo de Prochlorococcus. En las visualizaciones posteriores separaremos HNA y LNA del resto para una mejor resolución de las observaciones."
   },
   {
-    "objectID": "citometria.html#vista-general",
-    "href": "citometria.html#vista-general",
+    "objectID": "citometria.knit.html#vista-general",
+    "href": "citometria.knit.html#vista-general",
     "title": "Citometría de flujo",
     "section": "",
-    "text": "Monitoreamos 6 grupos de microorgansismos en base a 3 criterios funcionales:\n\nSynechococcus y Prochlorococcus: son dos géneros de cianobacterias (anteriormente conocidas como algas verde-azuladas) identificadas en función de su pigmentación.\nNanoeucariotas y picoeucariotas: organismos diversos del dominio eucariota (células con núcleo verdadero) diferenciados en función de su tamaño, siendo nano más ancho que pico.\nBacterias de alto ácido nucleico (HNA) y bajo ácido nucleico (LNA): según el contenido de ácido nucleico en las células. En líneas generales, las bacterias HNA tiene un ritmo metabólico más acelerado que las HNA y son más adaptadas a entornos cambiantes. El ratio HNA/LNA se utiliza como indicador de alteraciones en el medio1.\n\n\n\n\n\n\n\n\n\nFigura 1\n\n\n\n\n\nObservamos que la mayor variabilidad existe en función del contenido de ácido nucleico (Figura 1), seguido del grupo de Prochlorococcus. En las visualizaciones posteriores separaremos HNA y LNA del resto para una mejor resolución de las observaciones.",
-    "crumbs": [
-      "Citometría de flujo"
-    ]
+    "text": "Monitoreamos 6 grupos de microorgansismos en base a 3 criterios funcionales:\n\nSynechococcus y Prochlorococcus: son dos géneros de cianobacterias (anteriormente conocidas como algas verde-azuladas) identificadas en función de su pigmentación.\nNanoeucariotas y picoeucariotas: organismos diversos del dominio eucariota (células con núcleo verdadero) diferenciados en función de su tamaño, siendo nano más ancho que pico.\nBacterias de alto ácido nucleico (HNA) y bajo ácido nucleico (LNA): según el contenido de ácido nucleico en las células. En líneas generales, las bacterias HNA tienen un ritmo metabólico más acelerado que las LNA y son más adaptadas a entornos cambiantes. El ratio HNA/LNA se utiliza como indicador de alteraciones en el medio1.\n\n\n\n\n\n\n\n\n\nFigura 1\n\n\n\n\n\nObservamos que la mayor variabilidad existe en función del contenido de ácido nucleico (Figura 1), seguido del grupo de Prochlorococcus. En las visualizaciones posteriores separaremos HNA y LNA del resto para una mejor resolución de las observaciones."
   },
   {
-    "objectID": "citometria.html#efecto-de-la-marea",
-    "href": "citometria.html#efecto-de-la-marea",
+    "objectID": "citometria.knit.html#efecto-de-la-marea",
+    "href": "citometria.knit.html#efecto-de-la-marea",
     "title": "Citometría de flujo",
     "section": "Efecto de la marea",
-    "text": "Efecto de la marea\n\n\n\n\n\n\n\n\nFigura 2\n\n\n\n\n\n\n\n\n\n\n\n\n\nFigura 3\n\n\n\n\n\n\n\n\n\n\n\n\n\nFigura 4",
-    "crumbs": [
-      "Citometría de flujo"
-    ]
+    "text": "Efecto de la marea\n\n\n\n\n\n\n\n\nFigura 2\n\n\n\n\n\n\n\n\n\n\n\n\n\nFigura 3\n\n\n\n\n\n\n\n\n\n\n\n\n\nFigura 4\n\n\n\n\n\nEl análisis de la varianza (ANOVA) es un método de inferencia estadística que nos permite señalar como de importante son las diferencias entre las distribuciones de un parámetro para cada grupo2.\nEn la Figura 5 se especula como de inusuales sería nuestros resultados de HNA/LNA según la fase de la marea si esta no tuvieran ningún efecto sobre HNA/LNA. Habría menos de un 2% de probabilidades de obtener los resultados registrados. Por lo tanto, es probable que existan factores no aleatorios que afecten la variabilidad del ratio HNA/LNA con la marea. Seria interesante investigar en mayor profundidad estos posibles efectos, ya que el tamaño del monitoreo es pequeño y desigual entre fases de la marea.\n\n\n\n\n\n\n\n\nFigura 5"
   },
   {
-    "objectID": "citometria.html#variación-geográfica",
-    "href": "citometria.html#variación-geográfica",
+    "objectID": "citometria.knit.html#variación-geográfica",
+    "href": "citometria.knit.html#variación-geográfica",
     "title": "Citometría de flujo",
     "section": "Variación geográfica",
-    "text": "Variación geográfica\n\n\n\n\n\n\n\n\nFigura 5\n\n\n\n\n\n\n\n\n\n\n\n\n\nFigura 6",
-    "crumbs": [
-      "Citometría de flujo"
-    ]
+    "text": "Variación geográfica\n\n\n\n\n\n\n\n\nFigura 6\n\n\n\n\n\n\n\n\n\n\n\n\n\nFigura 7\n\n\n\n\n\nEn la Figura 8 se demuestra mediante la prueba de la t de Student como la media de HNA/LNA en El Confital es significativamente superior a la área de descarga del barranco Guiniguada.\n\n\n\n\n\n\n\n\nFigura 8"
   },
   {
-    "objectID": "citometria.html#variación-temporal",
-    "href": "citometria.html#variación-temporal",
+    "objectID": "citometria.knit.html#evolución-temporal",
+    "href": "citometria.knit.html#evolución-temporal",
     "title": "Citometría de flujo",
-    "section": "Variación temporal",
-    "text": "Variación temporal\n\n\n\n\n\n\n\n\nFigura 7\n\n\n\n\n\n\n\n\n\n\n\n\n\nFigura 8",
-    "crumbs": [
-      "Citometría de flujo"
-    ]
-  },
-  {
-    "objectID": "citometria.html#inferencia-estadística",
-    "href": "citometria.html#inferencia-estadística",
-    "title": "Citometría de flujo",
-    "section": "Inferencia estadística",
-    "text": "Inferencia estadística\nEl análisis de la varianza (ANOVA) es un método de inferencia estadística que nos permite señalar como de importante son las diferencias entre las distribuciones de un parámetro para cada grupo2. En la Figura 9 se especula como de inusuales sería nuestros resultados de HNA/LNA según la fase de la marea si esta no tuvieran ningún efecto sobre HNA/LNA. Habría menos de un 2% de probabilidades de obtener los resultados registrados. Por lo tanto, es probable que existan factores más allá del azar que afecten al ratio HNA/LNA con la marea. Seria interesante investigar en mayor profundidad estos posibles efectos, ya que el tamaño del monitoreo es pequeño y desigual entre fases de la marea.\n\n\n\n\n\n\n\n\nFigura 9\n\n\n\n\n\n\n\n\n\n\n\n\n\nFigura 10",
-    "crumbs": [
-      "Citometría de flujo"
-    ]
-  },
-  {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "La duda sobre la calidad del agua",
-    "section": "",
-    "text": "Playa de El Confital (por Bengt Nyman)\nLa playa de El Confital lleva oficialmente cerrado al público casi 9 años debido a repetidos episodios de contaminación fecal1. El principal indicador de esta contaminación son la alta concentración de enterococos intestinales (EEII), estos indicadores de contaminación son monitoreados con frecuencia.\nHay dos agentes encargados del monitoreo: el Sistema de Información Nacional de Aguas de Baño, Náyade2, dependiente del Ministerio de Sanidad; y AT Hidrotecnia SL3, empresa del sector privada al servicio del Ayuntamiento de Las Palmas de Gran Canaria, Ciudad del Mar.\nComo se hizo público en el periódico Canarias71, hace 2 años que conflictuan los resultados obtenidos entre ambos agentes, la disconformidad genera duda sobre la calidad real de las aguas de baño.\nEl objetivo de este proyecto es investigar en mayor profundidad la calidad del agua en El Confital, con especial atención en al contaminación fecal por EEII. La Universidad de Las Palmas de Gran Canaria (ULPGC) hemos llevado a cabo un monitoreo independiente del microbioma acuático para evaluar la contaminación real del agua de baño. Esperamos poder así resolver la disconformidad de los resultados y despejar la duda de la calidad del agua en la playa."
-  },
-  {
-    "objectID": "index.html#historia-del-proyecto",
-    "href": "index.html#historia-del-proyecto",
-    "title": "La duda sobre la calidad del agua",
-    "section": "Historia del proyecto",
-    "text": "Historia del proyecto\nUna versión anterior del proyecto (en inglés) se puede encontrar el antiguo sitio web. El proyecto ha incluido anteriormente datos de la Playa de Las Canteras donde no registramos contaminación por EEII.\nUna limitación que encontramos fue la falta de reproducibilidad en las muestras de EEII. A recomendación de la ULPGC, durante el verano de 2025 Náyade e Hidrotecnia partieron de las mismas muestras de agua."
-  },
-  {
-    "objectID": "about.html",
-    "href": "about.html",
-    "title": "Sobre el estudio",
-    "section": "",
-    "text": "Estudio realizado por el Convenio de colaboración entre el Ayuntamiento de las Palmas de Gran Canaria y la Universidad de Las Palmas de Gran Canaria (ULPGC) 2025.\nEste sitio web a sido creado por Vera Gómez-Limón Gallardo (ORCiD), graduada en Ciencias del Mar por la Universidad de las Palmas de Gran Canaria, en colaboración con el grupo de Oceanografía Biológica del Instituto de Oceanografía y Cambio Global, (IOCAG, ULPGC).\nLa obra está publicada bajo licencia Creative Commons BY-NC-SA 4.0. Para más información visite Creative Commons. El código fuente es público bajo la misma licencia a través de Codeberg.\nNo se ha usado inteligencia artificial generativa para la elaboración de este estudio."
+    "section": "Evolución temporal",
+    "text": "Evolución temporal\n\n\n\n\n\n\n\n\nFigura 9\n\n\n\n\n\n\n\n\n\n\n\n\n\nFigura 10"
   },
   {
     "objectID": "metodos.html",
@@ -154,6 +108,77 @@
     "title": "Materiales y métodos de secuenciación",
     "section": "Archivos",
     "text": "Archivos\n\nTabla 16S\ncanteras_microbiome/dada2_canteras_16s/data/dada2/04_decontam-and-filter/canteras/canteras_seqtab_decontam_filter.rds\n\n\nTabla 16S taxonomía\ncanteras_microbiome/dada2_canteras_16s/data/dada2/04_decontam-and-filter/canteras/canteras_tax_assignation_decontam_filter.rds\n\n\nSecuencias 16S\ncanteras_microbiome/dada2_canteras_16s/data/dada2/04_decontam-and-filter/canteras/canteras_sequences_decontam_filter.rds\n\n\nTabla 18S\ncanteras_microbiome/dada2_canteras_18s/data/dada2/04_decontam-and-filter/canteras/canteras_seqtab_decontam_filter.rds\n\n\nTabla 18S taxonomía\ncanteras_microbiome/dada2_canteras_18s/data/dada2/04_decontam-and-filter/canteras/canteras_tax_assignation_decontam_filter.rds\n\n\nSecuencias 18S\ncanteras_microbiome/dada2_canteras_18s/data/dada2/04_decontam-and-filter/canteras/canteras_sequences_decontam_filter.rds"
+  },
+  {
+    "objectID": "about.html",
+    "href": "about.html",
+    "title": "Sobre el estudio",
+    "section": "",
+    "text": "Estudio realizado por el Convenio de colaboración entre el Ayuntamiento de las Palmas de Gran Canaria y la Universidad de Las Palmas de Gran Canaria (ULPGC) 2025.\nEste sitio web a sido creado por Vera Gómez-Limón Gallardo (ORCiD), graduada en Ciencias del Mar por la Universidad de las Palmas de Gran Canaria, en colaboración con el grupo de Oceanografía Biológica del Instituto de Oceanografía y Cambio Global, (IOCAG, ULPGC).\nLa obra está publicada bajo licencia Creative Commons BY-NC-SA 4.0. Para más información visite Creative Commons. El código fuente es público bajo la misma licencia a través de Codeberg.\nNo se ha usado inteligencia artificial generativa para la elaboración de este estudio."
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "La duda sobre la calidad del agua",
+    "section": "",
+    "text": "Playa de El Confital (por Bengt Nyman)\nLa playa de El Confital lleva oficialmente cerrado al público casi 9 años debido a repetidos episodios de contaminación fecal1. El principal indicador de esta contaminación son la alta concentración de enterococos intestinales (EEII), estos indicadores de contaminación son monitoreados con frecuencia.\nHay dos agentes encargados del monitoreo: el Sistema de Información Nacional de Aguas de Baño, Náyade2, dependiente del Ministerio de Sanidad; y AT Hidrotecnia SL3, empresa del sector privada al servicio del Ayuntamiento de Las Palmas de Gran Canaria, Ciudad del Mar.\nComo se hizo público en el periódico Canarias71, hace 2 años que conflictuan los resultados obtenidos entre ambos agentes, la disconformidad genera duda sobre la calidad real de las aguas de baño.\nEl objetivo de este proyecto es investigar en mayor profundidad la calidad del agua en El Confital, con especial atención en al contaminación fecal por EEII. La Universidad de Las Palmas de Gran Canaria (ULPGC) hemos llevado a cabo un monitoreo independiente del microbioma acuático para evaluar la contaminación real del agua de baño. Esperamos poder así resolver la disconformidad de los resultados y despejar la duda de la calidad del agua en la playa."
+  },
+  {
+    "objectID": "index.html#historia-del-proyecto",
+    "href": "index.html#historia-del-proyecto",
+    "title": "La duda sobre la calidad del agua",
+    "section": "Historia del proyecto",
+    "text": "Historia del proyecto\nUna versión anterior del proyecto (en inglés) se puede encontrar el antiguo sitio web. El proyecto ha incluido anteriormente datos de la Playa de Las Canteras donde no registramos contaminación por EEII.\nUna limitación que encontramos fue la falta de reproducibilidad en las muestras de EEII. A recomendación de la ULPGC, durante el verano de 2025 Náyade e Hidrotecnia partieron de las mismas muestras de agua."
+  },
+  {
+    "objectID": "citometria.html",
+    "href": "citometria.html",
+    "title": "Citometría de flujo",
+    "section": "",
+    "text": "Monitoreamos 6 grupos de microorgansismos en base a 3 criterios funcionales:\n\nSynechococcus y Prochlorococcus: son dos géneros de cianobacterias (anteriormente conocidas como algas verde-azuladas) identificadas en función de su pigmentación.\nNanoeucariotas y picoeucariotas: organismos diversos del dominio eucariota (células con núcleo verdadero) diferenciados en función de su tamaño, siendo nano más ancho que pico.\nBacterias de alto ácido nucleico (HNA) y bajo ácido nucleico (LNA): según el contenido de ácido nucleico en las células. En líneas generales, las bacterias HNA tienen un ritmo metabólico más acelerado que las LNA y son más adaptadas a entornos cambiantes. El ratio HNA/LNA se utiliza como indicador de alteraciones en el medio1.\n\n\n\n\n\n\n\n\n\nFigura 1\n\n\n\n\n\nObservamos que la mayor variabilidad existe en función del contenido de ácido nucleico (Figura 1), seguido del grupo de Prochlorococcus. En las visualizaciones posteriores separaremos HNA y LNA del resto para una mejor resolución de las observaciones.",
+    "crumbs": [
+      "Citometría de flujo"
+    ]
+  },
+  {
+    "objectID": "citometria.html#vista-general",
+    "href": "citometria.html#vista-general",
+    "title": "Citometría de flujo",
+    "section": "",
+    "text": "Monitoreamos 6 grupos de microorgansismos en base a 3 criterios funcionales:\n\nSynechococcus y Prochlorococcus: son dos géneros de cianobacterias (anteriormente conocidas como algas verde-azuladas) identificadas en función de su pigmentación.\nNanoeucariotas y picoeucariotas: organismos diversos del dominio eucariota (células con núcleo verdadero) diferenciados en función de su tamaño, siendo nano más ancho que pico.\nBacterias de alto ácido nucleico (HNA) y bajo ácido nucleico (LNA): según el contenido de ácido nucleico en las células. En líneas generales, las bacterias HNA tienen un ritmo metabólico más acelerado que las LNA y son más adaptadas a entornos cambiantes. El ratio HNA/LNA se utiliza como indicador de alteraciones en el medio1.\n\n\n\n\n\n\n\n\n\nFigura 1\n\n\n\n\n\nObservamos que la mayor variabilidad existe en función del contenido de ácido nucleico (Figura 1), seguido del grupo de Prochlorococcus. En las visualizaciones posteriores separaremos HNA y LNA del resto para una mejor resolución de las observaciones.",
+    "crumbs": [
+      "Citometría de flujo"
+    ]
+  },
+  {
+    "objectID": "citometria.html#efecto-de-la-marea",
+    "href": "citometria.html#efecto-de-la-marea",
+    "title": "Citometría de flujo",
+    "section": "Efecto de la marea",
+    "text": "Efecto de la marea\n\n\n\n\n\n\n\n\nFigura 2\n\n\n\n\n\n\n\n\n\n\n\n\n\nFigura 3\n\n\n\n\n\n\n\n\n\n\n\n\n\nFigura 4\n\n\n\n\n\nEl análisis de la varianza (ANOVA) es un método de inferencia estadística que nos permite señalar como de importante son las diferencias entre las distribuciones de un parámetro para cada grupo2.\nEn la Figura 5 se especula como de inusuales sería nuestros resultados de HNA/LNA según la fase de la marea si esta no tuvieran ningún efecto sobre HNA/LNA. Habría menos de un 2% de probabilidades de obtener los resultados registrados. Por lo tanto, es probable que existan factores no aleatorios que afecten la variabilidad del ratio HNA/LNA con la marea. Seria interesante investigar en mayor profundidad estos posibles efectos, ya que el tamaño del monitoreo es pequeño y desigual entre fases de la marea.\n\n\n\n\n\n\n\n\nFigura 5",
+    "crumbs": [
+      "Citometría de flujo"
+    ]
+  },
+  {
+    "objectID": "citometria.html#variación-geográfica",
+    "href": "citometria.html#variación-geográfica",
+    "title": "Citometría de flujo",
+    "section": "Variación geográfica",
+    "text": "Variación geográfica\n\n\n\n\n\n\n\n\nFigura 6\n\n\n\n\n\n\n\n\n\n\n\n\n\nFigura 7\n\n\n\n\n\nEn la Figura 8 se demuestra mediante la prueba de la t de Student como la media de HNA/LNA en El Confital es significativamente superior a la área de descarga del barranco Guiniguada.\n\n\n\n\n\n\n\n\nFigura 8",
+    "crumbs": [
+      "Citometría de flujo"
+    ]
+  },
+  {
+    "objectID": "citometria.html#evolución-temporal",
+    "href": "citometria.html#evolución-temporal",
+    "title": "Citometría de flujo",
+    "section": "Evolución temporal",
+    "text": "Evolución temporal\n\n\n\n\n\n\n\n\nFigura 9\n\n\n\n\n\n\n\n\n\n\n\n\n\nFigura 10",
+    "crumbs": [
+      "Citometría de flujo"
+    ]
   },
   {
     "objectID": "secuenciacion.html",
