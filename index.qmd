@@ -1,6 +1,16 @@
 ---
 title: La duda sobre la calidad del agua
 subtitle: ¿Existe contaminación fecal recurrente?
+author: 
+  - name: Maria Fernanda Montero
+    orcid: 0000-0001-8124-8136
+    affiliation: Grupo de Oceanografía Biológica, IOCAG
+  - name: Vera Gómez-Limón Gallardo
+    orcid: 0009-0005-4889-3412
+    affiliation: Surfing for Science, UB
+  - name: Markel Gómez Letona
+    orcid: 0000-0001-9325-3979
+    affiliation: Instituto de Investigacións Mariñas, CSIC
 ---
 
 ::: {.column-screen}

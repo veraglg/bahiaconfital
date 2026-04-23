@@ -1,13 +1,24 @@
 ---
 title: "Sobre el estudio"
+subtitle: "`veraglg/bahiaconfital`"
 image: patron.png
 about:
   template: jolla
 ---
-Estudio realizado por el **Convenio de colaboración entre el Ayuntamiento de las Palmas de Gran Canaria y la Universidad de Las Palmas de Gran Canaria (ULPGC) 2025**.
+Me llamo **Vera** y he creado este sitio web. Soy graduada en Ciencias del Mar por la Universidad de las Palmas de Gran Canaria. Colaboro desde Barcelona con el Grupo de Oceanografía Biológica, IOCAG de Gran Canaria. Me encantan los programas de código libre y compartir la ciencia de manera abierta.
 
-Este sitio web a sido creado por **Vera Gómez-Limón Gallardo** ([ORCiD](https://orcid.org/0009-0005-4889-3412)), graduada en Ciencias del Mar por la Universidad de las Palmas de Gran Canaria, en colaboración con el grupo de Oceanografía Biológica del **Instituto de Oceanografía y Cambio Global, (IOCAG, ULPGC)**.
+### Financiación
 
-La obra está publicada bajo licencia **Creative Commons BY-NC-SA 4.0**. Para más información visite [Creative Commons](https://creativecommons.org/licenses/by-nc-sa/4.0/). El código fuente es público bajo la misma licencia a través de [Codeberg](https://codeberg.org/veraglg/bahiaconfital).
+Convenio de colaboración entre el **Ayuntamiento de las Palmas de Gran Canaria** y la **Universidad de Las Palmas de Gran Canaria** 2025.
+
+### Cómo compartir
+
+La obra está publicada bajo licencia **Creative Commons BY-NC-SA 4.0**. Para más información visita [Creative Commons](https://creativecommons.org/licenses/by-nc-sa/4.0/).
+
+### Códgio fuente
+
+El código fuente es público bajo la misma licencia a través de [Codeberg](https://codeberg.org/veraglg/bahiaconfital).
+
+### Uso de IA generativa
 
 **No se ha usado inteligencia artificial generativa** para la elaboración de este estudio.

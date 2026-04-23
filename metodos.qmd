@@ -3,7 +3,7 @@ title: Materiales y métodos de secuenciación
 author:
   name: Markel Gómez Letona
   orcid: 0000-0001-9325-3979
-  affiliation: Instituto de Investigacións Mariñas (IIM-CSIC)
+  affiliation: Instituto de Investigacións Mariñas, CSIC
 ---
 
 ::: {.callout-caution}

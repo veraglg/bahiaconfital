@@ -5,7 +5,7 @@
    viewBox="0 0 4.2333332 4.2333335"
    version="1.1"
    id="svg1468"
-   sodipodi:docname="codeberg.svg"
+   sodipodi:docname="codeberg-logo_icon_blue.svg"
    inkscape:version="1.2-alpha1 (b6a15bb, 2022-02-23)"
    inkscape:export-filename="/home/mray/Projects/Codeberg/logo/icon/png/codeberg-logo_icon_blue.png"
    inkscape:export-xdpi="384"
@@ -22,6 +22,29 @@
      id="title16">Codeberg logo</title>
   <defs
      id="defs1462">
+    <linearGradient
+       xlink:href="#linearGradient6924"
+       id="linearGradient6918"
+       x1="42519.285"
+       y1="-7078.7891"
+       x2="42575.336"
+       y2="-6966.9307"
+       gradientUnits="userSpaceOnUse" />
+    <linearGradient
+       id="linearGradient6924">
+      <stop
+         style="stop-color:#2185d0;stop-opacity:0"
+         offset="0"
+         id="stop6920" />
+      <stop
+         id="stop6926"
+         offset="0.49517274"
+         style="stop-color:#2185d0;stop-opacity:0.48923996" />
+      <stop
+         style="stop-color:#2185d0;stop-opacity:0.63279623"
+         offset="1"
+         id="stop6922" />
+    </linearGradient>
     <linearGradient
        xlink:href="#linearGradient6924-6"
        id="linearGradient6918-3"
@@ -45,28 +68,6 @@
          offset="1"
          id="stop6922-3" />
     </linearGradient>
-    <filter
-       style="color-interpolation-filters:sRGB"
-       inkscape:label="Greyscale"
-       id="filter1"
-       x="0"
-       y="0"
-       width="1"
-       height="1">
-      <feColorMatrix
-         values="0.21 0.72 0.072 0 0 0.21 0.72 0.072 0 0 0.21 0.72 0.072 0 0 0 0 0 1 0 "
-         id="feColorMatrix1"
-         result="fbSourceGraphic" />
-      <feColorMatrix
-         result="fbSourceGraphicAlpha"
-         in="fbSourceGraphic"
-         values="0 0 0 -1 0 0 0 0 -1 0 0 0 0 -1 0 0 0 0 1 0"
-         id="feColorMatrix2" />
-      <feColorMatrix
-         id="feColorMatrix3"
-         values="0.21 0.72 0.072 0 0 0.21 0.72 0.072 0 0 0.21 0.72 0.072 0 0 0 0 0 1 0 "
-         in="fbSourceGraphic" />
-    </filter>
   </defs>
   <sodipodi:namedview
      showborder="false"
@@ -78,7 +79,7 @@
      inkscape:pageshadow="2"
      inkscape:zoom="22.627417"
      inkscape:cx="12.948893"
-     inkscape:cy="12.683728"
+     inkscape:cy="12.661631"
      inkscape:document-units="px"
      inkscape:current-layer="svg1468"
      inkscape:document-rotation="0"
@@ -91,30 +92,16 @@
      inkscape:snap-global="false"
      inkscape:snap-page="true"
      showguides="false"
-     inkscape:window-width="1800"
-     inkscape:window-height="1066"
-     inkscape:window-x="0"
-     inkscape:window-y="0"
+     inkscape:window-width="1531"
+     inkscape:window-height="873"
+     inkscape:window-x="69"
+     inkscape:window-y="27"
      inkscape:window-maximized="1"
      inkscape:pagecheckerboard="0"
-     inkscape:deskcolor="#d1d1d1"
-     inkscape:showpageshadow="2">
+     inkscape:deskcolor="#d1d1d1">
     <inkscape:grid
        type="xygrid"
-       id="grid2067"
-       originx="0"
-       originy="0"
-       spacingy="1"
-       spacingx="1"
-       units="px" />
-    <inkscape:page
-       x="0"
-       y="0"
-       width="4.2333331"
-       height="4.2333336"
-       id="page2"
-       margin="0"
-       bleed="0" />
+       id="grid2067" />
   </sodipodi:namedview>
   <metadata
      id="metadata1465">
@@ -159,8 +146,7 @@
   <g
      id="g370484"
      inkscape:label="logo"
-     transform="matrix(0.06551432,0,0,0.06551432,-2.232417,-1.431776)"
-     style="filter:url(#filter1)">
+     transform="matrix(0.06551432,0,0,0.06551432,-2.232417,-1.431776)">
     <path
        id="path6733-5"
        style="font-variation-settings:normal;opacity:1;vector-effect:none;fill:url(#linearGradient6918-3);fill-opacity:1;stroke:none;stroke-width:3.67846;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:2;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:stroke markers fill;stop-color:#000000;stop-opacity:1"

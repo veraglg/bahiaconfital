@@ -23,8 +23,6 @@ website:
       - sidebar:resultados
       - about.qmd
     right:
-      - text: '![](orcid.svg "ORCiD de la autora"){height=1.2em}'
-        href: https://orcid.org/0009-0005-4889-3412
       - text: '![](codeberg.svg "Codigo fuente"){height=1.2em}'
         href: https://codeberg.org/veraglg/bahiaconfital
   
