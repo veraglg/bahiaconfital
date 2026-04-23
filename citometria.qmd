@@ -4,7 +4,6 @@ subtitle: Concentración de microorganismos en el agua
 author:
   - name: Vera Gómez-Limón Gallardo
     orcid: 0009-0005-4889-3412
-    affiliation: Surfing for Science, UB
 ---
 
 ```{r}

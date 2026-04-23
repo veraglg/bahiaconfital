@@ -1,11 +1,10 @@
 ---
-title: "Sobre el estudio"
-subtitle: "`veraglg/bahiaconfital`"
+title: "Sobre este sitio web"
 image: patron.png
 about:
   template: jolla
 ---
-Me llamo **Vera** y he creado este sitio web. Soy graduada en Ciencias del Mar por la Universidad de las Palmas de Gran Canaria. Colaboro desde Barcelona con el Grupo de Oceanografía Biológica, IOCAG de Gran Canaria. Me encantan los programas de código libre y compartir la ciencia de manera abierta.
+Me llamo Vera y he creado este sitio web. Soy graduada en Ciencias del Mar por la Universidad de las Palmas de Gran Canaria. Colaboro desde Barcelona con el Grupo de Oceanografía Biológica, IOCAG de Gran Canaria. Me encantan los programas de código libre y compartir la ciencia de manera abierta.
 
 ### Financiación {.unlisted}
 
@@ -13,7 +12,7 @@ Convenio de colaboración entre el **Ayuntamiento de las Palmas de Gran Canaria*
 
 ### Cómo compartir {.unlisted}
 
-La obra está publicada bajo licencia **Creative Commons BY-NC-SA 4.0**. Para más información visita [Creative Commons](https://creativecommons.org/licenses/by-nc-sa/4.0/).
+El sitio es público bajo licencia **Creative Commons BY-NC-SA 4.0**. Para más información visita [Creative Commons](https://creativecommons.org/licenses/by-nc-sa/4.0/).
 
 ### Códgio fuente {.unlisted}
 
