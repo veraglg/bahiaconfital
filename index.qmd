@@ -19,11 +19,13 @@ author:
 
 La playa de El Confital lleva oficialmente **cerrado al público casi 9 años** debido a repetidos episodios de contaminación fecal [@diaz2026]. El principal indicador de esta contaminación son la **alta concentración de enterococos intestinales (EEII)**, estos indicadores de contaminación son monitoreados con frecuencia.
 
-Hay dos agentes encargados del monitoreo: el **Sistema de Información Nacional de Aguas de Baño, Náyade** [@nayade], dependiente del Ministerio de Sanidad; y **AT Hidrotecnia SL** [@hidrotecnia], empresa del sector privada al servicio del Ayuntamiento de Las Palmas de Gran Canaria, Ciudad del Mar.
+Hay dos agentes encargados del monitoreo: el **Sistema de Información Nacional de Aguas de Baño (Náyade)** [@nayade], dependiente del Ministerio de Sanidad; y **AT Hidrotecnia SL (Hidrotecnia)** [@hidrotecnia], empresa que presta servicio al Ayuntamiento de Las Palmas de Gran Canaria a través del área de Ciudad del Mar.
 
 Como se hizo público en el periódico Canarias7 [@diaz2026], hace 2 años que **conflictuan los resultados obtenidos entre ambos agentes**, la disconformidad genera duda sobre la calidad real de las aguas de baño.
 
-El objetivo de este proyecto es **investigar en mayor profundidad** la calidad del agua en El Confital, con especial atención en al contaminación fecal por EEII. La Universidad de Las Palmas de Gran Canaria (ULPGC) hemos llevado a cabo un **monitoreo independiente del microbioma acuático** para evaluar la contaminación real del agua de baño. Esperamos poder así resolver la disconformidad de los resultados y despejar la duda de la calidad del agua en la playa.
+## Nuestro objetivo
+
+El objetivo de este proyecto es **investigar en mayor profundidad** la calidad del agua en El Confital, con especial atención a al contaminación fecal por EEII. La Universidad de Las Palmas de Gran Canaria (ULPGC) hemos llevado a cabo un **monitoreo independiente del microbioma acuático** para evaluar el estado preciso del agua de baño. Esperamos poder así resolver la discrepancia de los resultados hasta ahora y despejar la duda de la calidad del agua en la playa.
 
 ## Historia del proyecto
 

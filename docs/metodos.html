@@ -6,9 +6,10 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="author" content="Maria Fernanda Montero">
 <meta name="author" content="Markel Gómez Letona">
 
-<title>Materiales y métodos de secuenciación – Calidad del agua en El Confital</title>
+<title>Materiales y métodos – Calidad del agua en El Confital</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -164,9 +165,12 @@ div.csl-indent {
     <h2 id="toc-title">En esta página</h2>
    
   <ul>
-  <li><a href="#extracción" id="toc-extracción" class="nav-link active" data-scroll-target="#extracción">Extracción</a></li>
-  <li><a href="#secuenciación" id="toc-secuenciación" class="nav-link" data-scroll-target="#secuenciación">Secuenciación</a></li>
+  <li><a href="#diseño-del-muestreo" id="toc-diseño-del-muestreo" class="nav-link active" data-scroll-target="#diseño-del-muestreo">Diseño del muestreo</a></li>
+  <li><a href="#extracción" id="toc-extracción" class="nav-link" data-scroll-target="#extracción">Extracción</a></li>
+  <li><a href="#secuenciación" id="toc-secuenciación" class="nav-link" data-scroll-target="#secuenciación">Secuenciación</a>
+  <ul class="collapse">
   <li><a href="#procesamiento" id="toc-procesamiento" class="nav-link" data-scroll-target="#procesamiento">Procesamiento</a></li>
+  </ul></li>
   <li><a href="#archivos" id="toc-archivos" class="nav-link" data-scroll-target="#archivos">Archivos</a>
   <ul class="collapse">
   <li><a href="#tabla-16s" id="toc-tabla-16s" class="nav-link" data-scroll-target="#tabla-16s">Tabla 16S</a></li>
@@ -184,14 +188,23 @@ div.csl-indent {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Materiales y métodos de secuenciación</h1>
+<h1 class="title">Materiales y métodos</h1>
+<p class="subtitle lead">Plan de monitoreo, coordinación y secuenciación del microbioma</p>
 </div>
 
 
 <div class="quarto-title-meta-author">
-  <div class="quarto-title-meta-heading">Autor/a</div>
-  <div class="quarto-title-meta-heading">Afiliación</div>
+  <div class="quarto-title-meta-heading">Autores/as</div>
+  <div class="quarto-title-meta-heading">Afiliaciones</div>
   
+    <div class="quarto-title-meta-contents">
+    <p class="author">Maria Fernanda Montero <a href="https://orcid.org/0000-0001-8124-8136" class="quarto-title-author-orcid"> <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAA2ZpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMC1jMDYwIDYxLjEzNDc3NywgMjAxMC8wMi8xMi0xNzozMjowMCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wTU09Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9tbS8iIHhtbG5zOnN0UmVmPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvc1R5cGUvUmVzb3VyY2VSZWYjIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtcE1NOk9yaWdpbmFsRG9jdW1lbnRJRD0ieG1wLmRpZDo1N0NEMjA4MDI1MjA2ODExOTk0QzkzNTEzRjZEQTg1NyIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDozM0NDOEJGNEZGNTcxMUUxODdBOEVCODg2RjdCQ0QwOSIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDozM0NDOEJGM0ZGNTcxMUUxODdBOEVCODg2RjdCQ0QwOSIgeG1wOkNyZWF0b3JUb29sPSJBZG9iZSBQaG90b3Nob3AgQ1M1IE1hY2ludG9zaCI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOkZDN0YxMTc0MDcyMDY4MTE5NUZFRDc5MUM2MUUwNEREIiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOjU3Q0QyMDgwMjUyMDY4MTE5OTRDOTM1MTNGNkRBODU3Ii8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+84NovQAAAR1JREFUeNpiZEADy85ZJgCpeCB2QJM6AMQLo4yOL0AWZETSqACk1gOxAQN+cAGIA4EGPQBxmJA0nwdpjjQ8xqArmczw5tMHXAaALDgP1QMxAGqzAAPxQACqh4ER6uf5MBlkm0X4EGayMfMw/Pr7Bd2gRBZogMFBrv01hisv5jLsv9nLAPIOMnjy8RDDyYctyAbFM2EJbRQw+aAWw/LzVgx7b+cwCHKqMhjJFCBLOzAR6+lXX84xnHjYyqAo5IUizkRCwIENQQckGSDGY4TVgAPEaraQr2a4/24bSuoExcJCfAEJihXkWDj3ZAKy9EJGaEo8T0QSxkjSwORsCAuDQCD+QILmD1A9kECEZgxDaEZhICIzGcIyEyOl2RkgwAAhkmC+eAm0TAAAAABJRU5ErkJggg=="></a></p>
+  </div>
+  <div class="quarto-title-meta-contents">
+        <p class="affiliation">
+            Grupo de Oceanografía Biológica, IOCAG
+          </p>
+      </div>
     <div class="quarto-title-meta-contents">
     <p class="author">Markel Gómez Letona <a href="https://orcid.org/0000-0001-9325-3979" class="quarto-title-author-orcid"> <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAA2ZpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMC1jMDYwIDYxLjEzNDc3NywgMjAxMC8wMi8xMi0xNzozMjowMCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wTU09Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9tbS8iIHhtbG5zOnN0UmVmPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvc1R5cGUvUmVzb3VyY2VSZWYjIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtcE1NOk9yaWdpbmFsRG9jdW1lbnRJRD0ieG1wLmRpZDo1N0NEMjA4MDI1MjA2ODExOTk0QzkzNTEzRjZEQTg1NyIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDozM0NDOEJGNEZGNTcxMUUxODdBOEVCODg2RjdCQ0QwOSIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDozM0NDOEJGM0ZGNTcxMUUxODdBOEVCODg2RjdCQ0QwOSIgeG1wOkNyZWF0b3JUb29sPSJBZG9iZSBQaG90b3Nob3AgQ1M1IE1hY2ludG9zaCI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOkZDN0YxMTc0MDcyMDY4MTE5NUZFRDc5MUM2MUUwNEREIiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOjU3Q0QyMDgwMjUyMDY4MTE5OTRDOTM1MTNGNkRBODU3Ii8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+84NovQAAAR1JREFUeNpiZEADy85ZJgCpeCB2QJM6AMQLo4yOL0AWZETSqACk1gOxAQN+cAGIA4EGPQBxmJA0nwdpjjQ8xqArmczw5tMHXAaALDgP1QMxAGqzAAPxQACqh4ER6uf5MBlkm0X4EGayMfMw/Pr7Bd2gRBZogMFBrv01hisv5jLsv9nLAPIOMnjy8RDDyYctyAbFM2EJbRQw+aAWw/LzVgx7b+cwCHKqMhjJFCBLOzAR6+lXX84xnHjYyqAo5IUizkRCwIENQQckGSDGY4TVgAPEaraQr2a4/24bSuoExcJCfAEJihXkWDj3ZAKy9EJGaEo8T0QSxkjSwORsCAuDQCD+QILmD1A9kECEZgxDaEZhICIzGcIyEyOl2RkgwAAhkmC+eAm0TAAAAABJRU5ErkJggg=="></a></p>
   </div>
@@ -214,6 +227,17 @@ div.csl-indent {
 </header>
 
 
+<section id="diseño-del-muestreo" class="level2">
+<h2 class="anchored" data-anchor-id="diseño-del-muestreo">Diseño del muestreo</h2>
+<p>En junio de 2025 se concretó con Hidrotecnia. la realización de un estudio conjunto en la playa de El Confital durante el verano de 2025 (entre julio y septiembre). El diseño de muestreo contempló la realización de 20 campañas, con el objetivo de cubrir distintos estados de la marea: pleamar, bajamar, vaciante y llenante. Finalmente, se llevaron a cabo 9, 7, 2 y 2 muestreos para cada uno de estos estados, respectivamente. En determinadas ocasiones, los muestreos coincidieron con los realizados por la autoridad sanitaria competente.</p>
+<p>Adicionalmente, se recogieron tres muestras de control en una zona costera influenciada por la descarga de aguas residuales (desembocadura del Barranco del Guiniguada), lo que incrementó el número total de muestras analizadas. En el laboratorio, las muestras están siendo analizadas considerando dos grandes grupos de parámetros:</p>
+<ol type="1">
+<li><p>Ambientales, que incluyen nutrientes orgánicos (carbono orgánico total –TOC– y nitrógeno orgánico total –TON–) e inorgánicos (nitratos, fosfatos, silicatos y amonio).</p></li>
+<li><p>Biológicos, enfocados en la caracterización de la biodiversidad y la abundancia de bacterias, cianobacterias y organismos eucariotas.</p></li>
+</ol>
+</section>
+<section id="extracción" class="level2">
+<h2 class="anchored" data-anchor-id="extracción">Extracción</h2>
 <div class="callout callout-style-default callout-caution callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -227,21 +251,6 @@ div.csl-indent {
 <p>Esta sección contiene especificaciones científico-técnicas para una mejor reproducibilidad de los resultados. Puedes saltarte esta sección si no estás familiarizada con las metodologías de secuenciación de material genético.</p>
 </div>
 </div>
-<div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Nota
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>Traducción realizada con la versión gratuita del traductor <a href="https://deepl.com">DeepL.com</a></p>
-</div>
-</div>
-<section id="extracción" class="level2">
-<h2 class="anchored" data-anchor-id="extracción">Extracción</h2>
 <p>La extracción de ADN se llevó a cabo siguiendo el protocolo de fenol-cloroformo. Se añadió 1 ml de tampón de lisis (50 ml de Tris-HCl 1 M, pH 8,3; 80 ml de EDTA 0,5 M, pH 8,0; 265 g de <a href="https://www.sigmaaldrich.com/catalog/product/sigma/84097?lang=es&amp;region=ES">sacarosa</a> (Sigma-Aldrich); 870 ml de agua ultrapura) a los tubos de microcentrífuga que contenían los filtros de muestra, junto con 25 µl de <a href="https://www.sigmaaldrich.com/catalog/product/sigma/l6876?lang=es&amp;region=ES">lisozima</a> recién preparada (1 mg de lisozima en 25 µl de tampón de lisis, concentración final 1 mg/ml; Sigma-Aldrich). La mezcla se incubó a 37 °C durante 45 minutos con agitación suave. Posteriormente se añadieron 25 µl de <a href="https://www.sigmaaldrich.com/catalog/product/mm/124568?lang=es&amp;region=ES">proteinasa K</a> recién preparada (0,2 mg de proteinasa K en 25 µl de tampón de lisis, concentración final: 0,2 mg/ml; Sigma-Aldrich) y 100 µl de <a href="http://www.thermofisher.com/order/catalog/product/AM9820">SDS</a> al 10 % (Thermo Fisher), incubando la mezcla a 55 °C durante 1 hora con agitación suave. A continuación, se añadieron 0,75 ml de mezcla de <a href="https://www.thermofisher.com/order/catalog/product/AM9730#/AM9730">fenol:CHCl₃:IAA</a> (25:24:1; Thermo Fisher), se agitó ligeramente con vórtex y se centrifugó durante 10 minutos a 14 000 rpm. La fase acuosa resultante se transfirió a un nuevo tubo y se repitió el paso: se añadieron 0,75 ml de mezcla de <a href="https://www.sigmaaldrich.com/catalog/product/sigma/c0549?lang=es&amp;region=ES">CHCl₃:IAA</a>, se agitó ligeramente con el vórtex y se centrifugó durante 10 minutos a 14.000 rpm. El tercer y último paso de la extracción se llevó a cabo añadiendo 0,75 ml de mezcla de CHCl₃:IAA (24:1, Sigma-Aldrich), agitando ligeramente con vórtex y centrifugando durante 10 minutos a 14.000 rpm. La fase acuosa resultante se transfirió a un nuevo tubo para proceder a la precipitación del ADN. La precipitación del ADN se realizó siguiendo a Green y Sambrook<span class="citation" data-cites="green2017"><sup><a href="#ref-green2017" role="doc-biblioref">1</a></sup></span>, incluyendo glicógeno según Zou et al.<span class="citation" data-cites="zou2021"><sup><a href="#ref-zou2021" role="doc-biblioref">2</a></sup></span>. Se añadieron 0,1 volúmenes de <a href="https://www.thermofisher.com/order/catalog/product/AM9740#/AM9740">acetato de sodio</a> (3M, pH 5,5; Thermo Fisher), 0,02 volúmenes de <a href="https://www.thermofisher.com/order/catalog/product/AM9510?SID=srch-srp-AM9510#/AM9510?SID=srch-srp-AM9510">glicógeno</a> (5 mg/mL; Thermo Fisher) y 0,65 volúmenes de <a href="https://www.sigmaaldrich.com/catalog/product/sigma/i9516?lang=es&amp;region=ES">isopropanol</a> (Sigma-Aldrich), y se centrifugó durante 40 minutos a 4 °C y 14.000 rpm. El líquido sobrenadante resultante se retiró con cuidado. El sedimento de ADN se lavó con 650 µl de etanol helado (70 %) y se centrifugó durante 30 minutos a 4 °C y 14.000 rpm. El sobrenadante resultante se retiró de nuevo con cuidado y se dejó el tubo abierto para permitir que el sedimento de ADN se secara. Por último, los sedimentos se disolvieron en 50 µl de TRIS (10 mM).</p>
 </section>
 <section id="secuenciación" class="level2">
@@ -269,16 +278,16 @@ Nota
 <p>Verificamos el tamaño de las bibliotecas sometiéndolas a geles de agarosa al 2 % teñidos con GreenSafe (NZYTech) y fotografiándolas bajo luz UV. A continuación, purificamos las bibliotecas utilizando las perlas magnéticas Mag-Bind RXNPure Plus (Omega Bio-tek), siguiendo las instrucciones del fabricante.</p>
 <p>Las bibliotecas terminadas se agruparon en cantidades equimolares según los resultados de una cuantificación con el ensayo Qubit dsDNA HS (Thermo Fisher Scientific).</p>
 <p>La mezcla se secuenció en una fracción de una célula de flujo NovaSeq PE250 (Illumina), con el objetivo de obtener un rendimiento total de 20 gigabases (18 gigabases para 16S y 2 gigabases para 18S).</p>
-<section id="control-de-calidad-de-los-datos-de-secuenciación" class="level4">
-<h4 class="anchored" data-anchor-id="control-de-calidad-de-los-datos-de-secuenciación">Control de calidad de los datos de secuenciación</h4>
+<section id="control-de-calidad-de-los-datos-de-secuenciación" class="level3">
+<h3 class="anchored" data-anchor-id="control-de-calidad-de-los-datos-de-secuenciación">Control de calidad de los datos de secuenciación</h3>
 <p>Los datos brutos de Illumina de extremos emparejados para cada biblioteca consisten en lecturas directas (R1) e inversas (R2) almacenadas en archivos separados, que también incluyen las puntuaciones de calidad de las lecturas. Eliminamos cualquier rastro potencial de dímeros de adaptador utilizando Cutadapt v3.5<span class="citation" data-cites="martin2011"><sup><a href="#ref-martin2011" role="doc-biblioref">5</a></sup></span>.</p>
 <p>A continuación, evaluamos la calidad de los archivos FASTQ con el software FastQC (Andrews, 2010)<span class="citation" data-cites="andrews2010"><sup><a href="#ref-andrews2010" role="doc-biblioref">6</a></sup></span> y resumimos los resultados utilizando MultiQC (Ewels, 2016)<span class="citation" data-cites="ewels2016"><sup><a href="#ref-ewels2016" role="doc-biblioref">7</a></sup></span>.</p>
 </section>
 </div>
-</section>
-<section id="procesamiento" class="level2">
-<h2 class="anchored" data-anchor-id="procesamiento">Procesamiento</h2>
+<section id="procesamiento" class="level3">
+<h3 class="anchored" data-anchor-id="procesamiento">Procesamiento</h3>
 <p>Los resultados de la secuenciación se procesaron en la plataforma de bioinformática marina (Marbits, marbits.icm.csic.es) del Institut de Ciències del Mar (ICM-CSIC, Barcelona). Se utilizó Cutadapt<span class="citation" data-cites="martin2011"><sup><a href="#ref-martin2011" role="doc-biblioref">5</a></sup></span> para eliminar los cebadores.</p>
+</section>
 </section>
 <section id="archivos" class="level2">
 <h2 class="anchored" data-anchor-id="archivos">Archivos</h2>

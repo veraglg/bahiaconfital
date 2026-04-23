@@ -1,22 +1,32 @@
 ---
-title: Materiales y métodos de secuenciación
+title: Materiales y métodos
+subtitle: Plan de monitoreo, coordinación y secuenciación del microbioma
 author:
-  name: Markel Gómez Letona
-  orcid: 0000-0001-9325-3979
-  affiliation: Instituto de Investigacións Mariñas, CSIC
+  - name: Maria Fernanda Montero
+    orcid: 0000-0001-8124-8136
+    affiliation: Grupo de Oceanografía Biológica, IOCAG
+  - name: Markel Gómez Letona
+    orcid: 0000-0001-9325-3979
+    affiliation: Instituto de Investigacións Mariñas, CSIC
 ---
+
+## Diseño del muestreo
+
+En junio de 2025 se concretó con Hidrotecnia. la realización de un estudio conjunto en la playa de El Confital durante el verano de 2025 (entre julio y septiembre). El diseño de muestreo contempló la realización de 20 campañas, con el objetivo de cubrir distintos estados de la marea: pleamar, bajamar, vaciante y llenante. Finalmente, se llevaron a cabo 9, 7, 2 y 2 muestreos para cada uno de estos estados, respectivamente. En determinadas ocasiones, los muestreos coincidieron con los realizados por la autoridad sanitaria competente.
+
+Adicionalmente, se recogieron tres muestras de control en una zona costera influenciada por la descarga de aguas residuales (desembocadura del Barranco del Guiniguada), lo que incrementó el número total de muestras analizadas. En el laboratorio, las muestras están siendo analizadas considerando dos grandes grupos de parámetros:
+
+1. Ambientales, que incluyen nutrientes orgánicos (carbono orgánico total --TOC-- y nitrógeno orgánico total --TON--) e inorgánicos (nitratos, fosfatos, silicatos y amonio).
+
+2. Biológicos, enfocados en la caracterización de la biodiversidad y la abundancia de bacterias, cianobacterias y organismos eucariotas.
+
+## Extracción
 
 ::: {.callout-caution}
 ## Sección cientifico-técnica
 
 Esta sección contiene especificaciones científico-técnicas para una mejor reproducibilidad de los resultados. Puedes saltarte esta sección si no estás familiarizada con las metodologías de secuenciación de material genético.
 :::
-
-::: {.callout-note}
-Traducción realizada con la versión gratuita del traductor [DeepL.com](https://deepl.com)
-:::
-
-## Extracción
 
 La extracción de ADN se llevó a cabo siguiendo el protocolo de fenol-cloroformo. Se añadió 1 ml de tampón de lisis (50 ml de Tris-HCl 1 M, pH 8,3; 80 ml de EDTA 0,5 M, pH 8,0; 265 g de [sacarosa](https://www.sigmaaldrich.com/catalog/product/sigma/84097?lang=es&region=ES) (Sigma-Aldrich); 870 ml de agua ultrapura) a los tubos de microcentrífuga que contenían los filtros de muestra, junto con 25 µl de [lisozima](https://www.sigmaaldrich.com/catalog/product/sigma/l6876?lang=es&region=ES) recién preparada (1 mg de lisozima en 25 µl de tampón de lisis, concentración final 1 mg/ml; Sigma-Aldrich). La mezcla se incubó a 37 °C durante 45 minutos con agitación suave. Posteriormente se añadieron 25 µl de [proteinasa K](https://www.sigmaaldrich.com/catalog/product/mm/124568?lang=es&region=ES) recién preparada (0,2 mg de proteinasa K en 25 µl de tampón de lisis, concentración final: 0,2 mg/ml; Sigma-Aldrich) y 100 µl de [SDS](http://www.thermofisher.com/order/catalog/product/AM9820) al 10 % (Thermo Fisher), incubando la mezcla a 55 °C durante 1 hora con agitación suave. A continuación, se añadieron 0,75 ml de mezcla de [fenol:CHCl₃:IAA](https://www.thermofisher.com/order/catalog/product/AM9730#/AM9730) (25:24:1; Thermo Fisher), se agitó ligeramente con vórtex y se centrifugó durante 10 minutos a 14 000 rpm. La fase acuosa resultante se transfirió a un nuevo tubo y se repitió el paso: se añadieron 0,75 ml de mezcla de [CHCl₃:IAA](https://www.sigmaaldrich.com/catalog/product/sigma/c0549?lang=es&region=ES), se agitó ligeramente con el vórtex y se centrifugó durante 10 minutos a 14.000 rpm. El tercer y último paso de la extracción se llevó a cabo añadiendo 0,75 ml de mezcla de CHCl₃:IAA (24:1, Sigma-Aldrich), agitando ligeramente con vórtex y centrifugando durante 10 minutos a 14.000 rpm. La fase acuosa resultante se transfirió a un nuevo tubo para proceder a la precipitación del ADN. La precipitación del ADN se realizó siguiendo a Green y Sambrook[@green2017], incluyendo glicógeno según Zou et al.[@zou2021]. Se añadieron 0,1 volúmenes de [acetato de sodio](https://www.thermofisher.com/order/catalog/product/AM9740#/AM9740) (3M, pH 5,5; Thermo Fisher), 0,02 volúmenes de [glicógeno](https://www.thermofisher.com/order/catalog/product/AM9510?SID=srch-srp-AM9510#/AM9510?SID=srch-srp-AM9510) (5 mg/mL; Thermo Fisher) y 0,65 volúmenes de [isopropanol](https://www.sigmaaldrich.com/catalog/product/sigma/i9516?lang=es&region=ES) (Sigma-Aldrich), y se centrifugó durante 40 minutos a 4 °C y 14.000 rpm. El líquido sobrenadante resultante se retiró con cuidado. El sedimento de ADN se lavó con 650 µl de etanol helado (70 %) y se centrifugó durante 30 minutos a 4 °C y 14.000 rpm. El sobrenadante resultante se retiró de nuevo con cuidado y se dejó el tubo abierto para permitir que el sedimento de ADN se secara. Por último, los sedimentos se disolvieron en 50 µl de TRIS (10 mM).
 
@@ -68,14 +78,14 @@ Las bibliotecas terminadas se agruparon en cantidades equimolares según los res
 
 La mezcla se secuenció en una fracción de una célula de flujo NovaSeq PE250 (Illumina), con el objetivo de obtener un rendimiento total de 20 gigabases (18 gigabases para 16S y 2 gigabases para 18S).
 
-#### Control de calidad de los datos de secuenciación
+### Control de calidad de los datos de secuenciación
 
 Los datos brutos de Illumina de extremos emparejados para cada biblioteca consisten en lecturas directas (R1) e inversas (R2) almacenadas en archivos separados, que también incluyen las puntuaciones de calidad de las lecturas. Eliminamos cualquier rastro potencial de dímeros de adaptador utilizando Cutadapt v3.5[@martin2011].
 
 A continuación, evaluamos la calidad de los archivos FASTQ con el software FastQC (Andrews, 2010)[@andrews2010] y resumimos los resultados utilizando MultiQC (Ewels, 2016)[@ewels2016].
 :::
 
-## Procesamiento
+### Procesamiento
 
 Los resultados de la secuenciación se procesaron en la plataforma de bioinformática marina (Marbits, marbits.icm.csic.es) del Institut de Ciències del Mar (ICM-CSIC, Barcelona). Se utilizó Cutadapt[@martin2011] para eliminar los cebadores.
 
