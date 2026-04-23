@@ -223,7 +223,7 @@ fig_t_eeii_agente <- visualize(ts_hipoteticas_eeii_agente) +
   labs(
     title = "T de Student emparejada. Diferencia de EEII según agente",
     subtitle = "Diferencias probablemente debidas al azar (> 0,05)",
-    x = "estadístico T",
+    x = "estadístico t",
     y = "simulaciones"
   )
 
