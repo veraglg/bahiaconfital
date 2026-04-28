@@ -1,8 +1,8 @@
 {
-  "hash": "8f37846f1ec56070c38ddb054e1646ae",
+  "hash": "dee985116857536b18c55da2de93296c",
   "result": {
     "engine": "knitr",
-    "markdown": "---\ntitle: Secuenciación del microbioma\nsubtitle: Identificación mediante ARNr 16S y 18S\nauthor:\n  - name: Vera Gómez-Limón Gallardo\n    orcid: 0009-0005-4889-3412\n---\n\n\n::: {.cell}\n\n:::\n\n\n\n::: {.cell}\n\n:::\n\n\n\n::: {.cell}\n\n:::\n\n\n## Vista general\n\n\n::: {.cell}\n::: {.cell-output-display}\n![](secuenciacion_files/figure-html/fig-suma-16s-2025-1.png){#fig-suma-16s-2025 width=672}\n:::\n:::\n\n\n\n::: {.cell}\n::: {.cell-output-display}\n![](secuenciacion_files/figure-html/fig-suma-18s-2025-1.png){#fig-suma-18s-2025 width=672}\n:::\n:::\n\n\n",
+    "markdown": "---\ntitle: Secuenciación del microbioma\nsubtitle: Identificación mediante ARNr 16S y 18S\nauthor:\n  - name: Vera Gómez-Limón Gallardo\n    orcid: 0009-0005-4889-3412\n    affiliation: Universidad de Las Palmas de Gran Canaria\n---\n\n\n::: {.cell}\n\n:::\n\n\n\n::: {.cell}\n\n:::\n\n\n\n::: {.cell}\n\n:::\n\n\n## Vista general\n\n\n::: {.cell}\n::: {.cell-output-display}\n![](secuenciacion_files/figure-html/fig-suma-16s-2025-1.png){#fig-suma-16s-2025 width=672}\n:::\n:::\n\n\n\n::: {.cell}\n::: {.cell-output-display}\n![](secuenciacion_files/figure-html/fig-suma-18s-2025-1.png){#fig-suma-18s-2025 width=672}\n:::\n:::\n\n\n",
     "supporting": [
       "secuenciacion_files"
     ],
