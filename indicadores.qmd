@@ -172,6 +172,7 @@ fig_vista_general <- datos_par_valor |>
   geom_area(
     color = "black", position = position_dodge(width = 0), alpha = .6
   ) +
+  geom_point(aes(shape = Sujeto)) +
   geom_hline(
     data = limites,
     mapping = aes(yintercept = Valor, color = fct_inorder(Limite))
