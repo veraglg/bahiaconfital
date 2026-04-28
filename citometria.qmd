@@ -87,14 +87,26 @@ set.seed(43)
 
 # ---- ANOVA -----
 
-# Calcula el estadístico F para los datos reales
-f_real <- datos_ratio |>
+# Calcula el estadístico F para el ratio observado en función de la marea
+f_obs_ratio_marea <- datos_ratio |>
   specify(response = Ratio, explanatory = Marea) |> 
   calculate(stat = "F")
 
-# Calcula 2000 estadísticos F para datos simulados bajo hipótesis nula
-fs_hipoteticas <- datos_ratio |> 
+# Calcula 2000 estadísticos F bajo hipótesis de independencia ratio-marea
+f_hip_ratio_marea <- datos_ratio |> 
   specify(response = Ratio, explanatory = Marea) |> 
+  hypothesise(null = "independence") |> 
+  generate(reps = 2000, type = "permute") |> 
+  calculate(stat = "F")
+
+# Calcula el estadístico F para el ratio observado en función del mes
+f_obs_ratio_mes <- datos_ratio |>
+  specify(response = Ratio, explanatory = Mes) |> 
+  calculate(stat = "F")
+
+# Calcula 2000 estadísticos F bajo hipótesis de independencia ratio-mes
+f_hip_ratio_mes <- datos_ratio |> 
+  specify(Ratio ~ Mes) |> 
   hypothesise(null = "independence") |> 
   generate(reps = 2000, type = "permute") |> 
   calculate(stat = "F")
@@ -102,12 +114,12 @@ fs_hipoteticas <- datos_ratio |>
 # --- T-tests ----
 
 # Calcula el estadístico t para los datos reales
-t_real <- datos_ratio |> 
+t_obs_ratio_lugar <- datos_ratio |> 
   specify(response = Ratio, explanatory = Lugar) |> 
   calculate(stat = "diff in means", order = c("Confital", "Bco. Guiniguada"))
 
 # Calcula 1000 estadísticos t para datos simulados bajo hipótesis nula
-ts_hipoteticas <- datos_ratio |> 
+t_hip_ratio_lugar <- datos_ratio |> 
   specify(Ratio ~ Lugar) |> 
   hypothesize(null = "independence") |> 
   generate(reps = 1000, type = "permute") |> 
@@ -180,14 +192,14 @@ fig_marea_ratio <- datos_ratio |> ggplot(aes(Marea, Ratio)) +
   )
 
 # Estadístico F para la variación de HNA/LNA con al marea
-fig_f_ratio_marea <- visualise(fs_hipoteticas) +
-  shade_p_value(obs_stat = f_real, direction = "greater") +
+fig_f_ratio_marea <- visualise(f_hip_ratio_marea) +
+  shade_p_value(obs_stat = f_obs_ratio_marea, direction = "greater") +
   annotate(
     "text",
     x = 6, y = 200,
     label = paste(
       "p.value\n",
-      get_p_value(fs_hipoteticas, f_real, direction = "greater")
+      get_p_value(f_hip_ratio_marea, f_obs_ratio_marea, direction = "greater")
     )
   ) +
   labs(
@@ -221,14 +233,14 @@ fig_lugar_ratio <- datos_ratio |> ggplot(aes(Lugar, Ratio)) +
   )
 
 # Estadístico t para la variación HNA/LNA con el lugar
-fig_t_ratio_lugar <- visualize(ts_hipoteticas) +
-  shade_p_value(obs_stat = t_real, direction = "both") +
+fig_t_ratio_lugar <- visualize(t_hip_ratio_lugar) +
+  shade_p_value(obs_stat = t_obs_ratio_lugar, direction = "both") +
   annotate(
     "text",
     x = .45, y = 150,
     label = paste(
       "p.value\n",
-      get_p_value(fs_hipoteticas, f_real, direction = "both")
+      get_p_value(f_hip_ratio_marea, f_obs_ratio_marea, direction = "both")
     )
   ) +
   labs(
@@ -261,6 +273,24 @@ fig_mes_ratio <- datos_ratio |> ggplot(aes(x = Mes, y = Ratio)) +
     caption = "Verano 2025",
     x = "",
     y = "células/mL",
+  )
+
+# Estadístico F para la variación de HNA/LNA con el mes
+fig_f_ratio_mes <- visualise(f_hip_ratio_mes) +
+  shade_p_value(obs_stat = f_obs_ratio_mes, direction = "greater") +
+  annotate(
+    "text",
+    x = 2.5, y = 400,
+    label = paste(
+      "p.value\n",
+      get_p_value(f_hip_ratio_mes, f_obs_ratio_mes, direction = "greater")
+    )
+  ) +
+  labs(
+    title = "ANOVA para la varianza de HNA/LNA según el mes",
+    subtitle = "No se detectó variación significativa (> 0,05)",
+    x = "estadístico F",
+    y = "simulaciones"
   )
 ```
 
@@ -334,4 +364,9 @@ fig_mes
 ```{r}
 #| label: fig-mes-ratio
 fig_mes_ratio
+```
+
+```{r}
+#| label: fig-f-ratio-mes
+fig_f_ratio_mes
 ```
