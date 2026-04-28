@@ -151,7 +151,7 @@ fig_suma_16s_2025 <- datos_16s_2025 |>
   geom_col() +
   labs(
     title = "Secuencición procariota 16S",
-    subtitle = "Suma tota de lecturas por muestra heterogénea",
+    subtitle = "Suma tota de lecturas por muestra",
     caption = "Año 2025"
   )
 
@@ -161,7 +161,7 @@ fig_suma_18s_2025 <- datos_18s_2025 |>
   geom_col() +
   labs(
     title = "Secuencición eucariota 28S",
-    subtitle = "Suma tota de lecturas por muestra heterogénea",
+    subtitle = "Suma tota de lecturas por muestra",
     caption = "Año 2025"
   )
 ```

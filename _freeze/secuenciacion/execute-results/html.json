@@ -1,5 +1,5 @@
 {
-  "hash": "7f04ccdb1e627d08cb5f2b283fff042e",
+  "hash": "bad366d2ef99a11c5b91f111df023d2f",
   "result": {
     "engine": "knitr",
     "markdown": "---\ntitle: Secuenciación del microbioma\nsubtitle: Identificación mediante ARNr 16S y 18S\nauthor:\n  - name: Vera Gómez-Limón Gallardo\n    orcid: 0009-0005-4889-3412\n---\n\n\n::: {.cell}\n\n:::\n\n\n\n::: {.cell}\n\n:::\n\n\n\n::: {.cell}\n\n:::\n\n\n## Vista general\n\n\n::: {.cell}\n::: {.cell-output-display}\n![](secuenciacion_files/figure-html/fig-suma-16s-2025-1.png){#fig-suma-16s-2025 width=672}\n:::\n:::\n\n\n\n::: {.cell}\n::: {.cell-output-display}\n![](secuenciacion_files/figure-html/fig-suma-18s-2025-1.png){#fig-suma-18s-2025 width=672}\n:::\n:::\n\n\n",
