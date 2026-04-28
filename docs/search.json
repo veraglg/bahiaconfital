@@ -4,7 +4,7 @@
     "href": "indicadores.html",
     "title": "Biondicadores convencionales",
     "section": "",
-    "text": "Los episodios periódicos de contaminación fecal en la playa de El Confital se monitorearon durante el verano 2025. La bacteria E.coli se detectó en todas las muestras dentro de los valores de calidad excelente del agua establecidos por la normativa1.\nEl Ministerio de Sanidad (Náyade) y AT Hidrotecnia SL (Hidrotecnia) fueron los dos agentes responsables del monitoreo de indicadores de contaminación fecal. Atendiendo a la distribución de resultados obtenidos (Figura 1), observamos una mayor dispersión según Náyade que respecto de Hidrotecnia. Además, únicamente los valores de Náyade superaron en 2 ocasiones el umbral de calidad de agua insuficiente para EEII.\nLa problemática reside en los repuntes de EEII, siendo los meses de julio y septiembre 2025 donde se dieron los episodios de calidad insuficiente del agua.\n\n\n\n\n\n\n\n\nFigura 1",
+    "text": "Los episodios periódicos de contaminación fecal en la playa de El Confital se monitorearon durante el verano 2025. La bacteria E.coli se detectó en todas las muestras dentro de los valores de calidad excelente del agua establecidos por la normativa1.\nEl Ministerio de Sanidad (Náyade) y AT Hidrotecnia SL (Hidrotecnia) son los dos sujetos responsables de monitorear los indicadores de contaminación fecal. Atendiendo a la distribución de resultados obtenidos (Figura 1), observamos una mayor dispersión según Náyade que respecto de Hidrotecnia. Además, únicamente los valores de Náyade superaron en 2 ocasiones el umbral de calidad de agua insuficiente para EEII.\nLa problemática reside en los repuntes de EEII, siendo los meses de julio y septiembre 2025 donde se dieron los episodios de calidad insuficiente del agua.\n\n\n\n\n\n\n\n\nFigura 1",
     "crumbs": [
       "Biondicadores convencionales"
     ]
@@ -14,17 +14,17 @@
     "href": "indicadores.html#vista-general",
     "title": "Biondicadores convencionales",
     "section": "",
-    "text": "Los episodios periódicos de contaminación fecal en la playa de El Confital se monitorearon durante el verano 2025. La bacteria E.coli se detectó en todas las muestras dentro de los valores de calidad excelente del agua establecidos por la normativa1.\nEl Ministerio de Sanidad (Náyade) y AT Hidrotecnia SL (Hidrotecnia) fueron los dos agentes responsables del monitoreo de indicadores de contaminación fecal. Atendiendo a la distribución de resultados obtenidos (Figura 1), observamos una mayor dispersión según Náyade que respecto de Hidrotecnia. Además, únicamente los valores de Náyade superaron en 2 ocasiones el umbral de calidad de agua insuficiente para EEII.\nLa problemática reside en los repuntes de EEII, siendo los meses de julio y septiembre 2025 donde se dieron los episodios de calidad insuficiente del agua.\n\n\n\n\n\n\n\n\nFigura 1",
+    "text": "Los episodios periódicos de contaminación fecal en la playa de El Confital se monitorearon durante el verano 2025. La bacteria E.coli se detectó en todas las muestras dentro de los valores de calidad excelente del agua establecidos por la normativa1.\nEl Ministerio de Sanidad (Náyade) y AT Hidrotecnia SL (Hidrotecnia) son los dos sujetos responsables de monitorear los indicadores de contaminación fecal. Atendiendo a la distribución de resultados obtenidos (Figura 1), observamos una mayor dispersión según Náyade que respecto de Hidrotecnia. Además, únicamente los valores de Náyade superaron en 2 ocasiones el umbral de calidad de agua insuficiente para EEII.\nLa problemática reside en los repuntes de EEII, siendo los meses de julio y septiembre 2025 donde se dieron los episodios de calidad insuficiente del agua.\n\n\n\n\n\n\n\n\nFigura 1",
     "crumbs": [
       "Biondicadores convencionales"
     ]
   },
   {
-    "objectID": "indicadores.html#agente-muestreador",
-    "href": "indicadores.html#agente-muestreador",
+    "objectID": "indicadores.html#sujeto-muestreador",
+    "href": "indicadores.html#sujeto-muestreador",
     "title": "Biondicadores convencionales",
-    "section": "Agente muestreador",
-    "text": "Agente muestreador\n\n\n\n\n\n\n\n\nFigura 2\n\n\n\n\n\nPara estimar estadísticamente si existen diferencias significativas entre los resultados obtenidos por ambos agentes, utilizamos la prueba de la t de Student para los valores emparejados por la misma muestra de agua. En la Figura 3 se observa como la diferencia de EEII entre Náyade e Hidrotecnia no es significativa con los datos disponibles. Probablemente la mayor detección de Náyade se deba al azar (p valor &gt; 0,05).\n\n\n\n\n\n\n\n\nFigura 3",
+    "section": "Sujeto muestreador",
+    "text": "Sujeto muestreador\n\n\n\n\n\n\n\n\nFigura 2\n\n\n\n\n\nPara estimar estadísticamente si existen diferencias significativas entre los resultados obtenidos por ambos sujetos, utilizamos la prueba de la t de Student para los valores emparejados por la misma muestra de agua. En la Figura 3 se observa como la diferencia de EEII entre Náyade e Hidrotecnia no es significativa con los datos disponibles. Probablemente la mayor detección de Náyade se deba al azar (p valor &gt; 0,05).\n\n\n\n\n\n\n\n\nFigura 3",
     "crumbs": [
       "Biondicadores convencionales"
     ]

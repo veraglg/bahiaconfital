@@ -51,7 +51,7 @@ datos_valor <- datos |> pivot_longer(
 # Especifica las categorías (Indicador y laboratorio) para cada valor UFC.
 datos_valor <- datos_valor |> separate_wider_regex(
   Parametro,
-  c(Indicador = "EEII|E\\.coli", "\\.", Agente = "Hidrotecnia|Nayade")
+  c(Indicador = "EEII|E\\.coli", "\\.", Sujeto = "Hidrotecnia|Nayade")
 )
 
 # Elimina valores perdidos
@@ -63,9 +63,9 @@ datos_indicador <- datos_valor |> pivot_wider(
   values_from = Valor
 )
 
-# Ensancha los valores en valores de agente
+# Ensancha los valores en valores de sujeto
 datos_par <- datos_valor |> pivot_wider(
-  names_from = Agente,
+  names_from = Sujeto,
   values_from = Valor
 )
 
@@ -74,10 +74,10 @@ datos_par <- datos_par |> filter(!is.na(Hidrotecnia), !is.na(Nayade))
 
 # Transforma a un valor por fila
 datos_par_valor <- datos_par |> pivot_longer(
-  c("Hidrotecnia", "Nayade"), names_to = "Agente", values_to = "Valor"
+  c("Hidrotecnia", "Nayade"), names_to = "Sujeto", values_to = "Valor"
 )
 
-# Calcula la diferencia entre agentes
+# Calcula la diferencia entre sujetos
 datos_diferencia <- datos |> mutate(
   Diferencia.EEII = EEII.Nayade - EEII.Hidrotecnia,
   Diferencia.E.coli = E.coli.Nayade - E.coli.Nayade
@@ -108,26 +108,26 @@ set.seed(81)
 # ---- t tests ----
 
 # Calcula el estadístico t para los datos reales
-t_real_eeii_agente <- datos_diferencia |> 
+t_real_eeii_sujeto <- datos_diferencia |> 
   specify(response = Diferencia.EEII) |> 
   calculate(stat = "mean")
 
 # Calcula 2000 estadísticos t para datos simulados bajo hipótesis nula
-ts_hipoteticas_eeii_agente <- datos_diferencia |> 
+ts_hipoteticas_eeii_sujeto <- datos_diferencia |> 
   specify(response = Diferencia.EEII) |> 
   hypothesize(null = "paired independence") |> 
   generate(reps = 2000, type = "permute") |> 
   calculate(stat = "mean")
 
-# Hay diferencias significativas de enterococos según el agente de muestreo?
-ttest_eeii_agente <- t.test(
+# Hay diferencias significativas de enterococos según el sujeto de muestreo?
+ttest_eeii_sujeto <- t.test(
   datos_par[datos_par$Indicador == "EEII",]$Nayade,
   datos_par[datos_par$Indicador == "EEII",]$Hidrotecnia,
   paired = TRUE
 )
 
-# Hay diferencias significativas de E.coli según el agente de muestreo?
-ttest_ecoli_agente <- t.test(
+# Hay diferencias significativas de E.coli según el sujeto de muestreo?
+ttest_ecoli_sujeto <- t.test(
   datos_par[datos_par$Indicador == "E.coli",]$Nayade,
   datos_par[datos_par$Indicador == "E.coli",]$Hidrotecnia,
   paired = TRUE
@@ -168,7 +168,7 @@ set.seed(26)
 
 # Vista general verano 2025
 fig_vista_general <- datos_par_valor |> 
-  ggplot(aes(x = Fecha, y = Valor, fill = Agente)) +
+  ggplot(aes(x = Fecha, y = Valor, fill = Sujeto)) +
   geom_area(
     color = "black", position = position_dodge(width = 0), alpha = .6
   ) +
@@ -180,22 +180,22 @@ fig_vista_general <- datos_par_valor |>
   scale_x_datetime(date_labels = "%y-%m-%d") +
   scale_fill_manual(values = c("#2A788E", "#7AD151")) +
   labs(
-    title = "Indicadores fecales verano 2025",
+    title = "Línea temporal de los indicadores fecales",
     subtitle = "Mayor detección de EEII por Náyade",
     color = "Límite",
     x = "",
     y = "UFC/100 ml"
   )
 
-# Indicadores fecales según el agente
-fig_agente <- datos_par_valor |>
-  ggplot(aes(x = Agente, y = Valor)) +
-  geom_boxplot(aes(fill = Agente), show.legend = F, outliers = F) +
+# Indicadores fecales según el sujeto
+fig_sujeto <- datos_par_valor |>
+  ggplot(aes(x = Sujeto, y = Valor)) +
+  geom_boxplot(aes(fill = Sujeto), show.legend = F, outliers = F) +
   geom_jitter(alpha = .7, width = .3) +
   facet_wrap(~Indicador, scale = "free_y") +
   scale_fill_manual(values = c("#2A788E", "#7AD151")) +
   labs(
-    title = "Indicadores fecales según el agente muestreador",
+    title = "Indicadores fecales según el sujeto muestreador",
     subtitle = "Mayor variabilidad en las muestras de Náyade",
     y = "UFC/100 ml"
   )
@@ -212,23 +212,23 @@ fig_mareas <- datos_valor |>
     y = "UFC/100 ml"
   )
 
-# Estadístico t para la variación de EEII según el agente
-fig_t_eeii_agente <- visualize(ts_hipoteticas_eeii_agente) +
-  shade_p_value(obs_stat = t_real_eeii_agente, direction = "both") +
+# Estadístico t para la variación de EEII según el sujeto
+fig_t_eeii_sujeto <- visualize(ts_hipoteticas_eeii_sujeto) +
+  shade_p_value(obs_stat = t_real_eeii_sujeto, direction = "both") +
   annotate(
     "text",
     x = 125, y = 150,
     label = paste(
       "p.value\n",
       get_p_value(
-        ts_hipoteticas_eeii_agente,
-        t_real_eeii_agente,
+        ts_hipoteticas_eeii_sujeto,
+        t_real_eeii_sujeto,
         direction = "both"
       )
     )
     ) +
   labs(
-    title = "T de Student emparejada. Diferencia de EEII según agente",
+    title = "T de Student emparejada. Diferencia de EEII según sujeto",
     subtitle = "Diferencias probablemente debidas al azar (> 0,05)",
     x = "estadístico t",
     y = "simulaciones"
@@ -257,7 +257,7 @@ fig_f_eeii_marea <- visualise(fs_hipoteticas) +
 
 Los episodios periódicos de contaminación fecal en la playa de El Confital se monitorearon durante el verano 2025. La bacteria *E.coli* se detectó en todas las muestras dentro de los valores de calidad excelente del agua establecidos por la normativa[@boe2007].
 
-El Ministerio de Sanidad (Náyade) y AT Hidrotecnia SL (Hidrotecnia) fueron los dos agentes responsables del monitoreo de indicadores de contaminación fecal. Atendiendo a la distribución de resultados obtenidos (@fig-general), observamos una mayor dispersión según Náyade que respecto de Hidrotecnia. Además, únicamente los valores de Náyade superaron en 2 ocasiones el umbral de calidad de agua insuficiente para EEII.
+El Ministerio de Sanidad (Náyade) y AT Hidrotecnia SL (Hidrotecnia) son los dos sujetos responsables de monitorear los indicadores de contaminación fecal. Atendiendo a la distribución de resultados obtenidos (@fig-general), observamos una mayor dispersión según Náyade que respecto de Hidrotecnia. Además, únicamente los valores de Náyade superaron en 2 ocasiones el umbral de calidad de agua insuficiente para EEII.
 
 La problemática reside en los repuntes de EEII, siendo los meses de julio y septiembre 2025 donde se dieron los episodios de calidad insuficiente del agua.
 
@@ -266,18 +266,18 @@ La problemática reside en los repuntes de EEII, siendo los meses de julio y sep
 fig_vista_general
 ```
 
-## Agente muestreador
+## Sujeto muestreador
 
 ```{r}
-#| label: fig-agente
-fig_agente
+#| label: fig-sujeto
+fig_sujeto
 ```
 
-Para estimar estadísticamente si existen diferencias significativas entre los resultados obtenidos por ambos agentes, utilizamos la prueba de la *t* de *Student* para los valores emparejados por la misma muestra de agua. En la @fig-t-eeii-agente se observa como la diferencia de EEII entre Náyade e Hidrotecnia no es significativa con los datos disponibles. **Probablemente la mayor detección de Náyade se deba al azar** (*p* valor > 0,05).
+Para estimar estadísticamente si existen diferencias significativas entre los resultados obtenidos por ambos sujetos, utilizamos la prueba de la *t* de *Student* para los valores emparejados por la misma muestra de agua. En la @fig-t-eeii-sujeto se observa como la diferencia de EEII entre Náyade e Hidrotecnia no es significativa con los datos disponibles. **Probablemente la mayor detección de Náyade se deba al azar** (*p* valor > 0,05).
 
 ```{r}
-#| label: fig-t-eeii-agente
-fig_t_eeii_agente
+#| label: fig-t-eeii-sujeto
+fig_t_eeii_sujeto
 ```
 
 ## Ciclo de mareas
