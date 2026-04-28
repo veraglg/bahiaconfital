@@ -71,7 +71,7 @@ metadatos <- metadatos |> mutate(
   )
 )
 
-# ---- Datos 16S ----
+# ---- Datos ----
 
 # Lee los datos de la matriz 16S y conviértela en tibble
 datos_16s <- read_rds(
@@ -79,71 +79,111 @@ datos_16s <- read_rds(
 ) |> 
   as_tibble(rownames = "Muestra")
 
-# Elimina la marca de 16S del nombre de las muestras
-datos_16s <- datos_16s |> mutate(Muestra = str_remove(Muestra, "-16S"))
-
-# Incluye los metadatos en la datos 16S
-datos_16s <- right_join(metadatos, datos_16s)
-
-tabla_16s_taxonomia <- read_rds("data/canteras_microbiome/dada2_canteras_16s/data/dada2/04_decontam-and-filter/canteras/canteras_tax_assignation_decontam_filter.rds")
-
-secuencias_16s <- read_rds("data/canteras_microbiome/dada2_canteras_16s/data/dada2/04_decontam-and-filter/canteras/canteras_sequences_decontam_filter.rds")
-
-# ---- Datos 18S ----
-
 # Lee la matriz 18S y conviértela en tibble
 datos_18s <- read_rds("data/canteras_microbiome/dada2_canteras_18s/data/dada2/04_decontam-and-filter/canteras/canteras_seqtab_decontam_filter.rds") |> 
   as_tibble(rownames = "Muestra")
 
+# Elimina la marca de 16S del nombre de las muestras
+datos_16s <- datos_16s |> mutate(Muestra = str_remove(Muestra, "-16S"))
+
 # Elimina la marca de 18S del nombre de las muestras
 datos_18s <- datos_18s |> mutate(Muestra = str_remove(Muestra, "-18S"))
+
+# Incluye los metadatos en la datos 16S
+datos_16s <- right_join(metadatos, datos_16s)
 
 # Incluye los metadatos en la datos 18S
 datos_18s <- right_join(metadatos, datos_18s)
 
-tabla_18s_taxonomia <- read_rds("data/canteras_microbiome/dada2_canteras_18s/data/dada2/04_decontam-and-filter/canteras/canteras_tax_assignation_decontam_filter.rds")
+# ---- Taxonomia ----
 
+# Lee los datos de la tabla 16S y conviértela en tibble
+tabla_16s_taxonomia <- read_rds("data/canteras_microbiome/dada2_canteras_16s/data/dada2/04_decontam-and-filter/canteras/canteras_tax_assignation_decontam_filter.rds") |> 
+  as_tibble(rownames = "ASV")
+
+# Lee los datos de la tabla 18S y conviértela en tibble
+tabla_18s_taxonomia <- read_rds("data/canteras_microbiome/dada2_canteras_18s/data/dada2/04_decontam-and-filter/canteras/canteras_tax_assignation_decontam_filter.rds") |> 
+  as_tibble(rownames = "ASV")
+
+# Renombra las columnas de la tabla 16S en español
+tabla_16s_taxonomia <- tabla_16s_taxonomia |> rename(
+  domain = "Dominio",
+  phylum = "Filo",
+  class = "Clase",
+  order = "Orden",
+  family = "Familia",
+  genus = "Genus",
+  species = "Especie"
+)
+
+# Renombra las columnas de la tabla 18S en español
+tabla_18s_taxonomia <- tabla_18s_taxonomia |> rename(
+  domain = "Dominio",
+  supergroup = "Clado",
+  division = "Filo",
+  subdivision = "Subfilo",
+  class = "Clase",
+  order = "Orden",
+  family = "Familia",
+  genus = "Genus",
+  species = "Especie"
+)
+
+# ---- Secuencias ----
+
+# Lee las secuencias 16S
+secuencias_16s <- read_rds("data/canteras_microbiome/dada2_canteras_16s/data/dada2/04_decontam-and-filter/canteras/canteras_sequences_decontam_filter.rds")
+
+# Lee las secuencias 18S
 secuencias_18s <- read_rds("data/canteras_microbiome/dada2_canteras_18s/data/dada2/04_decontam-and-filter/canteras/canteras_sequences_decontam_filter.rds")
 ```
 
 ```{r}
 #| label: transform
 
-# ---- 16S ----
-
-# Suma las lecturas de cada muestra
+# Suma las lecturas de cada muestra 16S
 datos_16s <- datos_16s |> mutate(Suma = rowSums(across(starts_with("ASV"))))
 
-# Filtra los datos de 2025
+# Suma las lecturas de cada muestra 18S
+datos_18s <- datos_18s |> mutate(Suma = rowSums(across(starts_with("ASV"))))
+
+# ---- 2025 ----
+
+# Filtra los datos 16S de 2025
 datos_16s_2025 <- datos_16s |> filter(AAAA == 2025)
 
-# Coloca un ASV por fila
+# Filtra los datos 18S de 2025
+datos_18s_2025 <- datos_18s |> filter(AAAA == 2025)
+
+
+
+# ---- Categorización taxonómica ----
+
+# Coloca un ASV 16S por fila
 datos_tax_16s <- datos_16s |> pivot_longer(
     starts_with("ASV"),
     names_to = "ASV",
-    names_prefix = "ASV.",
     values_to = "Lecturas"
 )
 
-# ---- 18S -----
-
-# Suma las lecturas de cada muestra
-datos_18s <- datos_18s |> mutate(Suma = rowSums(across(starts_with("ASV"))))
-
-# Coloca un ASV por fila
+# Coloca un ASV 18S por fila
 datos_tax_18s <- datos_18s |> pivot_longer(
     starts_with("ASV"),
     names_to = "ASV",
-    names_prefix = "ASV.",
     values_to = "Lecturas"
 )
 
-# Filtra los datos de 2025
-datos_18s_2025 <- datos_18s |> filter(AAAA == 2025)
+# Añade la taxonomía 16S a los datos
+datos_tax_16s <- left_join(datos_tax_16s, tabla_16s_taxonomia,by = join_by(ASV))
+
+# Añade la taxonomía 18S a los datos
+datos_tax_18s <- left_join(datos_tax_18s, tabla_18s_taxonomia,by = join_by(ASV))
 ```
 
 ```{r}
 #| label: visualize
+
+# --- Vista general ----
 
 # Representa la suma de lecturas de cada muestra 16S 2025
 fig_suma_16s_2025 <- datos_16s_2025 |> 
