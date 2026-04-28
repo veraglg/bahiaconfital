@@ -127,10 +127,12 @@ tbl_t_ratio_lugar <- datos_ratio |> t_test(
 # Define la semilla para reproducibilidad de los jitter
 set.seed(05)
 
+# ---- Vista general ----
+
 # Distribución general de los datos por Grupo
 fig_distribucion <- datos |> ggplot(aes(Valor, Grupo)) +
   geom_boxplot(outliers = F) +
-  geom_jitter(alpha = .7, width = .3, size = .5) +
+  geom_jitter(shape = 1, width = .3) +
   labs(
     title = "Distribución de grupos por citometría de flujo",
     subtitle = "HNA y LNA con mayor concentración y variabilidad",
@@ -143,7 +145,7 @@ fig_distribucion <- datos |> ggplot(aes(Valor, Grupo)) +
 # Distribución de bajos por estado de la marea
 fig_marea_bajos <- datos_bajos |> ggplot(aes(Marea, Valor)) +
   geom_boxplot(aes(fill = Marea), outliers = F, show.legend = F) +
-  geom_jitter(alpha = .7, width = .3, size = 1) +
+  geom_jitter(shape = 1, width = .3) +
   facet_wrap(~Grupo, scales = "free_y") +
   scale_fill_manual(values = c("#DEEBF7", "#9ECAE1", "#4292C6", "#9ECAE1")) +
   labs(
@@ -156,7 +158,7 @@ fig_marea_bajos <- datos_bajos |> ggplot(aes(Marea, Valor)) +
 # Distribución de altos por estado de la marea
 fig_marea_altos <- datos_altos |> ggplot(aes(Marea, Valor)) +
   geom_boxplot(aes(fill = Marea), outliers = F, show.legend = F) +
-  geom_jitter(alpha = .7, width = .3, size = 1) +
+  geom_jitter(shape = 1, width = .3) +
   facet_wrap(~Grupo, scales = "free_y") +
   scale_fill_manual(values = c("#DEEBF7", "#9ECAE1", "#4292C6", "#9ECAE1")) +
   labs(
@@ -168,63 +170,13 @@ fig_marea_altos <- datos_altos |> ggplot(aes(Marea, Valor)) +
 # Distribución de ratio por estado de la marea
 fig_marea_ratio <- datos_ratio |> ggplot(aes(Marea, Ratio)) +
   geom_boxplot(aes(fill = Marea), outliers = F, show.legend = F) +
-  geom_jitter(alpha = .7, width = .3) +
+  geom_jitter(shape = 1, width = .3) +
   scale_fill_manual(values = c("#DEEBF7", "#9ECAE1", "#4292C6", "#9ECAE1")) +
   labs(
     title = "Variación del ratio HNA/LNA con la marea",
     x = "",
     y = "HNA/LNA"
   )
-
-# ---- Variación geográfica ----
-
-# Distribución general por lugar
-fig_lugar <- datos |> ggplot(aes(Lugar, Valor)) +
-  geom_boxplot(aes(fill = Lugar), outliers = F, show.legend = F) +
-  geom_jitter(alpha = .7, width = .3, size = 1) +
-  facet_wrap(~Grupo, scales = "free_y") +
-  labs(
-    title = "Variación geográfica de grupos citométricos",
-    x = "",
-    y = "células/mL",
-  )
-
-# Distribución de ratio por lugar
-fig_lugar_ratio <- datos_ratio |> ggplot(aes(Lugar, Ratio)) +
-  geom_boxplot(aes(fill = Lugar), outliers = F, show.legend = F) +
-  geom_jitter(alpha = .7) +
-  labs(
-    title = "Variación geográfica del ratio HNA/LNA",
-    x = "",
-    y = "células/mL",
-  )
-
-# ---- Variación temporal ----
-
-# Distribución general por mes
-fig_mes <- datos |> ggplot(aes(x = Mes, y = Valor)) +
-  geom_boxplot(outliers = F) +
-  geom_jitter(alpha = .7, width = .3, size = 1) +
-  facet_wrap(~Grupo, scales = "free_y") +
-  labs(
-    title = "Evolución temporal de grupos citométricos",
-    caption = "Verano 2025",
-    x = "",
-    y = "células/mL"
-  )
-
-# Distribución de ratio por mes
-fig_mes_ratio <- datos_ratio |> ggplot(aes(x = Mes, y = Ratio)) +
-  geom_boxplot(outliers = F) +
-  geom_jitter(alpha = .7) +
-  labs(
-    title = "Evolución temporal del ratio HNA/LNA",
-    caption = "Verano 2025",
-    x = "",
-    y = "células/mL",
-  )
-
-# ---- Inferencia estadística ----
 
 # Estadístico F para la variación de HNA/LNA con al marea
 fig_f_ratio_marea <- visualise(fs_hipoteticas) +
@@ -244,6 +196,29 @@ fig_f_ratio_marea <- visualise(fs_hipoteticas) +
     y = "simulaciones"
   )
 
+# ---- Variación geográfica ----
+
+# Distribución general por lugar
+fig_lugar <- datos |> ggplot(aes(Lugar, Valor)) +
+  geom_boxplot(aes(fill = Lugar), outliers = F, show.legend = F) +
+  geom_jitter(shape = 1, width = .3) +
+  facet_wrap(~Grupo, scales = "free_y") +
+  labs(
+    title = "Variación geográfica de grupos citométricos",
+    x = "",
+    y = "células/mL",
+  )
+
+# Distribución de ratio por lugar
+fig_lugar_ratio <- datos_ratio |> ggplot(aes(Lugar, Ratio)) +
+  geom_boxplot(aes(fill = Lugar), outliers = F, show.legend = F) +
+  geom_jitter(shape = 1) +
+  labs(
+    title = "Variación geográfica del ratio HNA/LNA",
+    x = "",
+    y = "células/mL",
+  )
+
 # Estadístico t para la variación HNA/LNA con el lugar
 fig_t_ratio_lugar <- visualize(ts_hipoteticas) +
   shade_p_value(obs_stat = t_real, direction = "both") +
@@ -260,6 +235,31 @@ fig_t_ratio_lugar <- visualize(ts_hipoteticas) +
     subtitle = "Meidas significativamente distintas (< 0,05)",
     x = "estadístico t",
     y = "simulaciones"
+  )
+
+# ---- Variación temporal ----
+
+# Distribución general por mes
+fig_mes <- datos |> ggplot(aes(x = Mes, y = Valor)) +
+  geom_boxplot(outliers = F) +
+  geom_jitter(shape = 1, width = .3) +
+  facet_wrap(~Grupo, scales = "free_y") +
+  labs(
+    title = "Evolución temporal de grupos citométricos",
+    caption = "Verano 2025",
+    x = "",
+    y = "células/mL"
+  )
+
+# Distribución de ratio por mes
+fig_mes_ratio <- datos_ratio |> ggplot(aes(x = Mes, y = Ratio)) +
+  geom_boxplot(outliers = F) +
+  geom_jitter(shape = 1) +
+  labs(
+    title = "Evolución temporal del ratio HNA/LNA",
+    caption = "Verano 2025",
+    x = "",
+    y = "células/mL",
   )
 ```
 

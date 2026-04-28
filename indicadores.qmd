@@ -166,6 +166,8 @@ aov_ecoli_marea <- aov(
 # Semilla para reproducibilidad de los jitter
 set.seed(26)
 
+# --- Vista general ----
+
 # Vista general verano 2025
 fig_vista_general <- datos_par_valor |> 
   ggplot(aes(x = Fecha, y = Valor, fill = Sujeto)) +
@@ -188,28 +190,18 @@ fig_vista_general <- datos_par_valor |>
     y = "UFC/100 ml"
   )
 
+# ---- Sujeto muestreador ----
+
 # Indicadores fecales según el sujeto
 fig_sujeto <- datos_par_valor |>
   ggplot(aes(x = Sujeto, y = Valor)) +
   geom_boxplot(aes(fill = Sujeto), show.legend = F, outliers = F) +
-  geom_jitter(alpha = .7, width = .3) +
+  geom_jitter(shape = 1, width = .3) +
   facet_wrap(~Indicador, scale = "free_y") +
   scale_fill_manual(values = c("#2A788E", "#7AD151")) +
   labs(
     title = "Indicadores fecales según el sujeto muestreador",
     subtitle = "Mayor variabilidad en las muestras de Náyade",
-    y = "UFC/100 ml"
-  )
-
-# Indicadores fecales según la marea
-fig_mareas <- datos_valor |> 
-  ggplot(aes(x = Marea, y = Valor)) +
-  geom_boxplot(aes(fill = Marea), show.legend = F, outliers = F) +
-  geom_jitter(alpha = .7, width = .3, size = 1) +
-  facet_wrap(~Indicador, scale = "free_y") +
-  scale_fill_manual(values = c("#DEEBF7", "#9ECAE1", "#4292C6", "#9ECAE1")) +
-  labs(
-    title = "Indicadores fecales según la fase de la marea",
     y = "UFC/100 ml"
   )
 
@@ -233,6 +225,20 @@ fig_t_eeii_sujeto <- visualize(ts_hipoteticas_eeii_sujeto) +
     subtitle = "Diferencias probablemente debidas al azar (> 0,05)",
     x = "estadístico t",
     y = "simulaciones"
+  )
+
+# ---- Ciclo de mareas ----
+
+# Indicadores fecales según la marea
+fig_mareas <- datos_valor |> 
+  ggplot(aes(x = Marea, y = Valor)) +
+  geom_boxplot(aes(fill = Marea), show.legend = F, outliers = F) +
+  geom_jitter(shape = 1, width = .3) +
+  facet_wrap(~Indicador, scale = "free_y") +
+  scale_fill_manual(values = c("#DEEBF7", "#9ECAE1", "#4292C6", "#9ECAE1")) +
+  labs(
+    title = "Indicadores fecales según la fase de la marea",
+    y = "UFC/100 ml"
   )
 
 # ANOVA para la variación de EEII con la marea
