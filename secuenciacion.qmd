@@ -142,21 +142,16 @@ secuencias_18s <- read_rds("data/canteras_microbiome/dada2_canteras_18s/data/dad
 ```{r}
 #| label: transform
 
+# ---- Suma total lecturas ----
+
 # Suma las lecturas de cada muestra 16S
 datos_16s <- datos_16s |> mutate(Suma = rowSums(across(starts_with("ASV"))))
 
+# También sería lo mismo:
+# rowwise(datos_16s) |> mutate(Suma = sum(c_across(starts_with("ASV"))))
+
 # Suma las lecturas de cada muestra 18S
 datos_18s <- datos_18s |> mutate(Suma = rowSums(across(starts_with("ASV"))))
-
-# ---- 2025 ----
-
-# Filtra los datos 16S de 2025
-datos_16s_2025 <- datos_16s |> filter(AAAA == 2025)
-
-# Filtra los datos 18S de 2025
-datos_18s_2025 <- datos_18s |> filter(AAAA == 2025)
-
-
 
 # ---- Categorización taxonómica ----
 
@@ -179,6 +174,28 @@ datos_tax_16s <- left_join(datos_tax_16s, tabla_16s_taxonomia,by = join_by(ASV))
 
 # Añade la taxonomía 18S a los datos
 datos_tax_18s <- left_join(datos_tax_18s, tabla_18s_taxonomia,by = join_by(ASV))
+
+# ---- Índices del microbioma ----
+
+# Calcula los índices de biodiversidad para el microbioma 16s
+indices_16s <- datos_tax_16s |>
+  group_by(Muestra, AAAA, Mes, Dia, Lugar) |>
+  filter(Lecturas > 0) |> 
+  summarise(
+    H.Shannon = - sum(Lecturas/Suma * log(Lecturas/Suma)),
+    J.Equidad = H.Shannon / log(n(), exp(1)),
+    .groups = "drop"
+  )
+
+# Calcula los índices de biodiversidad para el microbioma 18s
+indices_18s <- datos_tax_18s |>
+  group_by(Muestra, AAAA, Mes, Dia, Lugar) |>
+  filter(Lecturas > 0) |> 
+  summarise(
+    H.Shannon = - sum(Lecturas/Suma * log(Lecturas/Suma)),
+    J.Equidad = H.Shannon / log(n(), exp(1)),
+    .groups = "drop"
+  )
 ```
 
 ```{r}
@@ -187,23 +204,53 @@ datos_tax_18s <- left_join(datos_tax_18s, tabla_18s_taxonomia,by = join_by(ASV))
 # --- Vista general ----
 
 # Representa la suma de lecturas de cada muestra 16S 2025
-fig_suma_16s_2025 <- datos_16s_2025 |> 
+fig_suma_16s_2025 <- datos_16s |>
+  filter(AAAA == 2025) |> 
   ggplot(aes(Suma, Muestra)) +
   geom_col() +
   labs(
-    title = "Secuencición procariota 16S",
+    title = "Secuenciación del microbioma procariota",
     subtitle = "Suma tota de lecturas por muestra",
     caption = "Año 2025"
   )
 
 # Representa la suma de lecturas de cada muestra 18S 2025
-fig_suma_18s_2025 <- datos_18s_2025 |> 
+fig_suma_18s_2025 <- datos_18s |> 
+  filter(AAAA == 2025) |> 
   ggplot(aes(Suma, Muestra)) +
   geom_col() +
   labs(
-    title = "Secuencición eucariota 28S",
+    title = "Secuenciación del microbioma eucariota",
     subtitle = "Suma tota de lecturas por muestra",
     caption = "Año 2025"
+  )
+
+# ---- Índices de biodiversidad ----
+
+# Representa la equidad 16S
+fig_equidad_16s <- indices_16s |>
+  filter(Lugar == "Confital") |> 
+  ggplot(aes(x = factor(AAAA), y = J.Equidad)) +
+  geom_boxplot(outliers = F) +
+  geom_jitter(shape = 1, width = .3) +
+  labs(
+    title = "Equidad del microbioma procariota en El Confital",
+    subtitle = "Evolución positiva de la biodiversidad procariota desde 2022",
+    x = "Año",
+    y = "Índice de equidad (J)"
+  )
+
+# Representa la equidad 18S
+fig_equidad_18s <- indices_18s |> 
+  filter(Lugar == "Confital") |> 
+  ggplot(aes(x = factor(AAAA), y = J.Equidad)) +
+  geom_boxplot(outliers = F) +
+  geom_jitter(shape = 1, width = .3) +
+  labs(
+    title = "Equidad del microbioma eucariota en El Confital",
+    subtitle = "Disminución de biodiversidad eucariota en 2025",
+    x = "Año",
+    y = "Índice de equidad (J)"
   )
 ```
 
@@ -219,3 +266,16 @@ fig_suma_16s_2025
 fig_suma_18s_2025
 ```
 
+# Índices de biodiversidad
+
+El índice de equidad (*evenness* en inglés) fue desarrollado por la ecóloga Evelyn Chrystalla Pielou [@wikipedia2024]. Es una medida de la biodiversidad de cualquier ecosistema. En nuestro caso, mide la probabilidad de que dos organismos elegidos al azar sea de la misma variante (ASV).
+
+```{r}
+#| label: fig-equidad-16s
+fig_equidad_16s
+```
+
+```{r}
+#| label: fig-equidad-18s
+fig_equidad_18s
+```
