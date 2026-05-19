@@ -175,7 +175,7 @@ datos_tax_16s <- left_join(datos_tax_16s, tabla_16s_taxonomia,by = join_by(ASV))
 # Añade la taxonomía 18S a los datos
 datos_tax_18s <- left_join(datos_tax_18s, tabla_18s_taxonomia,by = join_by(ASV))
 
-# ---- Índices del microbioma ----
+# ---- Índices de biodiversidad ----
 
 # Calcula los índices de biodiversidad para el microbioma 16s
 indices_16s <- datos_tax_16s |>
@@ -196,6 +196,33 @@ indices_18s <- datos_tax_18s |>
     J.Equidad = H.Shannon / log(n(), exp(1)),
     .groups = "drop"
   )
+
+# ---- Índices bacteriales -----
+
+# Ssuma los taxones clave por cada muestra
+indices_microbianos <- datos_tax_16s |> 
+  group_by(Muestra, AAAA, Mes, Dia, Lugar) |> 
+  summarise(
+    Firmicutes       = sum(Lecturas[Filo  == "Firmicutes"],          na.rm = T), 
+    Nitrospirota     = sum(Lecturas[Filo  == "Nitrospirota"],        na.rm = T),
+    Alpha            = sum(Lecturas[Clase == "Alphaproteobacteria"], na.rm = T),
+    Gamma            = sum(Lecturas[Clase == "Gammaproteobacteria"], na.rm = T),
+    Bacilli          = sum(Lecturas[Clase == "Bacilli"],             na.rm = T),
+    Bacteroidia      = sum(Lecturas[Clase  == "Bacteroidia"],        na.rm = T),
+    Clostridia       = sum(Lecturas[Clase == "Clostridia"],          na.rm = T),
+    Pelagibacterales = sum(Lecturas[Orden == "Pelagibacterales"],    na.rm = T),
+    Burkholderiales  = sum(Lecturas[Orden == "Burkholderiales"],     na.rm = T),
+    Alteromonas      = sum(Lecturas[Genus == "Alteromonas"],         na.rm = T),
+  .groups = "keep"
+  )
+
+# Calcula los índices microbianos
+indices_microbianos <- indices_microbianos |> summarise(
+  BBC.A = (Bacilli + Bacteroidia + Clostridia) / Alpha,
+  A.G = Alpha / Gamma,
+  A.SAR11 = Alteromonas / Pelagibacterales,
+  .groups = "drop"
+)
 ```
 
 ```{r}
@@ -252,6 +279,19 @@ fig_equidad_18s <- indices_18s |>
     x = "Año",
     y = "Índice de equidad (J)"
   )
+
+# ---- Índices microbianos ----
+
+# Representa indice BBC:A
+fig_bbca <- indices_microbianos |>
+  filter(Lugar == "Confital") |> 
+  ggplot(aes(x = factor(AAAA), y = BBC.A)) +
+  geom_boxplot(outliers = F) +
+  geom_jitter(shape = 1, width = .3) +
+  labs(
+    x = "Año",
+    y = "Índice BBC:A"
+  )
 ```
 
 ## Vista general
@@ -268,7 +308,7 @@ fig_suma_18s_2025
 
 # Índices de biodiversidad
 
-El índice de equidad (*evenness* en inglés) fue desarrollado por la ecóloga Evelyn Chrystalla Pielou [@wikipedia2024]. Es una medida de la biodiversidad de cualquier ecosistema. En nuestro caso, mide la probabilidad de que dos organismos elegidos al azar sea de la misma variante (ASV).
+El índice de equidad (*evenness* en inglés) fue desarrollado por la ecóloga Evelyn Chrystalla Pielou [@wikipedia2024]. Es una medida de la biodiversidad de cualquier ecosistema. En nuestro caso, mide la probabilidad de que dos lecturas de la misma muestra elegidas al azar sean de la misma variante (ASV).
 
 ```{r}
 #| label: fig-equidad-16s
@@ -279,3 +319,13 @@ fig_equidad_16s
 #| label: fig-equidad-18s
 fig_equidad_18s
 ```
+
+# Índices microbianos
+
+Siguiendo la anterior versión del proyecto [@bahiaconfital-old], analizamos los índices bacteriales mejor conocidos en la literatura científica para analizar la calidad del agua.
+
+```{r}
+#| label: fig-bbca
+fig_bbca
+```
+
