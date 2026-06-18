@@ -348,7 +348,7 @@ fig_bbca
 
 ## Género *Enterococcus*
 
-Las ASV coincidentes dentro del Género *Enterococcus* fueron 4, una de las variantes pudo ser identificada a nivel de Especie, *E. faecium*. Como se observa en la @tbl-eeii estas ASV pertenecen todas al periodo de 2025.
+Fueron 4 las ASV coincidentes dentro del Género *Enterococcus*, 1 de las variantes pudo ser identificada a nivel de Especie, *E. faecium*. Como se observa en la @tbl-eeii, todas las muestras positivas pertenecen al periodo de 2025.
 
 ```{r}
 #| label: tbl-eeii
