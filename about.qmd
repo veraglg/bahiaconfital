@@ -1,18 +1,20 @@
 ---
-title: "Sobre este sitio web"
+title: "Sobre este Sitio Web"
 image: patron.png
 about:
   template: jolla
 ---
-Me llamo Vera y he creado este sitio web. Soy graduada en Ciencias del Mar por la Universidad de las Palmas de Gran Canaria. Colaboro desde Barcelona con el Grupo de Oceanografía Biológica, IOCAG de Gran Canaria. Me encantan los programas de código libre y compartir la ciencia de manera abierta.
+Me llamo Vera, soy científica marina y he creado este sitio web. Me gradué en Las Palmas de Gran Canaria y ahora colaboro desde Barcelona con el Grupo de Oceanografía Biológica y Algología Aplicada (GOBAA, IOCAG). Me apasiona el océano y su relación con las personas.
+
+Además, apuesto por el código libre en mis proyectos :)
 
 ### Financiación {.unlisted}
 
-Convenio de colaboración entre el **Ayuntamiento de las Palmas de Gran Canaria** y la **Universidad de Las Palmas de Gran Canaria** 2025.
+Convenio de colaboración entre el Ayuntamiento y la Universidad de Las Palmas de Gran Canaria 2025.
 
 ### Cómo compartir {.unlisted}
 
-El sitio es público bajo licencia **Creative Commons BY-NC-SA 4.0**. Para más información visita [Creative Commons](https://creativecommons.org/licenses/by-nc-sa/4.0/).
+El sitio es público bajo licencia Creative Commons BY-NC-SA 4.0. Para más información visita [Creative Commons](https://creativecommons.org/licenses/by-nc-sa/4.0/).
 
 ### Códgio fuente {.unlisted}
 
@@ -20,4 +22,4 @@ El código fuente es público bajo la misma licencia a través de [Codeberg](htt
 
 ### Uso de IA generativa {.unlisted}
 
-**No se ha usado inteligencia artificial generativa** para la elaboración de este estudio.
+No se ha usado inteligencia artificial generativa para la elaboración de este estudio.
