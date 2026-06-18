@@ -171,5 +171,35 @@
     "crumbs": [
       "Secuenciación del microbioma"
     ]
+  },
+  {
+    "objectID": "secuenciacion.html#índices-de-biodiversidad",
+    "href": "secuenciacion.html#índices-de-biodiversidad",
+    "title": "Secuenciación del microbioma",
+    "section": "Índices de biodiversidad",
+    "text": "Índices de biodiversidad\nEl índice de equidad (evenness en inglés) fue desarrollado por la ecóloga Evelyn Chrystalla Pielou1. Es una medida de la biodiversidad de cualquier ecosistema. En nuestro caso, mide la probabilidad de que dos lecturas de la misma muestra elegidas al azar sean de la misma variante (ASV).\n\n\n\n\n\n\n\n\nFigura 3\n\n\n\n\n\n\n\n\n\n\n\n\n\nFigura 4",
+    "crumbs": [
+      "Secuenciación del microbioma"
+    ]
+  },
+  {
+    "objectID": "secuenciacion.html#índices-microbianos",
+    "href": "secuenciacion.html#índices-microbianos",
+    "title": "Secuenciación del microbioma",
+    "section": "Índices microbianos",
+    "text": "Índices microbianos\nSiguiendo la anterior versión del proyecto2, analizamos los índices bacteriales mejor conocidos en la literatura científica para analizar la calidad del agua.\n\n\n\n\n\n\n\n\nFigura 5",
+    "crumbs": [
+      "Secuenciación del microbioma"
+    ]
+  },
+  {
+    "objectID": "secuenciacion.html#género-enterococcus",
+    "href": "secuenciacion.html#género-enterococcus",
+    "title": "Secuenciación del microbioma",
+    "section": "Género Enterococcus",
+    "text": "Género Enterococcus\nLas ASV coincidentes dentro del Género Enterococcus fueron 4, una de las variantes pudo ser identificada a nivel de Especie, E. faecium. Como se observa en la Tabla 1 estas ASV pertenecen todas al periodo de 2025.\n\n\n\n\nTabla 1\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nFecha\nLugar\nASV\nGenus\nEspecie\nFreq.Relativa\n\n\n\n\n2025-07-07\nConfital\nASV.03284\nEnterococcus\nNA\n0.0001583\n\n\n2025-07-21\nConfital\nASV.03284\nEnterococcus\nNA\n0.0002131\n\n\n2025-08-04\nConfital\nASV.03284\nEnterococcus\nNA\n0.0001028\n\n\n2025-08-25\nConfital\nASV.11305\nEnterococcus\nNA\n0.0001591\n\n\n2025-08-25\nConfital\nASV.03284\nEnterococcus\nNA\n0.0000883\n\n\n2025-09-01\nConfital\nASV.19065\nEnterococcus\nfaecium\n0.0000916\n\n\n2025-09-01\nConfital\nASV.03284\nEnterococcus\nNA\n0.0002674\n\n\n2025-09-01\nConfital\nASV.02047\nEnterococcus\nNA\n0.0000946\n\n\n2025-09-09\nConfital\nASV.02047\nEnterococcus\nNA\n0.0003328\n\n\n2025-09-15\nConfital\nASV.02047\nEnterococcus\nNA\n0.0002949\n\n\n2025-09-22\nConfital\nASV.02047\nEnterococcus\nNA\n0.0001119\n\n\n2025-09-24\nBco. Guiniguada\nASV.02047\nEnterococcus\nNA\n0.0004833\n\n\n2025-09-24\nBco. Guiniguada\nASV.02047\nEnterococcus\nNA\n0.0010553",
+    "crumbs": [
+      "Secuenciación del microbioma"
+    ]
   }
 ]

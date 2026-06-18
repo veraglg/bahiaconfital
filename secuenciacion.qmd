@@ -13,6 +13,7 @@ author:
 
 library(tidyverse)
 library(Biostrings)
+library(knitr)
 
 # ---- Metadatos ----
 
@@ -153,32 +154,40 @@ datos_16s <- datos_16s |> mutate(Suma = rowSums(across(starts_with("ASV"))))
 # Suma las lecturas de cada muestra 18S
 datos_18s <- datos_18s |> mutate(Suma = rowSums(across(starts_with("ASV"))))
 
-# ---- Categorización taxonómica ----
+# ---- Observaciones de ASV y taxonomía ----
 
 # Coloca un ASV 16S por fila
-datos_tax_16s <- datos_16s |> pivot_longer(
+datos_asv_16s <- datos_16s |> pivot_longer(
     starts_with("ASV"),
     names_to = "ASV",
     values_to = "Lecturas"
 )
 
 # Coloca un ASV 18S por fila
-datos_tax_18s <- datos_18s |> pivot_longer(
+datos_asv_18s <- datos_18s |> pivot_longer(
     starts_with("ASV"),
     names_to = "ASV",
     values_to = "Lecturas"
 )
 
+# Calcula la frecuencia relativa en cada mustra 16S
+datos_asv_16s <- datos_asv_16s |>
+  mutate(Freq.Relativa = Lecturas / Suma, .after = Lecturas)
+
+# Calcula la frecuencia relativa en cada mustra 18S
+datos_asv_18s <- datos_asv_18s |>
+  mutate(Freq.Relativa = Lecturas / Suma, .after = Lecturas)
+
 # Añade la taxonomía 16S a los datos
-datos_tax_16s <- left_join(datos_tax_16s, tabla_16s_taxonomia,by = join_by(ASV))
+datos_asv_16s <- left_join(datos_asv_16s, tabla_16s_taxonomia,by = join_by(ASV))
 
 # Añade la taxonomía 18S a los datos
-datos_tax_18s <- left_join(datos_tax_18s, tabla_18s_taxonomia,by = join_by(ASV))
+datos_asv_18s <- left_join(datos_asv_18s, tabla_18s_taxonomia,by = join_by(ASV))
 
 # ---- Índices de biodiversidad ----
 
 # Calcula los índices de biodiversidad para el microbioma 16s
-indices_16s <- datos_tax_16s |>
+indices_16s <- datos_asv_16s |>
   group_by(Muestra, AAAA, Mes, Dia, Lugar) |>
   filter(Lecturas > 0) |> 
   summarise(
@@ -188,7 +197,7 @@ indices_16s <- datos_tax_16s |>
   )
 
 # Calcula los índices de biodiversidad para el microbioma 18s
-indices_18s <- datos_tax_18s |>
+indices_18s <- datos_asv_18s |>
   group_by(Muestra, AAAA, Mes, Dia, Lugar) |>
   filter(Lecturas > 0) |> 
   summarise(
@@ -200,7 +209,7 @@ indices_18s <- datos_tax_18s |>
 # ---- Índices bacteriales -----
 
 # Ssuma los taxones clave por cada muestra
-indices_microbianos <- datos_tax_16s |> 
+indices_microbianos <- datos_asv_16s |> 
   group_by(Muestra, AAAA, Mes, Dia, Lugar) |> 
   summarise(
     Firmicutes       = sum(Lecturas[Filo  == "Firmicutes"],          na.rm = T), 
@@ -292,6 +301,14 @@ fig_bbca <- indices_microbianos |>
     x = "Año",
     y = "Índice BBC:A"
   )
+
+# ---- Género Enterococcus -----
+
+# Cuela las ASV del Género Enterococcus y construye la tabla
+tbl_eeii <- datos_asv_16s |>
+  filter(Genus == "Enterococcus") |> filter(Lecturas > 0) |> 
+  select(Fecha, Lugar, ASV, Genus, Especie, Freq.Relativa) |>
+  kable()
 ```
 
 ## Vista general
@@ -306,7 +323,7 @@ fig_suma_16s_2025
 fig_suma_18s_2025
 ```
 
-# Índices de biodiversidad
+## Índices de biodiversidad
 
 El índice de equidad (*evenness* en inglés) fue desarrollado por la ecóloga Evelyn Chrystalla Pielou [@wikipedia2024]. Es una medida de la biodiversidad de cualquier ecosistema. En nuestro caso, mide la probabilidad de que dos lecturas de la misma muestra elegidas al azar sean de la misma variante (ASV).
 
@@ -320,12 +337,21 @@ fig_equidad_16s
 fig_equidad_18s
 ```
 
-# Índices microbianos
+## Índices microbianos
 
 Siguiendo la anterior versión del proyecto [@bahiaconfital-old], analizamos los índices bacteriales mejor conocidos en la literatura científica para analizar la calidad del agua.
 
 ```{r}
 #| label: fig-bbca
 fig_bbca
+```
+
+## Género *Enterococcus*
+
+Las ASV coincidentes dentro del Género *Enterococcus* fueron 4, una de las variantes pudo ser identificada a nivel de Especie, *E. faecium*. Como se observa en la @tbl-eeii estas ASV pertenecen todas al periodo de 2025.
+
+```{r}
+#| label: tbl-eeii
+tbl_eeii
 ```
 
