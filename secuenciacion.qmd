@@ -138,6 +138,10 @@ secuencias_16s <- read_rds("data/canteras_microbiome/dada2_canteras_16s/data/dad
 
 # Lee las secuencias 18S
 secuencias_18s <- read_rds("data/canteras_microbiome/dada2_canteras_18s/data/dada2/04_decontam-and-filter/canteras/canteras_sequences_decontam_filter.rds")
+
+# ---- Datos comparativos ----
+
+
 ```
 
 ```{r}

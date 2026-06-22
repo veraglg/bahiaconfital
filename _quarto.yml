@@ -3,7 +3,7 @@ project:
   output-dir: docs
 
 website:
-  title: "Calidad del agua en El Confital"
+  title: "🪸 Calidad del agua en El Confital"
   favicon: patron.png
   site-url: https://veraglg.github.io/bahiaconfital/
   page-footer:

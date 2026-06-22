@@ -4,7 +4,7 @@
     "href": "indicadores.html",
     "title": "Biondicadores convencionales",
     "section": "",
-    "text": "Los episodios periódicos de contaminación fecal en la playa de El Confital se monitorearon durante el verano 2025. La bacteria E.coli se detectó en todas las muestras dentro de los valores de calidad excelente del agua establecidos por la normativa1.\nEl Ministerio de Sanidad (Náyade) y AT Hidrotecnia SL (Hidrotecnia) son los dos sujetos responsables de monitorear los indicadores de contaminación fecal. Atendiendo a la distribución de resultados obtenidos (Figura 1), observamos una mayor dispersión según Náyade que respecto de Hidrotecnia. Además, únicamente los valores de Náyade superaron en 2 ocasiones el umbral de calidad de agua insuficiente para EEII.\nLa problemática reside en los repuntes de EEII, siendo los meses de julio y septiembre 2025 donde se dieron los episodios de calidad insuficiente del agua.\n\n\n\n\n\n\n\n\nFigura 1",
+    "text": "Los episodios periódicos de contaminación fecal en la playa de El Confital se monitorearon durante el verano 2025. La bacteria E.coli se detectó en todas las muestras dentro de los valores de calidad excelente del agua establecidos por la normativa1.\nEl Ministerio de Sanidad (Náyade) y AT Hidrotecnia SL (Hidrotecnia) son los dos laboratorios responsables de monitorear los indicadores de contaminación fecal. Atendiendo a la distribución de resultados obtenidos (Figura 1), observamos una mayor dispersión según Náyade que respecto de Hidrotecnia. Además, únicamente los valores de Náyade superaron en 2 ocasiones el umbral de calidad de agua insuficiente para EEII.\nLa problemática reside en los repuntes de EEII, siendo los meses de julio y septiembre 2025 donde se dieron los episodios de calidad insuficiente del agua.\n\n\n\n\n\n\n\n\nFigura 1",
     "crumbs": [
       "Biondicadores convencionales"
     ]
@@ -14,27 +14,27 @@
     "href": "indicadores.html#vista-general",
     "title": "Biondicadores convencionales",
     "section": "",
-    "text": "Los episodios periódicos de contaminación fecal en la playa de El Confital se monitorearon durante el verano 2025. La bacteria E.coli se detectó en todas las muestras dentro de los valores de calidad excelente del agua establecidos por la normativa1.\nEl Ministerio de Sanidad (Náyade) y AT Hidrotecnia SL (Hidrotecnia) son los dos sujetos responsables de monitorear los indicadores de contaminación fecal. Atendiendo a la distribución de resultados obtenidos (Figura 1), observamos una mayor dispersión según Náyade que respecto de Hidrotecnia. Además, únicamente los valores de Náyade superaron en 2 ocasiones el umbral de calidad de agua insuficiente para EEII.\nLa problemática reside en los repuntes de EEII, siendo los meses de julio y septiembre 2025 donde se dieron los episodios de calidad insuficiente del agua.\n\n\n\n\n\n\n\n\nFigura 1",
+    "text": "Los episodios periódicos de contaminación fecal en la playa de El Confital se monitorearon durante el verano 2025. La bacteria E.coli se detectó en todas las muestras dentro de los valores de calidad excelente del agua establecidos por la normativa1.\nEl Ministerio de Sanidad (Náyade) y AT Hidrotecnia SL (Hidrotecnia) son los dos laboratorios responsables de monitorear los indicadores de contaminación fecal. Atendiendo a la distribución de resultados obtenidos (Figura 1), observamos una mayor dispersión según Náyade que respecto de Hidrotecnia. Además, únicamente los valores de Náyade superaron en 2 ocasiones el umbral de calidad de agua insuficiente para EEII.\nLa problemática reside en los repuntes de EEII, siendo los meses de julio y septiembre 2025 donde se dieron los episodios de calidad insuficiente del agua.\n\n\n\n\n\n\n\n\nFigura 1",
     "crumbs": [
       "Biondicadores convencionales"
     ]
   },
   {
-    "objectID": "indicadores.html#sujeto-muestreador",
-    "href": "indicadores.html#sujeto-muestreador",
+    "objectID": "indicadores.html#comparación-entre-laboratorios",
+    "href": "indicadores.html#comparación-entre-laboratorios",
     "title": "Biondicadores convencionales",
-    "section": "Sujeto muestreador",
-    "text": "Sujeto muestreador\n\n\n\n\n\n\n\n\nFigura 2\n\n\n\n\n\nPara estimar estadísticamente si existen diferencias significativas entre los resultados obtenidos por ambos sujetos, utilizamos la prueba de la t de Student para los valores emparejados por la misma muestra de agua. En la Figura 3 se observa como la diferencia de EEII entre Náyade e Hidrotecnia no es significativa con los datos disponibles. Probablemente la mayor detección de Náyade se deba al azar (p valor &gt; 0,05).\n\n\n\n\n\n\n\n\nFigura 3",
+    "section": "Comparación entre laboratorios",
+    "text": "Comparación entre laboratorios\n\n\n\n\n\n\n\n\nFigura 2\n\n\n\n\n\nPara estimar estadísticamente si existen diferencias significativas entre los resultados obtenidos por ambos laboratorios, utilizamos la prueba de la t de Student para los valores emparejados por la misma muestra de agua. En la Figura 3 se observa como la diferencia de EEII entre Náyade e Hidrotecnia no es significativa con los datos disponibles. Probablemente la mayor detección de Náyade se deba al azar (p valor &gt; 0,05).\n\n\n\n\n\n\n\n\nFigura 3",
     "crumbs": [
       "Biondicadores convencionales"
     ]
   },
   {
-    "objectID": "indicadores.html#ciclo-de-mareas",
-    "href": "indicadores.html#ciclo-de-mareas",
+    "objectID": "indicadores.html#afectación-del-ciclo-de-mareas",
+    "href": "indicadores.html#afectación-del-ciclo-de-mareas",
     "title": "Biondicadores convencionales",
-    "section": "Ciclo de mareas",
-    "text": "Ciclo de mareas\n\n\n\n\n\n\n\n\nFigura 4\n\n\n\n\n\nLas muestras fueron tomadas durante diferentes fases del ciclo de mareas como un posible factor de control. Aplicando el análisis de la varianza (ANOVA), estudiamos la variabilidad de EEII con el estado de la marea. En Figura 5 se demuestra que el muestreo no detectó diferencias significativas en la concentración de EEII según el estado de la marea.\n\n\n\n\n\n\n\n\nFigura 5",
+    "section": "Afectación del ciclo de mareas",
+    "text": "Afectación del ciclo de mareas\n\n\n\n\n\n\n\n\nFigura 4\n\n\n\n\n\nLas muestras fueron tomadas durante diferentes fases del ciclo de mareas como un posible factor de control. Aplicando el análisis de la varianza (ANOVA), estudiamos la variabilidad de EEII con el estado de la marea. En Figura 5 se demuestra que el muestreo no detectó diferencias significativas en la concentración de EEII según el estado de la marea.\n\n\n\n\n\n\n\n\nFigura 5",
     "crumbs": [
       "Biondicadores convencionales"
     ]
@@ -113,9 +113,9 @@
   {
     "objectID": "about.html",
     "href": "about.html",
-    "title": "Sobre este sitio web",
+    "title": "Sobre esta web",
     "section": "",
-    "text": "Me llamo Vera, soy científica marina y he creado este sitio web. Me gradué en Las Palmas de Gran Canaria y ahora colaboro desde Barcelona con el Grupo de Oceanografía Biológica y Algología Aplicada (GOBAA, IOCAG). Me apasiona el océano y su relación con las personas.\nAdemás, apuesto por el código libre en mis proyectos :)\n\nFinanciación\nConvenio de colaboración entre el Ayuntamiento y la Universidad de Las Palmas de Gran Canaria 2025.\n\n\nCómo compartir\nEl sitio es público bajo licencia Creative Commons BY-NC-SA 4.0. Para más información visita Creative Commons.\n\n\nCódgio fuente\nEl código fuente es público bajo la misma licencia a través de Codeberg.\n\n\nUso de IA generativa\nNo se ha usado inteligencia artificial generativa para la elaboración de este estudio."
+    "text": "Me llamo Vera, soy científica marina y creadora de esta web. Me gradué en Las Palmas de Gran Canaria y ahora colaboro desde Barcelona con el Grupo de Oceanografía Biológica y Algología Aplicada (GOBAA, IOCAG). Me apasiona el océano en su diversidad y su relación con las personas.\nApuesto por el código libre en mis proyectos 🍉\n\nFinanciación\nConvenio de colaboración entre el Ayuntamiento y la Universidad de Las Palmas de Gran Canaria 2025.\n\n\nCómo compartir\nEl sitio es público bajo licencia Creative Commons BY-NC-SA 4.0. Para más información visita Creative Commons.\n\n\nCódigo fuente\nEl código fuente es público bajo la misma licencia a través de Codeberg.\n\n\nUso de IA generativa\nNo se ha usado inteligencia artificial generativa para la creación de la web ni en etapas anteriores del proyecto."
   },
   {
     "objectID": "metodos.html",
