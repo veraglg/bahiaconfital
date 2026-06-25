@@ -29,10 +29,14 @@ website:
   sidebar:
     - id: resultados
       title: "Resultados"
-      contents: 
-        - indicadores.qmd
-        - citometria.qmd
-        - secuenciacion.qmd
+      contents:
+        - section: "Hidrotecnia y Náyade"
+          contents:
+          - indicadores.qmd
+        - section: "ULPGC"
+          contents: 
+          - citometria.qmd
+          - secuenciacion.qmd
 
 format:
   html:
