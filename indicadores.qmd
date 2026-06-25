@@ -38,6 +38,8 @@ datos <- datos |> mutate(
   E.coli.Hidrotecnia = parse_number(E.coli.Hidrotecnia)
 )
 
+# Guarda los datos ordenados en un archivo para uso en otros cuadernos
+datos |> write_rds("data/indicadores-datos.rds")
 ```
 
 ```{r}

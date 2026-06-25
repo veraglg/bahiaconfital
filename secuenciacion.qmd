@@ -73,6 +73,19 @@ metadatos <- metadatos |> mutate(
   )
 )
 
+# Pon en mayúsculas la primera letra de la fase de la marea
+metadatos <- metadatos |> mutate(Marea = str_to_sentence(Marea))
+
+# Ajusta las mareas transicionales a Vaciante o Llenante
+metadatos <- metadatos |> mutate(
+  Marea = Marea |> replace_when(
+    Marea == "Trans" & Fecha == ymd("2025-09-22") ~ "Llenante",
+    Marea == "Trans" & Fecha == ymd("2025-09-15") ~ "Vaciante",
+    Marea == "Trans" & Fecha == ymd("2025-09-09") ~ "Llenante",
+    Marea == "Trans" & Fecha == ymd("2025-09-01") ~ "Vaciante"
+  )
+)
+
 # ---- Datos ----
 
 # Lee los datos de la matriz 16S y conviértela en tibble
@@ -141,7 +154,12 @@ secuencias_18s <- read_rds("data/canteras_microbiome/dada2_canteras_18s/data/dad
 
 # ---- Datos comparativos ----
 
+# Lee los datos de indicadores convencionales
+datos_indicadores <- read_rds("data/indicadores-datos.rds")
 
+# Elimina las horas de fecha
+datos_indicadores <- datos_indicadores |>
+  mutate(Fecha = floor_date(Fecha, "day"))
 ```
 
 ```{r}
@@ -236,6 +254,31 @@ indices_microbianos <- indices_microbianos |> summarise(
   A.SAR11 = Alteromonas / Pelagibacterales,
   .groups = "drop"
 )
+
+# ---- Género Enterococcus -----
+
+# Cuela los datos de ASV con lecturas del Género Enterococcus
+datos_asv_ee <- datos_asv_16s |> 
+  filter(Genus == "Enterococcus") |> filter(Lecturas > 0)
+
+# Obtén las ASV de Enterococcus
+ee_asv <- datos_asv_ee |> distinct(ASV) |> pull()
+
+# Calcula la suma de ASV de Enterococcus
+datos_ee <- datos_16s |>
+  mutate(EE.Suma = rowSums(across(all_of(ee_asv))))
+
+# Calcula la frequencia relativa de EE
+datos_ee <- datos_ee |> 
+  mutate(EE.Freq.Relativa = EE.Suma / Suma)
+
+# Elimina las columnas de ASV
+datos_ee <- datos_ee |> select(- starts_with("ASV"))
+
+# Une los datos secuenciados a los de indicadores
+datos_comparados <- full_join(
+  datos_ee, datos_indicadores, by = join_by(Fecha, Marea)
+)
 ```
 
 ```{r}
@@ -308,11 +351,24 @@ fig_bbca <- indices_microbianos |>
 
 # ---- Género Enterococcus -----
 
-# Cuela las ASV del Género Enterococcus y construye la tabla
-tbl_eeii <- datos_asv_16s |>
-  filter(Genus == "Enterococcus") |> filter(Lecturas > 0) |> 
+# Construye la tabla con las ASV de Enterococcus
+tbl_eeii <- datos_asv_ee |> 
   select(Fecha, Lugar, ASV, Genus, Especie, Freq.Relativa) |>
   kable()
+
+# Representa una linea temporal con el fondo de Hidrotecnia
+fig_ee_hidrotecnia <- datos_comparados |> 
+  filter(AAAA == 2025, Lugar == "Confital", Marea == "Pleamar") |> 
+  ggplot(aes(Fecha, EE.Freq.Relativa, fill = EEII.Hidrotecnia)) +
+  geom_tile(aes(fill = EEII.Hidrotecnia), height = Inf) +
+  geom_col(fill = "#FF7F00", color = "black", width = 220000) +
+  scale_x_datetime(date_labels = "%Y-%m-%d") +
+  labs(
+    title = "Linea temporal de la ULPGC comparada con Hidrotecnia",
+    subtitle = "Bastante coherentes, sobretodo en el periodo de septiembre",
+    x = "",
+    fill = "EEII (UFC/100 ml)"
+  )
 ```
 
 ## Vista general
@@ -352,10 +408,17 @@ fig_bbca
 
 ## Género *Enterococcus*
 
-Fueron 4 las ASV coincidentes dentro del Género *Enterococcus*, 1 de las variantes pudo ser identificada a nivel de Especie, *E. faecium*. Como se observa en la @tbl-eeii, todas las muestras positivas pertenecen al periodo de 2025.
+Fueron 4 las ASV coincidentes dentro del Género *Enterococcus* (`{r} ee_asv |> str_extract("[0-9]+")`), una de las variantes (19065) pudo ser identificada a nivel de la especie *E. faecium*. Como se observa en la @tbl-eeii, todas las muestras positivas pertenecen al periodo de 2025.
 
 ```{r}
 #| label: tbl-eeii
 tbl_eeii
+```
+
+No es posible equiparar numéricamente la frecuencia relativa de enterococos en una muestra de material genético con el tradicional conteo de colonias (UFC/100 ml). Sin embargo, sí es posible comparar los patrones temporales de ambas series para determinar si se tratan de medidas coherentes entre sí. En la @fig-ee-hidrotecnia, observamos en la escala de azules los datos de Hidrotecnia frente a las barras naranjas con la frecuencia relativa de *Enterococcus* en las muestras secuenciadas por la ULPGC.
+
+```{r}
+#| label: fig-ee-hidrotecnia
+fig_ee_hidrotecnia
 ```
 
