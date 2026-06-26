@@ -363,9 +363,10 @@ fig_ee_hidrotecnia <- datos_comparados |>
   geom_tile(aes(fill = EEII.Hidrotecnia), height = Inf) +
   geom_col(fill = "#FF7F00", color = "black", width = 220000) +
   scale_x_datetime(date_labels = "%Y-%m-%d") +
+  scale_fill_viridis_c() +
   labs(
-    title = "Linea temporal de la ULPGC comparada con Hidrotecnia",
-    subtitle = "Bastante coherentes, sobretodo en el periodo de septiembre",
+    title = "Línea temporal de enterococos comparada con el conteo convencional",
+    subtitle = "Incoherentes, mínimo de Hidrotecnia coincide con máximo de ULPGC",
     x = "",
     fill = "EEII (UFC/100 ml)"
   )
