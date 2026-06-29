@@ -13,7 +13,6 @@ author:
 
 library(tidyverse)
 library(Biostrings)
-library(knitr)
 
 # ---- Metadatos ----
 
@@ -110,7 +109,7 @@ datos_16s <- right_join(metadatos, datos_16s)
 # Incluye los metadatos en la datos 18S
 datos_18s <- right_join(metadatos, datos_18s)
 
-# ---- Taxonomia ----
+# ---- Taxonomía ----
 
 # Lee los datos de la tabla 16S y conviértela en tibble
 tabla_16s_taxonomia <- read_rds("data/canteras_microbiome/dada2_canteras_16s/data/dada2/04_decontam-and-filter/canteras/canteras_tax_assignation_decontam_filter.rds") |> 
@@ -234,7 +233,7 @@ indices_18s <- datos_asv_18s |>
 indices_microbianos <- datos_asv_16s |> 
   group_by(Muestra, AAAA, Mes, Dia, Lugar) |> 
   summarise(
-    Firmicutes       = sum(Lecturas[Filo  == "Firmicutes"],          na.rm = T), 
+    Firmicutes       = sum(Lecturas[Filo  == "Firmicutes"],          na.rm = T),
     Nitrospirota     = sum(Lecturas[Filo  == "Nitrospirota"],        na.rm = T),
     Alpha            = sum(Lecturas[Clase == "Alphaproteobacteria"], na.rm = T),
     Gamma            = sum(Lecturas[Clase == "Gammaproteobacteria"], na.rm = T),
@@ -283,6 +282,8 @@ datos_comparados <- full_join(
 
 ```{r}
 #| label: visualize
+
+library(knitr)
 
 # --- Vista general ----
 
@@ -364,11 +365,12 @@ fig_ee_hidrotecnia <- datos_comparados |>
   geom_col(fill = "#FF7F00", color = "black", width = 220000) +
   scale_x_datetime(date_labels = "%Y-%m-%d") +
   scale_fill_viridis_c() +
+  facet_wrap(~ Marea) +
   labs(
     title = "Línea temporal de enterococos comparada con el conteo convencional",
     subtitle = "Incoherentes, mínimo de Hidrotecnia coincide con máximo de ULPGC",
     x = "",
-    fill = "EEII (UFC/100 ml)"
+    fill = "EEII (UFC/100 ml)",
   )
 ```
 
