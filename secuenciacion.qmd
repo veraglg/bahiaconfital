@@ -360,17 +360,33 @@ tbl_eeii <- datos_asv_ee |>
 # Representa una linea temporal con el fondo de Hidrotecnia
 fig_ee_hidrotecnia <- datos_comparados |> 
   filter(AAAA == 2025, Lugar == "Confital", Marea == "Pleamar") |> 
-  ggplot(aes(Fecha, EE.Freq.Relativa, fill = EEII.Hidrotecnia)) +
+  ggplot(aes(Fecha, EE.Freq.Relativa)) +
   geom_tile(aes(fill = EEII.Hidrotecnia), height = Inf) +
   geom_col(fill = "#FF7F00", color = "black", width = 220000) +
   scale_x_datetime(date_labels = "%Y-%m-%d") +
   scale_fill_viridis_c() +
   facet_wrap(~ Marea) +
   labs(
-    title = "Línea temporal de enterococos comparada con el conteo convencional",
+    title = "Línea temporal de enterococos comparada con Hidrotecnia",
     subtitle = "Incoherentes, mínimo de Hidrotecnia coincide con máximo de ULPGC",
     x = "",
-    fill = "EEII (UFC/100 ml)",
+    fill = "EEII\n(UFC/100 ml)",
+  )
+
+# Representa una linea temporal con el fondo de Nayade
+fig_ee_nayade <- datos_comparados |>
+  filter(AAAA == 2025, Lugar == "Confital", Marea %in% c("Bajamar", "Pleamar")) |> 
+  ggplot(aes(Fecha, EE.Freq.Relativa)) +
+  geom_tile(aes(fill = EEII.Nayade), height = Inf) +
+  geom_col(fill = "#FF7F00", color = "black", width = 220000) +
+  scale_x_datetime(date_labels = "%Y-%m-%d") +
+  scale_fill_viridis_c() +
+  facet_wrap(~ Marea, ncol = 1) +
+  labs(
+    title = "Línea temporal de enterococos comparada con Náyade",
+    subtitle = "Incoherentes, máximos de Náyade en mínimos de la ULPGC",
+    x = "",
+    fill = "EEII\n(UFC/100 ml)",
   )
 ```
 
@@ -418,10 +434,15 @@ Fueron 4 las ASV coincidentes dentro del Género *Enterococcus* (`{r} ee_asv |> 
 tbl_eeii
 ```
 
-No es posible equiparar numéricamente la frecuencia relativa de enterococos en una muestra de material genético con el tradicional conteo de colonias (UFC/100 ml). Sin embargo, sí es posible comparar los patrones temporales de ambas series para determinar si se tratan de medidas coherentes entre sí. En la @fig-ee-hidrotecnia, observamos en la escala de azules los datos de Hidrotecnia frente a las barras naranjas con la frecuencia relativa de *Enterococcus* en las muestras secuenciadas por la ULPGC.
+No es posible equiparar numéricamente la frecuencia relativa de enterococos en una muestra de material genético con el tradicional conteo de colonias (UFC/100 ml). Sin embargo, sí es posible comparar los patrones temporales de ambas series para determinar si se tratan de medidas coherentes entre sí. En las siguientes figuras (@fig-ee-hidrotecnia y @fig-ee-nayade), observamos en la escala de azules los datos de Hidrotecnia frente a las barras naranjas con la frecuencia relativa de *Enterococcus* en las muestras secuenciadas por la ULPGC.
 
 ```{r}
 #| label: fig-ee-hidrotecnia
 fig_ee_hidrotecnia
+```
+
+```{r}
+#| label: fig-ee-nayade
+fig_ee_nayade
 ```
 
