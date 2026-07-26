@@ -438,7 +438,7 @@ fig_equidad_18s
 
 Siguiendo la anterior versión del proyecto [@bahiaconfital-old], analizamos las ratios bacteriales (también llamados «índices») que encontramos en la literatura científica en relación a la contaminación fecal del agua.
 
-El estudio de Wu y colaboradores [@wu2010] afirma que la ratio formado por las Clases *Bacilli*, *Bacteroidia*, *Clostridia* y *Alpha* (BBC:A) tiende a ser más elevado cuando exiten fuentes de contamianción fecal. 
+El estudio de Wu y colaboradores [@wu2010] afirma que la ratio formado por las Clases *Bacilli*, *Bacteroidia*, *Clostridia* y *Alpha* (BBC:A) tiende a ser más elevado cuando existen fuentes de contamianción fecal. 
 
 ```{r}
 #| label: fig-bbca
