@@ -260,7 +260,7 @@ indices_microbianos <- indices_microbianos |> summarise(
 datos_asv_ee <- datos_asv_16s |> 
   filter(Genus == "Enterococcus") |> filter(Lecturas > 0)
 
-# Obtén las ASV de Enterococcus
+# Obtén los códigos ASV de Enterococcus
 ee_asv <- datos_asv_ee |> distinct(ASV) |> pull()
 
 # Calcula la suma de ASV de Enterococcus
@@ -278,6 +278,15 @@ datos_ee <- datos_ee |> select(- starts_with("ASV"))
 datos_comparados <- full_join(
   datos_ee, datos_indicadores, by = join_by(Fecha, Marea)
 )
+
+# ---- Género Escherichia-Shigella ----
+
+# Cuelas los ASV con lecturas de Escherichia-Shigella
+datos_asv_ecoli <- datos_asv_16s |> 
+  filter(Genus == "Escherichia-Shigella", Lecturas > 0)
+
+# Obtén los códigos ASV de Enterococcus
+ecoli_asv <- datos_asv_ecoli |> distinct(ASV) |> pull()
 ```
 
 ```{r}
@@ -353,7 +362,7 @@ fig_bbca <- indices_microbianos |>
 # ---- Género Enterococcus -----
 
 # Construye la tabla con las ASV de Enterococcus
-tbl_eeii <- datos_asv_ee |> 
+tbl_ee <- datos_asv_ee |> 
   select(Fecha, Lugar, ASV, Genus, Especie, Freq.Relativa) |>
   kable()
 
@@ -375,7 +384,8 @@ fig_ee_hidrotecnia <- datos_comparados |>
 
 # Representa una linea temporal con el fondo de Nayade
 fig_ee_nayade <- datos_comparados |>
-  filter(AAAA == 2025, Lugar == "Confital", Marea %in% c("Bajamar", "Pleamar")) |> 
+  filter(AAAA == 2025, Lugar == "Confital") |> 
+  filter(Marea %in% c("Bajamar", "Pleamar")) |> 
   ggplot(aes(Fecha, EE.Freq.Relativa)) +
   geom_tile(aes(fill = EEII.Nayade), height = Inf) +
   geom_col(fill = "#FF7F00", color = "black", width = 220000) +
@@ -388,6 +398,13 @@ fig_ee_nayade <- datos_comparados |>
     x = "",
     fill = "EEII\n(UFC/100 ml)",
   )
+
+# ---- Género Escherichia-Shigella ----
+
+# Construye la tabla con las ASV de Escherichia-Shigella
+tbl_ecoli <- datos_asv_ecoli |> 
+  select(Fecha, Lugar, ASV, Genus, Especie, Freq.Relativa) |>
+  kable()
 ```
 
 ## Vista general
@@ -427,11 +444,11 @@ fig_bbca
 
 ## Género *Enterococcus*
 
-Fueron 4 las ASV coincidentes dentro del Género *Enterococcus* (`{r} ee_asv |> str_extract("[0-9]+")`), una de las variantes (19065) pudo ser identificada a nivel de la especie *E. faecium*. Como se observa en la @tbl-eeii, todas las muestras positivas pertenecen al periodo de 2025.
+Fueron 4 las ASV coincidentes dentro del Género *Enterococcus* (`{r} ee_asv`), una de las variantes (ASV.19065) pudo ser identificada a nivel de la especie *E. faecium*. Como se observa en la @tbl-ee, todas las muestras positivas pertenecen al periodo de 2025.
 
 ```{r}
-#| label: tbl-eeii
-tbl_eeii
+#| label: tbl-ee
+tbl_ee
 ```
 
 No es posible equiparar numéricamente la frecuencia relativa de enterococos en una muestra de material genético con el tradicional conteo de colonias (UFC/100 ml). Sin embargo, sí es posible comparar los patrones temporales de ambas series para determinar si se tratan de medidas coherentes entre sí. En las siguientes figuras (@fig-ee-hidrotecnia y @fig-ee-nayade), observamos en la escala de azules los datos de Hidrotecnia frente a las barras naranjas con la frecuencia relativa de *Enterococcus* en las muestras secuenciadas por la ULPGC.
@@ -444,5 +461,14 @@ fig_ee_hidrotecnia
 ```{r}
 #| label: fig-ee-nayade
 fig_ee_nayade
+```
+
+## Género *Escherichia-Shigella* *(E. coli)*
+
+Una única ASV fue identificada (`{r} ecoli_asv`) correspondiente al género *Escherichia-Shigella* donde estaría clasificada la bacteria gastrointestinal humana *Escherichia coli*. Como mustra la @tbl-ecoli, esta fue encontrada en las tres repeticiones de la muestra tomada en la desembocadura del Barranco Guiniguada.
+
+```{r}
+#| label: tbl-ecoli
+tbl_ecoli
 ```
 
