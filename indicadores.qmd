@@ -17,8 +17,8 @@ library(tidyverse)
 datos <- readxl::read_xlsx(
   "data/Muestreo Confital 2025_ Datos fecales Hidrotecnia Sanidad ULPGC.xlsx",
   col_names = c("Fecha", "T", "Marea", "Hora",
-                "E.coli.Hidrotecnia", "E.coli.Nayade",
-                "EEII.Hidrotecnia", "EEII.Nayade",
+                "E.coli.Hidrotecnia", "E.coli.MISAN",
+                "EEII.Hidrotecnia", "EEII.MISAN",
                 "skip", "skip", "Muestra.ULPGC"),
   col_types = c("guess", "guess", "text", "guess",
                 "guess", "guess",
@@ -56,7 +56,7 @@ datos_valor <- datos |> pivot_longer(
 # Especifica las categorías (Indicador y laboratorio) para cada valor UFC.
 datos_valor <- datos_valor |> separate_wider_regex(
   Parametro,
-  c(Indicador = "EEII|E\\.coli", "\\.", Laboratorio = "Hidrotecnia|Nayade")
+  c(Indicador = "EEII|E\\.coli", "\\.", Laboratorio = "Hidrotecnia|MISAN")
 )
 
 # Elimina valores perdidos
@@ -79,19 +79,19 @@ datos_par <- datos_valor |> pivot_wider(
 )
 
 # Elimina los valores desemparejados
-datos_par <- datos_par |> filter(!is.na(Hidrotecnia), !is.na(Nayade))
+datos_par <- datos_par |> filter(!is.na(Hidrotecnia), !is.na(MISAN))
 
 # ----- Una fila por un valor emparejado `datos_par_valor` -----
 
 # Transforma a un valor por fila
 datos_par_valor <- datos_par |> pivot_longer(
-  c("Hidrotecnia", "Nayade"), names_to = "Laboratorio", values_to = "Valor"
+  c("Hidrotecnia", "MISAN"), names_to = "Laboratorio", values_to = "Valor"
 )
 
 # Calcula la diferencia entre laboratorios
 datos_diferencia <- datos |> mutate(
-  Diferencia.EEII = EEII.Nayade - EEII.Hidrotecnia,
-  Diferencia.E.coli = E.coli.Nayade - E.coli.Nayade
+  Diferencia.EEII = EEII.MISAN - EEII.Hidrotecnia,
+  Diferencia.E.coli = E.coli.MISAN - E.coli.MISAN
 )
 
 # Filtra valores perdidos
@@ -119,27 +119,27 @@ set.seed(81)
 # ---- t tests ----
 
 # Calcula el estadístico t para los datos reales
-t_real_eeii_sujeto <- datos_diferencia |> 
+t_real_eeii_laboratorio <- datos_diferencia |> 
   specify(response = Diferencia.EEII) |> 
   calculate(stat = "mean")
 
 # Calcula 2000 estadísticos t para datos simulados bajo hipótesis nula
-ts_hipoteticas_eeii_sujeto <- datos_diferencia |> 
+ts_hipoteticas_eeii_laboratorio <- datos_diferencia |> 
   specify(response = Diferencia.EEII) |> 
   hypothesize(null = "paired independence") |> 
   generate(reps = 2000, type = "permute") |> 
   calculate(stat = "mean")
 
 # Hay diferencias significativas de enterococos según el laboratorio de muestreo?
-ttest_eeii_sujeto <- t.test(
-  datos_par[datos_par$Indicador == "EEII",]$Nayade,
+ttest_eeii_laboratorio <- t.test(
+  datos_par[datos_par$Indicador == "EEII",]$MISAN,
   datos_par[datos_par$Indicador == "EEII",]$Hidrotecnia,
   paired = TRUE
 )
 
 # Hay diferencias significativas de E.coli según el laboratorio de muestreo?
-ttest_ecoli_sujeto <- t.test(
-  datos_par[datos_par$Indicador == "E.coli",]$Nayade,
+ttest_ecoli_laboratorio <- t.test(
+  datos_par[datos_par$Indicador == "E.coli",]$MISAN,
   datos_par[datos_par$Indicador == "E.coli",]$Hidrotecnia,
   paired = TRUE
 )
@@ -182,51 +182,48 @@ set.seed(26)
 # Vista general verano 2025
 fig_vista_general <- datos_par_valor |> 
   ggplot(aes(x = Fecha, y = Valor, fill = Laboratorio)) +
-  geom_area(
-    color = "black", position = position_dodge(width = 0), alpha = .6
-  ) +
-  geom_point(aes(shape = Laboratorio)) +
+  geom_col(position = "dodge", color = "black") +
   geom_hline(
     data = limites,
-    mapping = aes(yintercept = Valor, color = fct_inorder(Limite))
+    mapping = aes(yintercept = Valor, linetype = fct_inorder(Limite))
   ) +
-  facet_wrap(~Indicador, nrow = 2, scale = "free_y") +
-  scale_x_datetime(date_labels = "%y-%m-%d") +
-  scale_fill_manual(values = c("#2A788E", "#7AD151")) +
+  facet_wrap(~Indicador, nrow = 1, scale = "free_y") +
+  scale_fill_viridis_d() +
+  scale_x_datetime(date_labels = "%d/%m") +
   labs(
-    title = "Línea temporal de los indicadores fecales",
-    subtitle = "Mayor detección de EEII por Náyade",
-    color = "Límite",
+    title = "Detecciones de contaminación fecal verano 2025",
+    subtitle = "Mayor detección de EEII por MISAN",
+    linetype = "Límite",
     x = "",
     y = "UFC/100 ml"
   )
 
-# ---- Laboratorio muestreador ----
+# ---- Laboratorio responsable ----
 
 # Indicadores fecales según el laboratorio
-fig_sujeto <- datos_par_valor |>
+fig_laboratorio <- datos_par_valor |>
   ggplot(aes(x = Laboratorio, y = Valor)) +
   geom_boxplot(aes(fill = Laboratorio), show.legend = F, outliers = F) +
   geom_jitter(shape = 1, width = .3) +
   facet_wrap(~Indicador, scale = "free_y") +
-  scale_fill_manual(values = c("#2A788E", "#7AD151")) +
+  scale_fill_viridis_d(alpha = .5) +
   labs(
-    title = "Indicadores fecales según el laboratorio muestreador",
-    subtitle = "Mayor variabilidad en las muestras de Náyade",
+    title = "Comparación entre laboratorios",
+    subtitle = "Mayor variabilidad en las muestras de MISAN",
     y = "UFC/100 ml"
   )
 
 # Estadístico t para la variación de EEII según el laboratorio
-fig_t_eeii_sujeto <- visualize(ts_hipoteticas_eeii_sujeto) +
-  shade_p_value(obs_stat = t_real_eeii_sujeto, direction = "both") +
+fig_t_eeii_laboratorio <- visualize(ts_hipoteticas_eeii_laboratorio) +
+  shade_p_value(obs_stat = t_real_eeii_laboratorio, direction = "both") +
   annotate(
     "text",
     x = 125, y = 150,
     label = paste(
       "p.value\n",
       get_p_value(
-        ts_hipoteticas_eeii_sujeto,
-        t_real_eeii_sujeto,
+        ts_hipoteticas_eeii_laboratorio,
+        t_real_eeii_laboratorio,
         direction = "both"
       )
     )
@@ -275,7 +272,7 @@ fig_f_eeii_marea <- visualise(fs_hipoteticas) +
 
 Los episodios periódicos de contaminación fecal en la playa de El Confital se monitorearon durante el verano 2025. La bacteria *E.coli* se detectó en todas las muestras dentro de los valores de calidad excelente del agua establecidos por la normativa[@boe2007].
 
-El Ministerio de Sanidad (Náyade) y AT Hidrotecnia SL (Hidrotecnia) son los dos laboratorios responsables de monitorear los indicadores de contaminación fecal. Atendiendo a la distribución de resultados obtenidos (@fig-general), observamos una mayor dispersión según Náyade que respecto de Hidrotecnia. Además, únicamente los valores de Náyade superaron en 2 ocasiones el umbral de calidad de agua insuficiente para EEII.
+El Ministerio de Sanidad (MISAN) y AT Hidrotecnia SL (Hidrotecnia) son los dos laboratorios responsables de monitorear los indicadores de contaminación fecal. Atendiendo a la distribución de resultados obtenidos (@fig-general), observamos una mayor dispersión según MISAN que respecto de Hidrotecnia. Además, únicamente los valores de MISAN superaron en 2 ocasiones el umbral de calidad de agua insuficiente para EEII.
 
 La problemática reside en los repuntes de EEII, siendo los meses de julio y septiembre 2025 donde se dieron los episodios de calidad insuficiente del agua.
 
@@ -288,14 +285,14 @@ fig_vista_general
 
 ```{r}
 #| label: fig-laboratorio
-fig_sujeto
+fig_laboratorio
 ```
 
-Para estimar estadísticamente si existen diferencias significativas entre los resultados obtenidos por ambos laboratorios, utilizamos la prueba de la *t* de *Student* para los valores emparejados por la misma muestra de agua. En la @fig-t-eeii-laboratorio se observa como la diferencia de EEII entre Náyade e Hidrotecnia no es significativa con los datos disponibles. **Probablemente la mayor detección de Náyade se deba al azar** (*p* valor > 0,05).
+Para estimar estadísticamente si existen diferencias significativas entre los resultados obtenidos por ambos laboratorios, utilizamos la prueba de la *t* de *Student* para los valores emparejados por la misma muestra de agua. En la @fig-t-eeii-laboratorio se observa como la diferencia de EEII entre MISAN e Hidrotecnia no es significativa con los datos disponibles. **Probablemente la mayor detección de MISAN se deba al azar** (*p* valor > 0,05).
 
 ```{r}
 #| label: fig-t-eeii-laboratorio
-fig_t_eeii_sujeto
+fig_t_eeii_laboratorio
 ```
 
 ## Afectación del ciclo de mareas

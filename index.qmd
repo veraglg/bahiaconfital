@@ -19,7 +19,7 @@ author:
 
 La playa de El Confital lleva oficialmente **cerrado al público casi 9 años** debido a repetidos episodios de contaminación fecal [@diaz2026]. El principal indicador de esta contaminación son la **alta concentración de enterococos intestinales (EEII)**, estos indicadores de contaminación son monitoreados con frecuencia.
 
-Hay dos agentes encargados del monitoreo: el **Sistema de Información Nacional de Aguas de Baño (Náyade)** [@nayade], dependiente del Ministerio de Sanidad; y **AT Hidrotecnia SL (Hidrotecnia)** [@hidrotecnia], empresa que presta servicio al Ayuntamiento de Las Palmas de Gran Canaria a través del área de Ciudad del Mar.
+Hay dos agentes encargados del monitoreo: el Sistema de Información Nacional de Aguas de Baño (Náyade) [@nayade], dependiente del **Ministerio de Sanidad (MISAN)** [@misan]; y **AT Hidrotecnia SL (Hidrotecnia)** [@hidrotecnia], empresa que presta servicio al Ayuntamiento de Las Palmas de Gran Canaria a través del área de Ciudad del Mar.
 
 Como se hizo público en el periódico Canarias7 [@diaz2026], hace 2 años que **conflictuan los resultados obtenidos entre ambos agentes**, la disconformidad genera duda sobre la calidad real de las aguas de baño.
 
@@ -31,4 +31,4 @@ El objetivo de este proyecto es **investigar en mayor profundidad** la calidad d
 
 Una versión anterior del proyecto (en inglés) se puede encontrar el [antiguo sitio web](https://veraglg.github.io/bahiaconfital-old/). El proyecto ha incluido anteriormente datos de la Playa de Las Canteras donde no registramos contaminación por EEII.
 
-Una limitación que encontramos fue la falta de reproducibilidad en las muestras de EEII. A recomendación de la ULPGC, durante el verano de 2025 Náyade e Hidrotecnia partieron de las mismas muestras de agua.
+Una limitación que encontramos fue la falta de reproducibilidad en las muestras de EEII. A recomendación de la ULPGC, durante el verano de 2025 MISAN e Hidrotecnia partieron de las mismas muestras de agua.

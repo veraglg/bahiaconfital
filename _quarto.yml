@@ -30,10 +30,10 @@ website:
     - id: resultados
       title: "Resultados"
       contents:
-        - section: "Hidrotecnia y Náyade"
+        - section: "Hidrotecnia y Ministerio de Sanidad"
           contents:
           - indicadores.qmd
-        - section: "ULPGC"
+        - section: "Nosotras (Universidad de Las Palmas de Gran Canaria)"
           contents: 
           - citometria.qmd
           - secuenciacion.qmd

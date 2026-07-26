@@ -4,9 +4,9 @@
     "href": "indicadores.html",
     "title": "Biondicadores convencionales",
     "section": "",
-    "text": "Los episodios periódicos de contaminación fecal en la playa de El Confital se monitorearon durante el verano 2025. La bacteria E.coli se detectó en todas las muestras dentro de los valores de calidad excelente del agua establecidos por la normativa1.\nEl Ministerio de Sanidad (Náyade) y AT Hidrotecnia SL (Hidrotecnia) son los dos laboratorios responsables de monitorear los indicadores de contaminación fecal. Atendiendo a la distribución de resultados obtenidos (Figura 1), observamos una mayor dispersión según Náyade que respecto de Hidrotecnia. Además, únicamente los valores de Náyade superaron en 2 ocasiones el umbral de calidad de agua insuficiente para EEII.\nLa problemática reside en los repuntes de EEII, siendo los meses de julio y septiembre 2025 donde se dieron los episodios de calidad insuficiente del agua.\n\n\n\n\n\n\n\n\nFigura 1",
+    "text": "Los episodios periódicos de contaminación fecal en la playa de El Confital se monitorearon durante el verano 2025. La bacteria E.coli se detectó en todas las muestras dentro de los valores de calidad excelente del agua establecidos por la normativa1.\nEl Ministerio de Sanidad (MISAN) y AT Hidrotecnia SL (Hidrotecnia) son los dos laboratorios responsables de monitorear los indicadores de contaminación fecal. Atendiendo a la distribución de resultados obtenidos (Figura 1), observamos una mayor dispersión según MISAN que respecto de Hidrotecnia. Además, únicamente los valores de MISAN superaron en 2 ocasiones el umbral de calidad de agua insuficiente para EEII.\nLa problemática reside en los repuntes de EEII, siendo los meses de julio y septiembre 2025 donde se dieron los episodios de calidad insuficiente del agua.\n\n\n\n\n\n\n\n\nFigura 1",
     "crumbs": [
-      "Hidrotecnia y Náyade",
+      "Hidrotecnia y Ministerio de Sanidad",
       "Biondicadores convencionales"
     ]
   },
@@ -15,9 +15,9 @@
     "href": "indicadores.html#vista-general",
     "title": "Biondicadores convencionales",
     "section": "",
-    "text": "Los episodios periódicos de contaminación fecal en la playa de El Confital se monitorearon durante el verano 2025. La bacteria E.coli se detectó en todas las muestras dentro de los valores de calidad excelente del agua establecidos por la normativa1.\nEl Ministerio de Sanidad (Náyade) y AT Hidrotecnia SL (Hidrotecnia) son los dos laboratorios responsables de monitorear los indicadores de contaminación fecal. Atendiendo a la distribución de resultados obtenidos (Figura 1), observamos una mayor dispersión según Náyade que respecto de Hidrotecnia. Además, únicamente los valores de Náyade superaron en 2 ocasiones el umbral de calidad de agua insuficiente para EEII.\nLa problemática reside en los repuntes de EEII, siendo los meses de julio y septiembre 2025 donde se dieron los episodios de calidad insuficiente del agua.\n\n\n\n\n\n\n\n\nFigura 1",
+    "text": "Los episodios periódicos de contaminación fecal en la playa de El Confital se monitorearon durante el verano 2025. La bacteria E.coli se detectó en todas las muestras dentro de los valores de calidad excelente del agua establecidos por la normativa1.\nEl Ministerio de Sanidad (MISAN) y AT Hidrotecnia SL (Hidrotecnia) son los dos laboratorios responsables de monitorear los indicadores de contaminación fecal. Atendiendo a la distribución de resultados obtenidos (Figura 1), observamos una mayor dispersión según MISAN que respecto de Hidrotecnia. Además, únicamente los valores de MISAN superaron en 2 ocasiones el umbral de calidad de agua insuficiente para EEII.\nLa problemática reside en los repuntes de EEII, siendo los meses de julio y septiembre 2025 donde se dieron los episodios de calidad insuficiente del agua.\n\n\n\n\n\n\n\n\nFigura 1",
     "crumbs": [
-      "Hidrotecnia y Náyade",
+      "Hidrotecnia y Ministerio de Sanidad",
       "Biondicadores convencionales"
     ]
   },
@@ -26,9 +26,9 @@
     "href": "indicadores.html#comparación-entre-laboratorios",
     "title": "Biondicadores convencionales",
     "section": "Comparación entre laboratorios",
-    "text": "Comparación entre laboratorios\n\n\n\n\n\n\n\n\nFigura 2\n\n\n\n\n\nPara estimar estadísticamente si existen diferencias significativas entre los resultados obtenidos por ambos laboratorios, utilizamos la prueba de la t de Student para los valores emparejados por la misma muestra de agua. En la Figura 3 se observa como la diferencia de EEII entre Náyade e Hidrotecnia no es significativa con los datos disponibles. Probablemente la mayor detección de Náyade se deba al azar (p valor &gt; 0,05).\n\n\n\n\n\n\n\n\nFigura 3",
+    "text": "Comparación entre laboratorios\n\n\n\n\n\n\n\n\nFigura 2\n\n\n\n\n\nPara estimar estadísticamente si existen diferencias significativas entre los resultados obtenidos por ambos laboratorios, utilizamos la prueba de la t de Student para los valores emparejados por la misma muestra de agua. En la Figura 3 se observa como la diferencia de EEII entre MISAN e Hidrotecnia no es significativa con los datos disponibles. Probablemente la mayor detección de MISAN se deba al azar (p valor &gt; 0,05).\n\n\n\n\n\n\n\n\nFigura 3",
     "crumbs": [
-      "Hidrotecnia y Náyade",
+      "Hidrotecnia y Ministerio de Sanidad",
       "Biondicadores convencionales"
     ]
   },
@@ -39,7 +39,7 @@
     "section": "Afectación del ciclo de mareas",
     "text": "Afectación del ciclo de mareas\n\n\n\n\n\n\n\n\nFigura 4\n\n\n\n\n\nLas muestras fueron tomadas durante diferentes fases del ciclo de mareas como un posible factor de control. Aplicando el análisis de la varianza (ANOVA), estudiamos la variabilidad de EEII con el estado de la marea. En Figura 5 se demuestra que el muestreo no detectó diferencias significativas en la concentración de EEII según el estado de la marea.\n\n\n\n\n\n\n\n\nFigura 5",
     "crumbs": [
-      "Hidrotecnia y Náyade",
+      "Hidrotecnia y Ministerio de Sanidad",
       "Biondicadores convencionales"
     ]
   },
@@ -50,7 +50,7 @@
     "section": "",
     "text": "Monitoreamos 6 grupos de microorgansismos en base a 3 criterios funcionales:\n\nSynechococcus y Prochlorococcus: son dos géneros de cianobacterias (anteriormente conocidas como algas verde-azuladas) identificadas en función de su pigmentación.\nNanoeucariotas y picoeucariotas: organismos diversos del dominio eucariota (células con núcleo verdadero) diferenciados en función de su tamaño, siendo nano más ancho que pico.\nBacterias de alto ácido nucleico (HNA) y bajo ácido nucleico (LNA): según el contenido de ácido nucleico en las células. En líneas generales, las bacterias HNA tienen un ritmo metabólico más acelerado que las LNA y son más adaptadas a entornos cambiantes. El ratio HNA/LNA se utiliza como indicador de alteraciones en el medio1.\n\n\n\n\n\n\n\n\n\nFigura 1\n\n\n\n\n\nObservamos que la mayor variabilidad existe en función del contenido de ácido nucleico (Figura 1), seguido del grupo de Prochlorococcus. En las visualizaciones posteriores separaremos HNA y LNA del resto para una mejor resolución de las observaciones.",
     "crumbs": [
-      "ULPGC",
+      "Nosotras (Universidad de Las Palmas de Gran Canaria)",
       "Citometría de flujo"
     ]
   },
@@ -61,7 +61,7 @@
     "section": "",
     "text": "Monitoreamos 6 grupos de microorgansismos en base a 3 criterios funcionales:\n\nSynechococcus y Prochlorococcus: son dos géneros de cianobacterias (anteriormente conocidas como algas verde-azuladas) identificadas en función de su pigmentación.\nNanoeucariotas y picoeucariotas: organismos diversos del dominio eucariota (células con núcleo verdadero) diferenciados en función de su tamaño, siendo nano más ancho que pico.\nBacterias de alto ácido nucleico (HNA) y bajo ácido nucleico (LNA): según el contenido de ácido nucleico en las células. En líneas generales, las bacterias HNA tienen un ritmo metabólico más acelerado que las LNA y son más adaptadas a entornos cambiantes. El ratio HNA/LNA se utiliza como indicador de alteraciones en el medio1.\n\n\n\n\n\n\n\n\n\nFigura 1\n\n\n\n\n\nObservamos que la mayor variabilidad existe en función del contenido de ácido nucleico (Figura 1), seguido del grupo de Prochlorococcus. En las visualizaciones posteriores separaremos HNA y LNA del resto para una mejor resolución de las observaciones.",
     "crumbs": [
-      "ULPGC",
+      "Nosotras (Universidad de Las Palmas de Gran Canaria)",
       "Citometría de flujo"
     ]
   },
@@ -72,7 +72,7 @@
     "section": "Efecto de la marea",
     "text": "Efecto de la marea\n\n\n\n\n\n\n\n\nFigura 2\n\n\n\n\n\n\n\n\n\n\n\n\n\nFigura 3\n\n\n\n\n\n\n\n\n\n\n\n\n\nFigura 4\n\n\n\n\n\nEl análisis de la varianza (ANOVA) es un método de inferencia estadística que nos permite señalar como de importante son las diferencias entre las distribuciones de un parámetro para cada grupo2.\nEn la Figura 5 se especula como de inusuales sería nuestros resultados de HNA/LNA según la fase de la marea si esta no tuvieran ningún efecto sobre HNA/LNA. Habría menos de un 2% de probabilidades de obtener los resultados registrados. Por lo tanto, es probable que existan factores no aleatorios que afecten la variabilidad del ratio HNA/LNA con la marea. Seria interesante investigar en mayor profundidad estos posibles efectos, ya que el tamaño del monitoreo es pequeño y desigual entre fases de la marea.\n\n\n\n\n\n\n\n\nFigura 5",
     "crumbs": [
-      "ULPGC",
+      "Nosotras (Universidad de Las Palmas de Gran Canaria)",
       "Citometría de flujo"
     ]
   },
@@ -83,7 +83,7 @@
     "section": "Variación geográfica",
     "text": "Variación geográfica\n\n\n\n\n\n\n\n\nFigura 6\n\n\n\n\n\n\n\n\n\n\n\n\n\nFigura 7\n\n\n\n\n\nEn la Figura 8 se demuestra mediante la prueba de la t de Student como la media de HNA/LNA en El Confital es significativamente superior a la área de descarga del barranco Guiniguada.\n\n\n\n\n\n\n\n\nFigura 8",
     "crumbs": [
-      "ULPGC",
+      "Nosotras (Universidad de Las Palmas de Gran Canaria)",
       "Citometría de flujo"
     ]
   },
@@ -94,7 +94,7 @@
     "section": "Evolución temporal",
     "text": "Evolución temporal\n\n\n\n\n\n\n\n\nFigura 9\n\n\n\n\n\n\n\n\n\n\n\n\n\nFigura 10\n\n\n\n\n\n\n\n\n\n\n\n\n\nFigura 11",
     "crumbs": [
-      "ULPGC",
+      "Nosotras (Universidad de Las Palmas de Gran Canaria)",
       "Citometría de flujo"
     ]
   },
@@ -103,7 +103,7 @@
     "href": "index.html",
     "title": "La duda sobre la calidad del agua",
     "section": "",
-    "text": "Playa de El Confital (por Bengt Nyman)\nLa playa de El Confital lleva oficialmente cerrado al público casi 9 años debido a repetidos episodios de contaminación fecal1. El principal indicador de esta contaminación son la alta concentración de enterococos intestinales (EEII), estos indicadores de contaminación son monitoreados con frecuencia.\nHay dos agentes encargados del monitoreo: el Sistema de Información Nacional de Aguas de Baño (Náyade)2, dependiente del Ministerio de Sanidad; y AT Hidrotecnia SL (Hidrotecnia)3, empresa que presta servicio al Ayuntamiento de Las Palmas de Gran Canaria a través del área de Ciudad del Mar.\nComo se hizo público en el periódico Canarias71, hace 2 años que conflictuan los resultados obtenidos entre ambos agentes, la disconformidad genera duda sobre la calidad real de las aguas de baño."
+    "text": "Playa de El Confital (por Bengt Nyman)\nLa playa de El Confital lleva oficialmente cerrado al público casi 9 años debido a repetidos episodios de contaminación fecal1. El principal indicador de esta contaminación son la alta concentración de enterococos intestinales (EEII), estos indicadores de contaminación son monitoreados con frecuencia.\nHay dos agentes encargados del monitoreo: el Sistema de Información Nacional de Aguas de Baño (Náyade)2, dependiente del Ministerio de Sanidad (MISAN)3; y AT Hidrotecnia SL (Hidrotecnia)4, empresa que presta servicio al Ayuntamiento de Las Palmas de Gran Canaria a través del área de Ciudad del Mar.\nComo se hizo público en el periódico Canarias71, hace 2 años que conflictuan los resultados obtenidos entre ambos agentes, la disconformidad genera duda sobre la calidad real de las aguas de baño."
   },
   {
     "objectID": "index.html#nuestro-objetivo",
@@ -117,7 +117,7 @@
     "href": "index.html#historia-del-proyecto",
     "title": "La duda sobre la calidad del agua",
     "section": "Historia del proyecto",
-    "text": "Historia del proyecto\nUna versión anterior del proyecto (en inglés) se puede encontrar el antiguo sitio web. El proyecto ha incluido anteriormente datos de la Playa de Las Canteras donde no registramos contaminación por EEII.\nUna limitación que encontramos fue la falta de reproducibilidad en las muestras de EEII. A recomendación de la ULPGC, durante el verano de 2025 Náyade e Hidrotecnia partieron de las mismas muestras de agua."
+    "text": "Historia del proyecto\nUna versión anterior del proyecto (en inglés) se puede encontrar el antiguo sitio web. El proyecto ha incluido anteriormente datos de la Playa de Las Canteras donde no registramos contaminación por EEII.\nUna limitación que encontramos fue la falta de reproducibilidad en las muestras de EEII. A recomendación de la ULPGC, durante el verano de 2025 MISAN e Hidrotecnia partieron de las mismas muestras de agua."
   },
   {
     "objectID": "about.html",
@@ -168,7 +168,7 @@
     "section": "",
     "text": "Figura 1\n\n\n\n\n\n\n\n\n\n\n\n\n\nFigura 2",
     "crumbs": [
-      "ULPGC",
+      "Nosotras (Universidad de Las Palmas de Gran Canaria)",
       "Secuenciación del microbioma"
     ]
   },
@@ -179,7 +179,7 @@
     "section": "",
     "text": "Figura 1\n\n\n\n\n\n\n\n\n\n\n\n\n\nFigura 2",
     "crumbs": [
-      "ULPGC",
+      "Nosotras (Universidad de Las Palmas de Gran Canaria)",
       "Secuenciación del microbioma"
     ]
   },
@@ -190,7 +190,7 @@
     "section": "Índices de biodiversidad",
     "text": "Índices de biodiversidad\nEl índice de equidad (evenness en inglés) fue desarrollado por la ecóloga Evelyn Chrystalla Pielou1. Es una medida de la biodiversidad de cualquier ecosistema. En nuestro caso, mide la probabilidad de que dos lecturas de la misma muestra elegidas al azar sean de la misma variante (ASV).\n\n\n\n\n\n\n\n\nFigura 3\n\n\n\n\n\n\n\n\n\n\n\n\n\nFigura 4",
     "crumbs": [
-      "ULPGC",
+      "Nosotras (Universidad de Las Palmas de Gran Canaria)",
       "Secuenciación del microbioma"
     ]
   },
@@ -201,7 +201,7 @@
     "section": "Ratios microbianas",
     "text": "Ratios microbianas\nSiguiendo la anterior versión del proyecto2, analizamos las ratios bacteriales (también llamados «índices») que encontramos en la literatura científica en relación a la contaminación fecal del agua.\nEl estudio de Wu y colaboradores3 afirma que la ratio formado por las Clases Bacilli, Bacteroidia, Clostridia y Alpha (BBC:A) tiende a ser más elevado cuando exiten fuentes de contamianción fecal.\n\n\n\n\n\n\n\n\nFigura 5",
     "crumbs": [
-      "ULPGC",
+      "Nosotras (Universidad de Las Palmas de Gran Canaria)",
       "Secuenciación del microbioma"
     ]
   },
@@ -212,7 +212,7 @@
     "section": "Género Enterococcus",
     "text": "Género Enterococcus\nFueron 4 las ASV coincidentes dentro del Género Enterococcus (ASV.03284, ASV.11305, ASV.19065, ASV.02047), una de las variantes (ASV.19065) pudo ser identificada a nivel de la especie E. faecium. Como se observa en la Tabla 1, todas las muestras positivas pertenecen al periodo de 2025.\n\n\n\n\nTabla 1\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nFecha\nLugar\nASV\nGenus\nEspecie\nFreq.Relativa\n\n\n\n\n2025-07-07\nConfital\nASV.03284\nEnterococcus\nNA\n0.0001583\n\n\n2025-07-21\nConfital\nASV.03284\nEnterococcus\nNA\n0.0002131\n\n\n2025-08-04\nConfital\nASV.03284\nEnterococcus\nNA\n0.0001028\n\n\n2025-08-25\nConfital\nASV.11305\nEnterococcus\nNA\n0.0001591\n\n\n2025-08-25\nConfital\nASV.03284\nEnterococcus\nNA\n0.0000883\n\n\n2025-09-01\nConfital\nASV.19065\nEnterococcus\nfaecium\n0.0000916\n\n\n2025-09-01\nConfital\nASV.03284\nEnterococcus\nNA\n0.0002674\n\n\n2025-09-01\nConfital\nASV.02047\nEnterococcus\nNA\n0.0000946\n\n\n2025-09-09\nConfital\nASV.02047\nEnterococcus\nNA\n0.0003328\n\n\n2025-09-15\nConfital\nASV.02047\nEnterococcus\nNA\n0.0002949\n\n\n2025-09-22\nConfital\nASV.02047\nEnterococcus\nNA\n0.0001119\n\n\n2025-09-24\nBco. Guiniguada\nASV.02047\nEnterococcus\nNA\n0.0004833\n\n\n2025-09-24\nBco. Guiniguada\nASV.02047\nEnterococcus\nNA\n0.0010553\n\n\n\n\n\n\n\n\nNo es posible equiparar numéricamente la frecuencia relativa de enterococos en una muestra de material genético con el tradicional conteo de colonias (UFC/100 ml). Sin embargo, sí es posible comparar los patrones temporales de ambas series para determinar si se tratan de medidas coherentes entre sí. En las siguientes figuras (Figura 6 y Figura 7), observamos en la escala de azules los datos de Hidrotecnia frente a las barras naranjas con la frecuencia relativa de Enterococcus en las muestras secuenciadas por la ULPGC.\n\n\n\n\n\n\n\n\nFigura 6\n\n\n\n\n\n\n\n\n\n\n\n\n\nFigura 7",
     "crumbs": [
-      "ULPGC",
+      "Nosotras (Universidad de Las Palmas de Gran Canaria)",
       "Secuenciación del microbioma"
     ]
   },
@@ -223,7 +223,7 @@
     "section": "Género Escherichia-Shigella (E. coli)",
     "text": "Género Escherichia-Shigella (E. coli)\nUna única ASV fue identificada (ASV.00789) correspondiente al género Escherichia-Shigella donde estaría clasificada la bacteria gastrointestinal humana Escherichia coli. Como mustra la Tabla 2, esta fue encontrada en las tres repeticiones de la muestra tomada en la desembocadura del Barranco Guiniguada.\n\n\n\n\nTabla 2\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nFecha\nLugar\nASV\nGenus\nEspecie\nFreq.Relativa\n\n\n\n\n2021-07-27\nPlaya Chica\nASV.00789\nEscherichia-Shigella\nNA\n0.0002842\n\n\n2023-01-24\nConfital\nASV.00789\nEscherichia-Shigella\nNA\n0.0001017\n\n\n2025-09-24\nBco. Guiniguada\nASV.00789\nEscherichia-Shigella\nNA\n0.0013745\n\n\n2025-09-24\nBco. Guiniguada\nASV.00789\nEscherichia-Shigella\nNA\n0.0027326\n\n\n2025-09-24\nBco. Guiniguada\nASV.00789\nEscherichia-Shigella\nNA\n0.0043064",
     "crumbs": [
-      "ULPGC",
+      "Nosotras (Universidad de Las Palmas de Gran Canaria)",
       "Secuenciación del microbioma"
     ]
   }
