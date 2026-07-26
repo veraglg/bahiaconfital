@@ -227,10 +227,10 @@ indices_18s <- datos_asv_18s |>
     .groups = "drop"
   )
 
-# ---- Índices bacteriales -----
+# ---- Ratios microbianas -----
 
-# Ssuma los taxones clave por cada muestra
-indices_microbianos <- datos_asv_16s |> 
+# Suma los taxones clave por cada muestra
+ratios_microbianas <- datos_asv_16s |> 
   group_by(Muestra, AAAA, Mes, Dia, Lugar) |> 
   summarise(
     Firmicutes       = sum(Lecturas[Filo  == "Firmicutes"],          na.rm = T),
@@ -246,8 +246,8 @@ indices_microbianos <- datos_asv_16s |>
   .groups = "keep"
   )
 
-# Calcula los índices microbianos
-indices_microbianos <- indices_microbianos |> summarise(
+# Calcula las ratios microbianas
+ratios_microbianas <- ratios_microbianas |> summarise(
   BBC.A = (Bacilli + Bacteroidia + Clostridia) / Alpha,
   A.G = Alpha / Gamma,
   A.SAR11 = Alteromonas / Pelagibacterales,
@@ -346,17 +346,18 @@ fig_equidad_18s <- indices_18s |>
     y = "Índice de equidad (J)"
   )
 
-# ---- Índices microbianos ----
+# ---- Ratios microbianas ----
 
 # Representa indice BBC:A
-fig_bbca <- indices_microbianos |>
+fig_bbca <- ratios_microbianas |>
   filter(Lugar == "Confital") |> 
   ggplot(aes(x = factor(AAAA), y = BBC.A)) +
-  geom_boxplot(outliers = F) +
+  geom_boxplot( aes(fill = after_stat(middle)), outliers = F, show.legend = F) +
   geom_jitter(shape = 1, width = .3) +
+  scale_fill_viridis_c(option = "plasma", alpha = .5) +
   labs(
     x = "Año",
-    y = "Índice BBC:A"
+    y = "Ratio BBC:A"
   )
 
 # ---- Género Enterococcus -----
@@ -433,9 +434,11 @@ fig_equidad_16s
 fig_equidad_18s
 ```
 
-## Índices microbianos
+## Ratios microbianas
 
-Siguiendo la anterior versión del proyecto [@bahiaconfital-old], analizamos los índices bacteriales mejor conocidos en la literatura científica para analizar la calidad del agua.
+Siguiendo la anterior versión del proyecto [@bahiaconfital-old], analizamos las ratios bacteriales (también llamados «índices») que encontramos en la literatura científica en relación a la contaminación fecal del agua.
+
+El estudio de Wu y colaboradores [@wu2010] afirma que la ratio formado por las Clases *Bacilli*, *Bacteroidia*, *Clostridia* y *Alpha* (BBC:A) tiende a ser más elevado cuando exiten fuentes de contamianción fecal. 
 
 ```{r}
 #| label: fig-bbca
