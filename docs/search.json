@@ -4,7 +4,7 @@
     "href": "indicadores.html",
     "title": "Biondicadores convencionales",
     "section": "",
-    "text": "Los episodios periódicos de contaminación fecal en la playa de El Confital se monitorearon durante el verano 2025. La bacteria E.coli se detectó en todas las muestras dentro de los valores de calidad excelente del agua establecidos por la normativa1.\nEl Ministerio de Sanidad (MISAN) y AT Hidrotecnia SL (Hidrotecnia) son los dos laboratorios responsables de monitorear los indicadores de contaminación fecal. Atendiendo a la distribución de resultados obtenidos (Figura 1), observamos una mayor dispersión según MISAN que respecto de Hidrotecnia. Además, únicamente los valores de MISAN superaron en 2 ocasiones el umbral de calidad de agua insuficiente para EEII.\nLa problemática reside en los repuntes de EEII, siendo los meses de julio y septiembre 2025 donde se dieron los episodios de calidad insuficiente del agua.\n\n\n\n\n\n\n\n\nFigura 1",
+    "text": "El Ministerio de Sanidad (MISAN) y AT Hidrotecnia SL (Hidrotecnia) son los dos laboratorios responsables de monitorear los indicadores de contaminación fecal en la playa del Confital. Atendiendo a los resultados del verano 2025 según muestra Figura 1, la bacteria E.coli se detectó en todas las muestras dentro de los valores de calidad excelente del agua establecidos por la normativa1.\nAtendiendo a la distribución de resultados obtenidos (Figura 3), observamos una mayor dispersión en los resultados de MISAN respecto de Hidrotecnia. Tenemos que destacar que únicamente los valores de MISAN superaron en 2 ocasiones el umbral de calidad de agua insuficiente (Figura 2).\nLa problemática reside en los repuntes de EEII, siendo los meses de julio y septiembre 2025 donde se dieron los episodios de calidad insuficiente del agua.\n\n\n\n\n\n\n\n\nFigura 1\n\n\n\n\n\n\n\n\n\n\n\n\n\nFigura 2",
     "crumbs": [
       "Hidrotecnia y Ministerio de Sanidad",
       "Biondicadores convencionales"
@@ -15,7 +15,7 @@
     "href": "indicadores.html#vista-general",
     "title": "Biondicadores convencionales",
     "section": "",
-    "text": "Los episodios periódicos de contaminación fecal en la playa de El Confital se monitorearon durante el verano 2025. La bacteria E.coli se detectó en todas las muestras dentro de los valores de calidad excelente del agua establecidos por la normativa1.\nEl Ministerio de Sanidad (MISAN) y AT Hidrotecnia SL (Hidrotecnia) son los dos laboratorios responsables de monitorear los indicadores de contaminación fecal. Atendiendo a la distribución de resultados obtenidos (Figura 1), observamos una mayor dispersión según MISAN que respecto de Hidrotecnia. Además, únicamente los valores de MISAN superaron en 2 ocasiones el umbral de calidad de agua insuficiente para EEII.\nLa problemática reside en los repuntes de EEII, siendo los meses de julio y septiembre 2025 donde se dieron los episodios de calidad insuficiente del agua.\n\n\n\n\n\n\n\n\nFigura 1",
+    "text": "El Ministerio de Sanidad (MISAN) y AT Hidrotecnia SL (Hidrotecnia) son los dos laboratorios responsables de monitorear los indicadores de contaminación fecal en la playa del Confital. Atendiendo a los resultados del verano 2025 según muestra Figura 1, la bacteria E.coli se detectó en todas las muestras dentro de los valores de calidad excelente del agua establecidos por la normativa1.\nAtendiendo a la distribución de resultados obtenidos (Figura 3), observamos una mayor dispersión en los resultados de MISAN respecto de Hidrotecnia. Tenemos que destacar que únicamente los valores de MISAN superaron en 2 ocasiones el umbral de calidad de agua insuficiente (Figura 2).\nLa problemática reside en los repuntes de EEII, siendo los meses de julio y septiembre 2025 donde se dieron los episodios de calidad insuficiente del agua.\n\n\n\n\n\n\n\n\nFigura 1\n\n\n\n\n\n\n\n\n\n\n\n\n\nFigura 2",
     "crumbs": [
       "Hidrotecnia y Ministerio de Sanidad",
       "Biondicadores convencionales"
@@ -26,7 +26,7 @@
     "href": "indicadores.html#comparación-entre-laboratorios",
     "title": "Biondicadores convencionales",
     "section": "Comparación entre laboratorios",
-    "text": "Comparación entre laboratorios\n\n\n\n\n\n\n\n\nFigura 2\n\n\n\n\n\nPara estimar estadísticamente si existen diferencias significativas entre los resultados obtenidos por ambos laboratorios, utilizamos la prueba de la t de Student para los valores emparejados por la misma muestra de agua. En la Figura 3 se observa como la diferencia de EEII entre MISAN e Hidrotecnia no es significativa con los datos disponibles. Probablemente la mayor detección de MISAN se deba al azar (p valor &gt; 0,05).\n\n\n\n\n\n\n\n\nFigura 3",
+    "text": "Comparación entre laboratorios\n\n\n\n\n\n\n\n\nFigura 3\n\n\n\n\n\nPara estimar estadísticamente si existen diferencias significativas entre los resultados obtenidos por ambos laboratorios, utilizamos la prueba de la t de Student para los valores emparejados por la misma muestra de agua. En la Figura 4 se observa como la diferencia de EEII entre MISAN e Hidrotecnia no es significativa con los datos disponibles. Probablemente la mayor detección de MISAN se deba al azar (p valor &gt; 0,05).\n\n\n\n\n\n\n\n\nFigura 4",
     "crumbs": [
       "Hidrotecnia y Ministerio de Sanidad",
       "Biondicadores convencionales"
@@ -37,7 +37,7 @@
     "href": "indicadores.html#afectación-del-ciclo-de-mareas",
     "title": "Biondicadores convencionales",
     "section": "Afectación del ciclo de mareas",
-    "text": "Afectación del ciclo de mareas\n\n\n\n\n\n\n\n\nFigura 4\n\n\n\n\n\nLas muestras fueron tomadas durante diferentes fases del ciclo de mareas como un posible factor de control. Aplicando el análisis de la varianza (ANOVA), estudiamos la variabilidad de EEII con el estado de la marea. En Figura 5 se demuestra que el muestreo no detectó diferencias significativas en la concentración de EEII según el estado de la marea.\n\n\n\n\n\n\n\n\nFigura 5",
+    "text": "Afectación del ciclo de mareas\n\n\n\n\n\n\n\n\nFigura 5\n\n\n\n\n\nLas muestras fueron tomadas durante diferentes fases del ciclo de mareas como un posible factor de control. Aplicando el análisis de la varianza (ANOVA), estudiamos la variabilidad de EEII con el estado de la marea. En Figura 6 se demuestra que el muestreo no detectó diferencias significativas en la concentración de EEII según el estado de la marea.\n\n\n\n\n\n\n\n\nFigura 6",
     "crumbs": [
       "Hidrotecnia y Ministerio de Sanidad",
       "Biondicadores convencionales"

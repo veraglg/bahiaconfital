@@ -180,19 +180,39 @@ set.seed(26)
 # --- Vista general ----
 
 # Vista general verano 2025
-fig_vista_general <- datos_par_valor |> 
+fig_vista_eeii <- datos_par_valor |> 
+  filter(Indicador == "EEII") |> 
   ggplot(aes(x = Fecha, y = Valor, fill = Laboratorio)) +
   geom_col(position = "dodge", color = "black") +
   geom_hline(
-    data = limites,
+    data = limites |> filter(Indicador == "EEII"),
     mapping = aes(yintercept = Valor, linetype = fct_inorder(Limite))
   ) +
-  facet_wrap(~Indicador, nrow = 1, scale = "free_y") +
   scale_fill_viridis_d() +
   scale_x_datetime(date_labels = "%d/%m") +
   labs(
-    title = "Detecciones de contaminación fecal verano 2025",
-    subtitle = "Mayor detección de EEII por MISAN",
+    title = "Detecciones de EEII comparadas",
+    subtitle = "Calidad insuficiente detectada solo por el Ministerio de Sanidad",
+    caption = "Playa del Confital, verano 2025",
+    linetype = "Límite",
+    x = "",
+    y = "UFC/100 ml"
+  )
+
+fig_vista_ecoli <- datos_par_valor |> 
+  filter(Indicador == "E.coli") |> 
+  ggplot(aes(x = Fecha, y = Valor, fill = Laboratorio)) +
+  geom_col(position = "dodge", color = "black") +
+  geom_hline(
+    data = limites |> filter(Indicador == "E.coli"),
+    mapping = aes(yintercept = Valor, linetype = fct_inorder(Limite))
+  ) +
+  scale_fill_viridis_d() +
+  scale_x_datetime(date_labels = "%d/%m") +
+  labs(
+    title = "Detecciones de E.coli comparadas",
+    subtitle = "Niveles de calidad excelentes",
+    caption = "Playa del Confital, verano 2025",
     linetype = "Límite",
     x = "",
     y = "UFC/100 ml"
@@ -206,7 +226,7 @@ fig_laboratorio <- datos_par_valor |>
   geom_boxplot(aes(fill = Laboratorio), show.legend = F, outliers = F) +
   geom_jitter(shape = 1, width = .3) +
   facet_wrap(~Indicador, scale = "free_y") +
-  scale_fill_viridis_d(alpha = .5) +
+  scale_fill_viridis_d(alpha = .6) +
   labs(
     title = "Comparación entre laboratorios",
     subtitle = "Mayor variabilidad en las muestras de MISAN",
@@ -270,15 +290,20 @@ fig_f_eeii_marea <- visualise(fs_hipoteticas) +
 
 ## Vista general
 
-Los episodios periódicos de contaminación fecal en la playa de El Confital se monitorearon durante el verano 2025. La bacteria *E.coli* se detectó en todas las muestras dentro de los valores de calidad excelente del agua establecidos por la normativa[@boe2007].
+El Ministerio de Sanidad (MISAN) y AT Hidrotecnia SL (Hidrotecnia) son los dos laboratorios responsables de monitorear los indicadores de contaminación fecal en la playa del Confital. Atendiendo a los resultados del verano 2025 según muestra @fig-vista-ecoli, la bacteria *E.coli* se detectó en todas las muestras dentro de los valores de calidad excelente del agua establecidos por la normativa[@boe2007].
 
-El Ministerio de Sanidad (MISAN) y AT Hidrotecnia SL (Hidrotecnia) son los dos laboratorios responsables de monitorear los indicadores de contaminación fecal. Atendiendo a la distribución de resultados obtenidos (@fig-general), observamos una mayor dispersión según MISAN que respecto de Hidrotecnia. Además, únicamente los valores de MISAN superaron en 2 ocasiones el umbral de calidad de agua insuficiente para EEII.
+Atendiendo a la distribución de resultados obtenidos (@fig-laboratorio), observamos una mayor dispersión en los resultados de MISAN respecto de Hidrotecnia. Tenemos que destacar que únicamente los valores de MISAN superaron en 2 ocasiones el umbral de calidad de agua insuficiente (@fig-vista-eeii).
 
 La problemática reside en los repuntes de EEII, siendo los meses de julio y septiembre 2025 donde se dieron los episodios de calidad insuficiente del agua.
 
 ```{r}
-#| label: fig-general
-fig_vista_general
+#| label: fig-vista-ecoli
+fig_vista_ecoli
+```
+
+```{r}
+#| label: fig-vista-eeii
+fig_vista_eeii
 ```
 
 ## Comparación entre laboratorios
