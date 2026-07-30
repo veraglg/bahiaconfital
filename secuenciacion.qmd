@@ -12,7 +12,6 @@ author:
 #| message: false
 
 library(tidyverse)
-library(Biostrings)
 
 # ---- Metadatos ----
 
@@ -28,7 +27,7 @@ metadatos <- readxl::read_xlsx(
 
 # Traduce el nombre de las columnas
 metadatos <- metadatos |> rename(
-  Sample = "Muestra", Location = "Lugar", Tide = "Marea"
+  Muestra = Sample, Lugar = Location, Marea = Tide
 )
 
 # Donde exista, haz constar el año (AAAA) correcto
@@ -121,32 +120,34 @@ tabla_18s_taxonomia <- read_rds("data/canteras_microbiome/dada2_canteras_18s/dat
 
 # Renombra las columnas de la tabla 16S en español
 tabla_16s_taxonomia <- tabla_16s_taxonomia |> rename(
-  domain = "Dominio",
-  phylum = "Filo",
-  class = "Clase",
-  order = "Orden",
-  family = "Familia",
-  genus = "Genus",
-  species = "Especie"
+  Dominio = domain,
+  Filo = phylum,
+  Clase = class,
+  Orden = order,
+  Familia = family,
+  Genus = genus,
+  Especie = species
 )
 
 # Renombra las columnas de la tabla 18S en español
 tabla_18s_taxonomia <- tabla_18s_taxonomia |> rename(
-  domain = "Dominio",
-  supergroup = "Clado",
-  division = "Filo",
-  subdivision = "Subfilo",
-  class = "Clase",
-  order = "Orden",
-  family = "Familia",
-  genus = "Genus",
-  species = "Especie"
+  Dominio = domain,
+  Clado = supergroup,
+  Filo = division,
+  Subfilo = subdivision,
+  Clase = class,
+  Orden = order,
+  Familia = family,
+  Genus = genus,
+  Especie = species
 )
 
 # ---- Secuencias ----
 
 # Lee las secuencias 16S
-secuencias_16s <- read_rds("data/canteras_microbiome/dada2_canteras_16s/data/dada2/04_decontam-and-filter/canteras/canteras_sequences_decontam_filter.rds")
+secuencias_16s <- read_rds("data/canteras_microbiome/dada2_canteras_16s/data/dada2/04_decontam-and-filter/canteras/canteras_sequences_decontam_filter.rds") |> 
+  Biostrings::as.data.frame() |> as_tibble(rownames = "ASV") |>
+  rename(Secuencias = "x")
 
 # Lee las secuencias 18S
 secuencias_18s <- read_rds("data/canteras_microbiome/dada2_canteras_18s/data/dada2/04_decontam-and-filter/canteras/canteras_sequences_decontam_filter.rds")
@@ -191,11 +192,11 @@ datos_asv_18s <- datos_18s |> pivot_longer(
     values_to = "Lecturas"
 )
 
-# Calcula la frecuencia relativa en cada mustra 16S
+# Calcula la frecuencia relativa en cada muestra 16S
 datos_asv_16s <- datos_asv_16s |>
   mutate(Freq.Relativa = Lecturas / Suma, .after = Lecturas)
 
-# Calcula la frecuencia relativa en cada mustra 18S
+# Calcula la frecuencia relativa en cada muestra 18S
 datos_asv_18s <- datos_asv_18s |>
   mutate(Freq.Relativa = Lecturas / Suma, .after = Lecturas)
 
@@ -263,11 +264,20 @@ datos_asv_ee <- datos_asv_16s |>
 # Obtén los códigos ASV de Enterococcus
 ee_asv <- datos_asv_ee |> distinct(ASV) |> pull()
 
+# Añade la identificación BLAST
+datos_asv_ee <- datos_asv_ee |> mutate(
+  Especie = Especie |> replace_when(
+    ASV == "ASV.03284" ~ "faecalis (BLASTN)",
+    ASV == "ASV.11305" ~ "gallinarium (BLASTN)",
+    ASV == "ASV.02047" ~ "durans (BLASTN)",
+  )
+)
+
 # Calcula la suma de ASV de Enterococcus
 datos_ee <- datos_16s |>
   mutate(EE.Suma = rowSums(across(all_of(ee_asv))))
 
-# Calcula la frequencia relativa de EE
+# Calcula la frecuencia relativa de EE
 datos_ee <- datos_ee |> 
   mutate(EE.Freq.Relativa = EE.Suma / Suma)
 
@@ -287,12 +297,17 @@ datos_asv_ecoli <- datos_asv_16s |>
 
 # Obtén los códigos ASV de Enterococcus
 ecoli_asv <- datos_asv_ecoli |> distinct(ASV) |> pull()
+
+# Añade la identificación BLAST
+datos_asv_ecoli <- datos_asv_ecoli |> mutate(
+  Especie = Especie |> replace_when(
+    ASV == "ASV.00789" ~ "coli (BLASTN)"
+  )
+)
 ```
 
 ```{r}
 #| label: visualize
-
-library(knitr)
 
 # --- Vista general ----
 
@@ -365,7 +380,7 @@ fig_bbca <- ratios_microbianas |>
 # Construye la tabla con las ASV de Enterococcus
 tbl_ee <- datos_asv_ee |> 
   select(Fecha, Lugar, ASV, Genus, Especie, Freq.Relativa) |>
-  kable()
+  knitr::kable()
 
 # Representa una linea temporal con el fondo de Hidrotecnia
 fig_ee_hidrotecnia <- datos_comparados |> 
@@ -405,7 +420,7 @@ fig_ee_misan <- datos_comparados |>
 # Construye la tabla con las ASV de Escherichia-Shigella
 tbl_ecoli <- datos_asv_ecoli |> 
   select(Fecha, Lugar, ASV, Genus, Especie, Freq.Relativa) |>
-  kable()
+  knitr::kable()
 ```
 
 ## Vista general
@@ -447,7 +462,11 @@ fig_bbca
 
 ## Género *Enterococcus*
 
-Fueron 4 las ASV coincidentes dentro del Género *Enterococcus* (`{r} ee_asv`), una de las variantes (ASV.19065) pudo ser identificada a nivel de la especie *E. faecium*. Como se observa en la @tbl-ee, todas las muestras positivas pertenecen al periodo de 2025.
+Fueron 4 las ASV coincidentes dentro del Género *Enterococcus* (`{r} ee_asv`), no todas las ASV fueron identificadas al nivel de especie con el procesamiento de dada2, para poder completar la identificación a nivel de especie se utilizó el programa BLASTN [@zhang2000]. La identificación confirma que todas las ASV del género *Enterococcus* pertenecen al conjunto de los enterococos intestinales (EEII) asociados al tracto intestinal de humanos y otros animales.
+
+Como se observa en la @tbl-ee, todas las muestras positivas en EEII pertenecen al periodo de 2025.
+
+
 
 ```{r}
 #| label: tbl-ee
@@ -468,7 +487,7 @@ fig_ee_misan
 
 ## Género *Escherichia-Shigella* *(E. coli)*
 
-Una única ASV fue identificada (`{r} ecoli_asv`) correspondiente al género *Escherichia-Shigella* donde estaría clasificada la bacteria gastrointestinal humana *Escherichia coli*. Como muestra la @tbl-ecoli, esta fue encontrada en las tres repeticiones de la muestra tomada en la desembocadura del Barranco Guiniguada.
+Una única ASV fue identificada (`{r} ecoli_asv`) correspondiente al género *Escherichia-Shigella* donde estaría clasificada la conocida bacteria gastrointestinal humana *Escherichia coli*. Como muestra la @tbl-ecoli, esta fue encontrada en las tres repeticiones de la muestra tomada en la desembocadura del Barranco Guiniguada.
 
 ```{r}
 #| label: tbl-ecoli

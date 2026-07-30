@@ -33,7 +33,7 @@ website:
         - section: "Hidrotecnia y Ministerio de Sanidad"
           contents:
           - indicadores.qmd
-        - section: "Nosotras (Universidad de Las Palmas de Gran Canaria)"
+        - section: "Universidad de Las Palmas de Gran Canaria"
           contents: 
           - citometria.qmd
           - secuenciacion.qmd
