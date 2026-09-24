@@ -1,0 +1,801 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="es" xml:lang="es"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.10.18">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Maria Fernanda Montero">
+<meta name="author" content="Markel Gómez Letona">
+
+<title>🧪 Métodos – 🪸 Calidad del agua en El Confital</title>
+<style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: 1.5em;}
+div.column{flex: auto;}
+@media screen {
+div.columns{gap: min(4vw, 1.5em);}
+div.column{overflow-x: auto;}
+}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 0em;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<link href="./patron.png" rel="icon" type="image/png">
+<script src="site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap-370a2f02552c0d2d6628d4e757f471a4.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No se han encontrado resultados",
+    "search-matching-documents-text": "documentos encontrados",
+    "search-copy-link-title": "Copiar el enlace en la búsqueda",
+    "search-hide-matches-text": "Ocultar resultados adicionales",
+    "search-more-match-text": "resultado adicional en este documento",
+    "search-more-matches-text": "resultados adicionales en este documento",
+    "search-clear-button-title": "Borrar",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancelar",
+    "search-submit-button-title": "Enviar",
+    "search-label": "Buscar"
+  }
+}</script>
+
+
+</head>
+
+<body class="nav-fixed quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="./index.html">
+    <span class="navbar-title">🪸 Calidad del agua en El Confital</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Buscar"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Navegación de palanca" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="./problematica.html"> 
+<span class="menu-text">🫯 Problemática</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link active" href="./metodos.html" aria-current="page"> 
+<span class="menu-text">🧪 Métodos</span></a>
+  </li>  
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-resultados" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">📊 Resultados</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-resultados">    
+        <li class="dropdown-header">🔸 Hidrotecnia y Gobierno de Canarias</li>
+        <li>
+    <a class="dropdown-item" href="./resultados/indicadores.html">
+ <span class="dropdown-text">🧫 Biondicadores convencionales</span></a>
+  </li>  
+        <li><hr class="dropdown-divider"></li>
+        <li class="dropdown-header">🔹 Universidad de Las Palmas de Gran Canaria</li>
+        <li>
+    <a class="dropdown-item" href="./resultados/citometria.html">
+ <span class="dropdown-text">🔦 Citometría de flujo</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./resultados/secuenciacion.html">
+ <span class="dropdown-text">🧬 Secuenciación del microbioma</span></a>
+  </li>  
+    </ul>
+  </li>
+</ul>
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="./about.html"> 
+<span class="menu-text">Sobre la web</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="https://codeberg.org/veraglg/bahiaconfital"> 
+<span class="menu-text"><img src="./codeberg.svg" title="Codigo fuente" style="height:1.2em"></span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">En esta página</h2>
+   
+  <ul>
+  <li><a href="#diseño-del-muestreo" id="toc-diseño-del-muestreo" class="nav-link active" data-scroll-target="#diseño-del-muestreo"><span class="header-section-number">1</span> Diseño del muestreo</a></li>
+  <li><a href="#métodos-de-secuenciación-genética" id="toc-métodos-de-secuenciación-genética" class="nav-link" data-scroll-target="#métodos-de-secuenciación-genética"><span class="header-section-number">2</span> Métodos de secuenciación genética</a>
+  <ul class="collapse">
+  <li><a href="#extracción" id="toc-extracción" class="nav-link" data-scroll-target="#extracción"><span class="header-section-number">2.1</span> Extracción</a></li>
+  <li><a href="#secuenciación" id="toc-secuenciación" class="nav-link" data-scroll-target="#secuenciación"><span class="header-section-number">2.2</span> Secuenciación</a></li>
+  <li><a href="#procesamiento" id="toc-procesamiento" class="nav-link" data-scroll-target="#procesamiento"><span class="header-section-number">2.4</span> Procesamiento</a></li>
+  </ul></li>
+  <li><a href="#archivos-de-datos" id="toc-archivos-de-datos" class="nav-link" data-scroll-target="#archivos-de-datos"><span class="header-section-number">3</span> Archivos de datos</a>
+  <ul class="collapse">
+  <li><a href="#tabla-16s" id="toc-tabla-16s" class="nav-link" data-scroll-target="#tabla-16s"><span class="header-section-number">3.1</span> Tabla 16S</a></li>
+  <li><a href="#tabla-16s-taxonomía" id="toc-tabla-16s-taxonomía" class="nav-link" data-scroll-target="#tabla-16s-taxonomía"><span class="header-section-number">3.2</span> Tabla 16S taxonomía</a></li>
+  <li><a href="#secuencias-16s" id="toc-secuencias-16s" class="nav-link" data-scroll-target="#secuencias-16s"><span class="header-section-number">3.3</span> Secuencias 16S</a></li>
+  <li><a href="#tabla-18s" id="toc-tabla-18s" class="nav-link" data-scroll-target="#tabla-18s"><span class="header-section-number">3.4</span> Tabla 18S</a></li>
+  <li><a href="#tabla-18s-taxonomía" id="toc-tabla-18s-taxonomía" class="nav-link" data-scroll-target="#tabla-18s-taxonomía"><span class="header-section-number">3.5</span> Tabla 18S taxonomía</a></li>
+  <li><a href="#secuencias-18s" id="toc-secuencias-18s" class="nav-link" data-scroll-target="#secuencias-18s"><span class="header-section-number">3.6</span> Secuencias 18S</a></li>
+  </ul></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">🧪 Métodos</h1>
+<p class="subtitle lead">Plan de monitoreo, coordinación y secuenciación del microbioma</p>
+</div>
+
+
+<div class="quarto-title-meta-author">
+  <div class="quarto-title-meta-heading">Autores/as</div>
+  <div class="quarto-title-meta-heading">Afiliaciones</div>
+  
+    <div class="quarto-title-meta-contents">
+    <p class="author">Maria Fernanda Montero <a href="https://orcid.org/0000-0001-8124-8136" class="quarto-title-author-orcid" aria-label="ORCID profile for Maria Fernanda Montero"> <img alt="" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAA2ZpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMC1jMDYwIDYxLjEzNDc3NywgMjAxMC8wMi8xMi0xNzozMjowMCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wTU09Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9tbS8iIHhtbG5zOnN0UmVmPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvc1R5cGUvUmVzb3VyY2VSZWYjIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtcE1NOk9yaWdpbmFsRG9jdW1lbnRJRD0ieG1wLmRpZDo1N0NEMjA4MDI1MjA2ODExOTk0QzkzNTEzRjZEQTg1NyIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDozM0NDOEJGNEZGNTcxMUUxODdBOEVCODg2RjdCQ0QwOSIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDozM0NDOEJGM0ZGNTcxMUUxODdBOEVCODg2RjdCQ0QwOSIgeG1wOkNyZWF0b3JUb29sPSJBZG9iZSBQaG90b3Nob3AgQ1M1IE1hY2ludG9zaCI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOkZDN0YxMTc0MDcyMDY4MTE5NUZFRDc5MUM2MUUwNEREIiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOjU3Q0QyMDgwMjUyMDY4MTE5OTRDOTM1MTNGNkRBODU3Ii8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+84NovQAAAR1JREFUeNpiZEADy85ZJgCpeCB2QJM6AMQLo4yOL0AWZETSqACk1gOxAQN+cAGIA4EGPQBxmJA0nwdpjjQ8xqArmczw5tMHXAaALDgP1QMxAGqzAAPxQACqh4ER6uf5MBlkm0X4EGayMfMw/Pr7Bd2gRBZogMFBrv01hisv5jLsv9nLAPIOMnjy8RDDyYctyAbFM2EJbRQw+aAWw/LzVgx7b+cwCHKqMhjJFCBLOzAR6+lXX84xnHjYyqAo5IUizkRCwIENQQckGSDGY4TVgAPEaraQr2a4/24bSuoExcJCfAEJihXkWDj3ZAKy9EJGaEo8T0QSxkjSwORsCAuDQCD+QILmD1A9kECEZgxDaEZhICIzGcIyEyOl2RkgwAAhkmC+eAm0TAAAAABJRU5ErkJggg=="></a></p>
+  </div>
+  <div class="quarto-title-meta-contents">
+        <p class="affiliation">
+            Grupo de Oceanografía Biológica, IOCAG
+          </p>
+      </div>
+    <div class="quarto-title-meta-contents">
+    <p class="author">Markel Gómez Letona <a href="https://orcid.org/0000-0001-9325-3979" class="quarto-title-author-orcid" aria-label="ORCID profile for Markel Gómez Letona"> <img alt="" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAA2ZpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMC1jMDYwIDYxLjEzNDc3NywgMjAxMC8wMi8xMi0xNzozMjowMCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wTU09Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9tbS8iIHhtbG5zOnN0UmVmPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvc1R5cGUvUmVzb3VyY2VSZWYjIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtcE1NOk9yaWdpbmFsRG9jdW1lbnRJRD0ieG1wLmRpZDo1N0NEMjA4MDI1MjA2ODExOTk0QzkzNTEzRjZEQTg1NyIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDozM0NDOEJGNEZGNTcxMUUxODdBOEVCODg2RjdCQ0QwOSIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDozM0NDOEJGM0ZGNTcxMUUxODdBOEVCODg2RjdCQ0QwOSIgeG1wOkNyZWF0b3JUb29sPSJBZG9iZSBQaG90b3Nob3AgQ1M1IE1hY2ludG9zaCI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOkZDN0YxMTc0MDcyMDY4MTE5NUZFRDc5MUM2MUUwNEREIiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOjU3Q0QyMDgwMjUyMDY4MTE5OTRDOTM1MTNGNkRBODU3Ii8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+84NovQAAAR1JREFUeNpiZEADy85ZJgCpeCB2QJM6AMQLo4yOL0AWZETSqACk1gOxAQN+cAGIA4EGPQBxmJA0nwdpjjQ8xqArmczw5tMHXAaALDgP1QMxAGqzAAPxQACqh4ER6uf5MBlkm0X4EGayMfMw/Pr7Bd2gRBZogMFBrv01hisv5jLsv9nLAPIOMnjy8RDDyYctyAbFM2EJbRQw+aAWw/LzVgx7b+cwCHKqMhjJFCBLOzAR6+lXX84xnHjYyqAo5IUizkRCwIENQQckGSDGY4TVgAPEaraQr2a4/24bSuoExcJCfAEJihXkWDj3ZAKy9EJGaEo8T0QSxkjSwORsCAuDQCD+QILmD1A9kECEZgxDaEZhICIzGcIyEyOl2RkgwAAhkmC+eAm0TAAAAABJRU5ErkJggg=="></a></p>
+  </div>
+  <div class="quarto-title-meta-contents">
+        <p class="affiliation">
+            Instituto de Investigacións Mariñas, CSIC
+          </p>
+      </div>
+  </div>
+
+<div class="quarto-title-meta">
+
+      
+    <div>
+    <div class="quarto-title-meta-heading">Fecha de publicación</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">13 de abril de 2026</p>
+    </div>
+  </div>
+  
+    <div>
+    <div class="quarto-title-meta-heading">Fecha de última modificación</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date-modified">24 de septiembre de 2026</p>
+    </div>
+  </div>
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="diseño-del-muestreo" class="level2" data-number="1">
+<h2 data-number="1" class="anchored" data-anchor-id="diseño-del-muestreo"><span class="header-section-number">1</span> Diseño del muestreo</h2>
+<p>En junio de 2025 se concretó con Hidrotecnia. la realización de un estudio conjunto en la playa de El Confital durante el verano de 2025 (entre julio y septiembre). El diseño de muestreo contempló la realización de 20 campañas, con el objetivo de cubrir distintos estados de la marea: pleamar, bajamar, vaciante y llenante. Finalmente, se llevaron a cabo 9, 7, 2 y 2 muestreos para cada uno de estos estados, respectivamente. En determinadas ocasiones, los muestreos coincidieron con los realizados por la autoridad sanitaria competente.</p>
+<p>Adicionalmente, se recogieron tres muestras de control en una zona costera influenciada por la descarga de aguas residuales (desembocadura del Barranco del Guiniguada), lo que incrementó el número total de muestras analizadas. En el laboratorio, las muestras están siendo analizadas considerando dos grandes grupos de parámetros:</p>
+<ol type="1">
+<li><p>Ambientales, que incluyen nutrientes orgánicos (carbono orgánico total –TOC– y nitrógeno orgánico total –TON–) e inorgánicos (nitratos, fosfatos, silicatos y amonio).</p></li>
+<li><p>Biológicos, enfocados en la caracterización de la biodiversidad y la abundancia de bacterias, cianobacterias y organismos eucariotas.</p></li>
+</ol>
+</section>
+<section id="métodos-de-secuenciación-genética" class="level2" data-number="2">
+<h2 data-number="2" class="anchored" data-anchor-id="métodos-de-secuenciación-genética"><span class="header-section-number">2</span> Métodos de secuenciación genética</h2>
+<div class="callout callout-style-default callout-caution callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Precaución</span>Sección cientifico-técnica
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Esta sección contiene especificaciones científico-técnicas para una mejor reproducibilidad de los resultados. Puedes saltarte esta sección si no estás familiarizada con las metodologías de secuenciación de material genético.</p>
+</div>
+</div>
+<section id="extracción" class="level3" data-number="2.1">
+<h3 data-number="2.1" class="anchored" data-anchor-id="extracción"><span class="header-section-number">2.1</span> Extracción</h3>
+<p>La extracción de ADN se llevó a cabo siguiendo el protocolo de fenol-cloroformo. Se añadió 1 ml de tampón de lisis (50 ml de Tris-HCl 1 M, pH 8,3; 80 ml de EDTA 0,5 M, pH 8,0; 265 g de <a href="https://www.sigmaaldrich.com/catalog/product/sigma/84097?lang=es&amp;region=ES">sacarosa</a> (Sigma-Aldrich); 870 ml de agua ultrapura) a los tubos de microcentrífuga que contenían los filtros de muestra, junto con 25 µl de <a href="https://www.sigmaaldrich.com/catalog/product/sigma/l6876?lang=es&amp;region=ES">lisozima</a> recién preparada (1 mg de lisozima en 25 µl de tampón de lisis, concentración final 1 mg/ml; Sigma-Aldrich). La mezcla se incubó a 37 °C durante 45 minutos con agitación suave. Posteriormente se añadieron 25 µl de <a href="https://www.sigmaaldrich.com/catalog/product/mm/124568?lang=es&amp;region=ES">proteinasa K</a> recién preparada (0,2 mg de proteinasa K en 25 µl de tampón de lisis, concentración final: 0,2 mg/ml; Sigma-Aldrich) y 100 µl de <a href="http://www.thermofisher.com/order/catalog/product/AM9820">SDS</a> al 10 % (Thermo Fisher), incubando la mezcla a 55 °C durante 1 hora con agitación suave. A continuación, se añadieron 0,75 ml de mezcla de <a href="https://www.thermofisher.com/order/catalog/product/AM9730#/AM9730">fenol:CHCl₃:IAA</a> (25:24:1; Thermo Fisher), se agitó ligeramente con vórtex y se centrifugó durante 10 minutos a 14 000 rpm. La fase acuosa resultante se transfirió a un nuevo tubo y se repitió el paso: se añadieron 0,75 ml de mezcla de <a href="https://www.sigmaaldrich.com/catalog/product/sigma/c0549?lang=es&amp;region=ES">CHCl₃:IAA</a>, se agitó ligeramente con el vórtex y se centrifugó durante 10 minutos a 14.000 rpm. El tercer y último paso de la extracción se llevó a cabo añadiendo 0,75 ml de mezcla de CHCl₃:IAA (24:1, Sigma-Aldrich), agitando ligeramente con vórtex y centrifugando durante 10 minutos a 14.000 rpm. La fase acuosa resultante se transfirió a un nuevo tubo para proceder a la precipitación del ADN. La precipitación del ADN se realizó siguiendo a Green y Sambrook<span class="citation" data-cites="green2017"><sup><a href="#ref-green2017" role="doc-biblioref">1</a></sup></span>, incluyendo glicógeno según Zou et al.<span class="citation" data-cites="zou2021"><sup><a href="#ref-zou2021" role="doc-biblioref">2</a></sup></span>. Se añadieron 0,1 volúmenes de <a href="https://www.thermofisher.com/order/catalog/product/AM9740#/AM9740">acetato de sodio</a> (3M, pH 5,5; Thermo Fisher), 0,02 volúmenes de <a href="https://www.thermofisher.com/order/catalog/product/AM9510?SID=srch-srp-AM9510#/AM9510?SID=srch-srp-AM9510">glicógeno</a> (5 mg/mL; Thermo Fisher) y 0,65 volúmenes de <a href="https://www.sigmaaldrich.com/catalog/product/sigma/i9516?lang=es&amp;region=ES">isopropanol</a> (Sigma-Aldrich), y se centrifugó durante 40 minutos a 4 °C y 14.000 rpm. El líquido sobrenadante resultante se retiró con cuidado. El sedimento de ADN se lavó con 650 µl de etanol helado (70 %) y se centrifugó durante 30 minutos a 4 °C y 14.000 rpm. El sobrenadante resultante se retiró de nuevo con cuidado y se dejó el tubo abierto para permitir que el sedimento de ADN se secara. Por último, los sedimentos se disolvieron en 50 µl de TRIS (10 mM).</p>
+</section>
+<section id="secuenciación" class="level3" data-number="2.2">
+<h3 data-number="2.2" class="anchored" data-anchor-id="secuenciación"><span class="header-section-number">2.2</span> Secuenciación</h3>
+<p>La preparación de la biblioteca y la secuenciación del ADN extraído se llevaron a cabo en AllGenetics &amp; Biology SL (A Coruña, España; allgenetics.eu) en dos ciclos de secuenciación independientes. La región V4-V5 del gen 16S rRNA se amplificó utilizando los cebadores universales 515F-Y (5’ GTGYCAGCMGCCGCGGTAA 3’)<span class="citation" data-cites="parada2016"><sup><a href="#ref-parada2016" role="doc-biblioref">3</a></sup></span> y 926R (5’ CCGYCAATTYMTTTRAGTTT 3’)<span class="citation" data-cites="quince2011"><sup><a href="#ref-quince2011" role="doc-biblioref">4</a></sup></span> y se secuenció en una fracción de una célula de flujo Illumina NovaSeq PE250 (lecturas de extremos emparejados, 2 × 250 pb).</p>
+<p>Descripción detallada proporcionada por AllGenetics:</p>
+<div class="blockquote">
+<p>Cuantificamos la concentración de ADN en cada extracto utilizando el ensayo Qubit High Sensitivity dsDNA Assay (Thermo Fisher Scientific).</p>
+<p>Las identificaciones de las muestras y los valores de cuantificación del ADN se recogen en la Tabla 1.</p>
+<p>Teniendo en cuenta esos valores de cuantificación, se seleccionaron un total de 476 muestras para los análisis de metabarcoding de ADN (todas ellas con el marcador 16S y 35 de ellas con el marcador 18S; véase la Tabla 1).</p>
+<p>Preparación de la biblioteca de metabarcoding de ADN y secuenciación Se construyó un tipo de biblioteca diferente para cada taxón de interés con los siguientes pares de cebadores y condiciones:</p>
+<p>Para la preparación de la biblioteca bacteriana, se amplificó un fragmento de la región 16S (V4-V5) de unos 415 pb utilizando los siguientes cebadores:</p>
+<p>Directo - 515F (5’ GTGYCAGCMGCCGCGGTAA 3’) (Parada et al., 2016)<span class="citation" data-cites="parada2016"><sup><a href="#ref-parada2016" role="doc-biblioref">3</a></sup></span></p>
+<p>Inverso - 926R (5’ CCGYCAATTYMTTTRAGTTT 3’) (Quince et al., 2011)<span class="citation" data-cites="quince2011"><sup><a href="#ref-quince2011" role="doc-biblioref">4</a></sup></span></p>
+<p>Estos cebadores también incluían las secuencias de los cebadores de secuenciación de Illumina unidas a sus extremos 5’.</p>
+<p>En la primera etapa de amplificación, se llevaron a cabo las PCR (números 5 a 10, véase la Tabla 1) en un volumen final de 12,5 μL, que contenía 4,5 μL de ADN molde, 0,5 μM de los cebadores, 6,25 μL de Supreme NZYTaq 2x Green Master Mix (NZYTech) y agua ultrapura hasta completar 12,5 μL. La mezcla de reacción se incubó de la siguiente manera: una etapa inicial de desnaturalización a 95 ºC durante 5 min, seguida de 25 ciclos de 95 ºC durante 30 s, 43 ºC durante 45 s, 72 ºC durante 45 s, y una etapa final de extensión a 72 ºC durante 7 min.</p>
+<p>Algunas muestras no produjeron una sola banda nítida en el gel de electroforesis de agarosa, por lo que se repitieron diluyendo el ADN (1:10) (PCR número 19, véase la Tabla 1); o añadiendo 3,5 μL de ADN y CES 1X (Ralser et al., 2006) (PCR número 20, véase la Tabla 1).</p>
+<p>Para la preparación de la biblioteca de eucariotas, se amplificó un fragmento de la región 18S de unos 415 pb utilizando los siguientes cebadores:</p>
+<p>Directo - TAReuk454FWD1 (5’ CCAGCASCYGCGGTAATTCC 3’) (Stoeck et al., 2010)</p>
+<p>Inverso - V4RB (5’ TAIACYTCIGGRTGICCRAARAAYCA 3’) (Balzano et al., 2015)</p>
+<p>Estos cebadores también incluían las secuencias de cebadores de secuenciación Illumina unidas a sus extremos 5’.</p>
+<p>En la primera etapa de amplificación, las PCR se llevaron a cabo en un volumen final de 12,5 μL, que contenía 1,25 μL de ADN molde, 0,5 μM de los cebadores, 3,13 μL de Supreme NZYTaq 2x Green Master Mix (NZYTech) y agua ultrapura hasta completar los 12,5 μL. La mezcla de reacción se incubó de la siguiente manera: una etapa inicial de desnaturalización a 95 ºC durante 5 min, seguida de 35 ciclos de 95 ºC durante 30 s, 42 ºC durante 45 s, 72 ºC durante 45 s, y una etapa final de extensión a 72 ºC durante 7 min.</p>
+<p>Los marcadores de oligonucleótidos necesarios para multiplexar diferentes bibliotecas en el mismo pool de secuenciación se incorporaron en una segunda etapa de amplificación en condiciones idénticas, pero con solo 5 ciclos y una temperatura de hibridación de 60 ºC. Para obtener una visión general esquemática del proceso de preparación de bibliotecas, véase la figura 1 en Vierna et al.&nbsp;(2017).</p>
+<p>Se incluyó un control negativo que no contenía ADN (BPCR) en cada ronda de PCR para comprobar si había contaminación durante la preparación de las bibliotecas.</p>
+<p>Verificamos el tamaño de las bibliotecas sometiéndolas a geles de agarosa al 2 % teñidos con GreenSafe (NZYTech) y fotografiándolas bajo luz UV. A continuación, purificamos las bibliotecas utilizando las perlas magnéticas Mag-Bind RXNPure Plus (Omega Bio-tek), siguiendo las instrucciones del fabricante.</p>
+<p>Las bibliotecas terminadas se agruparon en cantidades equimolares según los resultados de una cuantificación con el ensayo Qubit dsDNA HS (Thermo Fisher Scientific).</p>
+<p>La mezcla se secuenció en una fracción de una célula de flujo NovaSeq PE250 (Illumina), con el objetivo de obtener un rendimiento total de 20 gigabases (18 gigabases para 16S y 2 gigabases para 18S).</p>
+<section id="control-de-calidad-de-los-datos-de-secuenciación" class="level3" data-number="2.3">
+<h3 data-number="2.3" class="anchored" data-anchor-id="control-de-calidad-de-los-datos-de-secuenciación"><span class="header-section-number">2.3</span> Control de calidad de los datos de secuenciación</h3>
+<p>Los datos brutos de Illumina de extremos emparejados para cada biblioteca consisten en lecturas directas (R1) e inversas (R2) almacenadas en archivos separados, que también incluyen las puntuaciones de calidad de las lecturas. Eliminamos cualquier rastro potencial de dímeros de adaptador utilizando Cutadapt v3.5<span class="citation" data-cites="martin2011"><sup><a href="#ref-martin2011" role="doc-biblioref">5</a></sup></span>.</p>
+<p>A continuación, evaluamos la calidad de los archivos FASTQ con el software FastQC (Andrews, 2010)<span class="citation" data-cites="andrews2010"><sup><a href="#ref-andrews2010" role="doc-biblioref">6</a></sup></span> y resumimos los resultados utilizando MultiQC (Ewels, 2016)<span class="citation" data-cites="ewels2016"><sup><a href="#ref-ewels2016" role="doc-biblioref">7</a></sup></span>.</p>
+</section>
+</div>
+</section>
+<section id="procesamiento" class="level3" data-number="2.4">
+<h3 data-number="2.4" class="anchored" data-anchor-id="procesamiento"><span class="header-section-number">2.4</span> Procesamiento</h3>
+<p>Los resultados de la secuenciación se procesaron en la plataforma de bioinformática marina (Marbits, marbits.icm.csic.es) del Institut de Ciències del Mar (ICM-CSIC, Barcelona). Se utilizó Cutadapt<span class="citation" data-cites="martin2011"><sup><a href="#ref-martin2011" role="doc-biblioref">5</a></sup></span> para eliminar los cebadores.</p>
+</section>
+</section>
+<section id="archivos-de-datos" class="level2" data-number="3">
+<h2 data-number="3" class="anchored" data-anchor-id="archivos-de-datos"><span class="header-section-number">3</span> Archivos de datos</h2>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Nota</span>Datos abiertos
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Puedes encontrar estos archivos de datos en el repositorio fuente del proyecto.</p>
+</div>
+</div>
+<section id="tabla-16s" class="level3" data-number="3.1">
+<h3 data-number="3.1" class="anchored" data-anchor-id="tabla-16s"><span class="header-section-number">3.1</span> Tabla 16S</h3>
+<p><code>canteras_microbiome/dada2_canteras_16s/data/dada2/04_decontam-and-filter/canteras/canteras_seqtab_decontam_filter.rds</code></p>
+</section>
+<section id="tabla-16s-taxonomía" class="level3" data-number="3.2">
+<h3 data-number="3.2" class="anchored" data-anchor-id="tabla-16s-taxonomía"><span class="header-section-number">3.2</span> Tabla 16S taxonomía</h3>
+<p><code>canteras_microbiome/dada2_canteras_16s/data/dada2/04_decontam-and-filter/canteras/canteras_tax_assignation_decontam_filter.rds</code></p>
+</section>
+<section id="secuencias-16s" class="level3" data-number="3.3">
+<h3 data-number="3.3" class="anchored" data-anchor-id="secuencias-16s"><span class="header-section-number">3.3</span> Secuencias 16S</h3>
+<p><code>canteras_microbiome/dada2_canteras_16s/data/dada2/04_decontam-and-filter/canteras/canteras_sequences_decontam_filter.rds</code></p>
+</section>
+<section id="tabla-18s" class="level3" data-number="3.4">
+<h3 data-number="3.4" class="anchored" data-anchor-id="tabla-18s"><span class="header-section-number">3.4</span> Tabla 18S</h3>
+<p><code>canteras_microbiome/dada2_canteras_18s/data/dada2/04_decontam-and-filter/canteras/canteras_seqtab_decontam_filter.rds</code></p>
+</section>
+<section id="tabla-18s-taxonomía" class="level3" data-number="3.5">
+<h3 data-number="3.5" class="anchored" data-anchor-id="tabla-18s-taxonomía"><span class="header-section-number">3.5</span> Tabla 18S taxonomía</h3>
+<p><code>canteras_microbiome/dada2_canteras_18s/data/dada2/04_decontam-and-filter/canteras/canteras_tax_assignation_decontam_filter.rds</code></p>
+</section>
+<section id="secuencias-18s" class="level3" data-number="3.6">
+<h3 data-number="3.6" class="anchored" data-anchor-id="secuencias-18s"><span class="header-section-number">3.6</span> Secuencias 18S</h3>
+<p><code>canteras_microbiome/dada2_canteras_18s/data/dada2/04_decontam-and-filter/canteras/canteras_sequences_decontam_filter.rds</code></p>
+
+
+
+</section>
+</section>
+
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">Referencias</h2><div id="refs" class="references csl-bib-body" data-entry-spacing="0" data-line-spacing="2" role="list">
+<div id="ref-green2017" class="csl-entry" role="listitem">
+<div class="csl-left-margin">1. </div><div class="csl-right-inline">Green, M. R., &amp; Sambrook, J. (2017). Precipitation of <span>DNA</span> with <span>Isopropanol</span>. <em>Cold Spring Harbor Protocols</em>, <em>2017</em>(8), pdb.prot093385. <a href="https://doi.org/10.1101/pdb.prot093385">https://doi.org/10.1101/pdb.prot093385</a></div>
+</div>
+<div id="ref-zou2021" class="csl-entry" role="listitem">
+<div class="csl-left-margin">2. </div><div class="csl-right-inline">Zou, Z., Guo, L., Ahmadi, P., Hartjen, P., Gosau, M., Smeets, R., &amp; Kluwe, L. (2021). Two simple and inexpensive methods for preparing <span>DNA</span> suitable for digital <span>PCR</span> from a small number of cells in 96‐well plates. <em>Journal of Clinical Laboratory Analysis</em>, <em>35</em>(1), e23513. <a href="https://doi.org/10.1002/jcla.23513">https://doi.org/10.1002/jcla.23513</a></div>
+</div>
+<div id="ref-parada2016" class="csl-entry" role="listitem">
+<div class="csl-left-margin">3. </div><div class="csl-right-inline">Parada, A. E., Needham, D. M., &amp; Fuhrman, J. A. (2016). Every base matters: assessing small subunit <span>&lt;</span>span style="font-variant:small-caps;"<span>&gt;</span><span>rRNA</span><span>&lt;</span>/span<span>&gt;</span> primers for marine microbiomes with mock communities, time series and global field samples. <em>Environmental Microbiology</em>, <em>18</em>(5), 1403-1414. <a href="https://doi.org/10.1111/1462-2920.13023">https://doi.org/10.1111/1462-2920.13023</a></div>
+</div>
+<div id="ref-quince2011" class="csl-entry" role="listitem">
+<div class="csl-left-margin">4. </div><div class="csl-right-inline">Quince, C., Lanzén, A., Davenport, R., &amp; Turnbaugh, P. J. (2011). Removing noise from pyrosequencing amplicons. <em>BMC Bioinforma</em>, <em>12</em>, 1-18.</div>
+</div>
+<div id="ref-martin2011" class="csl-entry" role="listitem">
+<div class="csl-left-margin">5. </div><div class="csl-right-inline">Martin, M. (2011). Cutadapt removes adapter sequences from high-throughput sequencing reads. <em>EMBnet.journal</em>, <em>17</em>(1), 10-12. <a href="https://doi.org/10.14806/ej.17.1.200">https://doi.org/10.14806/ej.17.1.200</a></div>
+</div>
+<div id="ref-andrews2010" class="csl-entry" role="listitem">
+<div class="csl-left-margin">6. </div><div class="csl-right-inline">Andrews, S. (2010). <em>Babraham <span>Bioinformatics</span> - <span>FastQC</span> <span>A</span> <span>Quality</span> <span>Control</span> tool for <span>High</span> <span>Throughput</span> <span>Sequence</span> <span>Data</span></em>. <a href="https://www.bioinformatics.babraham.ac.uk/projects/fastqc/">https://www.bioinformatics.babraham.ac.uk/projects/fastqc/</a></div>
+</div>
+<div id="ref-ewels2016" class="csl-entry" role="listitem">
+<div class="csl-left-margin">7. </div><div class="csl-right-inline">Ewels, P., Magnusson, M., Lundin, S., &amp; Käller, M. (2016). <span>MultiQC</span>: summarize analysis results for multiple tools and samples in a single report. <em>Bioinformatics</em>, <em>32</em>(19), 3047-3048. <a href="https://doi.org/10.1093/bioinformatics/btw354">https://doi.org/10.1093/bioinformatics/btw354</a></div>
+</div>
+</div></section></div></main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copiado");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copiado");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp("https:\/\/veraglg\.github\.io\/bahiaconfital\/");
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+<p>Web por <a href="https://orcid.org/0009-0005-4889-3412">Vera Gómez-Limón Gallardo</a>.</p>
+</div>   
+    <div class="nav-footer-center">
+<p><a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a><img src="https://mirrors.creativecommons.org/presskit/icons/cc.svg" alt="" style="max-width: 1em;max-height:1em;margin-left: .2em;"><img src="https://mirrors.creativecommons.org/presskit/icons/by.svg" alt="" style="max-width: 1em;max-height:1em;margin-left: .2em;"><img src="https://mirrors.creativecommons.org/presskit/icons/nc.svg" alt="" style="max-width: 1em;max-height:1em;margin-left: .2em;"><img src="https://mirrors.creativecommons.org/presskit/icons/sa.svg" alt="" style="max-width: 1em;max-height:1em;margin-left: .2em;"></p>
+</div>
+    <div class="nav-footer-right">
+<p>Hecha con <a href="https://quarto.org/">Quarto</a>.</p>
+</div>
+  </div>
+</footer>
+
+
+
+
+</body></html>
