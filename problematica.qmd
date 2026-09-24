@@ -1,0 +1,46 @@
+---
+title: 🫯 Problemática
+subtitle: ¿Hay contaminación fecal recurrente?
+date: 2026-01-07
+date-modified: last-modified
+author: 
+  - name: Vera Gómez-Limón Gallardo
+    orcid: 0009-0005-4889-3412
+    affiliation: Universidad de Las Palmas de Gran Canaria
+---
+
+## Contexto
+
+El Confital es una de las playas más populares de la ciudad de Las Palmas de Gran Canaria, según la Concejalía de Ciudad del Mar del Ayuntamiento de Las Palmas de Gran Canaria:
+
+> [...] Está formada por tableros de roca con una franja de arena gruesa al final de los mismos. Es admirada por la limpieza de sus aguas, la perfección de sus olas y la belleza de sus rocas y acantilados. Recientemente ha sido recuperado este paraje natural para la ciudad, dotándolo de mejores accesos peatonales, paseo marítimo realizado en madera y zonas ajardinadas.
+>
+> ---Concejalía de Ciudad del Mar, Ayuntamiento de Las Palmas de Gran Canaria [@lpamar2026]
+
+El Cofital lleva cerrado al público desde el 26 de abril de 2017[@diaz2026]. La prohibición del baño se justifica por el peligro de contaminación fecal en el agua, episodios que han sido detectados a lo largo de los años [@lpamar2026]. El principal indicador de esta contaminación es la abundancia de enterococos intestinales (**EEII**), este indicador es monitoreado frecuentemente en la playa por dos agentes responsables [@diaz2026; @villullas2026]:
+
+a. El Servicio Canario de la Salud (**SCS**), dependiente del Gobierno de Canarias [@scs], que vuelca sus datos en el Sistema de Información Nacional de Aguas de Baño (Náyade) [@nayade].
+
+> En 2025 se incluyeron en el Programa de Vigilancia Sanitaria de Zonas de Aguas de Baño de Canarias un total de 179 zonas de baño en las que se realizaron a lo largo del año 2.095 inspecciones y 4190 determinaciones analíticas, en los 218 puntos de muestreos designados para el control sanitario de la calidad de las aguas de baño.
+>
+> Con el resultado de los análisis de indicadores de contaminación fecal (Escherichia coli y Enterococos intestinales), la Comisión Europea clasifica anualmente la calidad de las aguas de baño europeas, entre ellas las canarias, y el Ministerio de Sanidad emite el Informe de Calidad de las Aguas de Baño de cada temporada.
+>
+> ---Servicio Canario de Salud, Gobierno de Canarias [@scs]
+
+b. La empresa AT Hidrotecnia S.L. (**Hidrotecnia**), al servicio del Ayuntamiento de Las Palmas de Gran Canaria a través de la Concejalía de Ciudad del Mar [@hidrotecnia].
+
+> AT Hidrotecnia S.L. es una empresa con una sólida trayectoria que se estableció en febrero de 1994. Su éxito se basa en la combinación de la experiencia acumulada a lo largo de los años de su actividad y en el talento de un grupo de profesionales consolidados. Este equipo posee una vasta experiencia en campos tan diversos como la ingeniería, la geología, los recursos hídricos y el medio ambiente, con más de dos décadas de trabajo conjunto en las Islas Canarias. Inicialmente, colaboraron como un equipo de planificación hidrológica y, posteriormente, se convirtieron en una consultora líder en la región.
+>
+> ---*Sobre nosotros*, AT Hidrotecnia S.L. [@hidrotecnia]
+
+Como denunció en rueda de prensa el concejal de Ciudad del Mar, Pedro Quevedo [@diaz2026], los resultados obtenidos por ambos agentes se contradicen. Está disparidad genera duda sobre la realidad de la calidad del agua en El Confital. Aunque el Gobierno de Canarias tiene el poder de prohibir el baño, es de interés para el Ayuntamiento de Las Palmas de Gran Canaria, cuyos datos señalan ausencia de contaminación, investigar sobre esta discrepancia.
+
+## Sentido y objetivo del proyecto
+
+El objetivo de este proyecto es investigar en mayor profundidad la calidad del agua en El Confital, con especial atención a al contaminación fecal por EEII. Desde ka Universidad de Las Palmas de Gran Canaria (**ULPGC**) hemos llevado a cabo un monitoreo independiente del microbioma acuático para evaluar el estado preciso del agua de baño. Esperamos poder así resolver la duda de la calidad del agua surgida hasta ahora.
+
+## Histórico del proyecto
+
+Una versión anterior del proyecto (en inglés) se puede encontrar el [antiguo sitio web](https://veraglg.github.io/bahiaconfital-old/). El proyecto ha incluido anteriormente datos de la playa de Las Canteras donde no registramos contaminación por EEII.
+
+Una limitación que encontramos fue la falta de reproducibilidad en las muestras de EEII. A recomendación de la ULPGC, durante el verano de 2025 SCS e Hidrotecnia partieron de las mismas muestras de agua.

@@ -1,0 +1,32 @@
+---
+title: Sobre la web
+image: patron.png
+about:
+  template: jolla
+format:
+  html: 
+    toc: false
+    number-sections: false
+---
+
+🌊🌊🌊
+
+¡Hola! Me llamo Vera, soy científica marina y creadora de esta web. Estudié Ciencias del Mar en Las Palmas de Gran Canaria y ahora colaboro desde Barcelona con el Grupo de Oceanografía Biológica y Algología Aplicada (GOBAA, IOCAG). Me apasiona el océano y el software libre.
+
+🌊🌊🌊
+
+## Financiación
+
+Convenio de colaboración entre el Ayuntamiento y la Universidad de Las Palmas de Gran Canaria 2025.
+
+## Cómo compartir
+
+El sitio es público bajo licencia Creative Commons BY-NC-SA 4.0. Para más información visita [Creative Commons](https://creativecommons.org/licenses/by-nc-sa/4.0/).
+
+## Código fuente
+
+El código fuente es público bajo la misma licencia a través de [Codeberg](https://codeberg.org/veraglg/bahiaconfital).
+
+## Uso de IA generativa
+
+No se ha usado inteligencia artificial generativa para la creación de la web ni en etapas anteriores del proyecto.

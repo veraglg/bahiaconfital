@@ -1,0 +1,17 @@
+{
+  "hash": "3f8d0a1fc015da61cf06aace561d1664",
+  "result": {
+    "engine": "knitr",
+    "markdown": "---\ntitle: 🧫 Biondicadores convencionales\nsubtitle: \"*E. coli* y enterococos intestinales (EEII)\"\ndate: 2026-01-07\ndate-modified: last-modified\nauthor:\n  - name: Vera Gómez-Limón Gallardo\n    orcid: 0009-0005-4889-3412\n    affiliation: Universidad de Las Palmas de Gran Canaria\n---\n\n\n::: {.cell}\n\n:::\n\n\n\n::: {.cell}\n\n:::\n\n\n\n::: {.cell}\n\n:::\n\n\n\n::: {.cell}\n\n:::\n\n\n## Vista general\n\nEl Servicio Canario de Salud (SCS) y AT Hidrotecnia SL (Hidrotecnia) son los dos agentes responsables de monitorear los indicadores de contaminación fecal en la playa del Confital. Atendiendo a los resultados del verano 2025 según muestra @fig-vista-ecoli, la bacteria *E.coli* se detectó en todas las muestras dentro de los valores de calidad excelente del agua establecidos por la normativa[@boe2007].\n\nAtendiendo a la distribución de resultados obtenidos (@fig-agente), observamos una mayor dispersión en los resultados de SCS respecto de Hidrotecnia. Tenemos que destacar que únicamente los valores de SCS superaron en 2 ocasiones el umbral de calidad de agua insuficiente (@fig-vista-eeii).\n\nLa problemática reside en los repuntes de EEII, siendo los meses de julio y septiembre 2025 donde se dieron los episodios de calidad insuficiente del agua.\n\n\n::: {.cell}\n::: {.cell-output-display}\n![](indicadores_files/figure-html/fig-vista-ecoli-1.png){#fig-vista-ecoli width=672}\n:::\n:::\n\n\n\n::: {.cell}\n::: {.cell-output-display}\n![](indicadores_files/figure-html/fig-vista-eeii-1.png){#fig-vista-eeii width=672}\n:::\n:::\n\n\n## Comparación entre agentes\n\n\n::: {.cell}\n::: {.cell-output-display}\n![](indicadores_files/figure-html/fig-agente-1.png){#fig-agente width=672}\n:::\n:::\n\n\nPara estimar estadísticamente si existen diferencias significativas entre los resultados obtenidos por ambos agentes, utilizamos la prueba de la *t* de *Student* para los valores emparejados por la misma muestra de agua. En la @fig-t-eeii-agente se observa como la diferencia de EEII entre SCS e Hidrotecnia no es significativa con los datos disponibles. **Probablemente la mayor detección de SCS se deba al azar** (*p* valor > 0,05).\n\n\n::: {.cell}\n::: {.cell-output-display}\n![](indicadores_files/figure-html/fig-t-eeii-agente-1.png){#fig-t-eeii-agente width=672}\n:::\n:::\n\n\n## Afectación del ciclo de mareas\n\n\n::: {.cell}\n::: {.cell-output-display}\n![](indicadores_files/figure-html/fig-mareas-1.png){#fig-mareas width=672}\n:::\n:::\n\n\nLas muestras fueron tomadas durante diferentes fases del ciclo de mareas como un posible factor de control. Aplicando el análisis de la varianza (ANOVA), estudiamos la variabilidad de EEII con el estado de la marea. En @fig-f-eeii-marea se demuestra que el muestreo **no detectó diferencias significativas** en la concentración de EEII según el estado de la marea.\n\n\n::: {.cell}\n::: {.cell-output-display}\n![](indicadores_files/figure-html/fig-f-eeii-marea-1.png){#fig-f-eeii-marea width=672}\n:::\n:::\n\n\n",
+    "supporting": [
+      "indicadores_files"
+    ],
+    "filters": [
+      "rmarkdown/pagebreak.lua"
+    ],
+    "includes": {},
+    "engineDependencies": {},
+    "preserve": {},
+    "postProcess": true
+  }
+}

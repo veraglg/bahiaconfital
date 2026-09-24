@@ -1,0 +1,498 @@
+---
+title: 🧬 Secuenciación del microbioma
+subtitle: Identificación mediante ARNr 16S y 18S
+date: 2026-04-13
+date-modified: last-modified
+author:
+  - name: Vera Gómez-Limón Gallardo
+    orcid: 0009-0005-4889-3412
+    affiliation: Universidad de Las Palmas de Gran Canaria
+---
+
+```{r}
+#| label: tidy
+#| message: false
+
+library(tidyverse)
+
+# ---- Metadatos ----
+
+# Lee los metadatos de las muestras sin columnas vacías o redundantes
+metadatos <- readxl::read_xlsx(
+  "data/codigos_muestras_canteras_MF 9.4.26.xlsx",
+  col_types = c(
+    "text", "numeric", "numeric", "numeric", "text",
+    "skip", "skip", "skip","skip", "text", "numeric",
+    "numeric", "numeric", "skip", "skip"
+  )
+)
+
+# Traduce el nombre de las columnas
+metadatos <- metadatos |> rename(
+  Muestra = Sample, Lugar = Location, Marea = Tide
+)
+
+# Donde exista, haz constar el año (AAAA) correcto
+metadatos <- metadatos |> 
+  mutate(
+    AAAA = if_else(!is.na(...8), ...8, Year),
+    .keep = "unused",
+    .after = 1
+  )
+
+# Donde exista, haz constar el mes correcto
+metadatos <- metadatos |> 
+  mutate(
+    Mes = if_else(!is.na(Month...9), Month...9, Month...3),
+    .keep = "unused",
+    .after = AAAA
+  )
+
+# Donde exista, haz constar el día correcto
+metadatos <- metadatos |> 
+  mutate(
+    Dia = if_else(!is.na(`DAY  CORRECTO`), `DAY  CORRECTO`, Day),
+    .keep = "unused",
+    .after = Mes
+  )
+
+# Crea la variable fecha
+metadatos <- metadatos |> mutate(
+  Fecha = make_date(AAAA, Mes, Dia), .before = AAAA
+)
+
+# Renombra los lugares de muestreo
+metadatos <- metadatos |> mutate(
+  Lugar = fct_collapse(Lugar,
+    "Confital Norte" = "Confital_2",
+    "Confital" = c("Confital", "Confital_1"),
+    "Hotel Cristina" = "Hotel_Cristina",
+    "Playa Chica" = "Playa_Chica",
+    "Peña la Vieja" = "Pena_la_Vieja",
+    "Bco. Guiniguada" = c("punto-X-UNO", "punto-X-DOS", "punto-X-TRES")
+  )
+)
+
+# Pon en mayúsculas la primera letra de la fase de la marea
+metadatos <- metadatos |> mutate(Marea = str_to_sentence(Marea))
+
+# Ajusta las mareas transicionales a Vaciante o Llenante
+metadatos <- metadatos |> mutate(
+  Marea = Marea |> replace_when(
+    Marea == "Trans" & Fecha == ymd("2025-09-22") ~ "Llenante",
+    Marea == "Trans" & Fecha == ymd("2025-09-15") ~ "Vaciante",
+    Marea == "Trans" & Fecha == ymd("2025-09-09") ~ "Llenante",
+    Marea == "Trans" & Fecha == ymd("2025-09-01") ~ "Vaciante"
+  )
+)
+
+# ---- Datos ----
+
+# Lee los datos de la matriz 16S y conviértela en tibble
+datos_16s <- read_rds(
+  "data/canteras_microbiome/dada2_canteras_16s/data/dada2/04_decontam-and-filter/canteras/canteras_seqtab_decontam_filter.rds"
+) |> 
+  as_tibble(rownames = "Muestra")
+
+# Lee la matriz 18S y conviértela en tibble
+datos_18s <- read_rds("data/canteras_microbiome/dada2_canteras_18s/data/dada2/04_decontam-and-filter/canteras/canteras_seqtab_decontam_filter.rds") |> 
+  as_tibble(rownames = "Muestra")
+
+# Elimina la marca de 16S del nombre de las muestras
+datos_16s <- datos_16s |> mutate(Muestra = str_remove(Muestra, "-16S"))
+
+# Elimina la marca de 18S del nombre de las muestras
+datos_18s <- datos_18s |> mutate(Muestra = str_remove(Muestra, "-18S"))
+
+# Incluye los metadatos en la datos 16S
+datos_16s <- right_join(metadatos, datos_16s)
+
+# Incluye los metadatos en la datos 18S
+datos_18s <- right_join(metadatos, datos_18s)
+
+# ---- Taxonomía ----
+
+# Lee los datos de la tabla 16S y conviértela en tibble
+tabla_16s_taxonomia <- read_rds("data/canteras_microbiome/dada2_canteras_16s/data/dada2/04_decontam-and-filter/canteras/canteras_tax_assignation_decontam_filter.rds") |> 
+  as_tibble(rownames = "ASV")
+
+# Lee los datos de la tabla 18S y conviértela en tibble
+tabla_18s_taxonomia <- read_rds("data/canteras_microbiome/dada2_canteras_18s/data/dada2/04_decontam-and-filter/canteras/canteras_tax_assignation_decontam_filter.rds") |> 
+  as_tibble(rownames = "ASV")
+
+# Renombra las columnas de la tabla 16S en español
+tabla_16s_taxonomia <- tabla_16s_taxonomia |> rename(
+  Dominio = domain,
+  Filo = phylum,
+  Clase = class,
+  Orden = order,
+  Familia = family,
+  Genus = genus,
+  Especie = species
+)
+
+# Renombra las columnas de la tabla 18S en español
+tabla_18s_taxonomia <- tabla_18s_taxonomia |> rename(
+  Dominio = domain,
+  Clado = supergroup,
+  Filo = division,
+  Subfilo = subdivision,
+  Clase = class,
+  Orden = order,
+  Familia = family,
+  Genus = genus,
+  Especie = species
+)
+
+# ---- Secuencias ----
+
+# Lee las secuencias 16S
+secuencias_16s <- read_rds("data/canteras_microbiome/dada2_canteras_16s/data/dada2/04_decontam-and-filter/canteras/canteras_sequences_decontam_filter.rds") |> 
+  Biostrings::as.data.frame() |> as_tibble(rownames = "ASV") |>
+  rename(Secuencias = "x")
+
+# Lee las secuencias 18S
+secuencias_18s <- read_rds("data/canteras_microbiome/dada2_canteras_18s/data/dada2/04_decontam-and-filter/canteras/canteras_sequences_decontam_filter.rds")
+
+# ---- Datos comparativos ----
+
+# Lee los datos de indicadores convencionales
+datos_indicadores <- read_rds("data/indicadores-datos.rds")
+
+# Elimina las horas de fecha
+datos_indicadores <- datos_indicadores |>
+  mutate(Fecha = floor_date(Fecha, "day"))
+```
+
+```{r}
+#| label: transform
+
+# ---- Suma total lecturas ----
+
+# Suma las lecturas de cada muestra 16S
+datos_16s <- datos_16s |> mutate(Suma = rowSums(across(starts_with("ASV"))))
+
+# También sería lo mismo:
+# rowwise(datos_16s) |> mutate(Suma = sum(c_across(starts_with("ASV"))))
+
+# Suma las lecturas de cada muestra 18S
+datos_18s <- datos_18s |> mutate(Suma = rowSums(across(starts_with("ASV"))))
+
+# ---- Observaciones de ASV y taxonomía ----
+
+# Coloca un ASV 16S por fila
+datos_asv_16s <- datos_16s |> pivot_longer(
+    starts_with("ASV"),
+    names_to = "ASV",
+    values_to = "Lecturas"
+)
+
+# Coloca un ASV 18S por fila
+datos_asv_18s <- datos_18s |> pivot_longer(
+    starts_with("ASV"),
+    names_to = "ASV",
+    values_to = "Lecturas"
+)
+
+# Calcula la frecuencia relativa en cada muestra 16S
+datos_asv_16s <- datos_asv_16s |>
+  mutate(Freq.Relativa = Lecturas / Suma, .after = Lecturas)
+
+# Calcula la frecuencia relativa en cada muestra 18S
+datos_asv_18s <- datos_asv_18s |>
+  mutate(Freq.Relativa = Lecturas / Suma, .after = Lecturas)
+
+# Añade la taxonomía 16S a los datos
+datos_asv_16s <- left_join(datos_asv_16s, tabla_16s_taxonomia,by = join_by(ASV))
+
+# Añade la taxonomía 18S a los datos
+datos_asv_18s <- left_join(datos_asv_18s, tabla_18s_taxonomia,by = join_by(ASV))
+
+# ---- Índices de biodiversidad ----
+
+# Calcula los índices de biodiversidad para el microbioma 16s
+indices_16s <- datos_asv_16s |>
+  group_by(Muestra, AAAA, Mes, Dia, Lugar) |>
+  filter(Lecturas > 0) |> 
+  summarise(
+    H.Shannon = - sum(Lecturas/Suma * log(Lecturas/Suma)),
+    J.Equidad = H.Shannon / log(n(), exp(1)),
+    .groups = "drop"
+  )
+
+# Calcula los índices de biodiversidad para el microbioma 18s
+indices_18s <- datos_asv_18s |>
+  group_by(Muestra, AAAA, Mes, Dia, Lugar) |>
+  filter(Lecturas > 0) |> 
+  summarise(
+    H.Shannon = - sum(Lecturas/Suma * log(Lecturas/Suma)),
+    J.Equidad = H.Shannon / log(n(), exp(1)),
+    .groups = "drop"
+  )
+
+# ---- Ratios microbianas -----
+
+# Suma los taxones clave por cada muestra
+ratios_microbianas <- datos_asv_16s |> 
+  group_by(Muestra, AAAA, Mes, Dia, Lugar) |> 
+  summarise(
+    Firmicutes       = sum(Lecturas[Filo  == "Firmicutes"],          na.rm = T),
+    Nitrospirota     = sum(Lecturas[Filo  == "Nitrospirota"],        na.rm = T),
+    Alpha            = sum(Lecturas[Clase == "Alphaproteobacteria"], na.rm = T),
+    Gamma            = sum(Lecturas[Clase == "Gammaproteobacteria"], na.rm = T),
+    Bacilli          = sum(Lecturas[Clase == "Bacilli"],             na.rm = T),
+    Bacteroidia      = sum(Lecturas[Clase  == "Bacteroidia"],        na.rm = T),
+    Clostridia       = sum(Lecturas[Clase == "Clostridia"],          na.rm = T),
+    Pelagibacterales = sum(Lecturas[Orden == "Pelagibacterales"],    na.rm = T),
+    Burkholderiales  = sum(Lecturas[Orden == "Burkholderiales"],     na.rm = T),
+    Alteromonas      = sum(Lecturas[Genus == "Alteromonas"],         na.rm = T),
+  .groups = "keep"
+  )
+
+# Calcula las ratios microbianas
+ratios_microbianas <- ratios_microbianas |> summarise(
+  BBC.A = (Bacilli + Bacteroidia + Clostridia) / Alpha,
+  A.G = Alpha / Gamma,
+  A.SAR11 = Alteromonas / Pelagibacterales,
+  .groups = "drop"
+)
+
+# ---- Género Enterococcus -----
+
+# Cuela los datos de ASV con lecturas del Género Enterococcus
+datos_asv_ee <- datos_asv_16s |> 
+  filter(Genus == "Enterococcus") |> filter(Lecturas > 0)
+
+# Obtén los códigos ASV de Enterococcus
+ee_asv <- datos_asv_ee |> distinct(ASV) |> pull()
+
+# Añade la identificación BLAST
+datos_asv_ee <- datos_asv_ee |> mutate(
+  Especie = Especie |> replace_when(
+    ASV == "ASV.03284" ~ "faecalis (BLASTN)",
+    ASV == "ASV.11305" ~ "gallinarium (BLASTN)",
+    ASV == "ASV.02047" ~ "durans (BLASTN)",
+  )
+)
+
+# Calcula la suma de ASV de Enterococcus
+datos_ee <- datos_16s |>
+  mutate(EE.Suma = rowSums(across(all_of(ee_asv))))
+
+# Calcula la frecuencia relativa de EE
+datos_ee <- datos_ee |> 
+  mutate(EE.Freq.Relativa = EE.Suma / Suma)
+
+# Elimina las columnas de ASV
+datos_ee <- datos_ee |> select(- starts_with("ASV"))
+
+# Une los datos secuenciados a los de indicadores
+datos_comparados <- full_join(
+  datos_ee, datos_indicadores, by = join_by(Fecha, Marea)
+)
+
+# ---- Género Escherichia-Shigella ----
+
+# Cuelas los ASV con lecturas de Escherichia-Shigella
+datos_asv_ecoli <- datos_asv_16s |> 
+  filter(Genus == "Escherichia-Shigella", Lecturas > 0)
+
+# Obtén los códigos ASV de Enterococcus
+ecoli_asv <- datos_asv_ecoli |> distinct(ASV) |> pull()
+
+# Añade la identificación BLAST
+datos_asv_ecoli <- datos_asv_ecoli |> mutate(
+  Especie = Especie |> replace_when(
+    ASV == "ASV.00789" ~ "coli (BLASTN)"
+  )
+)
+```
+
+```{r}
+#| label: visualize
+
+# --- Vista general ----
+
+# Representa la suma de lecturas de cada muestra 16S 2025
+fig_suma_16s_2025 <- datos_16s |>
+  filter(AAAA == 2025) |> 
+  ggplot(aes(Suma, Muestra)) +
+  geom_col() +
+  labs(
+    title = "Secuenciación del microbioma procariota",
+    subtitle = "Total de lecturas por muestra",
+    caption = "Año 2025"
+  )
+
+# Representa la suma de lecturas de cada muestra 18S 2025
+fig_suma_18s_2025 <- datos_18s |> 
+  filter(AAAA == 2025) |> 
+  ggplot(aes(Suma, Muestra)) +
+  geom_col() +
+  labs(
+    title = "Secuenciación del microbioma eucariota",
+    subtitle = "Total de lecturas por muestra",
+    caption = "Año 2025"
+  )
+
+# ---- Índices de biodiversidad ----
+
+# Representa la equidad 16S
+fig_equidad_16s <- indices_16s |>
+  filter(Lugar == "Confital") |> 
+  ggplot(aes(x = factor(AAAA), y = J.Equidad)) +
+  geom_boxplot(outliers = F) +
+  geom_jitter(shape = 1, width = .3) +
+  labs(
+    title = "Equidad del microbioma procariota en El Confital",
+    subtitle = "Evolución positiva de la biodiversidad procariota desde 2022",
+    x = "Año",
+    y = "Índice de equidad (J)"
+  )
+
+# Representa la equidad 18S
+fig_equidad_18s <- indices_18s |> 
+  filter(Lugar == "Confital") |> 
+  ggplot(aes(x = factor(AAAA), y = J.Equidad)) +
+  geom_boxplot(outliers = F) +
+  geom_jitter(shape = 1, width = .3) +
+  labs(
+    title = "Equidad del microbioma eucariota en El Confital",
+    subtitle = "Disminución de biodiversidad eucariota en 2025",
+    x = "Año",
+    y = "Índice de equidad (J)"
+  )
+
+# ---- Ratios microbianas ----
+
+# Representa indice BBC:A
+fig_bbca <- ratios_microbianas |>
+  filter(Lugar == "Confital") |> 
+  ggplot(aes(x = factor(AAAA), y = BBC.A)) +
+  geom_boxplot( aes(fill = after_stat(middle)), outliers = F, show.legend = F) +
+  geom_jitter(shape = 1, width = .3) +
+  scale_fill_viridis_c(option = "plasma", alpha = .5) +
+  labs(
+    x = "Año",
+    y = "Ratio BBC:A"
+  )
+
+# ---- Género Enterococcus -----
+
+# Construye la tabla con las ASV de Enterococcus
+tbl_ee <- datos_asv_ee |> 
+  select(Fecha, Lugar, ASV, Genus, Especie, Freq.Relativa) |>
+  knitr::kable()
+
+# Representa una linea temporal con el fondo de Hidrotecnia
+fig_ee_hidrotecnia <- datos_comparados |> 
+  filter(AAAA == 2025, Lugar == "Confital", Marea == "Pleamar") |> 
+  ggplot(aes(Fecha, EE.Freq.Relativa)) +
+  geom_tile(aes(fill = EEII.Hidrotecnia), height = Inf) +
+  geom_col(fill = "#FF7F00", color = "black", width = 220000) +
+  scale_x_datetime(date_labels = "%Y-%m-%d") +
+  scale_fill_viridis_c() +
+  facet_wrap(~ Marea) +
+  labs(
+    title = "Línea temporal de enterococos comparada con Hidrotecnia",
+    subtitle = "Incoherentes, mínimo de Hidrotecnia coincide con máximo de ULPGC",
+    x = "",
+    fill = "EEII\n(UFC/100 ml)",
+  )
+
+# Representa una linea temporal con el fondo de SCS
+fig_ee_scs <- datos_comparados |>
+  filter(AAAA == 2025, Lugar == "Confital") |> 
+  filter(Marea %in% c("Bajamar", "Pleamar")) |> 
+  ggplot(aes(Fecha, EE.Freq.Relativa)) +
+  geom_tile(aes(fill = EEII.SCS), height = Inf) +
+  geom_col(fill = "#FF7F00", color = "black", width = 220000) +
+  scale_x_datetime(date_labels = "%Y-%m-%d") +
+  scale_fill_viridis_c() +
+  facet_wrap(~ Marea, ncol = 1) +
+  labs(
+    title = "Línea temporal de enterococos comparada con Náyade",
+    subtitle = "Incoherentes, máximos de Náyade en mínimos de la ULPGC",
+    x = "",
+    fill = "EEII\n(UFC/100 ml)",
+  )
+
+# ---- Género Escherichia-Shigella ----
+
+# Construye la tabla con las ASV de Escherichia-Shigella
+tbl_ecoli <- datos_asv_ecoli |> 
+  select(Fecha, Lugar, ASV, Genus, Especie, Freq.Relativa) |>
+  knitr::kable()
+```
+
+## Vista general
+
+```{r}
+#| label: fig-suma-16s-2025
+fig_suma_16s_2025
+```
+
+```{r}
+#| label: fig-suma-18s-2025
+fig_suma_18s_2025
+```
+
+## Índices de biodiversidad
+
+El índice de equidad (*evenness* en inglés) fue desarrollado por la ecóloga Evelyn Chrystalla Pielou [@wikipedia2024]. Es una medida de la biodiversidad de cualquier ecosistema. En nuestro caso, mide la probabilidad de que dos lecturas de la misma muestra elegidas al azar sean de la misma variante (ASV).
+
+```{r}
+#| label: fig-equidad-16s
+fig_equidad_16s
+```
+
+```{r}
+#| label: fig-equidad-18s
+fig_equidad_18s
+```
+
+## Ratios microbianas
+
+Siguiendo la anterior versión del proyecto [@bahiaconfital-old], analizamos las ratios bacteriales (también llamados «índices») que encontramos en la literatura científica en relación a la contaminación fecal del agua.
+
+El estudio de Wu y colaboradores [@wu2010] afirma que la ratio formado por las Clases *Bacilli*, *Bacteroidia*, *Clostridia* y *Alpha* (BBC:A) tiende a ser más elevado cuando existen fuentes de contaminación fecal. 
+
+```{r}
+#| label: fig-bbca
+fig_bbca
+```
+
+## Género *Enterococcus*
+
+Fueron 4 las ASV coincidentes dentro del Género *Enterococcus* (`{r} ee_asv`), no todas las ASV fueron identificadas al nivel de especie con el procesamiento de dada2, para poder completar la identificación a nivel de especie se utilizó el programa BLASTN [@zhang2000]. La identificación confirma que todas las ASV del género *Enterococcus* pertenecen al conjunto de los enterococos intestinales (EEII) asociados al tracto intestinal de humanos y otros animales.
+
+Como se observa en la @tbl-ee, todas las muestras positivas en EEII pertenecen al periodo de 2025.
+
+
+
+```{r}
+#| label: tbl-ee
+tbl_ee
+```
+
+No es posible equiparar numéricamente la frecuencia relativa de enterococos en una muestra de material genético con el tradicional conteo de colonias (UFC/100 ml). Sin embargo, sí es posible comparar los patrones temporales de ambas series para determinar si se tratan de medidas coherentes entre sí. En las siguientes figuras (@fig-ee-hidrotecnia y @fig-ee-scs), observamos en la escala de azules los datos de Hidrotecnia frente a las barras naranjas con la frecuencia relativa de *Enterococcus* en las muestras secuenciadas por la ULPGC.
+
+```{r}
+#| label: fig-ee-hidrotecnia
+fig_ee_hidrotecnia
+```
+
+```{r}
+#| label: fig-ee-scs
+fig_ee_scs
+```
+
+## Género *Escherichia-Shigella* *(E. coli)*
+
+Una única ASV fue identificada (`{r} ecoli_asv`) correspondiente al género *Escherichia-Shigella* donde estaría clasificada la conocida bacteria gastrointestinal *Escherichia coli*. Como muestra la @tbl-ecoli, esta fue encontrada en las tres repeticiones de la muestra tomada en la desembocadura del Barranco Guiniguada.
+
+```{r}
+#| label: tbl-ecoli
+tbl_ecoli
+```
+

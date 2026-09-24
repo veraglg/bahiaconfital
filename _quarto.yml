@@ -1,0 +1,54 @@
+project:
+  type: website
+  output-dir: _site
+
+website:
+  title: 🪸 Calidad del agua en El Confital
+  favicon: patron.png
+  site-url: https://veraglg.github.io/bahiaconfital/
+  page-footer:
+    left: |
+      Web por <a href="https://orcid.org/0009-0005-4889-3412">Vera Gómez-Limón Gallardo</a>.
+    center: |
+      <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a><img src="https://mirrors.creativecommons.org/presskit/icons/cc.svg" alt="" style="max-width: 1em;max-height:1em;margin-left: .2em;"><img src="https://mirrors.creativecommons.org/presskit/icons/by.svg" alt="" style="max-width: 1em;max-height:1em;margin-left: .2em;"><img src="https://mirrors.creativecommons.org/presskit/icons/nc.svg" alt="" style="max-width: 1em;max-height:1em;margin-left: .2em;"><img src="https://mirrors.creativecommons.org/presskit/icons/sa.svg" alt="" style="max-width: 1em;max-height:1em;margin-left: .2em;">
+    right: |
+      Hecha con <a href="https://quarto.org/">Quarto</a>.
+
+  navbar:
+    left:
+      - problematica.qmd
+      - metodos.qmd
+      - sidebar:resultados
+    right:
+      - about.qmd
+      - text: '![](/codeberg.svg "Codigo fuente"){height=1.2em}'
+        href: https://codeberg.org/veraglg/bahiaconfital
+  
+  sidebar:
+    - id: resultados
+      title: 📊 Resultados
+      contents:
+        - section: "🔸 Hidrotecnia y Gobierno de Canarias"
+          contents:
+          - resultados/indicadores.qmd
+        - section: "🔹 Universidad de Las Palmas de Gran Canaria"
+          contents: 
+          - resultados/citometria.qmd
+          - resultados/secuenciacion.qmd
+
+format:
+  html:
+    theme:
+      - cosmo
+      - brand
+    toc: true
+    lang: es
+    number-sections: true
+
+execute: 
+  echo: false
+  freeze: auto
+
+bibliography: _references.bib
+csl: apa-numeric-superscript.csl
+
