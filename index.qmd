@@ -1,0 +1,9 @@
+---
+title: ¡Bienvenida al Confital!
+subtitle: Las Palmas de Gran Canaria
+format: html
+---
+
+::: {.column-screen}
+![El Confital (Bengt Nyman)](confital.jpg)
+:::
